@@ -1,4 +1,8 @@
 ---
+interface Props {
+  mobileMenu?: boolean;
+}
+const { mobileMenu = false } = Astro.props;
 const pathname = Astro.url.pathname;
 const isHome = pathname === '/';
 ---
@@ -10,10 +14,19 @@ const isHome = pathname === '/';
     </a>
     <nav class="site-nav" aria-label="主导航">
       <a href="/" class:list={['nav-link', { active: isHome }]}>首页</a>
-      <a href="/chemistry/" class:list={['nav-link', { active: pathname.startsWith('/chemistry') }]}>化学</a>
+      <a href="/chemistry" class:list={['nav-link', { active: pathname.startsWith('/chemistry') }]}>化学</a>
     </nav>
     <div class="header-actions">
-      <a href="/search/" class="icon-btn" aria-label="搜索" title="搜索">🔍</a>
+      {mobileMenu && (
+        <button
+          id="menu-toggle"
+          class="icon-btn menu-toggle"
+          aria-label="打开目录"
+          aria-expanded="false"
+          aria-controls="knowledge-sidebar"
+        >☰</button>
+      )}
+      <a href="/search" class="icon-btn" aria-label="搜索" title="搜索">🔍</a>
       <button id="theme-toggle" class="icon-btn" aria-label="切换主题" title="切换明暗主题">🌙</button>
     </div>
   </div>
@@ -33,4 +46,27 @@ const isHome = pathname === '/';
     } catch (e) {}
     render();
   });
+</script>
+<script>
+  const menuBtn = document.getElementById('menu-toggle');
+  if (menuBtn) {
+    const sidebar = document.getElementById('knowledge-sidebar');
+    const setOpen = (open: boolean) => {
+      document.body.classList.toggle('nav-open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+    };
+    menuBtn.addEventListener('click', () => {
+      setOpen(!document.body.classList.contains('nav-open'));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    });
+    sidebar?.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => setOpen(false));
+    });
+    document.addEventListener('click', (e) => {
+      if (!document.body.classList.contains('nav-open')) return;
+      if (sidebar && !sidebar.contains(e.target as Node) && e.target !== menuBtn) setOpen(false);
+    });
+  }
 </script>

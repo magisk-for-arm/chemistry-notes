@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import TagBadge from '../../components/TagBadge.astro';
-import { sectionMeta, subjectList, type SectionKey } from '../../utils/topics';
+import { sectionMeta, subjectList, sectionHref, type SectionKey } from '../../utils/topics';
 
 export async function getStaticPaths() {
   const entries = await getCollection('knowledge');
@@ -13,7 +13,9 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.props;
-const entries = (await getCollection('knowledge')).filter((e) => e.data.tags.includes(tag));
+const entries = (await getCollection('knowledge')).filter(
+  (e) => e.data.tags.includes(tag) && e.id.split('/').length >= 2,
+);
 const subjectTitle = (slug: string) => subjectList.find((s) => s.slug === slug)?.title ?? slug;
 const sectionLabel = (key: string) =>
   sectionMeta[key as SectionKey]?.label ?? key;
@@ -29,9 +31,9 @@ const sectionLabel = (key: string) =>
       entries.map((e) => {
         const [subject, topic] = e.id.split('/');
         const href =
-          e.data.category === 'overview'
-            ? `/${subject}/${topic}/`
-            : `/${subject}/${topic}/${e.data.category}`;
+          subject && topic && e.data.category
+            ? sectionHref(subject, topic, e.data.category as SectionKey)
+            : '#';
         return (
           <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-soft);">
             <a href={href}>

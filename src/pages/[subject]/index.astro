@@ -28,10 +28,10 @@ const overviews = await getCollection(
   <div class="card-grid">
     {
       list.map((t) => {
-        const ov = overviews.find((e) => e.data.topic === t.slug);
+        const ov = overviews.find((e) => e.id === `${t.subject}/${t.slug}/index`);
         return (
           <KnowledgeCard
-            href={`/${t.subject}/${t.slug}/`}
+            href={`/${t.subject}/${t.slug}`}
             icon={t.icon}
             title={t.title}
             summary={ov?.data.summary || t.summary}

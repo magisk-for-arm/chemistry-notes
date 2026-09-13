@@ -19,14 +19,14 @@ interface Props {
 }
 const { subject, topic, topicList, navSections, current } = Astro.props;
 ---
-<aside class="sidebar">
+<aside class="sidebar" id="knowledge-sidebar">
   <div class="sidebar-block">
     <p class="sidebar-title">知识点</p>
     <ul class="sidebar-list">
       {
         topicList.map((t) => (
           <li>
-            <a href={`/${subject}/${t.slug}/`} class:list={[{ active: t.slug === topic }]}>
+            <a href={`/${subject}/${t.slug}`} class:list={[{ active: t.slug === topic }]}>
               <span>{t.icon}</span>
               <span>{t.title}</span>
             </a>

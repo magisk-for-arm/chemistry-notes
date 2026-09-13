@@ -54,7 +54,10 @@ const topicList = getTopicsBySubject(subject).map((t) => ({
   icon: t.icon,
 }));
 
-const entries = await getCollection('knowledge', ({ data }) => data.topic === topic);
+const entries = await getCollection(
+  'knowledge',
+  (entry) => entry.data.topic === topic && entry.id.startsWith(`${subject}/`),
+);
 const available = new Set(entries.map((e) => e.data.category));
 const sectionKeys = Object.keys(sectionMeta) as SectionKey[];
 const navSections = sectionKeys
@@ -68,8 +71,8 @@ const navSections = sectionKeys
 
 const crumbs = [
   { label: '首页', href: '/' },
-  { label: subjectMeta?.title ?? subject, href: `/${subject}/` },
-  { label: topicMeta?.title ?? topic, href: `/${subject}/${topic}/` },
+  { label: subjectMeta?.title ?? subject, href: `/${subject}` },
+  { label: topicMeta?.title ?? topic, href: `/${subject}/${topic}` },
   { label: sectionMeta[section].label },
 ];
 
@@ -80,7 +83,7 @@ const nextSection =
 
 const hasToc = section !== 'mindmap' && headings.length > 0;
 ---
-<BaseLayout title={`${title} · 高中化学要点`} description={summary}>
+<BaseLayout title={`${title} · 高中化学要点`} description={summary} mobileMenu>
   <div class="knowledge-shell">
     <Sidebar {subject} {topic} {topicList} {navSections} current={section} />
     <div class="knowledge-main">
@@ -106,7 +109,7 @@ const hasToc = section !== 'mindmap' && headings.length > 0;
                 />
               )
             }
-            {tags.map((t) => <TagBadge label={t} href={`/tag/${t}/`} variant="tag" />)}
+            {tags.map((t) => <TagBadge label={t} href={`/tag/${t}`} variant="tag" />)}
           </div>
         </div>
         <div class="prose"><slot /></div>

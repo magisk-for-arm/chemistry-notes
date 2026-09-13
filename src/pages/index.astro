@@ -18,7 +18,7 @@ const totalEntries = await getCollection('knowledge');
     {
       subjectList.map((s) => (
         <KnowledgeCard
-          href={`/${s.slug}/`}
+          href={`/${s.slug}`}
           icon={s.icon}
           title={s.title}
           summary={s.description}
@@ -31,10 +31,10 @@ const totalEntries = await getCollection('knowledge');
   <div class="card-grid">
     {
       topics.map((t) => {
-        const ov = overviews.find((e) => e.data.topic === t.slug);
+        const ov = overviews.find((e) => e.id === `${t.subject}/${t.slug}/index`);
         return (
           <KnowledgeCard
-            href={`/${t.subject}/${t.slug}/`}
+            href={`/${t.subject}/${t.slug}`}
             icon={t.icon}
             title={t.title}
             summary={ov?.data.summary || t.summary}

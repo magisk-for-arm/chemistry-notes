@@ -74,5 +74,5 @@ export function getTopic(subject: string, slug: string): TopicMeta | undefined {
 }
 
 export function sectionHref(subject: string, topic: string, section: SectionKey): string {
-  return section === 'overview' ? `/${subject}/${topic}/` : `/${subject}/${topic}/${section}`;
+  return section === 'overview' ? `/${subject}/${topic}` : `/${subject}/${topic}/${section}`;
 }

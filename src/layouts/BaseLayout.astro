@@ -9,10 +9,12 @@ import '../styles/components.css';
 interface Props {
   title?: string;
   description?: string;
+  mobileMenu?: boolean;
 }
 const {
   title = '高中化学要点',
   description = '高中化学知识总结 · 易错点 · 考点 · 解题方法',
+  mobileMenu = false,
 } = Astro.props;
 ---
 <!doctype html>
@@ -33,7 +35,7 @@ const {
     </script>
   </head>
   <body>
-    <Header />
+    <Header mobileMenu={mobileMenu} />
     <main class="site-main"><slot /></main>
     <footer class="site-footer">
       <p>高中化学要点总结 · 内容持续更新</p>

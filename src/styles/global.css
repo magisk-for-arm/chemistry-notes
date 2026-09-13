@@ -119,9 +119,35 @@ img { max-width: 100%; display: block; }
   .knowledge-shell { grid-template-columns: 230px minmax(0, 1fr); }
   .toc { display: none; }
 }
+.menu-toggle { display: none; }
 @media (max-width: 760px) {
   .knowledge-shell { display: block; }
-  .sidebar { display: none; }
+  .site-nav { display: none; }
+  .menu-toggle { display: inline-grid; }
+  .sidebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    max-width: 85vw;
+    background: var(--bg-elev);
+    border-right: 1px solid var(--border);
+    padding: 1.5rem 1.1rem;
+    overflow-y: auto;
+    z-index: 70;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+  }
+  body.nav-open .sidebar { transform: translateX(0); }
+  body.nav-open::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 65;
+  }
 }
 
 /* ---------- 无障碍与动效 ---------- */

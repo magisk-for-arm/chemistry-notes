@@ -6,7 +6,9 @@ import { fileURLToPath } from 'node:url';
 import rehypeKatexMhchem from './src/plugins/rehype-katex-mhchem.mjs';
 
 export default defineConfig({
-  site: 'https://chemistry-notes.example.com',
+  site:
+    process.env.SITE_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:4321'),
   integrations: [mdx()],
   markdown: {
     remarkPlugins: [remarkMath],
