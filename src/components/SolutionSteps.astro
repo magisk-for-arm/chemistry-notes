@@ -1,0 +1,15 @@
+---
+interface Props {
+  model: string;
+  steps: string[];
+  tip?: string;
+}
+const { model, steps, tip } = Astro.props;
+---
+<section class="solution-steps">
+  <h3 class="ss-title">🧭 {model}</h3>
+  <ol class="ss-list">
+    {steps.map((s) => <li>{s}</li>)}
+  </ol>
+  {tip && <p class="ss-tip">💡 {tip}</p>}
+</section>

@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  difficulty?: 'easy' | 'medium' | 'hard';
+  source?: string;
+}
+const { title, difficulty = 'medium', source } = Astro.props;
+const diffLabel: Record<string, string> = { easy: '基础', medium: '中等', hard: '较难' };
+---
+<article class="example-card">
+  <header class="ex-head">
+    <h3>{title}</h3>
+    <span class:list={['diff', `diff-${difficulty}`]}>{diffLabel[difficulty]}</span>
+    {source && <span class="ex-source">{source}</span>}
+  </header>
+  <div class="ex-body prose"><slot /></div>
+</article>

@@ -1,0 +1,27 @@
+---
+interface Props {
+  index?: number | string;
+  title: string;
+  frequency?: 'high' | 'medium' | 'low';
+  tags?: string[];
+}
+const { index, title, frequency = 'medium', tags = [] } = Astro.props;
+const freqLabel: Record<string, string> = { high: '高频', medium: '中频', low: '低频' };
+---
+<section class="mistake-card" id={index ? `mistake-${index}` : undefined}>
+  <header class="mistake-head">
+    {index !== undefined && <span class="mistake-num">{index}</span>}
+    <h3>{title}</h3>
+    <span class:list={['freq', `freq-${frequency}`]}>{freqLabel[frequency]}</span>
+  </header>
+  {
+    tags.length > 0 && (
+      <div class="mistake-tags">
+        {tags.map((t) => (
+          <span class="tag">{t}</span>
+        ))}
+      </div>
+    )
+  }
+  <div class="mistake-body"><slot /></div>
+</section>
