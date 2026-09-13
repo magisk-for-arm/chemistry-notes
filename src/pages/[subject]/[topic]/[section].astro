@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from 'astro:content';
+import KnowledgeLayout from '../../../layouts/KnowledgeLayout.astro';
+import MarkmapView from '../../../components/MarkmapView.astro';
+import type { SectionKey } from '../../../utils/topics';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('knowledge', ({ data }) => data.category !== 'overview');
+  return entries.map((entry) => {
+    const [subject, topic] = entry.id.split('/');
+    return {
+      params: { subject, topic, section: entry.data.category },
+      props: { entry },
+    };
+  });
+}
+
+const { entry } = Astro.props;
+const [subject, topic] = entry.id.split('/');
+const section = entry.data.category as SectionKey;
+const { Content, headings } = await render(entry);
+---
+<KnowledgeLayout
+  subject={subject}
+  topic={topic}
+  section={section}
+  title={entry.data.title}
+  summary={entry.data.summary}
+  difficulty={entry.data.difficulty}
+  examFrequency={entry.data.examFrequency}
+  tags={entry.data.tags}
+  headings={headings}
+>
+  {section === 'mindmap' ? <MarkmapView markdown={entry.body ?? ''} /> : <Content />}
+</KnowledgeLayout>
