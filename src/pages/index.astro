@@ -1,9 +1,46 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import KnowledgeCard from '../components/KnowledgeCard.astro';
+import { subjectList, topics } from '../utils/topics';
+
+const overviews = await getCollection('knowledge', ({ data }) => data.category === 'overview');
+const totalEntries = await getCollection('knowledge');
 ---
-<BaseLayout title="高中化学要点">
+<BaseLayout title="高中化学要点总结" description="高中化学易错点、考点与解题方法总结">
   <section class="hero">
     <h1>高中化学要点总结</h1>
-    <p>把易错点讲透，把解题方法讲清楚。</p>
+    <p>把易错点讲透，把解题方法讲清楚。当前收录 {topics.length} 个知识点、{totalEntries.length} 篇专题。</p>
   </section>
+
+  <h2 class="section-title">学科</h2>
+  <div class="card-grid">
+    {
+      subjectList.map((s) => (
+        <KnowledgeCard
+          href={`/${s.slug}/`}
+          icon={s.icon}
+          title={s.title}
+          summary={s.description}
+        />
+      ))
+    }
+  </div>
+
+  <h2 class="section-title">知识点</h2>
+  <div class="card-grid">
+    {
+      topics.map((t) => {
+        const ov = overviews.find((e) => e.data.topic === t.slug);
+        return (
+          <KnowledgeCard
+            href={`/${t.subject}/${t.slug}/`}
+            icon={t.icon}
+            title={t.title}
+            summary={ov?.data.summary || t.summary}
+          />
+        );
+      })
+    }
+  </div>
 </BaseLayout>
