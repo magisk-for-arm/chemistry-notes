@@ -1,0 +1,148 @@
+---
+title: "阿伏加德罗常数 · 典型例题"
+topic: "avogadro"
+category: "examples"
+order: 5
+summary: "5 道典型例题，覆盖概念辨析、气体计算、溶液、晶体与氧化还原。"
+tags: ["例题", "计算", "氧化还原"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-13"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+## 例题一：概念辨析（基础）
+
+<ExampleCard title="判断下列说法是否正确" difficulty="easy">
+
+设 $N_A$ 为阿伏加德罗常数的值，判断：
+
+（1）1 mol 氦气含有 $2N_A$ 个氦原子；
+
+（2）标准状况下 22.4 L $\ce{H2O}$ 含有 $N_A$ 个水分子；
+
+（3）常温常压下 22.4 L $\ce{O2}$ 含有 $N_A$ 个氧分子。
+
+<Reveal summary="查看解析">
+
+（1）**错误**。氦气是单原子分子，1 mol 氦气含 $N_A$ 个原子。
+
+（2）**错误**。标准状况下水是液体，不能用 22.4 L/mol。
+
+（3）**错误**。常温常压不是标准状况，22.4 L 对应的物质的量不是 1 mol。
+
+</Reveal>
+
+<Callout type="tip" title="方法复盘">
+
+概念辨析题的三个高频错误点：单原子分子、标况非气体、非标况滥用 22.4。用「四问审题法」逐句排查。
+
+</Callout>
+</ExampleCard>
+
+## 例题二：气体计算
+
+<ExampleCard title="混合气体的分子数" difficulty="easy">
+
+标准状况下，将 11.2 L $\ce{CO2}$ 与 11.2 L $\ce{O2}$ 混合，混合气体的分子总数约为多少？
+
+<Reveal summary="查看解析">
+
+标准状况下，混合气体总体积 $V = 11.2 + 11.2 = 22.4$ L。
+
+$$n = \frac{V}{V_m} = \frac{22.4}{22.4} = 1\ \text{mol}$$
+
+故混合气体分子总数约为 $N_A$ 个（即 $6.02\times10^{23}$ 个）。
+
+两种气体质量不同，但分子数相同——因为同温同压下相同体积的气体含有相同的分子数（阿伏加德罗定律）。
+
+</Reveal>
+
+<Callout type="tip" title="方法复盘">
+
+气体混合时，只要条件相同，**分子数与体积成正比**，与气体种类无关。先求总物质的量，再乘 $N_A$。
+
+</Callout>
+</ExampleCard>
+
+## 例题三：溶液中的粒子数
+
+<ExampleCard title="配制溶液并计算离子数" difficulty="easy">
+
+配制 500 mL 0.2 mol/L 的 $\ce{Na2SO4}$ 溶液，需要 $\ce{Na2SO4}$ 的质量是多少？溶液中 $\ce{Na+}$ 的数目是多少？
+
+<Reveal summary="查看解析">
+
+（1）需要 $\ce{Na2SO4}$ 的物质的量：
+
+$$n = cV = 0.2 \times 0.5 = 0.1\ \text{mol}$$
+
+质量：
+
+$$m = nM = 0.1 \times 142 = 14.2\ \text{g}$$
+
+（2）$\ce{Na2SO4 -> 2Na+ + SO4^2-}$，故 $n(\ce{Na+}) = 2 \times 0.1 = 0.2$ mol，离子数约为 $0.2N_A$。
+
+</Reveal>
+
+<Callout type="note" title="关联易错点">
+
+体积必须换成升（500 mL = 0.5 L）；题目问的是 $\ce{Na+}$ 而不是 $\ce{Na2SO4}$。
+
+</Callout>
+</ExampleCard>
+
+## 例题四：晶体结构中的化学键
+
+<ExampleCard title="金刚石与 SiO₂ 的共价键数目" difficulty="medium">
+
+（1）12 g 金刚石中含有多少个 C–C 键？
+
+（2）1 mol $\ce{SiO2}$ 中含有多少个 Si–O 键？
+
+<Reveal summary="查看解析">
+
+（1）12 g 金刚石中碳的物质的量 $n = 12 / 12 = 1$ mol。金刚石中每个碳形成 4 条 C–C 键，每条键被 2 个碳共享：
+
+$$n(\text{C–C}) = \frac{4}{2} \times 1 = 2\ \text{mol}$$
+
+即约 $2N_A$ 个 C–C 键。
+
+（2）$\ce{SiO2}$ 中每个硅原子与 4 个氧原子成键，1 mol $\ce{SiO2}$ 含 $4N_A$ 个 Si–O 键。
+
+</Reveal>
+
+<Callout type="tip" title="方法复盘">
+
+「键数 = 成键数 ÷ 2」。金刚石 2、石墨 1.5、SiO₂ 4、P₄ 6，这组数据建议直接记牢。
+
+</Callout>
+</ExampleCard>
+
+## 例题五：氧化还原与电子转移
+
+<ExampleCard title="Na₂O₂ 与 CO₂ 反应转移的电子数" difficulty="medium">
+
+反应 $\ce{2Na2O2 + 2CO2 -> 2Na2CO3 + O2 ^}$ 中，若生成 1 mol $\ce{O2}$，转移电子的数目是多少？
+
+<Reveal summary="查看解析">
+
+氧元素在 $\ce{Na2O2}$ 中为 $-1$ 价，反应后：$\ce{Na2CO3}$ 中为 $-2$ 价，$\ce{O2}$ 中为 $0$ 价。
+
+生成 1 mol $\ce{O2}$（2 mol 氧原子由 $-1$ 价升到 $0$ 价），失去电子 $2 \times 1 = 2$ mol；相应有 2 mol 氧原子由 $-1$ 价降到 $-2$ 价，得到 2 mol 电子。
+
+故转移电子数为 $2N_A$。
+
+等价地：1 mol $\ce{Na2O2}$ 转移 $1N_A$ 个电子，生成 1 mol $\ce{O2}$ 需消耗 2 mol $\ce{Na2O2}$，故为 $2N_A$。
+
+</Reveal>
+
+<Callout type="tip" title="方法复盘">
+
+歧化反应先标化合价，数「真正变价」的原子数。用电子守恒验证：得电子总数 = 失电子总数。
+
+</Callout>
+</ExampleCard>
