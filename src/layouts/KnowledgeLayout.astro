@@ -1,0 +1,129 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Toc from '../components/Toc.astro';
+import TagBadge from '../components/TagBadge.astro';
+import {
+  sectionMeta,
+  getTopic,
+  getSubject,
+  getTopicsBySubject,
+  sectionHref,
+  difficultyLabel,
+  frequencyLabel,
+  type SectionKey,
+} from '../utils/topics';
+
+interface Heading {
+  depth: number;
+  text: string;
+  slug: string;
+}
+
+interface Props {
+  subject: string;
+  topic: string;
+  section: SectionKey;
+  title: string;
+  summary?: string;
+  difficulty?: string;
+  examFrequency?: string;
+  tags?: string[];
+  headings?: Heading[];
+}
+
+const {
+  subject,
+  topic,
+  section,
+  title,
+  summary = '',
+  difficulty,
+  examFrequency,
+  tags = [],
+  headings = [],
+} = Astro.props;
+
+const subjectMeta = getSubject(subject);
+const topicMeta = getTopic(subject, topic);
+const topicList = getTopicsBySubject(subject).map((t) => ({
+  slug: t.slug,
+  title: t.title,
+  icon: t.icon,
+}));
+
+const entries = await getCollection('knowledge', ({ data }) => data.topic === topic);
+const available = new Set(entries.map((e) => e.data.category));
+const sectionKeys = Object.keys(sectionMeta) as SectionKey[];
+const navSections = sectionKeys
+  .filter((key) => available.has(key))
+  .map((key) => ({
+    key,
+    label: sectionMeta[key].label,
+    icon: sectionMeta[key].icon,
+    href: sectionHref(subject, topic, key),
+  }));
+
+const crumbs = [
+  { label: '首页', href: '/' },
+  { label: subjectMeta?.title ?? subject, href: `/${subject}/` },
+  { label: topicMeta?.title ?? topic, href: `/${subject}/${topic}/` },
+  { label: sectionMeta[section].label },
+];
+
+const pagerIndex = navSections.findIndex((s) => s.key === section);
+const prevSection = pagerIndex > 0 ? navSections[pagerIndex - 1] : undefined;
+const nextSection =
+  pagerIndex >= 0 && pagerIndex < navSections.length - 1 ? navSections[pagerIndex + 1] : undefined;
+
+const hasToc = section !== 'mindmap' && headings.length > 0;
+---
+<BaseLayout title={`${title} · ${topicMeta?.title ?? '高中化学'}`} description={summary}>
+  <div class="knowledge-shell">
+    <Sidebar {subject} {topic} {topicList} {navSections} current={section} />
+    <div class="knowledge-main">
+      <Breadcrumb items={crumbs} />
+      <article class="knowledge-article">
+        <div class="article-head">
+          <h1>{title}</h1>
+          {summary && <p class="article-summary">{summary}</p>}
+          <div class="meta-row">
+            {
+              difficulty && (
+                <TagBadge
+                  label={`难度 · ${difficultyLabel[difficulty] ?? difficulty}`}
+                  variant={`diff-${difficulty}`}
+                />
+              )
+            }
+            {
+              examFrequency && (
+                <TagBadge
+                  label={`考频 · ${frequencyLabel[examFrequency] ?? examFrequency}`}
+                  variant={`freq-${examFrequency}`}
+                />
+              )
+            }
+            {tags.map((t) => <TagBadge label={t} href={`/tag/${t}/`} variant="tag" />)}
+          </div>
+        </div>
+        <div class="prose"><slot /></div>
+        {
+          (prevSection || nextSection) && (
+            <nav class="section-pager">
+              {prevSection ? (
+                <a href={prevSection.href}>← {prevSection.label}</a>
+              ) : (
+                <span />
+              )}
+              {nextSection ? <a href={nextSection.href}>{nextSection.label} →</a> : <span />}
+            </nav>
+          )
+        }
+      </article>
+    </div>
+    {hasToc && <Toc {headings} />}
+  </div>
+</BaseLayout>
