@@ -3,7 +3,7 @@ title: "阿伏加德罗常数 · 易错点"
 topic: "avogadro"
 category: "mistakes"
 order: 1
-summary: "12 条高频易错点，每条都配「错因剖析」与「接题方法」。"
+summary: "13 条高频易错点，每条都配「错因剖析」与「接题方法」。"
 tags: ["易错点", "物质的量", "气体摩尔体积", "氧化还原"]
 difficulty: "medium"
 examFrequency: "high"
@@ -13,7 +13,7 @@ updated: "2026-09-13"
 import MistakeCard from '@/components/MistakeCard.astro';
 import Callout from '@/components/Callout.astro';
 
-下面 12 条按高频程度排列。建议先通读，再用文末的《接题方法总表》自查。
+下面 13 条按高频程度排列。建议先通读，再用文末的《接题方法总表》自查。
 
 ## 1. 粒子主体没有看清
 
@@ -361,6 +361,36 @@ $N_A$ 是**有单位的物理常数**。自 2019 年 SI 修订后为精确值 $6
 </Callout>
 </MistakeCard>
 
+## 13. 离子化合物中的离子数目
+
+<MistakeCard index={13} title="把离子化合物的离子数当成分子数" frequency="high" tags={['离子化合物', '离子数']}>
+<Callout type="wrong" title="错误示例">
+
+认为 1 mol $\ce{NaCl}$ 含 $N_A$ 个「$\ce{NaCl}$ 分子」，或说 1 mol $\ce{NaCl}$ 含 $N_A$ 个离子。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{NaCl}$ 是**离子化合物**，由 $\ce{Na+}$ 和 $\ce{Cl-}$ 通过离子键构成，**不存在 NaCl 分子**。1 mol $\ce{NaCl}$ 完全电离出 1 mol $\ce{Na+}$ 和 1 mol $\ce{Cl-}$，共 $2N_A$ 个离子。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+- 1 mol $\ce{NaCl}$ → $2N_A$ 个离子（1 mol $\ce{Na+}$ + 1 mol $\ce{Cl-}$）；
+- 1 mol $\ce{CaCl2}$ → $3N_A$ 个离子（1 mol $\ce{Ca^2+}$ + 2 mol $\ce{Cl-}$）；
+- 1 mol $\ce{Na2O2}$ → $3N_A$ 个离子（2 mol $\ce{Na+}$ + 1 mol $\ce{O2^2-}$），注意阴离子是 $\ce{O2^2-}$ 而不是 $\ce{O^2-}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「离子化合物先拆离子再相加」**：写出该物质的组成离子与个数，分别乘 $n$ 后求和。碰到「$\ce{NaCl}$ 分子」这种说法直接判错。
+
+</Callout>
+</MistakeCard>
+
 ## 接题方法总表
 
 | 看到什么 | 立刻要问 / 要做的 |
@@ -374,4 +404,5 @@ $N_A$ 是**有单位的物理常数**。自 2019 年 SI 修订后为精确值 $6
 | 金刚石 / 石墨 / $\ce{SiO2}$ | 键数 = 成键数 ÷ 2 |
 | 歧化反应（$\ce{Na2O2}$、$\ce{Cl2 + NaOH}$） | 实际变价的原子有多少？ |
 | 胶体 / 高分子 / 同位素 | 粒子是否聚集？是否按链节？中子数？ |
+| 离子化合物（$\ce{NaCl}$、$\ce{CaCl2}$、$\ce{Na2O2}$） | 按组成离子计数，不存在「分子」 |
 | 计算结果 | 单位、量级、有效数字是否正确？ |
