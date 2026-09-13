@@ -1,0 +1,40 @@
+---
+import 'katex/dist/katex.min.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+import '../styles/prose.css';
+import '../styles/components.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = '高中化学要点',
+  description = '高中化学知识总结 · 易错点 · 考点 · 解题方法',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          document.documentElement.dataset.theme = t === 'light' ? 'light' : 'dark';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <main class="site-main"><slot /></main>
+    <footer class="site-footer">
+      <p>高中化学要点总结 · 内容持续更新</p>
+    </footer>
+  </body>
+</html>

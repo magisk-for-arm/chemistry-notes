@@ -1,0 +1,52 @@
+.prose { max-width: var(--contentw); }
+.prose h2 {
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.45rem;
+  scroll-margin-top: 5rem;
+}
+.prose h3 { margin: 1.8rem 0 0.75rem; font-size: 1.18rem; scroll-margin-top: 5rem; }
+.prose h4 { margin: 1.4rem 0 0.6rem; font-size: 1.02rem; color: var(--text-muted); }
+.prose p { margin: 0.9rem 0; }
+.prose ul, .prose ol { padding-left: 1.4rem; margin: 0.9rem 0; }
+.prose li { margin: 0.35rem 0; }
+.prose li::marker { color: var(--primary); }
+.prose strong { color: var(--text); font-weight: 700; }
+.prose blockquote {
+  margin: 1.2rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid var(--primary);
+  background: var(--surface);
+  color: var(--text-muted);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--code-bg);
+  border: 1px solid var(--border-soft);
+  border-radius: 5px;
+  padding: 0.1em 0.4em;
+}
+.prose pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow-x: auto;
+}
+.prose pre code { background: none; border: none; padding: 0; }
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-size: 0.94rem;
+}
+.prose th, .prose td { border: 1px solid var(--border); padding: 0.55rem 0.7rem; text-align: left; }
+.prose th { background: var(--surface-2); }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+/* KaTeX 暗色适配 */
+.katex { color: var(--text); }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
