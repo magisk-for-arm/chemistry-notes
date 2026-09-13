@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+<BaseLayout title="搜索 · 高中化学要点">
+  <Breadcrumb items={[{ label: '首页', href: '/' }, { label: '搜索' }]} />
+  <section class="hero" style="padding:1.5rem 0 1rem;text-align:left;">
+    <h1>站内搜索</h1>
+    <p class="search-status">输入关键词搜索全部知识点与专题。</p>
+  </section>
+  <div id="search"></div>
+  <p class="search-status" id="search-hint" hidden>
+    搜索索引未找到。请在构建后预览：<code>npm run build && npm run preview</code>。
+  </p>
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    function boot() {
+      // @ts-expect-error PagefindUI 由外部脚本注入
+      if (typeof window.PagefindUI === 'function') {
+        // @ts-expect-error 同上
+        new window.PagefindUI({ element: '#search', showSubResults: true, translations: { placeholder: '搜索知识点…' } });
+      } else {
+        const hint = document.getElementById('search-hint');
+        if (hint) hint.hidden = false;
+      }
+    }
+    if (document.readyState !== 'loading') boot();
+    else document.addEventListener('DOMContentLoaded', boot);
+  </script>
+</BaseLayout>
