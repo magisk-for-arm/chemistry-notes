@@ -124,7 +124,7 @@ img { max-width: 100%; display: block; }
   .knowledge-shell { display: block; }
   .site-nav { display: none; }
   .menu-toggle { display: inline-grid; }
-  .sidebar {
+  body .sidebar {
     display: block;
     position: fixed;
     top: 0;
