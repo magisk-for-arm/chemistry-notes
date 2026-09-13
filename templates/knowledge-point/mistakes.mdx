@@ -1,0 +1,40 @@
+---
+title: "知识点名称 · 易错点"
+topic: "REPLACE_TOPIC"
+category: "mistakes"
+order: 1
+summary: "逐条拆解高频错误，并给出接题方法。"
+tags: ["易错"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-13"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+<MistakeCard index={1} title="易错点标题" frequency="high" tags={['标签']}>
+<Callout type="wrong" title="错误示例">
+
+写下典型错误说法。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+解释为什么错。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+给出正确判断或计算。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+给出可复用的判断口诀或检查步骤。
+
+</Callout>
+</MistakeCard>
