@@ -650,7 +650,6 @@ a.tag-badge:hover { border-color: var(--primary); color: var(--primary-strong); 
 
 ```astro
 ---
-import Header from '../components/Header.astro';
 import 'katex/dist/katex.min.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
@@ -684,7 +683,6 @@ const {
     </script>
   </head>
   <body>
-    <Header />
     <main class="site-main"><slot /></main>
     <footer class="site-footer">
       <p>高中化学要点总结 · 内容持续更新</p>
@@ -1051,6 +1049,7 @@ import Callout from '@/components/Callout.astro';
 
 **文件：**
 - 创建：`src/components/Header.astro`
+- 修改：`src/layouts/BaseLayout.astro`（接入 `<Header />`）
 - 创建：`src/components/Breadcrumb.astro`
 - 创建：`src/components/TagBadge.astro`
 - 创建：`src/components/Callout.astro`
@@ -1058,7 +1057,7 @@ import Callout from '@/components/Callout.astro';
 - 创建：`src/components/Toc.astro`
 - 创建：`src/components/KnowledgeCard.astro`
 
-- [ ] **步骤 1：写入 `src/components/Header.astro`**
+- [ ] **步骤 1：写入 `src/components/Header.astro`，并接入 BaseLayout**
 
 ```astro
 ---
@@ -1098,6 +1097,8 @@ const isHome = pathname === '/';
   });
 </script>
 ```
+
+接着修改 `src/layouts/BaseLayout.astro`：在 frontmatter 顶部加入 `import Header from '../components/Header.astro';`，并在 `<body>` 内、`<main class="site-main">` 之前加入 `<Header />`。
 
 - [ ] **步骤 2：写入 `src/components/Breadcrumb.astro`**
 
