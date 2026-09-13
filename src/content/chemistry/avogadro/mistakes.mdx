@@ -1,0 +1,377 @@
+---
+title: "阿伏加德罗常数 · 易错点"
+topic: "avogadro"
+category: "mistakes"
+order: 1
+summary: "12 条高频易错点，每条都配「错因剖析」与「接题方法」。"
+tags: ["易错点", "物质的量", "气体摩尔体积", "氧化还原"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-13"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+下面 12 条按高频程度排列。建议先通读，再用文末的《接题方法总表》自查。
+
+## 1. 粒子主体没有看清
+
+<MistakeCard index={1} title="把「物质」当成「粒子」，忽略所求微粒种类" frequency="high" tags={['微粒种类', '电子数']}>
+<Callout type="wrong" title="错误示例">
+
+1 mol $\ce{H2SO4}$ 中含有 $4N_A$ 个原子。（把「氧原子数」当成「原子总数」）
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$N_A$ 描述的对象是**粒子**，而一种物质可能由多种粒子构成。$\ce{H2SO4}$ 分子共有 $2+1+4=7$ 个原子，其中氧原子为 4 个。题目问「原子」还是「氧原子」，答案不同。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+1 mol $\ce{H2SO4}$ 含 $7N_A$ 个原子、$2N_A$ 个氢原子、$4N_A$ 个氧原子；完全电离后含 $2N_A$ 个 $\ce{H+}$ 和 $N_A$ 个 $\ce{SO4^2-}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「划主体」三步法**：① 圈出题目问的粒子（原子？离子？电子？化学键？）；② 拆开化学式数该粒子个数；③ 再乘以物质的量 $n$。
+
+常见易混：羟基 $\ce{-OH}$（9 个电子）与氢氧根 $\ce{OH-}$（10 个电子）；甲基 $\ce{-CH3}$（9 个电子）与甲烷 $\ce{CH4}$（10 个电子）。
+
+</Callout>
+</MistakeCard>
+
+## 2. 气体摩尔体积的适用条件
+
+<MistakeCard index={2} title="见到 22.4 L/mol 就直接套用" frequency="high" tags={['气体摩尔体积', '标准状况']}>
+<Callout type="wrong" title="错误示例">
+
+常温常压下，22.4 L 氧气含有 $N_A$ 个氧分子。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$V_m = 22.4$ L/mol 只适用于**标准状况（$0\ ^\circ\text{C}$、$101.325$ kPa）下的气体**。常温常压（约 $25\ ^\circ\text{C}$）温度更高，气体摩尔体积大于 22.4 L/mol，22.4 L 对应的物质的量小于 1 mol。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+先看条件、再看状态：只有「标准状况 + 气体」两个条件同时满足，才能用 22.4 L/mol。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「标况气体」四字诀**：见到 22.4，立刻问两句——「是标准状况吗？」「是气体吗？」两问缺一不可，任一不满足立即排除该选项。
+
+</Callout>
+</MistakeCard>
+
+## 3. 标准状况下的非气体
+
+<MistakeCard index={3} title="把标况下的液体、固体当作气体" frequency="high" tags={['特殊物质', '标准状况']}>
+<Callout type="wrong" title="错误示例">
+
+标准状况下，22.4 L $\ce{H2O}$ 含有 $N_A$ 个水分子。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+标准状况下 $\ce{H2O}$ 是**液态**，不能使用气体摩尔体积 22.4 L/mol。类似的还有 $\ce{SO3}$（标况为固态）、苯、$\ce{CCl4}$、己烷、乙醇等。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+判断 22.4 L 之前先确认物质在标况下的聚集状态。水、$\ce{SO3}$、苯、$\ce{CCl4}$、己烷、乙醇、$\ce{HF}$ 等在标况下均非气体。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**记住「标况非气体黑名单」**：水、$\ce{SO3}$、苯、$\ce{CCl4}$、己烷、乙醇。看到这些物质与 22.4 L 同时出现，直接判错。
+
+</Callout>
+</MistakeCard>
+
+## 4. 非标准状况滥用 22.4
+
+<MistakeCard index={4} title="非标准状况下使用 22.4 L/mol" frequency="high" tags={['标准状况', '条件陷阱']}>
+<Callout type="wrong" title="错误示例">
+
+$25\ ^\circ\text{C}$、$101$ kPa 下，11.2 L $\ce{CO2}$ 含 $0.5N_A$ 个分子。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$25\ ^\circ\text{C}$ 不是标准状况（标准状况为 $0\ ^\circ\text{C}$）。用 22.4 L/mol 计算，等于把「常温常压」误当标准状况。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+非标准状况下，气体体积与分子数之间不能直接用 22.4 L/mol 换算，除非给出该条件下的 $V_m$ 或使用理想气体状态方程 $pV=nRT$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**条件扫描法**：读题时先在草稿纸上写下条件三要素——温度、压强、状态。凡不是「$0\ ^\circ\text{C}$、$101.325$ kPa」，就不能用 22.4。
+
+</Callout>
+</MistakeCard>
+
+## 5. 溶液体积不可相加
+
+<MistakeCard index={5} title="把两种溶液的体积直接相加" frequency="medium" tags={['溶液', '浓度']}>
+<Callout type="wrong" title="错误示例">
+
+将 100 mL 1 mol/L $\ce{NaCl}$ 溶液与 100 mL 1 mol/L $\ce{CaCl2}$ 溶液混合，认为溶液体积为 200 mL。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+不同溶质、不同浓度的溶液混合，体积一般**不等于**两者体积之和（存在体积收缩或膨胀）。除非题目说明「忽略体积变化」，否则必须使用**最终溶液体积**。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+物质的量可以相加（$n$ 守恒），但体积要用混合后的实际体积。若题目给出混合后体积或密度，必须用它计算浓度。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「n 可加、V 不可加」原则**：涉及浓度时，先把各份溶质的物质的量算出相加，再除以最终体积。看到「混合」二字，先问体积从哪来。
+
+</Callout>
+</MistakeCard>
+
+## 6. 弱电解质与盐类水解
+
+<MistakeCard index={6} title="忽略弱电解质部分电离与盐类水解" frequency="high" tags={['电离', '水解', '离子数']}>
+<Callout type="wrong" title="错误示例">
+
+1 mol 醋酸溶于水，认为溶液中含 $2N_A$ 个离子（$\ce{H+}$ 与 $\ce{CH3COO-}$ 各 $N_A$）。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+醋酸是弱电解质，只能**部分电离**，离子数远小于 $2N_A$。同理，易水解的盐（如 $\ce{Na2CO3}$）溶液中 $\ce{CO3^2-}$ 会水解，粒子数发生变化。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+弱电解质部分电离 → 离子数小于理论值；强碱弱酸盐溶液中弱酸根水解 → 该离子数减少、$\ce{OH-}$ 增多。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**先分强弱、再看水解**：① 该电解质是强还是弱？弱则「部分电离」；② 是否为易水解的盐？是则「粒子数改变」。含「弱」「水解」「可逆」字样的选项优先怀疑。
+
+</Callout>
+</MistakeCard>
+
+## 7. 物质的状态与组成
+
+<MistakeCard index={7} title="忽略稀有气体为单原子分子、水为三原子分子" frequency="high" tags={['分子组成', '稀有气体']}>
+<Callout type="wrong" title="错误示例">
+
+1 mol 氦气含有 $2N_A$ 个原子。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+稀有气体（$\ce{He}$、$\ce{Ne}$、$\ce{Ar}$ 等）是**单原子分子**，1 mol 氦气只含 $N_A$ 个原子。同理，1 mol 水（$\ce{H2O}$）含 $3N_A$ 个原子。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+按化学式数原子：$\ce{He}$ 为 1 个原子/分子，$\ce{O2}$ 为 2 个，$\ce{H2O}$ 为 3 个，$\ce{H2SO4}$ 为 7 个。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「分子类型」速记**：单原子分子（稀有气体）→ 1；双原子分子（$\ce{H2}$、$\ce{O2}$、$\ce{N2}$、$\ce{Cl2}$）→ 2；$\ce{O3}$、$\ce{H2O}$ 特殊记。还要留意同位素（如 $\ce{D2O}$ 摩尔质量为 20 g/mol）。
+
+</Callout>
+</MistakeCard>
+
+## 8. 晶体结构中的化学键数
+
+<MistakeCard index={8} title="算错晶体中的共价键数目" frequency="high" tags={['晶体结构', '化学键']}>
+<Callout type="wrong" title="错误示例">
+
+1 mol 金刚石中含有 $4N_A$ 个 C–C 键。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+金刚石中每个碳原子形成 4 个共价键，但**每条键由两个碳原子共享**，所以每个碳原子实际贡献 $4 \div 2 = 2$ 条键。故 1 mol 金刚石含 $2N_A$ 个 C–C 键。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+- 金刚石：1 mol C 含 $2N_A$ 个 C–C 键；
+- 石墨：1 mol C 含 $1.5N_A$ 个 C–C 键；
+- $\ce{SiO2}$：1 mol 含 $4N_A$ 个 Si–O 键；
+- 白磷 $\ce{P4}$：1 mol 含 $6N_A$ 个 P–P 键；
+- $\ce{Na2O2}$：1 mol 含 $N_A$ 个 $\ce{O2^2-}$（不是 $2N_A$ 个 $\ce{O^2-}$）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「键数 = 成键数 ÷ 2」通法**：先数每个结构单元成几条键，再除以该键被几个原子共享。离子晶体还要注意阴离子的真实形式（如 $\ce{O2^2-}$、$\ce{S2^2-}$）。
+
+</Callout>
+</MistakeCard>
+
+## 9. 氧化还原反应转移电子数
+
+<MistakeCard index={9} title="电子转移数算错" frequency="high" tags={['氧化还原', '电子转移']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{2Na2O2 + 2H2O -> 4NaOH + O2 ^}$ 中，1 mol $\ce{Na2O2}$ 转移 $2N_A$ 个电子。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Na2O2}$ 中氧为 $-1$ 价，发生**歧化**：一半升为 $0$ 价（$\ce{O2}$），一半降为 $-2$ 价（$\ce{NaOH}$）。1 mol $\ce{Na2O2}$ 中只有 1 mol 氧发生化合价变化，转移 $1N_A$ 个电子。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+- $\ce{2Na2O2 + 2H2O -> 4NaOH + O2 ^}$：1 mol $\ce{Na2O2}$ 转移 $1N_A$ 个电子；
+- $\ce{Cl2 + 2NaOH -> NaCl + NaClO + H2O}$：1 mol $\ce{Cl2}$ 转移 $1N_A$ 个电子；
+- $\ce{2Fe + 3Cl2 -> 2FeCl3}$：1 mol $\ce{Fe}$ 转移 $3N_A$ 个电子。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「先配平，再找变价，最后数得失」**：① 标出反应前后变价元素；② 判断是部分氧化、歧化还是归中；③ 数**真正改变**化合价的原子的物质的量，再乘每个原子得失电子数。
+
+</Callout>
+</MistakeCard>
+
+## 10. 胶体粒子、聚合物与同位素
+
+<MistakeCard index={10} title="把胶体粒子、高分子链节当成单个分子" frequency="medium" tags={['胶体', '聚合物', '同位素']}>
+<Callout type="wrong" title="错误示例">
+
+1 mol $\ce{Fe(OH)3}$ 形成胶体后，胶体粒子数为 $N_A$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+胶体粒子是**许多小分子的聚集体**，粒子数远小于 $N_A$。聚合物（如聚乙烯）也需按**链节**计数。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+- 胶体粒子数 $\ll N_A$；
+- 1 mol 聚乙烯链节 $\ce{-C2H4-}$ 含 $6N_A$ 个原子（2 个 C + 4 个 H）；
+- 同位素：$\ce{D2O}$（$M=20$ g/mol）1 mol 含 $10N_A$ 个中子，$\ce{H2^{18}O}$ 1 mol 也含 $10N_A$ 个中子。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「看聚集、看链节、看同位素」**：遇到分散系先想「是不是胶体」；遇到高分子先想「是否按链节算」；遇到含同位素的物质先想「中子数是多少」。
+
+</Callout>
+</MistakeCard>
+
+## 11. 混淆 $N_A$ 与 $6.02\times10^{23}$
+
+<MistakeCard index={11} title="把 $N_A$ 与近似值 $6.02\times10^{23}$ 混为一谈" frequency="medium" tags={['概念辨析']}>
+<Callout type="wrong" title="错误示例">
+
+认为「$N_A = 6.02\times10^{23}$」是一个无单位的数值。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$N_A$ 是**有单位的物理常数**。自 2019 年 SI 修订后为精确值 $6.02214076\times10^{23}\ \text{mol}^{-1}$；$6.02\times10^{23}\ \text{mol}^{-1}$ 只是中学计算用的近似值。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+表述「$N_A$ 个粒子」与「$6.02\times10^{23}$ 个粒子」在中学计算中可近似等同，但概念上 $N_A$ 带有 $\text{mol}^{-1}$ 单位，指「1 mol 粒子中的粒子数」。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**概念题盯住单位**：若选项把 $N_A$ 说成「无单位的常数」或直接把 $N_A$ 等同于 6.02，按概念错误处理。
+
+</Callout>
+</MistakeCard>
+
+## 12. 单位换算与有效数字
+
+<MistakeCard index={12} title="单位换算出错、有效数字失控" frequency="medium" tags={['单位换算', '有效数字']}>
+<Callout type="wrong" title="错误示例">
+
+把 250 mL 直接代入 $n = cV$，得 $n = 0.1 \times 250 = 25$ mol。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+浓度单位 mol/L 中体积必须是**升（L）**。$250$ mL $= 0.25$ L，正确结果 $n = 0.1 \times 0.25 = 0.025$ mol。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+先把所有量统一到题目所需单位：$1\ \text{L}=1000\ \text{mL}$，$1\ \text{mol}=1000\ \text{mmol}$；计算后检查单位是否约掉、有效数字是否合理（一般保留 2–3 位）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「单位先统一，答案后回代」**：动笔前先写下 $n$ 的单位 mol；每一步都检查单位。算完花 5 秒复核量级——$N_A$ 题答案常在 $10^{-3}\sim10^{0}$ mol 量级。
+
+</Callout>
+</MistakeCard>
+
+## 接题方法总表
+
+| 看到什么 | 立刻要问 / 要做的 |
+|----------|------------------|
+| $N_A$ | 所求是哪种粒子（原子 / 离子 / 电子 / 化学键）？ |
+| 22.4 L/mol | 是否标准状况？是否气体？ |
+| 水、$\ce{SO3}$、苯、$\ce{CCl4}$ | 标况下不是气体，不能用 22.4 |
+| 溶液混合 | 体积是否可加？用最终体积算浓度 |
+| 弱酸、弱碱、可水解盐 | 是否完全电离？粒子数是否改变？ |
+| 稀有气体 | 单原子分子 |
+| 金刚石 / 石墨 / $\ce{SiO2}$ | 键数 = 成键数 ÷ 2 |
+| 歧化反应（$\ce{Na2O2}$、$\ce{Cl2 + NaOH}$） | 实际变价的原子有多少？ |
+| 胶体 / 高分子 / 同位素 | 粒子是否聚集？是否按链节？中子数？ |
+| 计算结果 | 单位、量级、有效数字是否正确？ |
