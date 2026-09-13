@@ -122,7 +122,8 @@ img { max-width: 100%; display: block; }
 .menu-toggle { display: none; }
 @media (max-width: 760px) {
   .knowledge-shell { display: block; }
-  .site-nav { display: none; }
+  .has-drawer .site-nav { display: none; }
+  body.nav-open { overflow: hidden; }
   .menu-toggle { display: inline-grid; }
   body .sidebar {
     display: block;

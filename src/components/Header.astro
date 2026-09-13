@@ -54,6 +54,7 @@ const isHome = pathname === '/';
     const setOpen = (open: boolean) => {
       document.body.classList.toggle('nav-open', open);
       menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? '关闭目录' : '打开目录');
     };
     menuBtn.addEventListener('click', () => {
       setOpen(!document.body.classList.contains('nav-open'));
