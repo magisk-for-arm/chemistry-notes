@@ -1,0 +1,14 @@
+---
+interface Props {
+  href: string;
+  icon: string;
+  title: string;
+  summary?: string;
+}
+const { href, icon, title, summary = '' } = Astro.props;
+---
+<a class="knowledge-card" href={href}>
+  <span class="kc-icon">{icon}</span>
+  <h3>{title}</h3>
+  {summary && <p>{summary}</p>}
+</a>

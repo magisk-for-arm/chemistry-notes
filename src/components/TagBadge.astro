@@ -1,0 +1,10 @@
+---
+interface Props {
+  label: string;
+  href?: string;
+  variant?: string;
+}
+const { label, href, variant = 'tag' } = Astro.props;
+const cls = `tag-badge ${variant}`;
+---
+{href ? <a class={cls} href={href}>{label}</a> : <span class={cls}>{label}</span>}

@@ -1,0 +1,41 @@
+---
+type CalloutType =
+  | 'wrong'
+  | 'why'
+  | 'right'
+  | 'skill'
+  | 'tip'
+  | 'note'
+  | 'memory'
+  | 'formula';
+
+interface Props {
+  type?: CalloutType;
+  title?: string;
+}
+const { type = 'note', title } = Astro.props;
+const icons: Record<CalloutType, string> = {
+  wrong: '❌',
+  why: '🔍',
+  right: '✅',
+  skill: '🎯',
+  tip: '💡',
+  note: '📌',
+  memory: '🧠',
+  formula: '🧮',
+};
+const labels: Record<CalloutType, string> = {
+  wrong: '错误示例',
+  why: '错因剖析',
+  right: '正确做法',
+  skill: '接题方法',
+  tip: '技巧',
+  note: '注意',
+  memory: '记忆',
+  formula: '公式',
+};
+---
+<div class:list={['callout', `callout-${type}`]}>
+  <div class="callout-head">{icons[type]} <span>{title ?? labels[type]}</span></div>
+  <div class="callout-body prose"><slot /></div>
+</div>

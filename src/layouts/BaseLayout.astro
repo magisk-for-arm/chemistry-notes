@@ -1,4 +1,5 @@
 ---
+import Header from '../components/Header.astro';
 import 'katex/dist/katex.min.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
@@ -32,6 +33,7 @@ const {
     </script>
   </head>
   <body>
+    <Header />
     <main class="site-main"><slot /></main>
     <footer class="site-footer">
       <p>高中化学要点总结 · 内容持续更新</p>

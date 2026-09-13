@@ -1,0 +1,53 @@
+---
+interface NavItem {
+  key: string;
+  label: string;
+  icon: string;
+  href: string;
+}
+interface TopicItem {
+  slug: string;
+  title: string;
+  icon: string;
+}
+interface Props {
+  subject: string;
+  topic: string;
+  topicList: TopicItem[];
+  navSections: NavItem[];
+  current: string;
+}
+const { subject, topic, topicList, navSections, current } = Astro.props;
+---
+<aside class="sidebar">
+  <div class="sidebar-block">
+    <p class="sidebar-title">知识点</p>
+    <ul class="sidebar-list">
+      {
+        topicList.map((t) => (
+          <li>
+            <a href={`/${subject}/${t.slug}/`} class:list={[{ active: t.slug === topic }]}>
+              <span>{t.icon}</span>
+              <span>{t.title}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="sidebar-block">
+    <p class="sidebar-title">本页专题</p>
+    <ul class="sidebar-list">
+      {
+        navSections.map((s) => (
+          <li>
+            <a href={s.href} class:list={[{ active: s.key === current }]}>
+              <span>{s.icon}</span>
+              <span>{s.label}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</aside>
