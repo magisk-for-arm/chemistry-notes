@@ -38,7 +38,7 @@ const { markdown, height = '640px' } = Astro.props;
       const wrap = svg.closest('.markmap-wrap');
       wrap?.querySelector('[data-mm="fit"]')?.addEventListener('click', () => mm.fit());
       wrap?.querySelector('[data-mm="full"]')?.addEventListener('click', () => {
-        if (document.fullscreenElement) {
+        if (document.fullscreenElement === wrap) {
           void document.exitFullscreen();
         } else {
           void wrap.requestFullscreen();

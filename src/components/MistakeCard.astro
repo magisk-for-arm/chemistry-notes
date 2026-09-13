@@ -8,7 +8,7 @@ interface Props {
 const { index, title, frequency = 'medium', tags = [] } = Astro.props;
 const freqLabel: Record<string, string> = { high: '高频', medium: '中频', low: '低频' };
 ---
-<section class="mistake-card" id={index ? `mistake-${index}` : undefined}>
+<section class="mistake-card" id={index !== undefined ? `mistake-${index}` : undefined}>
   <header class="mistake-head">
     {index !== undefined && <span class="mistake-num">{index}</span>}
     <h3>{title}</h3>
