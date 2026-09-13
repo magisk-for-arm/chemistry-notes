@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import TagBadge from '../../components/TagBadge.astro';
+import { sectionMeta, subjectList, type SectionKey } from '../../utils/topics';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('knowledge');
+  const tags = new Set<string>();
+  for (const e of entries) for (const t of e.data.tags) tags.add(t);
+  return [...tags].map((tag) => ({ params: { tag }, props: { tag } }));
+}
+
+const { tag } = Astro.props;
+const entries = (await getCollection('knowledge')).filter((e) => e.data.tags.includes(tag));
+const subjectTitle = (slug: string) => subjectList.find((s) => s.slug === slug)?.title ?? slug;
+const sectionLabel = (key: string) =>
+  sectionMeta[key as SectionKey]?.label ?? key;
+---
+<BaseLayout title={`标签：${tag} · 高中化学要点`}>
+  <Breadcrumb items={[{ label: '首页', href: '/' }, { label: `标签：${tag}` }]} />
+  <section class="hero" style="padding:1.5rem 0 1rem;text-align:left;">
+    <h1>标签：{tag}</h1>
+    <p>共 {entries.length} 篇相关内容</p>
+  </section>
+  <ul class="sidebar-list" style="max-width:52rem;">
+    {
+      entries.map((e) => {
+        const [subject, topic] = e.id.split('/');
+        const href =
+          e.data.category === 'overview'
+            ? `/${subject}/${topic}/`
+            : `/${subject}/${topic}/${e.data.category}`;
+        return (
+          <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-soft);">
+            <a href={href}>
+              {subjectTitle(subject)} · {e.data.title}
+              <TagBadge label={sectionLabel(e.data.category)} variant="tag" />
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</BaseLayout>
