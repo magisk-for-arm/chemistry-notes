@@ -1,0 +1,52 @@
+---
+interface Props {
+  markdown: string;
+  height?: string;
+}
+const { markdown, height = '640px' } = Astro.props;
+---
+<div class="markmap-wrap">
+  <div class="markmap-toolbar">
+    <button type="button" data-mm="fit">适应窗口</button>
+    <button type="button" data-mm="full">全屏</button>
+  </div>
+  <svg class="markmap" style={`height:${height}`} data-markdown={markdown}></svg>
+</div>
+<script>
+  import { Transformer } from 'markmap-lib';
+  import { Markmap } from 'markmap-view';
+
+  const transformer = new Transformer();
+
+  function init() {
+    document.querySelectorAll<SVGSVGElement>('svg.markmap').forEach((svg) => {
+      const md = svg.getAttribute('data-markdown') || '';
+      const { root } = transformer.transform(md);
+      const mm = Markmap.create(
+        svg,
+        {
+          autoFit: true,
+          duration: 300,
+          maxWidth: 280,
+          spacingVertical: 8,
+          spacingHorizontal: 90,
+        },
+        root,
+      );
+      (svg as unknown as { __mm: typeof mm }).__mm = mm;
+
+      const wrap = svg.closest('.markmap-wrap');
+      wrap?.querySelector('[data-mm="fit"]')?.addEventListener('click', () => mm.fit());
+      wrap?.querySelector('[data-mm="full"]')?.addEventListener('click', () => {
+        if (document.fullscreenElement) {
+          void document.exitFullscreen();
+        } else {
+          void wrap.requestFullscreen();
+        }
+      });
+    });
+  }
+
+  if (document.readyState !== 'loading') init();
+  else document.addEventListener('DOMContentLoaded', init);
+</script>
