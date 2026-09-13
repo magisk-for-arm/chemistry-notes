@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import KnowledgeCard from '../../components/KnowledgeCard.astro';
+import { subjectList, getTopicsBySubject } from '../../utils/topics';
+
+export async function getStaticPaths() {
+  return subjectList.map((s) => ({
+    params: { subject: s.slug },
+    props: { subject: s },
+  }));
+}
+
+const { subject } = Astro.props;
+const list = getTopicsBySubject(subject.slug);
+const overviews = await getCollection(
+  'knowledge',
+  ({ data }) => data.category === 'overview',
+);
+---
+<BaseLayout title={`${subject.title} · 高中化学要点`} description={subject.description}>
+  <Breadcrumb items={[{ label: '首页', href: '/' }, { label: subject.title }]} />
+  <section class="hero" style="padding:1.5rem 0 1rem;text-align:left;">
+    <h1>{subject.title}</h1>
+    <p>{subject.description}</p>
+  </section>
+  <div class="card-grid">
+    {
+      list.map((t) => {
+        const ov = overviews.find((e) => e.data.topic === t.slug);
+        return (
+          <KnowledgeCard
+            href={`/${t.subject}/${t.slug}/`}
+            icon={t.icon}
+            title={t.title}
+            summary={ov?.data.summary || t.summary}
+          />
+        );
+      })
+    }
+  </div>
+</BaseLayout>
