@@ -201,6 +201,19 @@ a.tag-badge:hover { border-color: var(--primary); color: var(--primary-strong); 
 }
 .markmap-toolbar button:hover { border-color: var(--primary); color: var(--primary-strong); }
 .markmap { width: 100%; display: block; color: var(--text); }
+/* markmap 自带样式用 --markmap-text-color 等变量，默认是按浅色底写的（文本 #333、
+   代码块浅底、展开圆点白底）。这里按站点主题覆盖，避免暗色模式下看不清。 */
+[data-theme='dark'] .markmap {
+  --markmap-text-color: var(--text);
+  --markmap-code-bg: var(--code-bg);
+  --markmap-code-color: #d6dde6;
+  --markmap-circle-open-bg: var(--surface-2);
+  --markmap-a-color: var(--primary-strong);
+  --markmap-a-hover-color: var(--primary);
+  --markmap-highlight-bg: rgba(251, 191, 36, 0.28);
+  --markmap-highlight-node-bg: rgba(74, 158, 255, 0.14);
+  --markmap-table-border: 1px solid var(--border);
+}
 .markmap-wrap:fullscreen { border-radius: 0; background: var(--bg); }
 .markmap-wrap:fullscreen .markmap { height: calc(100vh - 60px) !important; }
 
