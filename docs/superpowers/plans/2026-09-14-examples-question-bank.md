@@ -1,0 +1,845 @@
+# 阿伏加德罗常数题库（教辅级）实现计划
+
+> **面向 AI 代理的工作者：** 必需子技能：使用 superpowers:subagent-driven-development（推荐）或 superpowers:executing-plans 逐任务实现此计划。步骤使用复选框（`- [ ]`）语法来跟踪进度。
+
+**目标：** 把 `examples.mdx` 从 5 道基础问答题升级为 9 道教辅级选择题（含逐项解析、真题溯源、变式训练、难度分档），并沉淀可复用模板。
+
+**架构：** 纯内容改动。重构一个 MDX 文件，复用现有 `ExampleCard`（已支持 `source` 属性）、`Reveal`、`Callout` 组件；更新 `templates/` 模板。不改 schema、路由、组件、样式。
+
+**技术栈：** Astro 7 + MDX + KaTeX/mhchem（`\ce{}`）。验证：`npm run check`、`npm run build`、`npm run dev` 目测。
+
+**依据规格：** `docs/superpowers/specs/2026-09-14-examples-question-bank-design.md`
+
+---
+
+## 文件结构
+
+| 文件 | 动作 | 职责 |
+|------|------|------|
+| `src/content/chemistry/avogadro/examples.mdx` | 重写 | 9 道主例题 + 变式，三层梯度 |
+| `templates/knowledge-point/examples.mdx` | 重写 | 后续知识点的教辅级例题模板 |
+| `docs/superpowers/plans/2026-09-14-examples-question-bank.md` | 本文件 | 实现计划 |
+
+组件 API 速查（已核实，勿改组件）：
+- `ExampleCard`：`title`（必填）、`difficulty`（`easy|medium|hard`，默认 medium）、`source`（可选，显示在卡片头部）
+- `Reveal`：`summary`（默认「查看解析」）、`open`
+- `Callout`：`type` ∈ `wrong|why|right|skill|tip|note|memory|formula`、`title`
+- 标题（`##`/`###`）内不放 `$...$`，避免 TOC 乱码
+
+---
+
+## 任务 1：核实并固化题库素材
+
+**文件：**
+- 无文件产出（素材固化在本计划任务 2–4 的题干中）
+
+**说明：** 本任务是对已完成联网核实的复核动作。下列 9 道题的题干/选项/答案已核实，执行任务 2–4 时**直接使用**，无需重新检索；如发现数据冲突，按规格第 5 节「答案存疑宁可弃用或降级为改编」处理。
+
+- [ ] **步骤 1：核对两道真题与教材数据的出处**
+
+已核实结论（来源见括注）：
+- 2023 福建卷 T4（硝酸羟胺）：答案 **C**（来源：GaokaoHub、教习网、原创力文档三源一致，已逐步重算）
+- 2024 福建卷 T6（$\ce{N8}$）：答案 **B**（来源：《立足必备知识 注重融合创新》参考网、人人文库原卷）
+- 信息源仓库 `MeowCata/Chemistry-Note-Refine` 用于概念校对（来源：GitHub API 已拉取）
+
+- [ ] **步骤 2：确认关键数据（重算校验）**
+
+```
+2023 福建卷 T4：
+[NH3OH]+ 质子数 = 7 + 4×1 + 8 = 19 → 0.1 mol 为 1.9NA，A 错
+硝酸羟胺 M = 2×14 + 4×1 + 4×16 = 96 g/mol，48 g = 0.5 mol，含 2×0.5 = 1 mol 离子 → B 错
+每化学式 N–O σ 键：[NH3OH]+ 1 个 + [NO3]- 3 个 = 4 个 → 0.5 mol×4 = 2NA，C 对
+分解：NH3OHNO3 → N2 + 2H2O + O2（配平：N/H/O 均守恒）→ 0.5 mol N2 伴 0.5 mol O2，D 错
+
+2024 福建卷 T6：
+N8 有 8 个 σ 键，每 σ 键 2 电子 → 16NA，A 对
+N8 中 6 个 N 为 sp2、2 个为 sp；6 个 N 各 1 对孤电子 → 6NA，B（7NA）错
+sp2 杂化 N 原子数 = 6 → 6NA，C 对
+M(N8) = 112 g/mol，112 g = 1 mol，含 8 mol N → 4 mol N2 = 4NA，D 对
+```
+
+- [ ] **步骤 3：Commit（无文件变更则跳过）**
+
+本任务无文件产出，不单独 commit，直接进入任务 2。
+
+---
+
+## 任务 2：重写 examples.mdx 的 Frontmatter 与基础组（例题一~三）
+
+**文件：**
+- 修改：`src/content/chemistry/avogadro/examples.mdx`（整体替换）
+
+- [ ] **步骤 1：写入 Frontmatter、使用指南与基础组三题**
+
+完整替换文件内容为（后续任务的题目在步骤 2、3 追加；本步骤先写到这里）：
+
+````mdx
+---
+title: "阿伏加德罗常数 · 典型例题"
+topic: "avogadro"
+category: "examples"
+order: 5
+summary: "9 道典型例题分三层递进：基础巩固、高考真题、较难突破，含逐项解析与变式训练。"
+tags: ["例题", "计算", "氧化还原", "高考真题"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-14"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一~三打基础（辨析概念与适用条件），例题四~七是高考同款（含福建卷真题，逐项分析陷阱），例题八~九冲高分（晶体计数、电子守恒）。建议先做题再看解析，每题的「方法复盘」是接题套路，「变式训练」用来检验是否真会。
+
+</Callout>
+
+## 例题一：概念辨析（easy）
+
+<ExampleCard title="下列说法正确的是" difficulty="easy">
+
+下列有关物质的量及 $N_A$ 的说法，**正确**的是（　　）
+
+- A．摩尔是国际单位制中七个基本物理量之一
+- B．1 mol 任何物质都含有 $6.02\times10^{23}$ 个分子
+- C．摩尔质量与物质的量的多少无关
+- D．1 mol 水中含有 2 mol 氢和 1 mol 氧
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 物质的量与单位混淆">
+
+摩尔是**单位**，物质的量才是国际单位制中七个基本物理量之一。这类「把单位说成物理量」是概念题最常见的偷换。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 物质不一定由分子构成">
+
+只有由分子构成的物质，1 mol 才含 $6.02\times10^{23}$ 个分子。$\ce{NaCl}$（离子晶体）、金刚石（共价晶体）、$\ce{Fe}$（金属晶体）都不含分子。用「气体、液体、固体」逐类排除。
+
+</Callout>
+
+<Callout type="right" title="C ✅ 正确">
+
+摩尔质量是「单位物质的量的物质所具有的质量」，是物质的固有属性，与取多少物质的量无关。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 没有指明粒子种类">
+
+说「2 mol 氢」不明确是氢原子还是氢分子。规范表述应是「2 mol 氢原子和 1 mol 氧原子」。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+概念辨析四问：**问对象**（分子/原子/离子？）、**问单位**（物理量还是单位？）、**问状态**（是否气体？）、**问属性**（固有属性是否被当成变量）。逐项套四问，错误选项立刻现形。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 下列说法正确的是（　　）
+
+A．1 mol 任何粒子都约含 $6.02\times10^{23}$ 个该粒子
+B．摩尔质量的单位是 g
+C．1 mol $\ce{O2}$ 中含有的氧原子数为 $N_A$
+D．阿伏加德罗常数没有单位
+
+**答案**：A。B 错，摩尔质量的单位是 g/mol；C 错，1 mol $\ce{O2}$ 含 $2N_A$ 个氧原子；D 错，$N_A$ 的单位是 $\mathrm{mol^{-1}}$。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：气体摩尔体积的适用条件（easy）
+
+<ExampleCard title="22.4 L/mol 能用吗" difficulty="easy">
+
+设 $N_A$ 为阿伏加德罗常数的值，下列说法**正确**的是（　　）
+
+- A．标准状况下，22.4 L $\ce{H2O}$ 含有的分子数为 $N_A$
+- B．标准状况下，22.4 L $\ce{CCl4}$ 含有的分子数为 $N_A$
+- C．常温常压下，11.2 L $\ce{O2}$ 含有的氧原子数为 $N_A$
+- D．标准状况下，22.4 L $\ce{CO}$ 和 $\ce{N2}$ 的混合气体含有的分子数为 $N_A$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 标况下水是液体">
+
+$22.4\ \mathrm{L/mol}$ 只适用于**气体**。标准状况下水为液态，不能用气体摩尔体积换算。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 标况下 CCl₄ 是液体">
+
+常考的「标况非气体」：$\ce{H2O}$、液溴、$\ce{HF}$、$\ce{CHCl3}$、$\ce{CH2Cl2}$、$\ce{CCl4}$、$\ce{SO3}$、$\ce{NO2}$、酒精、乙酸、碳原子数大于 4 的烃、苯。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 条件不对">
+
+标准状况是 $0\ \mathrm{^\circ C}$、$101\ \mathrm{kPa}$；常温常压下 $V_m > 22.4\ \mathrm{L/mol}$，11.2 L 不是 0.5 mol。「条件」和「物质状态」必须同时满足。
+
+</Callout>
+
+<Callout type="right" title="D ✅ 正确">
+
+同温同压下，气体分子数与体积成正比，与气体种类无关。混合气体（不反应）总物质的量为 $22.4/22.4 = 1$ mol，分子数 $N_A$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+看到体积先做**两连问**：①是气体吗？②是标准状况吗？两问都过才能用 $n = V/22.4$。答题时把 $22.4\ \mathrm{L/mol}$ 旁注「仅标况、仅气体」。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $N_A$ 为阿伏加德罗常数的值，下列说法正确的是（　　）
+
+A．常温常压下，22.4 L $\ce{NH3}$ 含有的分子数为 $N_A$
+B．标准状况下，2.24 L $\ce{SO3}$ 含有的原子数为 $0.4N_A$
+C．标准状况下，22.4 L $\ce{O2}$ 和 $\ce{O3}$ 的混合气体含有的氧原子数为 $2N_A$
+D．同温同压下，相同体积的 $\ce{O2}$ 和 $\ce{O3}$ 含有的分子数相同
+
+**答案**：D。A 错，常温常压不是标准状况；B 错，标准状况下 $\ce{SO3}$ 为固体；C 错，1 mol 混合气体中氧原子数在 2~3 mol 之间，不一定是 $2N_A$；D 对，同温同压下相同体积的气体分子数相同（阿伏加德罗定律）。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：溶液中的粒子数（easy）
+
+<ExampleCard title="溶液中到底有多少粒子" difficulty="easy">
+
+设 $N_A$ 为阿伏加德罗常数的值，下列说法**正确**的是（　　）
+
+- A．1 L 0.1 mol/L $\ce{Na2CO3}$ 溶液中 $\ce{CO3^2-}$ 的数目为 $0.1N_A$
+- B．1 L 1 mol/L 盐酸中含有的阴离子总数为 $2N_A$
+- C．只给出 0.1 mol/L 的 $\ce{FeCl3}$ 溶液，无法计算其中 $\ce{Fe^3+}$ 的数目
+- D．100 mL 0.1 mol/L $\ce{NaOH}$ 溶液中含有的氧原子数为 $0.01N_A$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 忽略了水解">
+
+$\ce{CO3^2-}$ 是弱酸根，在水中部分水解为 $\ce{HCO3-}$ 和 $\ce{H2CO3}$，故 $\ce{CO3^2-}$ 实际数目**小于** $0.1N_A$。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 阴离子不只是 Cl⁻ 的两倍">
+
+盐酸中 HCl 完全电离，$n(\ce{Cl-}) = 1$ mol；溶液中还含极少量 $\ce{OH-}$，阴离子总数略大于 $N_A$，远小于 $2N_A$。别把水的电离或「阴阳离子守恒」用错。
+
+</Callout>
+
+<Callout type="right" title="C ✅ 正确">
+
+$n = cV$，只给浓度不给体积，无法求物质的量。这是最常设的「低级陷阱」——体积被故意省略。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 溶剂的氧原子被忽略">
+
+$\ce{NaOH}$ 含 0.01 mol 氧原子，但**水**中也含大量氧原子，总数远大于 $0.01N_A$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+溶液题三查：**查体积**（给没给？）、**查电离/水解**（弱电解质、弱酸根）、**查溶剂**（水本身含 H、O）。三查过完再动笔算。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $N_A$ 为阿伏加德罗常数的值，下列说法正确的是（　　）
+
+A．1 L 0.1 mol/L $\ce{CH3COOH}$ 溶液中 $\ce{H+}$ 数目为 $0.1N_A$
+B．1 L 0.1 mol/L $\ce{Na2SO4}$ 溶液中 $\ce{Na+}$ 数目为 $0.2N_A$
+C．0.1 mol/L 的 $\ce{NaCl}$ 溶液中含有 $0.1N_A$ 个 $\ce{Na+}$
+D．1 L 0.1 mol/L $\ce{NaHCO3}$ 溶液中 $\ce{HCO3-}$ 和 $\ce{CO3^2-}$ 的数目之和为 $0.1N_A$
+
+**答案**：B。A 错，醋酸部分电离；C 错，缺体积；D 错，碳元素还存在 $\ce{H2CO3}$ 分子形式。
+
+</Reveal>
+</ExampleCard>
+````
+
+- [ ] **步骤 2：运行 check 验证基础组合法**
+
+运行：`npm run check`
+预期：`0 errors`（若 MDX 组件/闭合标签有问题会在此报出）
+
+- [ ] **步骤 3：Commit**
+
+```bash
+git add src/content/chemistry/avogadro/examples.mdx
+git commit -m "content: 例题重写基础组——概念辨析、气体摩尔体积、溶液粒子数"
+```
+
+---
+
+## 任务 3：追加高考真题组（例题四~七）
+
+**文件：**
+- 修改：`src/content/chemistry/avogadro/examples.mdx`（在文件末尾追加）
+
+- [ ] **步骤 1：追加例题四（2023 福建卷 T4，真题）**
+
+```mdx
+## 例题四：真实情境 · 绿色推进剂（medium | 2023 福建卷 T4）
+
+<ExampleCard title="硝酸羟胺中的微粒数" difficulty="medium" source="2023 · 福建卷 · T4">
+
+我国新一代载人飞船使用的绿色推进剂硝酸羟胺 $\ce{[NH3OH]+[NO3]-}$ 在催化剂作用下可完全分解为 $\ce{N2}$、$\ce{H2O}$ 和 $\ce{O2}$。设 $N_A$ 为阿伏加德罗常数的值，下列说法**正确**的是（　　）
+
+- A．0.1 mol $\ce{[NH3OH]+}$ 含有的质子数为 $1.5N_A$
+- B．48 g 固态硝酸羟胺含有的离子数为 $0.5N_A$
+- C．0.5 mol 硝酸羟胺含有的 N–O σ 键数为 $2N_A$
+- D．硝酸羟胺分解产生 11.2 L $\ce{N2}$（已折算为标准状况）的同时，生成 $\ce{O2}$ 分子数为 $N_A$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 质子数算错">
+
+$\ce{[NH3OH]+}$ 的质子数 $= 7(\ce{N}) + 4\times1(\ce{H}) + 8(\ce{O}) = 19$，0.1 mol 应为 $1.9N_A$。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 离子数漏算">
+
+硝酸羟胺 $M = 2\times14 + 4\times1 + 4\times16 = 96\ \mathrm{g/mol}$，48 g 为 0.5 mol。每个 $\ce{[NH3OH]+[NO3]-}$ 含 2 个离子，共 1 mol 离子，即 $N_A$。
+
+</Callout>
+
+<Callout type="right" title="C ✅ 正确">
+
+每个化学式中：$\ce{[NH3OH]+}$ 的 N–O 单键 1 个，$\ce{[NO3]-}$ 的 N–O σ 键 3 个，共 4 个。0.5 mol × 4 = 2 mol，即 $2N_A$。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 物质的量对应错">
+
+配平分解反应：$\ce{NH3OHNO3 -> N2 ^ + 2H2O + O2 ^}$，$\ce{N2}$ 与 $\ce{O2}$ 为 1∶1。11.2 L $\ce{N2}$（标况）为 0.5 mol，生成 $\ce{O2}$ 应为 0.5 mol，即 $0.5N_A$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+陌生情境题先做两件事：**写出化学式/配平方程式**，**逐项圈出计量对象**（质子、离子、σ 键、分子）。计量对象一换，答案常差整数倍。σ 键只数单键骨架，双键/三键中的 π 键不计。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $N_A$ 为阿伏加德罗常数的值，关于硝酸羟胺 $\ce{[NH3OH]+[NO3]-}$ 下列说法正确的是（　　）
+
+A．0.1 mol $\ce{[NO3]-}$ 含有的 σ 键数为 $0.3N_A$
+B．48 g 硝酸羟胺完全分解，生成 $\ce{H2O}$ 的分子数为 $0.5N_A$
+C．1 mol $\ce{[NH3OH]+}$ 中含有的电子数为 $20N_A$
+D．0.1 mol 硝酸羟胺中含有的离子数为 $0.1N_A$
+
+**答案**：A。$\ce{[NO3]-}$ 中 3 条 N–O σ 键，0.1 mol 为 $0.3N_A$，A 对；48 g = 0.5 mol，每个化学式分解生成 2 个 $\ce{H2O}$，共 1 mol，为 $N_A$，B 错；$\ce{[NH3OH]+}$ 有 19 个质子、带 1 个正电荷，电子数为 18，1 mol 为 $18N_A$，C 错；每个化学式含 2 个离子，0.1 mol 含 0.2 mol 离子，为 $0.2N_A$，D 错。
+
+</Reveal>
+</ExampleCard>
+```
+
+- [ ] **步骤 2：追加例题五（2024 福建卷 T6，真题）**
+
+```mdx
+## 例题五：真实情境 · 氮单质新分子（medium | 2024 福建卷 T6）
+
+<ExampleCard title="N₈ 分子中的键与杂化" difficulty="medium" source="2024 · 福建卷 · T6">
+
+我国科学家预测了稳定的氮单质分子 $\ce{N8}$（结构如图，原图略：8 个 N 原子共面，其中 6 个为 $sp^2$ 杂化、2 个为 $sp$ 杂化，6 个 N 各有一对孤电子）。设 $N_A$ 为阿伏加德罗常数的值，下列说法**错误**的是（　　）
+
+- A．1.0 mol $\ce{N8}$ 的 σ 键电子数为 $16N_A$
+- B．1.0 mol $\ce{N8}$ 的（价层）孤电子对数为 $7N_A$
+- C．1.0 mol $\ce{N8}$ 的 $sp^2$ 杂化 N 原子数为 $6N_A$
+- D．112 g $\ce{N8}$ 完全分解，产生的 $\ce{N2}$ 分子数为 $4N_A$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="A ✅ 正确">
+
+1 个 $\ce{N8}$ 分子含 8 个 σ 键，每个 σ 键有 2 个电子，共 16 个电子，故 1.0 mol 为 $16N_A$。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 孤电子对数数错（本题答案）">
+
+6 个 $sp^2$ 杂化 N 各有一对孤电子，共 6 对，1.0 mol 应为 $6N_A$，不是 $7N_A$。
+
+</Callout>
+
+<Callout type="right" title="C ✅ 正确">
+
+由结构，6 个 N 为 $sp^2$ 杂化，故 $6N_A$。
+
+</Callout>
+
+<Callout type="right" title="D ✅ 正确">
+
+$M(\ce{N8}) = 8\times14 = 112\ \mathrm{g/mol}$，112 g 为 1 mol，含 8 mol N 原子；氮原子守恒，完全分解生成 4 mol $\ce{N2}$，即 $4N_A$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+结构类 $N_A$ 题三招：**看键**（数 σ 键，每键 2 电子）、**看杂化**（数对应杂化方式的原子数）、**看孤对**（只数未参与成键的价层电子对）。最后用守恒（原子守恒、电子守恒）验一项。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $N_A$ 为阿伏加德罗常数的值，下列说法正确的是（　　）
+
+A．1 mol $\ce{N2}$ 中含有的 σ 键数为 $2N_A$
+B．1 mol $\ce{NH3}$ 中含有的孤电子对数为 $2N_A$
+C．1 mol 苯（$\ce{C6H6}$）中含有的 σ 键数为 $12N_A$
+D．1 mol $\ce{CO2}$ 中含有的 π 键数为 $N_A$
+
+**答案**：C。$\ce{N2}$ 含 1 个 σ 键、2 个 π 键，A 中 σ 键数应为 $N_A$，错；$\ce{NH3}$ 有 1 对孤电子，应为 $N_A$，B 错；苯分子含 6 条 C–C σ 键和 6 条 C–H σ 键，共 12 条，C 对；$\ce{CO2}$ 为 $\ce{O=C=O}$，含 2 个 π 键，应为 $2N_A$，D 错。
+
+</Reveal>
+</ExampleCard>
+```
+
+- [ ] **步骤 3：追加例题六（改编 · 可逆反应与电子转移）**
+
+```mdx
+## 例题六：可逆反应与电子转移（medium | 改编）
+
+<ExampleCard title="反应真的进行到底了吗" difficulty="medium" source="改编 · 原型：合成氨/氯水/NO₂ 二聚等高考高频陷阱">
+
+设 $N_A$ 为阿伏加德罗常数的值，下列说法**错误**的是（　　）
+
+- A．标准状况下，11.2 L $\ce{Cl2}$ 通入水中，溶液中 $\ce{Cl-}$ 数目小于 $0.5N_A$
+- B．密闭容器中 0.1 mol $\ce{N2}$ 与 0.3 mol $\ce{H2}$ 充分反应，转移电子数小于 $0.6N_A$
+- C．46 g $\ce{NO2}$ 中含有的分子数小于 $N_A$，但原子数等于 $3N_A$
+- D．1 mol $\ce{Cl2}$ 与足量 $\ce{NaOH}$ 溶液反应，转移电子数为 $2N_A$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="A ✅ 正确">
+
+$\ce{Cl2 + H2O <=> HCl + HClO}$ 是可逆反应，\(\ce{Cl2}\) 不能完全转化；且 0.5 mol $\ce{Cl2}$ 即使完全反应也只生成 0.5 mol $\ce{Cl-}$，实际更少。
+
+</Callout>
+
+<Callout type="right" title="B ✅ 正确">
+
+合成氨 $\ce{N2 + 3H2 <=> 2NH3}$ 可逆，0.3 mol $\ce{H2}$ 若完全转化转移 0.6 mol 电子，实际小于该值。
+
+</Callout>
+
+<Callout type="right" title="C ✅ 正确">
+
+46 g $\ce{NO2}$ 为 1 mol，但存在 $2\ce{NO2 <=> N2O4}$ 二聚平衡，分子数小于 $N_A$；由原子守恒，N 为 1 mol、O 为 2 mol，原子总数恒为 $3N_A$。**分子数变、原子数不变**是这类题的题眼。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 忽略歧化（本题答案）">
+
+$\ce{Cl2 + 2NaOH -> NaCl + NaClO + H2O}$ 是歧化反应，$\ce{Cl}$ 由 0 价一半升至 +1、一半降至 −1，1 mol $\ce{Cl2}$ 只转移 1 mol 电子，应为 $N_A$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+电子转移三步：**看是否歧化**（同种元素既升又降，只算失电子总数，不翻倍）、**看是否完全反应**（可逆、浓酸变稀都要打折）、**看变价元素价态差**（$1\ \mathrm{mol}\ \ce{Fe}$ 与盐酸只转移 2 mol 电子，与足量硝酸转移 3 mol）。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $N_A$ 为阿伏加德罗常数的值，下列说法正确的是（　　）
+
+A．1 mol $\ce{Na2O2}$ 与足量 $\ce{CO2}$ 反应，转移电子数为 $2N_A$
+B．1 mol $\ce{Fe}$ 与足量氯气反应，转移电子数为 $2N_A$
+C．50 mL 18.4 mol/L 浓硫酸与足量铜共热，生成 $\ce{SO2}$ 分子数为 $0.46N_A$
+D．2.4 g 镁在空气中充分燃烧，转移电子数为 $0.2N_A$
+
+**答案**：D。A 错（$\ce{Na2O2}$ 中 O 为 −1，歧化，1 mol 转移 $N_A$）；B 错（$\ce{Fe}$ 与氯气生成 $\ce{FeCl3}$，转移 $3N_A$）；C 错（浓硫酸变稀后不再与 Cu 反应，小于 $0.46N_A$）。
+
+</Reveal>
+</ExampleCard>
+```
+
+- [ ] **步骤 4：追加例题七（改编 · 特殊结构与化学键）**
+
+```mdx
+## 例题七：特殊结构与化学键（medium | 改编）
+
+<ExampleCard title="这些物质的键数你记牢了吗" difficulty="medium" source="改编 · 结构类高频考点">
+
+设 $N_A$ 为阿伏加德罗常数的值，下列说法**正确**的是（　　）
+
+- A．1 mol $\ce{Na2O2}$ 中含有的阴离子数为 $2N_A$
+- B．1 mol $\ce{SiO2}$ 中含有的 Si–O 键数为 $4N_A$
+- C．1 mol 苯中含有的碳碳双键数为 $3N_A$
+- D．1 mol $\ce{P4}$ 中含有的 P–P 键数为 $4N_A$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 把 O₂²⁻ 拆开了">
+
+$\ce{Na2O2}$ 的阴离子是 $\ce{O2^2-}$（过氧根，整体 1 个），不是 2 个 $\ce{O^2-}$。1 mol $\ce{Na2O2}$ 含 $N_A$ 个阴离子、$2N_A$ 个阳离子。
+
+</Callout>
+
+<Callout type="right" title="B ✅ 正确">
+
+$\ce{SiO2}$ 中每 1 个 Si 与 4 个 O 成键，1 mol $\ce{SiO2}$ 含 4 mol Si–O 键。（每 1 个 O 连着 2 个 Si。）
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 苯环没有碳碳双键">
+
+苯环中的 6 个碳碳键是介于单键与双键之间的独特化学键，不存在独立的碳碳双键。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 白磷是正四面体">
+
+$\ce{P4}$ 为正四面体，4 个 P 位于顶点，共 6 条 P–P 键，1 mol 为 $6N_A$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+必背键数与结构：金刚石 1 mol C 含 $2N_A$ 个 C–C 键；石墨 $1.5N_A$；$\ce{SiO2}$ 为 $4N_A$；$\ce{P4}$ 为 $6N_A$；$\ce{S8}$（环状）为 $8N_A$；苯环无碳碳双键；$\ce{Na2O2}$ 阴离子为 $\ce{O2^2-}$。用「均摊法」理解，别死背。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $N_A$ 为阿伏加德罗常数的值，下列说法正确的是（　　）
+
+A．1 mol 金刚石中含有的 C–C 键数为 $4N_A$
+B．1 mol $\ce{S8}$（环状）中含有的 S–S 键数为 $8N_A$
+C．1 mol $\ce{NaHSO4}$ 固体中含有的阳离子数为 $2N_A$
+D．1 mol $\ce{D2O}$ 中含有的电子数为 $12N_A$
+
+**答案**：B。金刚石中每个 C 形成 4 条 C–C 键、每条键被 2 个 C 共享，1 mol C 含 $2N_A$ 条，A 错；$\ce{S8}$ 为八元环，含 8 条 S–S 键，B 对；$\ce{NaHSO4}$ 固体中阳离子只有 $\ce{Na+}$，为 $N_A$，C 错；每个 $\ce{D2O}$ 含 10 个电子（2×1 + 8），为 $10N_A$，D 错。
+
+</Reveal>
+</ExampleCard>
+```
+
+- [ ] **步骤 5：运行 check 验证真题组合法**
+
+运行：`npm run check`
+预期：`0 errors`
+
+- [ ] **步骤 6：Commit**
+
+```bash
+git add src/content/chemistry/avogadro/examples.mdx
+git commit -m "content: 例题新增高考真题组——福建卷真题与高频陷阱（含逐项解析）"
+```
+
+---
+
+## 任务 4：追加较难突破组（例题八~九）
+
+**文件：**
+- 修改：`src/content/chemistry/avogadro/examples.mdx`（在文件末尾追加）
+
+- [ ] **步骤 1：追加例题八（改编 · 晶胞计数与密度）**
+
+```mdx
+## 例题八：晶胞中的计数与密度（hard | 改编）
+
+<ExampleCard title="CaF₂ 晶胞里有什么" difficulty="hard" source="改编 · 原型：晶体结构考点">
+
+$\ce{CaF2}$ 的立方晶胞中，$\ce{Ca^2+}$ 位于 8 个顶点和 6 个面心，$\ce{F-}$ 位于晶胞内部的 8 个四面体空隙。设 $N_A$ 为阿伏加德罗常数的值，晶胞参数为 $a$ pm。下列说法**错误**的是（　　）
+
+- A．每个晶胞中含有 4 个 $\ce{Ca^2+}$ 和 8 个 $\ce{F-}$
+- B．每个 $\ce{Ca^2+}$ 周围距离最近的 $\ce{F-}$ 有 8 个
+- C．该晶体的密度为 $\dfrac{4\times78}{N_A\times(a\times10^{-10})^3}\ \mathrm{g\cdot cm^{-3}}$
+- D．该晶体属于共价晶体
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="A ✅ 正确（均摊法）">
+
+$\ce{Ca^2+}$：顶点 $8\times\frac18 = 1$，面心 $6\times\frac12 = 3$，共 4 个；$\ce{F-}$ 全在晶胞内部，共 8 个。故化学式为 $\ce{CaF2}$，每晶胞含 4 个 $\ce{CaF2}$。
+
+</Callout>
+
+<Callout type="right" title="B ✅ 正确">
+
+$\ce{Ca^2+}$ 的配位数为 8（周围 8 个 $\ce{F-}$ 位于 8 个相邻四面体空隙中心）；$\ce{F-}$ 的配位数为 4。
+
+</Callout>
+
+<Callout type="right" title="C ✅ 正确（密度公式）">
+
+晶胞质量 $m = \dfrac{4\times M(\ce{CaF2})}{N_A} = \dfrac{4\times78}{N_A}$ g；晶胞体积 $V = a^3\ \mathrm{pm^3} = (a\times10^{-10})^3\ \mathrm{cm^3}$；$\rho = m/V$。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 晶体类型判断错（本题答案）">
+
+$\ce{CaF2}$ 由阴阳离子通过离子键构成，属于**离子晶体**（熔融态可导电、硬度较大），不是共价晶体。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+晶胞三大件：**均摊法**数微粒（顶点 $\frac18$、棱 $\frac14$、面心 $\frac12$、内部 1）、**配位数**看最近异号离子数、**密度公式** $\rho = \dfrac{N\cdot M}{N_A\cdot a^3}$（注意 pm→cm 用 $10^{-10}$，$1\ \mathrm{cm} = 10^{10}\ \mathrm{pm}$）。最后一步永远回看晶体类型。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 某立方晶胞中，阳离子 A 位于 8 个顶点和 1 个体心，阴离子 B 位于 6 个面心。设 $N_A$ 为阿伏加德罗常数的值，下列说法正确的是（　　）
+
+A．该晶体的化学式为 $\ce{A2B3}$
+B．每个晶胞中含有 4 个 A 和 6 个 B
+C．每个晶胞中含有 2 个「$\ce{A2B3}$」单元
+D．该晶胞中 A 的微粒数是 B 的 2 倍
+
+**答案**：A。均摊法：A $= 8\times\frac18 + 1 = 2$，B $= 6\times\frac12 = 3$，故化学式为 $\ce{A2B3}$，A 对；每晶胞含 2 个 A、3 个 B，B 错；2 个 A 与 3 个 B 恰好构成 1 个 $\ce{A2B3}$ 单元，C 错；A 的微粒数（2）少于 B（3），D 错。
+
+</Reveal>
+</ExampleCard>
+```
+
+- [ ] **步骤 2：追加例题九（改编 · 喷泉实验浓度与电子守恒）**
+
+```mdx
+## 例题九：气体溶于水与电子守恒（hard | 改编）
+
+<ExampleCard title="喷泉实验后浓度是多少" difficulty="hard" source="改编 · 原型：气体溶于水浓度考点">
+
+设 $N_A$ 为阿伏加德罗常数的值。标准状况下，容积为 $a$ L 的烧瓶中充满按体积比 4∶1 混合的 $\ce{NO2}$ 和 $\ce{O2}$，倒扣在水中充分反应后溶液充满烧瓶。下列说法**正确**的是（　　）
+
+- A．所得硝酸溶液的浓度为 $\dfrac{1}{22.4}\ \mathrm{mol/L}$
+- B．所得硝酸溶液的浓度为 $\dfrac{4}{5}\times\dfrac{1}{22.4}\ \mathrm{mol/L}$
+- C．溶液中 $\ce{HNO3}$ 分子的数目为 $\dfrac{4a}{5\times22.4}N_A$
+- D．反应中转移电子的数目为 $\dfrac{a}{5\times22.4}N_A$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 想当然套 1/22.4">
+
+$\ce{NO2}$ 只占 $\frac45$，且 4 份 $\ce{NO2}$ 与 1 份 $\ce{O2}$ 恰好反应生成 4 份 $\ce{HNO3}$，浓度不是 $\frac{1}{22.4}$。
+
+</Callout>
+
+<Callout type="right" title="B ✅ 正确">
+
+关系式 $\ce{4NO2 + O2 + 2H2O -> 4HNO3}$，4∶1 恰好完全反应，溶液充满烧瓶。$n(\ce{HNO3}) = n(\ce{NO2}) = \dfrac{4a/5}{22.4}$ mol，溶液体积 $= a$ L，故 $c = \dfrac{4a/5}{22.4}\times\dfrac1a = \dfrac45\times\dfrac{1}{22.4}\ \mathrm{mol/L}$。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 强酸完全电离">
+
+$\ce{HNO3}$ 是强酸，在水中完全电离为 $\ce{H+}$ 和 $\ce{NO3-}$，溶液中不存在 $\ce{HNO3}$ 分子。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 电子转移算错">
+
+$\ce{NO2}$ 中 N 为 +4，生成 $\ce{HNO3}$ 升至 +5，1 mol $\ce{NO2}$ 失 1 mol 电子；$n(\ce{NO2}) = \dfrac{4a}{5\times22.4}$ mol，转移电子数为 $\dfrac{4a}{5\times22.4}N_A$，不是 $\dfrac{a}{5\times22.4}N_A$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+气体溶于水浓度题抓住 $c = n(\text{溶质})/V(\text{溶液})$：**先配平关系式**定溶质物质的量，**再盯溶液体积**（喷泉实验常等于被吸收气体体积或烧瓶容积）。通用结论：$c = \dfrac{\text{溶质份数}}{\text{溶解气体份数}}\times\dfrac{1}{22.4}\ \mathrm{mol/L}$（标况）。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $N_A$ 为阿伏加德罗常数的值。标准状况下，容积为 $a$ L 的烧瓶盛满 $\ce{NH3}$，做喷泉实验后水充满烧瓶，所得氨水的浓度为（　　）
+
+A．$\dfrac{1}{22.4}\ \mathrm{mol/L}$
+B．$\dfrac{a}{22.4}\ \mathrm{mol/L}$
+C．$\dfrac{1}{22.4a}\ \mathrm{mol/L}$
+D．无法确定
+
+**答案**：A。$n(\ce{NH3}) = \dfrac{a}{22.4}$ mol，溶液体积 $a$ L，$c = \dfrac{a/22.4}{a} = \dfrac{1}{22.4}\ \mathrm{mol/L}$，与烧瓶容积无关。
+
+</Reveal>
+</ExampleCard>
+```
+
+- [ ] **步骤 3：运行 check 验证全量文件**
+
+运行：`npm run check`
+预期：`0 errors`
+
+- [ ] **步骤 4：Commit**
+
+```bash
+git add src/content/chemistry/avogadro/examples.mdx
+git commit -m "content: 例题新增较难组——晶胞密度与气体溶于水浓度"
+```
+
+---
+
+## 任务 5：更新可复用模板
+
+**文件：**
+- 修改：`templates/knowledge-point/examples.mdx`（整体替换）
+
+- [ ] **步骤 1：写入教辅级模板**
+
+````mdx
+---
+title: "知识点名称 · 典型例题"
+topic: "REPLACE_TOPIC"
+category: "examples"
+order: 5
+summary: "典型例题分基础、真题、较难三层，含逐项解析与变式训练。"
+tags: ["例题", "高考真题"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-14"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+先做题再看解析；「方法复盘」是接题套路，「变式训练」检查是否真会。
+
+</Callout>
+
+## 例题一：题型标签（easy）
+
+<ExampleCard title="题干短标题" difficulty="easy" source="改编 · 原型：×××">
+
+题干，选择题写出 A/B/C/D 选项（无序列表）。情境题先给背景材料。
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 错因一句话">
+
+指出该选项对应的陷阱，并给出正确值或正确说法。
+
+</Callout>
+
+<Callout type="right" title="B ✅ 正确">
+
+给出完整推理与计算过程。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+可复用的判断步骤或口诀（本项目的核心，不可省略）。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 改变条件或问法的题（保证唯一正确项）。
+
+**答案**：×××，并给出关键理由。
+
+</Reveal>
+</ExampleCard>
+````
+
+- [ ] **步骤 2：运行 check 验证模板**
+
+运行：`npm run check`
+预期：`0 errors`（模板在 `src/content` 之外，不参与 content 采集，仅语法层面无误）
+
+- [ ] **步骤 3：Commit**
+
+```bash
+git add templates/knowledge-point/examples.mdx
+git commit -m "docs: 例题模板升级为教辅级（选择题+逐项解析+溯源+变式）"
+```
+
+---
+
+## 任务 6：整体验证
+
+**文件：**
+- 无文件产出
+
+- [ ] **步骤 1：类型与内容检查**
+
+运行：`npm run check`
+预期：`0 errors / 0 warnings / 0 hints`
+
+- [ ] **步骤 2：构建**
+
+运行：`npm run build`
+预期：构建成功；`dist` 生成；页面数与改动前一致（新增内容不新增路由）。
+（会有一条 `markdown.remarkPlugins ... are deprecated` 警告，属 Astro 7 已知提示，可忽略。）
+
+- [ ] **步骤 3：本地目测**
+
+运行：`npm run dev`，浏览器打开 `http://localhost:4321/chemistry/avogadro/examples`
+
+逐项确认：
+- 右侧 TOC 显示 9 个例题标题（无乱码、标题内无公式）
+- 每个 `ExampleCard` 头部显示难度徽标；真题题卡显示来源（如「2023 · 福建卷 · T4」）
+- `Reveal` 可正常展开/折叠
+- 暗色与亮色两种主题下 `Callout`（wrong/right/skill）文字可读
+- `\ce{}` 与 `$...$` 公式渲染正常
+
+- [ ] **步骤 4：内容抽查**
+
+随机选 2 道真题，对照规格第 5 节重新联网核对题干与答案；若发现不符，按「存疑即改或弃用」处理并重新 commit。
+
+- [ ] **步骤 5：最终 commit（如有遗留修改）**
+
+```bash
+git status
+# 如有未提交修改：
+git add -A
+git commit -m "content: 题库整体校验与修正"
+```
+
+---
+
+## 自检结果
+
+**1. 规格覆盖度：**
+- 真题溯源 → 任务 3 例题四/五（`source` 属性）+ 任务 1
+- 选择题化 + 逐项分析 → 任务 2/3/4 全部例题，`wrong`/`right` Callout
+- 变式训练 → 每道例题 `<Reveal summary="变式训练">`
+- 难度分档（补齐 hard）→ 任务 4 例题八/九
+- 两层结构（9 题）→ 任务 2（3 题）+ 任务 3（4 题）+ 任务 4（2 题）
+- 模板沉淀 → 任务 5
+- 联网核实流程 → 任务 1 + 任务 6 步骤 4
+- 验证 → 任务 6
+
+**2. 占位符扫描：** 正文无「待定/TODO/执行时再定」；全部 9 道主例题与 9 道变式的选项均已逐一验算，确保唯一正确项，答案与解析完整。
+
+**3. 类型一致性：** 统一使用 `ExampleCard`（`title`/`difficulty`/`source`）、`Reveal`（`summary`）、`Callout`（`type`/`title`）；化学式统一 `\ce{}`；难度只取 `easy|medium|hard`；`source` 格式 `年份 · 卷别 · 题号`。
