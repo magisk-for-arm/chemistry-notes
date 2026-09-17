@@ -432,3 +432,121 @@ D．1 mol $\ce{D2O}$ 中含有的电子数为 $12N_A$
 
 </Reveal>
 </ExampleCard>
+
+## 例题八：晶胞中的计数与密度（hard | 改编）
+
+<ExampleCard title="CaF₂ 晶胞里有什么" difficulty="hard" source="改编 · 原型：晶体结构考点">
+
+$\ce{CaF2}$ 的立方晶胞中，$\ce{Ca^2+}$ 位于 8 个顶点和 6 个面心，$\ce{F-}$ 位于晶胞内部的 8 个四面体空隙。设 $N_A$ 为阿伏加德罗常数的值，晶胞参数为 $a$ pm。下列说法**错误**的是（　　）
+
+- A．每个晶胞中含有 4 个 $\ce{Ca^2+}$ 和 8 个 $\ce{F-}$
+- B．每个 $\ce{Ca^2+}$ 周围距离最近的 $\ce{F-}$ 有 8 个
+- C．该晶体的密度为 $\dfrac{4\times78}{N_A\times(a\times10^{-10})^3}\ \mathrm{g\cdot cm^{-3}}$
+- D．该晶体属于共价晶体
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="A ✅ 正确（均摊法）">
+
+$\ce{Ca^2+}$：顶点 $8\times\frac18 = 1$，面心 $6\times\frac12 = 3$，共 4 个；$\ce{F-}$ 全在晶胞内部，共 8 个。故化学式为 $\ce{CaF2}$，每晶胞含 4 个 $\ce{CaF2}$。
+
+</Callout>
+
+<Callout type="right" title="B ✅ 正确">
+
+$\ce{Ca^2+}$ 的配位数为 8（周围 8 个 $\ce{F-}$ 位于 8 个相邻四面体空隙中心）；$\ce{F-}$ 的配位数为 4。
+
+</Callout>
+
+<Callout type="right" title="C ✅ 正确（密度公式）">
+
+晶胞质量 $m = \dfrac{4\times M(\ce{CaF2})}{N_A} = \dfrac{4\times78}{N_A}$ g；晶胞体积 $V = a^3\ \mathrm{pm^3} = (a\times10^{-10})^3\ \mathrm{cm^3}$；$\rho = m/V$。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 晶体类型判断错（本题答案）">
+
+$\ce{CaF2}$ 由阴阳离子通过离子键构成，属于**离子晶体**（熔融态可导电、硬度较大），不是共价晶体。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+晶胞三大件：**均摊法**数微粒（顶点 $\frac18$、棱 $\frac14$、面心 $\frac12$、内部 1）、**配位数**看最近异号离子数、**密度公式** $\rho = \dfrac{N\cdot M}{N_A\cdot a^3}$（注意 pm→cm 用 $10^{-10}$，$1\ \mathrm{cm} = 10^{10}\ \mathrm{pm}$）。最后一步永远回看晶体类型。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 某立方晶胞中，阳离子 A 位于 8 个顶点和 1 个体心，阴离子 B 位于 6 个面心。设 $N_A$ 为阿伏加德罗常数的值，下列说法正确的是（　　）
+
+A．该晶体的化学式为 $\ce{A2B3}$
+B．每个晶胞中含有 4 个 A 和 6 个 B
+C．每个晶胞中含有 2 个「$\ce{A2B3}$」单元
+D．该晶胞中 A 的微粒数是 B 的 2 倍
+
+**答案**：A。均摊法：A $= 8\times\frac18 + 1 = 2$，B $= 6\times\frac12 = 3$，故化学式为 $\ce{A2B3}$，A 对；每晶胞含 2 个 A、3 个 B，B 错；2 个 A 与 3 个 B 恰好构成 1 个 $\ce{A2B3}$ 单元，C 错；A 的微粒数（2）少于 B（3），D 错。
+
+</Reveal>
+</ExampleCard>
+
+## 例题九：气体溶于水与电子守恒（hard | 改编）
+
+<ExampleCard title="喷泉实验后浓度是多少" difficulty="hard" source="改编 · 原型：气体溶于水浓度考点">
+
+设 $N_A$ 为阿伏加德罗常数的值。标准状况下，容积为 $a$ L 的烧瓶中充满按体积比 4∶1 混合的 $\ce{NO2}$ 和 $\ce{O2}$，倒扣在水中充分反应后溶液充满烧瓶。下列说法**正确**的是（　　）
+
+- A．所得硝酸溶液的浓度为 $\dfrac{1}{22.4}\ \mathrm{mol/L}$
+- B．所得硝酸溶液的浓度为 $\dfrac{4}{5}\times\dfrac{1}{22.4}\ \mathrm{mol/L}$
+- C．溶液中 $\ce{HNO3}$ 分子的数目为 $\dfrac{4a}{5\times22.4}N_A$
+- D．反应中转移电子的数目为 $\dfrac{a}{5\times22.4}N_A$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 想当然套 1/22.4">
+
+$\ce{NO2}$ 只占 $\frac45$，且 4 份 $\ce{NO2}$ 与 1 份 $\ce{O2}$ 恰好反应生成 4 份 $\ce{HNO3}$，浓度不是 $\frac{1}{22.4}$。
+
+</Callout>
+
+<Callout type="right" title="B ✅ 正确">
+
+关系式 $\ce{4NO2 + O2 + 2H2O -> 4HNO3}$，4∶1 恰好完全反应，溶液充满烧瓶。$n(\ce{HNO3}) = n(\ce{NO2}) = \dfrac{4a/5}{22.4}$ mol，溶液体积 $= a$ L，故 $c = \dfrac{4a/5}{22.4}\times\dfrac1a = \dfrac45\times\dfrac{1}{22.4}\ \mathrm{mol/L}$。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 强酸完全电离">
+
+$\ce{HNO3}$ 是强酸，在水中完全电离为 $\ce{H+}$ 和 $\ce{NO3-}$，溶液中不存在 $\ce{HNO3}$ 分子。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 电子转移算错">
+
+$\ce{NO2}$ 中 N 为 +4，生成 $\ce{HNO3}$ 升至 +5，1 mol $\ce{NO2}$ 失 1 mol 电子；$n(\ce{NO2}) = \dfrac{4a}{5\times22.4}$ mol，转移电子数为 $\dfrac{4a}{5\times22.4}N_A$，不是 $\dfrac{a}{5\times22.4}N_A$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+气体溶于水浓度题抓住 $c = n(\text{溶质})/V(\text{溶液})$：**先配平关系式**定溶质物质的量，**再盯溶液体积**（喷泉实验常等于被吸收气体体积或烧瓶容积）。通用结论：$c = \dfrac{\text{溶质份数}}{\text{溶解气体份数}}\times\dfrac{1}{22.4}\ \mathrm{mol/L}$（标况）。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $N_A$ 为阿伏加德罗常数的值。标准状况下，容积为 $a$ L 的烧瓶盛满 $\ce{NH3}$，做喷泉实验后水充满烧瓶，所得氨水的浓度为（　　）
+
+A．$\dfrac{1}{22.4}\ \mathrm{mol/L}$
+B．$\dfrac{a}{22.4}\ \mathrm{mol/L}$
+C．$\dfrac{1}{22.4a}\ \mathrm{mol/L}$
+D．无法确定
+
+**答案**：A。$n(\ce{NH3}) = \dfrac{a}{22.4}$ mol，溶液体积 $a$ L，$c = \dfrac{a/22.4}{a} = \dfrac{1}{22.4}\ \mathrm{mol/L}$，与烧瓶容积无关。
+
+</Reveal>
+</ExampleCard>
