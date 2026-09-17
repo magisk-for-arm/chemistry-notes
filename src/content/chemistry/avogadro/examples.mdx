@@ -3,146 +3,196 @@ title: "阿伏加德罗常数 · 典型例题"
 topic: "avogadro"
 category: "examples"
 order: 5
-summary: "5 道典型例题，覆盖概念辨析、气体计算、溶液、晶体与氧化还原。"
-tags: ["例题", "计算", "氧化还原"]
+summary: "9 道典型例题分三层递进：基础巩固、高考真题、较难突破，含逐项解析与变式训练。"
+tags: ["例题", "计算", "氧化还原", "高考真题"]
 difficulty: "medium"
 examFrequency: "high"
-updated: "2026-09-13"
+updated: "2026-09-14"
 ---
 
 import ExampleCard from '@/components/ExampleCard.astro';
 import Reveal from '@/components/Reveal.astro';
 import Callout from '@/components/Callout.astro';
 
-## 例题一：概念辨析（基础）
+<Callout type="note" title="使用指南">
 
-<ExampleCard title="判断下列说法是否正确" difficulty="easy">
+例题一~三打基础（辨析概念与适用条件），例题四~七是高考同款（含福建卷真题，逐项分析陷阱），例题八~九冲高分（晶体计数、电子守恒）。建议先做题再看解析，每题的「方法复盘」是接题套路，「变式训练」用来检验是否真会。
 
-设 $N_A$ 为阿伏加德罗常数的值，判断：
+</Callout>
 
-（1）1 mol 氦气含有 $2N_A$ 个氦原子；
+## 例题一：概念辨析（easy）
 
-（2）标准状况下 22.4 L $\ce{H2O}$ 含有 $N_A$ 个水分子；
+<ExampleCard title="下列说法正确的是" difficulty="easy">
 
-（3）常温常压下 22.4 L $\ce{O2}$ 含有 $N_A$ 个氧分子。
+下列有关物质的量及 $N_A$ 的说法，**正确**的是（　　）
 
-<Reveal summary="查看解析">
+- A．摩尔是国际单位制中七个基本物理量之一
+- B．1 mol 任何物质都含有 $6.02\times10^{23}$ 个分子
+- C．摩尔质量与物质的量的多少无关
+- D．1 mol 水中含有 2 mol 氢和 1 mol 氧
 
-（1）**错误**。氦气是单原子分子，1 mol 氦气含 $N_A$ 个原子。
+<Reveal summary="查看逐项解析">
 
-（2）**错误**。标准状况下水是液体，不能用 22.4 L/mol。
+<Callout type="wrong" title="A ❌ 物质的量与单位混淆">
 
-（3）**错误**。常温常压不是标准状况，22.4 L 对应的物质的量不是 1 mol。
+摩尔是**单位**，物质的量才是国际单位制中七个基本物理量之一。这类「把单位说成物理量」是概念题最常见的偷换。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 物质不一定由分子构成">
+
+只有由分子构成的物质，1 mol 才含 $6.02\times10^{23}$ 个分子。$\ce{NaCl}$（离子晶体）、金刚石（共价晶体）、$\ce{Fe}$（金属晶体）都不含分子。用「气体、液体、固体」逐类排除。
+
+</Callout>
+
+<Callout type="right" title="C ✅ 正确">
+
+摩尔质量是「单位物质的量的物质所具有的质量」，是物质的固有属性，与取多少物质的量无关。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 没有指明粒子种类">
+
+说「2 mol 氢」不明确是氢原子还是氢分子。规范表述应是「2 mol 氢原子和 1 mol 氧原子」。
+
+</Callout>
 
 </Reveal>
 
-<Callout type="tip" title="方法复盘">
+<Callout type="skill" title="方法复盘">
 
-概念辨析题的三个高频错误点：单原子分子、标况非气体、非标况滥用 22.4。用「四问审题法」逐句排查。
+概念辨析四问：**问对象**（分子/原子/离子？）、**问单位**（物理量还是单位？）、**问状态**（是否气体？）、**问属性**（固有属性是否被当成变量）。逐项套四问，错误选项立刻现形。
 
 </Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 下列说法正确的是（　　）
+
+A．1 mol 任何粒子都约含 $6.02\times10^{23}$ 个该粒子
+B．摩尔质量的单位是 g
+C．1 mol $\ce{O2}$ 中含有的氧原子数为 $N_A$
+D．阿伏加德罗常数没有单位
+
+**答案**：A。B 错，摩尔质量的单位是 g/mol；C 错，1 mol $\ce{O2}$ 含 $2N_A$ 个氧原子；D 错，$N_A$ 的单位是 $\mathrm{mol^{-1}}$。
+
+</Reveal>
 </ExampleCard>
 
-## 例题二：气体计算
+## 例题二：气体摩尔体积的适用条件（easy）
 
-<ExampleCard title="混合气体的分子数" difficulty="easy">
+<ExampleCard title="22.4 L/mol 能用吗" difficulty="easy">
 
-标准状况下，将 11.2 L $\ce{CO2}$ 与 11.2 L $\ce{O2}$ 混合，混合气体的分子总数约为多少？
+设 $N_A$ 为阿伏加德罗常数的值，下列说法**正确**的是（　　）
 
-<Reveal summary="查看解析">
+- A．标准状况下，22.4 L $\ce{H2O}$ 含有的分子数为 $N_A$
+- B．标准状况下，22.4 L $\ce{CCl4}$ 含有的分子数为 $N_A$
+- C．常温常压下，11.2 L $\ce{O2}$ 含有的氧原子数为 $N_A$
+- D．标准状况下，22.4 L $\ce{CO}$ 和 $\ce{N2}$ 的混合气体含有的分子数为 $N_A$
 
-标准状况下，混合气体总体积 $V = 11.2 + 11.2 = 22.4$ L。
+<Reveal summary="查看逐项解析">
 
-$$n = \frac{V}{V_m} = \frac{22.4}{22.4} = 1\ \text{mol}$$
+<Callout type="wrong" title="A ❌ 标况下水是液体">
 
-故混合气体分子总数约为 $N_A$ 个（即 $6.02\times10^{23}$ 个）。
+$22.4\ \mathrm{L/mol}$ 只适用于**气体**。标准状况下水为液态，不能用气体摩尔体积换算。
 
-两种气体质量不同，但分子数相同——因为同温同压下相同体积的气体含有相同的分子数（阿伏加德罗定律）。
+</Callout>
+
+<Callout type="wrong" title="B ❌ 标况下 CCl₄ 是液体">
+
+常考的「标况非气体」：$\ce{H2O}$、液溴、$\ce{HF}$、$\ce{CHCl3}$、$\ce{CH2Cl2}$、$\ce{CCl4}$、$\ce{SO3}$、$\ce{NO2}$、酒精、乙酸、碳原子数大于 4 的烃、苯。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 条件不对">
+
+标准状况是 $0\ \mathrm{^\circ C}$、$101\ \mathrm{kPa}$；常温常压下 $V_m > 22.4\ \mathrm{L/mol}$，11.2 L 不是 0.5 mol。「条件」和「物质状态」必须同时满足。
+
+</Callout>
+
+<Callout type="right" title="D ✅ 正确">
+
+同温同压下，气体分子数与体积成正比，与气体种类无关。混合气体（不反应）总物质的量为 $22.4/22.4 = 1$ mol，分子数 $N_A$。
+
+</Callout>
 
 </Reveal>
 
-<Callout type="tip" title="方法复盘">
+<Callout type="skill" title="方法复盘">
 
-气体混合时，只要条件相同，**分子数与体积成正比**，与气体种类无关。先求总物质的量，再乘 $N_A$。
+看到体积先做**两连问**：①是气体吗？②是标准状况吗？两问都过才能用 $n = V/22.4$。答题时把 $22.4\ \mathrm{L/mol}$ 旁注「仅标况、仅气体」。
 
 </Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $N_A$ 为阿伏加德罗常数的值，下列说法正确的是（　　）
+
+A．常温常压下，22.4 L $\ce{NH3}$ 含有的分子数为 $N_A$
+B．标准状况下，2.24 L $\ce{SO3}$ 含有的原子数为 $0.4N_A$
+C．标准状况下，22.4 L $\ce{O2}$ 和 $\ce{O3}$ 的混合气体含有的氧原子数为 $2N_A$
+D．同温同压下，相同体积的 $\ce{O2}$ 和 $\ce{O3}$ 含有的分子数相同
+
+**答案**：D。A 错，常温常压不是标准状况；B 错，标准状况下 $\ce{SO3}$ 为固体；C 错，1 mol 混合气体中氧原子数在 2~3 mol 之间，不一定是 $2N_A$；D 对，同温同压下相同体积的气体分子数相同（阿伏加德罗定律）。
+
+</Reveal>
 </ExampleCard>
 
-## 例题三：溶液中的粒子数
+## 例题三：溶液中的粒子数（easy）
 
-<ExampleCard title="配制溶液并计算离子数" difficulty="easy">
+<ExampleCard title="溶液中到底有多少粒子" difficulty="easy">
 
-配制 500 mL 0.2 mol/L 的 $\ce{Na2SO4}$ 溶液，需要 $\ce{Na2SO4}$ 的质量是多少？溶液中 $\ce{Na+}$ 的数目是多少？
+设 $N_A$ 为阿伏加德罗常数的值，下列说法**正确**的是（　　）
 
-<Reveal summary="查看解析">
+- A．1 L 0.1 mol/L $\ce{Na2CO3}$ 溶液中 $\ce{CO3^2-}$ 的数目为 $0.1N_A$
+- B．1 L 1 mol/L 盐酸中含有的阴离子总数为 $2N_A$
+- C．只给出 0.1 mol/L 的 $\ce{FeCl3}$ 溶液，无法计算其中 $\ce{Fe^3+}$ 的数目
+- D．100 mL 0.1 mol/L $\ce{NaOH}$ 溶液中含有的氧原子数为 $0.01N_A$
 
-（1）需要 $\ce{Na2SO4}$ 的物质的量：
+<Reveal summary="查看逐项解析">
 
-$$n = cV = 0.2 \times 0.5 = 0.1\ \text{mol}$$
+<Callout type="wrong" title="A ❌ 忽略了水解">
 
-质量：
+$\ce{CO3^2-}$ 是弱酸根，在水中部分水解为 $\ce{HCO3-}$ 和 $\ce{H2CO3}$，故 $\ce{CO3^2-}$ 实际数目**小于** $0.1N_A$。
 
-$$m = nM = 0.1 \times 142 = 14.2\ \text{g}$$
+</Callout>
 
-（2）$\ce{Na2SO4 -> 2Na+ + SO4^2-}$，故 $n(\ce{Na+}) = 2 \times 0.1 = 0.2$ mol，离子数约为 $0.2N_A$。
+<Callout type="wrong" title="B ❌ 阴离子不只是 Cl⁻ 的两倍">
+
+盐酸中 HCl 完全电离，$n(\ce{Cl-}) = 1$ mol；溶液中还含极少量 $\ce{OH-}$，阴离子总数略大于 $N_A$，远小于 $2N_A$。别把水的电离或「阴阳离子守恒」用错。
+
+</Callout>
+
+<Callout type="right" title="C ✅ 正确">
+
+$n = cV$，只给浓度不给体积，无法求物质的量。这是最常设的「低级陷阱」——体积被故意省略。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 溶剂的氧原子被忽略">
+
+$\ce{NaOH}$ 含 0.01 mol 氧原子，但**水**中也含大量氧原子，总数远大于 $0.01N_A$。
+
+</Callout>
 
 </Reveal>
 
-<Callout type="tip" title="方法复盘">
+<Callout type="skill" title="方法复盘">
 
-涉及浓度时，先把体积换算成升，再算 n；注意所求粒子是 Na⁺ 而非 Na₂SO₄（本题体积 500 mL = 0.5 L，且问的是 $\ce{Na+}$）。
+溶液题三查：**查体积**（给没给？）、**查电离/水解**（弱电解质、弱酸根）、**查溶剂**（水本身含 H、O）。三查过完再动笔算。
 
 </Callout>
-</ExampleCard>
 
-## 例题四：晶体结构中的化学键
+<Reveal summary="变式训练">
 
-<ExampleCard title="金刚石与 SiO₂ 的共价键数目" difficulty="medium">
+**变式** 设 $N_A$ 为阿伏加德罗常数的值，下列说法正确的是（　　）
 
-（1）12 g 金刚石中含有多少个 C–C 键？
+A．1 L 0.1 mol/L $\ce{CH3COOH}$ 溶液中 $\ce{H+}$ 数目为 $0.1N_A$
+B．1 L 0.1 mol/L $\ce{Na2SO4}$ 溶液中 $\ce{Na+}$ 数目为 $0.2N_A$
+C．0.1 mol/L 的 $\ce{NaCl}$ 溶液中含有 $0.1N_A$ 个 $\ce{Na+}$
+D．1 L 0.1 mol/L $\ce{NaHCO3}$ 溶液中 $\ce{HCO3-}$ 和 $\ce{CO3^2-}$ 的数目之和为 $0.1N_A$
 
-（2）1 mol $\ce{SiO2}$ 中含有多少个 Si–O 键？
-
-<Reveal summary="查看解析">
-
-（1）12 g 金刚石中碳的物质的量 $n = 12 / 12 = 1$ mol。金刚石中每个碳形成 4 条 C–C 键，每条键被 2 个碳共享：
-
-$$n(\text{C–C}) = \frac{4}{2} \times 1 = 2\ \text{mol}$$
-
-即约 $2N_A$ 个 C–C 键。
-
-（2）$\ce{SiO2}$ 中每个硅原子与 4 个氧原子成键，1 mol $\ce{SiO2}$ 含 $4N_A$ 个 Si–O 键。
+**答案**：B。A 错，醋酸部分电离；C 错，缺体积；D 错，碳元素还存在 $\ce{H2CO3}$ 分子形式。
 
 </Reveal>
-
-<Callout type="tip" title="方法复盘">
-
-「键数 = 成键数 ÷ 2」。金刚石 2、石墨 1.5、SiO₂ 4、P₄ 6，这组数据建议直接记牢。
-
-</Callout>
-</ExampleCard>
-
-## 例题五：氧化还原与电子转移
-
-<ExampleCard title="Na₂O₂ 与 CO₂ 反应转移的电子数" difficulty="medium">
-
-反应 $\ce{2Na2O2 + 2CO2 -> 2Na2CO3 + O2 ^}$ 中，若生成 1 mol $\ce{O2}$，转移电子的数目是多少？
-
-<Reveal summary="查看解析">
-
-氧元素在 $\ce{Na2O2}$ 中为 $-1$ 价，反应后：$\ce{Na2CO3}$ 中为 $-2$ 价，$\ce{O2}$ 中为 $0$ 价。
-
-生成 1 mol $\ce{O2}$（2 mol 氧原子由 $-1$ 价升到 $0$ 价），失去电子 $2 \times 1 = 2$ mol；相应有 2 mol 氧原子由 $-1$ 价降到 $-2$ 价，得到 2 mol 电子。
-
-故转移电子数为 $2N_A$。
-
-等价地：1 mol $\ce{Na2O2}$ 转移 $1N_A$ 个电子，生成 1 mol $\ce{O2}$ 需消耗 2 mol $\ce{Na2O2}$，故为 $2N_A$。
-
-</Reveal>
-
-<Callout type="tip" title="方法复盘">
-
-歧化反应先标化合价，数「真正变价」的原子数。用电子守恒验证：得电子总数 = 失电子总数。
-
-</Callout>
 </ExampleCard>
