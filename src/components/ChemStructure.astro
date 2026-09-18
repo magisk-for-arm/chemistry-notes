@@ -1,0 +1,80 @@
+---
+interface Props {
+  smiles: string;
+  caption?: string;
+  height?: string;
+  alt?: string;
+}
+const { smiles, caption, height = '200px', alt } = Astro.props;
+const label = alt ?? caption ?? '化学结构式';
+---
+<figure class="chem-figure">
+  <div
+    class="chem-canvas"
+    data-smiles={smiles}
+    style={`min-height:${height}`}
+    role="img"
+    aria-label={label}
+  >
+  </div>
+  {caption && <figcaption class="chem-caption">{caption}</figcaption>}
+  <noscript><p class="chem-caption">结构式需要启用 JavaScript 后渲染。</p></noscript>
+</figure>
+<script>
+  import SmilesDrawer from 'smiles-drawer';
+
+  interface DrawerLike {
+    draw(tree: unknown, target: HTMLElement, theme: string): void;
+  }
+
+  function currentTheme(): 'dark' | 'light' {
+    return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+  }
+
+  function renderFallback(el: HTMLElement, smiles: string): void {
+    el.replaceChildren();
+    const code = document.createElement('code');
+    code.className = 'chem-fallback';
+    code.textContent = smiles;
+    const tip = document.createElement('p');
+    tip.className = 'chem-caption';
+    tip.textContent = '结构渲染失败，以上为原始 SMILES。';
+    el.append(code, tip);
+  }
+
+  function render(el: HTMLElement): void {
+    const smiles = el.dataset.smiles ?? '';
+    if (!smiles) return;
+    const styles = getComputedStyle(el);
+    const width = Math.max(el.clientWidth, 240);
+    const height = Math.max(parseInt(styles.minHeight, 10) || 200, 120);
+    try {
+      const drawer = new SmilesDrawer.SvgDrawer({ width, height, padding: 12 }) as unknown as DrawerLike;
+      SmilesDrawer.parse(
+        smiles,
+        (tree: unknown) => {
+          el.replaceChildren();
+          drawer.draw(tree, el, currentTheme());
+        },
+        () => renderFallback(el, smiles),
+      );
+    } catch {
+      renderFallback(el, smiles);
+    }
+  }
+
+  function renderAll(): void {
+    document.querySelectorAll<HTMLElement>('.chem-canvas').forEach(render);
+  }
+
+  function init(): void {
+    renderAll();
+    new MutationObserver(renderAll).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+  }
+
+  if (document.readyState !== 'loading') init();
+  else document.addEventListener('DOMContentLoaded', init);
+</script>

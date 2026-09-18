@@ -225,3 +225,24 @@ a.tag-badge:hover { border-color: var(--primary); color: var(--primary-strong); 
 /* ---------- 搜索 ---------- */
 .search-status { color: var(--text-muted); }
 .search-status code { font-family: var(--font-mono); background: var(--code-bg); padding: 0.1em 0.4em; border-radius: 4px; }
+
+/* ---------- 化学结构图（ChemStructure） ---------- */
+.chem-figure {
+  margin: 1.25rem 0;
+  padding: 0.75rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-align: center;
+}
+.chem-figure .chem-canvas svg { max-width: 100%; height: auto; }
+.chem-caption { margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--text-muted); }
+.chem-fallback {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text);
+  word-break: break-all;
+}
