@@ -235,7 +235,13 @@ a.tag-badge:hover { border-color: var(--primary); color: var(--primary-strong); 
   background: var(--surface);
   text-align: center;
 }
-.chem-figure .chem-canvas svg { max-width: 100%; height: auto; }
+.chem-figure .chem-canvas svg {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: 0 auto;
+}
 .chem-caption { margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--text-muted); }
 .chem-fallback {
   display: block;

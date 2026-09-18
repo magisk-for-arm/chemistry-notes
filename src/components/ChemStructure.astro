@@ -24,7 +24,7 @@ const label = alt ?? caption ?? '化学结构式';
   import SmilesDrawer from 'smiles-drawer';
 
   interface DrawerLike {
-    draw(tree: unknown, target: HTMLElement, theme: string): void;
+    draw(tree: unknown, target: SVGSVGElement, theme: string): SVGSVGElement;
   }
 
   function currentTheme(): 'dark' | 'light' {
@@ -42,6 +42,18 @@ const label = alt ?? caption ?? '化学结构式';
     el.append(code, tip);
   }
 
+  function ensureSvg(el: HTMLElement, width: number, height: number): SVGSVGElement {
+    const existing = el.querySelector<SVGSVGElement>('svg.chem-svg');
+    if (existing) return existing;
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'chem-svg');
+    svg.setAttribute('width', String(width));
+    svg.setAttribute('height', String(height));
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    el.replaceChildren(svg);
+    return svg;
+  }
+
   function render(el: HTMLElement): void {
     const smiles = el.dataset.smiles ?? '';
     if (!smiles) return;
@@ -53,12 +65,24 @@ const label = alt ?? caption ?? '化学结构式';
       SmilesDrawer.parse(
         smiles,
         (tree: unknown) => {
-          el.replaceChildren();
-          drawer.draw(tree, el, currentTheme());
+          const svg = ensureSvg(el, width, height);
+          svg.replaceChildren();
+          const drawn = drawer.draw(tree, svg, currentTheme());
+          const target = (drawn ?? svg) as SVGSVGElement;
+          if (target !== svg) el.replaceChildren(target);
+          target.setAttribute('width', String(width));
+          target.setAttribute('height', String(height));
+          if (!target.getAttribute('viewBox')) {
+            target.setAttribute('viewBox', `0 0 ${width} ${height}`);
+          }
         },
-        () => renderFallback(el, smiles),
+        (e: unknown) => {
+          console.error('[ChemStructure] SMILES 解析失败:', smiles, e);
+          renderFallback(el, smiles);
+        },
       );
-    } catch {
+    } catch (err) {
+      console.error('[ChemStructure] 渲染失败:', smiles, err);
       renderFallback(el, smiles);
     }
   }
