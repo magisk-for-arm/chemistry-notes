@@ -85,6 +85,11 @@ docs/superpowers/             # 设计文档与实现计划（过程资料，非
 - 渲染参数（`autoFit`、`maxWidth`、间距等）在 `MarkmapView.astro` 的 `Markmap.create` 中调整。
 - 思维导图页不显示右侧目录（`KnowledgeLayout` 中 `hasToc = section !== 'mindmap'`）。
 
+### 插入化学结构图
+
+- 用 `<ChemStructure smiles="..." caption="..." />` 渲染结构式（组件在 `src/components/ChemStructure.astro`，基于 smiles-drawer 客户端渲染，自动跟随亮暗主题重绘）。
+- **SMILES 必须先经外部渲染器验证**（如 PubChem PUG-REST）再入库，禁止凭记忆书写；非常规结构（如 $\ce{N8}$、晶胞）SMILES 无法表达时，改用 `<img>` 引用 `public/images/` 下的静态 SVG。
+
 ## 内容规范
 
 Frontmatter schema 定义在 `src/content.config.ts`，字段如下：

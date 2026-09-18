@@ -13,6 +13,7 @@ updated: "2026-09-14"
 import ExampleCard from '@/components/ExampleCard.astro';
 import Reveal from '@/components/Reveal.astro';
 import Callout from '@/components/Callout.astro';
+import ChemStructure from '@/components/ChemStructure.astro';
 
 <Callout type="note" title="使用指南">
 
@@ -56,3 +57,6 @@ import Callout from '@/components/Callout.astro';
 
 </Reveal>
 </ExampleCard>
+
+<!-- 结构式：把 SMILES 传给 ChemStructure（SMILES 须先用 PubChem 等外部渲染器验证，再入库） -->
+<!-- <ChemStructure smiles="CCO" caption="乙醇" /> -->
