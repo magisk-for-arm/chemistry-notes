@@ -22,7 +22,8 @@
     "markmap-lib": "^0.18.12",
     "markmap-view": "^0.18.12",
     "rehype-katex": "^7.0.1",
-    "remark-math": "^6.0.0"
+    "remark-math": "^6.0.0",
+    "smiles-drawer": "^2.4.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
