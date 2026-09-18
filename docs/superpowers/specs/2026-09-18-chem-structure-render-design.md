@@ -47,8 +47,10 @@
 
 ## 7. 风险与兜底
 
-1. SmilesDrawer 对「5 个芳香氮」的五唑解析可能不完美 → 计划含渲染验证步骤；异常时回退非芳香式 SMILES `[N-]=[N+]=NN1N=NN=N1`；仍异常则该用例改用预渲染静态 SVG（`public/images/`），组件保留给常规分子。
-2. 包体积：min.mjs 全量引入约 700KB 级 → 接受（客户端按需加载，仅结构图页引入）；若实测构建体积异常，改 `smiles-drawer/src` 按需引入 SvgDrawer（不在本次范围）。
+1. ~~SmilesDrawer 对「5 个芳香氮」的五唑解析可能不完美~~ → **实际结论（2026-09-18 实测）**：芳香式 SMILES `[N-]=[N+]=Nn1nnnn1` 解析与渲染均正常；此前的「渲染失败」实为组件 bug——`SvgDrawer.draw` 的第二参数必须是 `<svg>` 元素（传 `<div>` 会抛 "Second argument was not an SVG"），且需显式设置 SVG 尺寸/viewBox，否则宽高为 0。已修复（commit 2e6bff3）。**未使用静态图兜底**（`public/images/` 未新增）。
+2. 包体积：客户端 `ChemStructure` 脚本 188KB（构建实测），仅含结构图的页面加载；接受。
+3. 主题重绘实测：切换 `data-theme` 后 SVG 文字色由 `rgb(24,32,42)` 变为 `rgb(230,233,238)`，重绘生效。
+4. 响应式实测：桌面 360×93、移动端 272×70，均在容器内自适应。
 
 ## 8. 验证
 
