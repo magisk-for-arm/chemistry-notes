@@ -1,0 +1,238 @@
+---
+title: "硫及其化合物 · 易错点"
+topic: "nonmetal-sulfur"
+category: "mistakes"
+order: 1
+summary: "8 条高频陷阱：硫压低价、褪色三凶手、硝酸钡假阳性、碱吸双档、吸水脱水不分、浓硫酸熄火、锌酸两线、标况三氧化硫。"
+tags: ["易错点", "非金属元素"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+## 1. 硫与铁反应生成 Fe₂S₃？
+
+<MistakeCard index={1} title="照搬氯气档位写硫化物" frequency="high" tags={['氧化还原']}>
+<Callout type="wrong" title="错误示例">
+
+$2\ce{Fe + 3S ->[\Delta] Fe2S3}$；$\ce{Cu + S ->[\Delta] CuS}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+硫的氧化性**弱于氯气**（同周期比较外加实验佐证），把变价金属只压到**低价档**：铁生成 $\ce{FeS}$（$+2$）、铜生成 $\ce{Cu2S}$（$+1$）。$\ce{Fe2S3}$ 在水溶液里都不存在（$\ce{Fe^3+}$ 与 $\ce{S^2-}$ 直接氧化还原），更别想干烧烧出来。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三件套对记：$\ce{Fe ->[S] FeS}$、$\ce{Cu ->[S] Cu2S}$、$\ce{Hg + S = HgS}$（常温）；而 $\ce{Fe ->[Cl2] FeCl3}$、$\ce{Cu ->[Cl2] CuCl2}$。**「氯强硫弱、档位差一级」**是判断金属硫化物化学式的第一尺。$\ce{Al2S3}$ 却可由单质化合（铝无变价），但**水溶液中不存在**（双水解殆尽）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+看到「过量硫/过量金属」别慌——硫与金属的反应**与用量无关**（干燥体系无档位切换），产物由氧化剂强弱单方面决定。
+
+</Callout>
+</MistakeCard>
+
+## 2. SO₂ 使溴水褪色=漂白性？
+
+<MistakeCard index={2} title="三个褪色共用一张嘴" frequency="high" tags={['原理辨析']}>
+<Callout type="wrong" title="错误示例">
+
+「$\ce{SO2}$ 使溴水（或酸性高锰酸钾、FeCl₃ 溶液）褪色，体现其漂白性。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{SO2}$ 使溴水褪色是**还原性**打下的：$\ce{SO2 + Br2 + 2H2O = H2SO4 + 2HBr}$——氧化还原反应，溶液连酸性都增强了。真正显示漂白性的对象只有**品红等有机色素**（且加热复色）；使「酚酞的红色」消失是第三种原因：作为**酸性氧化物**中和了碱。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+一张表钉死：品红褪色→漂白性（可逆）；溴水/高锰酸钾/碘的淀粉液蓝色消失→**还原性**；含酚酞的 NaOH 红色褪去→**酸性氧化物通性**；紫色石蕊试液遇 $\ce{SO2}$ **只变红不褪色**（它漂不了指示剂）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+褪色类选项先问「褪色后加热/加氧化剂还能不能翻案」，再问「对手是色素还是氧化剂」，两问定凶手。
+
+</Callout>
+</MistakeCard>
+
+## 3. SO₂ 通入 BaCl₂ 也有沉淀？
+
+<MistakeCard index={3} title="把钡盐溶液一律当检验液" frequency="high" tags={['离子反应', '陷阱']}>
+<Callout type="wrong" title="错误示例">
+
+「$\ce{SO2}$ 通入 $\ce{BaCl2}$ 溶液产生白色沉淀 $\ce{BaSO3}$」；「通入 $\ce{Ba(NO3)2}$ 溶液现象相同」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{SO2 + H2O <=> H2SO3}$，若生成 $\ce{BaSO3}$ 必同时放出 $\ce{HCl}$——**弱酸制强酸的反向反应不能发生**（盐酸会立刻把亚硫酸钡溶回去），所以 $\ce{BaCl2}$ 溶液中**无明显现象**（与 $\ce{CO2}$ 同规则）。换成 $\ce{Ba(NO3)2}$ 就翻车：溶解的 $\ce{SO2}$ 使溶液显酸性，$\ce{NO3-}$ 在酸性条件下把 $+4$ 硫**氧化成 $+6$**——出来的沉淀是 $\ce{BaSO4}$，不溶于酸！
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+分四笔记牢：$\ce{SO2 ->[\ce{BaCl2}]}\ $ 无沉淀；$\ce{SO2 ->[\ce{Ba(NO3)2}]}\ \ce{BaSO4}$ ↓（氧化型沉淀）；$\ce{SO2 ->[\ce{Ba(OH)2}]}\ \ce{BaSO3}$ ↓（碱吸收，加酸又溶）；先通 $\ce{NH3}$ 再通 $\ce{SO2}$ 入 $\ce{BaCl2}$ 也会沉淀（碱性环境生成正盐）。$\ce{SO3}$ 通入任意钡盐都出 $\ce{BaSO4}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「无沉淀」也是重要信息——判断「$\ce{CO2}$ 与 $\ce{SO2}$ 混合气能否用饱和 $\ce{NaHCO3}$ 除杂」「某气体使石灰水变浑浊是否必为 $\ce{CO2}$」类题都靠这组账。
+
+</Callout>
+</MistakeCard>
+
+## 4. 过量 SO₂ 通入 NaOH 得 Na₂SO₃？
+
+<MistakeCard index={4} title="碱吸双档记反方向" frequency="high" tags={['离子反应', '量判断']}>
+<Callout type="wrong" title="错误示例">
+
+"$\ce{SO2}$ 过量：$\ce{SO2 + 2OH- = SO3^2- + H2O}$。"
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+方向记反了。**少量** $\ce{SO2}$（碱相对多）走到正盐 $\ce{SO3^2-}$；**过量** $\ce{SO2}$ 继续与 $\ce{SO3^2-}$ 结合水生成酸式盐：$\ce{SO3^2- + SO2 + H2O = 2HSO3-}$，总反应 $\ce{SO2 + OH- = HSO3-}$。与 $\ce{CO2/NaOH}$、$\ce{SO2}$ 氨水吸收同族三档。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+比值定档：$n(\ce{SO2}):n(\ce{NaOH})$ 小于 $1:2$ 停在 $\ce{SO3^2-}$（还有余碱）、$1:2$ 恰好正盐、$1:1$ 恰好酸式、中间双盐并存（联立两条守恒解）。工业「亚钠—硫酸钠法」脱硫就是让吸收液在 $\ce{Na2SO3/NaHSO3}$ 之间来回倒腾。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+图像题横坐标是通气量时，先标两个拐点（$1:2$ 与 $1:1$）再谈导电性与离子浓度变化——拐点是「档位换嘴」的证据。
+
+</Callout>
+</MistakeCard>
+
+## 5. 吸水性=脱水性？H₂S 不能干是因为酸碱？
+
+<MistakeCard index={5} title="浓硫酸两吸一线之差" frequency="medium" tags={['概念辨析']}>
+<Callout type="wrong" title="错误示例">
+
+「浓硫酸使蔗糖炭化体现吸水性」；「浓硫酸不能干燥 $\ce{H2S}$ 因为二者发生酸碱反应」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+**吸水性**吸收的是**现成的水**（空气水汽、结晶水）——物理+水合过程；**脱水性**是把化合物里的 H、O **按 2:1 强拆成水**——化学变化（蔗糖炭化、纸张碳化均属此）。而 $\ce{H2S}$ 与浓硫酸不干的真因是**氧化还原**：$\ce{H2S + H2SO4(浓) = S v + SO2 + 2H2O}$——低价硫遇高价硫，价态归中去了，源笔记标成「酸碱反应」属概念错位。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+不可干名单两条原因分开背：碱性气体（$\ce{NH3}$）→ 酸碱；**还原性**气体（$\ce{H2S}$、$\ce{HI}$、$\ce{HBr}$）→ 氧化还原。$\ce{SO2}$、$\ce{CO2}$、$\ce{Cl2}$、$\ce{H2}$、$\ce{O2}$、$\ce{CO}$、$\ce{CH4}$ 都可用浓硫酸干燥。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「胆矾遇浓硫酸变白」考吸水性（抢结晶水）、「蓝色石蕊试纸先红后黑」考脱水性+酸性——找「水原本存不存在」即可判。
+
+</Callout>
+</MistakeCard>
+
+## 6. 6.4 g 铜与 20 mL 18.4 mol/L 浓硫酸到底放多少 SO₂？
+
+<MistakeCard index={6} title="浓硫酸反应按满算" frequency="high" tags={['计算', '实验']}>
+<Callout type="wrong" title="错误示例">
+
+$6.4\ \mathrm{g}$ 铜与 $20\ \mathrm{mL}\ 18.4\ \mathrm{mol/L}$ 浓硫酸共热，「按方程 $n(\ce{SO2}) = n(\ce{Cu}) = 0.1\ \mathrm{mol}$，标况 $2.24\ \mathrm{L}$」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+账面上硫酸大大过量（需 $0.2\ \mathrm{mol}$、实有 $0.368\ \mathrm{mol}$），似乎铜能跑满。但反应**生成水且消耗硫酸**，浓度降到阈值后「**不浓不热不反应**」——反应中途熄火：放出的 $\ce{SO2}$ 必**小于**理论上限 $0.1\ \mathrm{mol}$（标况 $2.24\ \mathrm{L}$），**且有铜剩余**，溶液里还留着稀酸。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+「理论值—实际值」句式作答：按铜满算上限 $2.24\ \mathrm{L}$，实际偏小（余铜、余稀酸）。与「$\ce{MnO2 +}$ 浓盐酸」「$\ce{Cu +}$ 浓硝酸变稀」并成熄火三兄弟（见本站「氯及其化合物」例题二）——**凡靠浓度维持的反应，满算必偏大**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+$N_A$ 题「一定量铜与一定量浓硫酸反应转移电子数」先判「恰好」二字：没说恰好就有熄火戏份，选「小于」。
+
+</Callout>
+</MistakeCard>
+
+## 7. 锌与硫酸：浓放 SO₂ 稀放 H₂，那浓变稀呢？
+
+<MistakeCard index={7} title="只记一条氧化线" frequency="medium" tags={['氧化还原', '计算']}>
+<Callout type="wrong" title="错误示例">
+
+「锌与浓硫酸共热，气体产物纯净为 $\ce{SO2}$；随反应进行气体只是变少而已。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+浓硫酸的氧化性在 $+6$ 硫（放 $\ce{SO2}$）；变稀之后氧化性换人——$\ce{H+}$ 上岗，锌与稀硫酸放 $\ce{H2}$。所以**一份硫酸一路跟下来，气体是 $\ce{SO2}$ 与 $\ce{H2}$ 的混合**（$1:1$ 的锌盐都是 $\ce{ZnSO4}$）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+两问两答：问「产物种类」——先浓后稀双气体；问「定量」——$\ce{Zn}$ 守恒定 $\ce{ZnSO4}$、电子守恒配两气体比例（$\ce{SO2}$ 收 $2e$、$\ce{H2}$ 收 $2e$，每摩尔都对 $1\ \mathrm{mol}$ 锌）。铜却无此待遇：**稀硫酸不与铜反应**，铜系只有 $\ce{SO2}$ 一条线加熄火尾巴。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+金属活动性表在氢前（Zn、Fe）→ 稀酸放氢路线存在，浓变稀必切换；氢后（Cu、Ag）→ 只会熄火。判断从表的分区开始。
+
+</Callout>
+</MistakeCard>
+
+## 8. 标况下 22.4 L SO₃ 即 1 mol？
+
+<MistakeCard index={8} title="三氧化硫状态想当然" frequency="high" tags={['气体摩尔体积', 'N_A']}>
+<Callout type="wrong" title="错误示例">
+
+「标准状况下 $22.4\ \mathrm{L}\ \ce{SO3}$ 的分子数为 $N_A$」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{SO3}$ 熔点 $16.8\ \mathrm{^{\circ}C}$——**标况（0 ℃）它是无色固体**，气体摩尔体积对它不适用（同族陷阱：标况的 $\ce{H2O}$、$\ce{CCl4}$、乙醇、己烷皆非气体）。$N_A$ 题「状态审查」名单里 $\ce{SO3}$ 是近年新增常客。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+「$80\ \mathrm{g}\ \ce{SO3}$（任何状态）含分子数 $N_A$」按质量算永远成立；一旦给**体积**先问温度状态。同理「$2\ \mathrm{mol}\ \ce{SO2}$ 与 $1\ \mathrm{mol}\ \ce{O2}$ 催化化合得 $2N_A$ 个 $\ce{SO3}$」错在**可逆**（关联本站「阿伏加德罗常数」常见错误清单）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见体积先查三件事：是不是气体、是不是标况、可不可能反应停在中途。三关全过才配用 $22.4\ \mathrm{L/mol}$。
+
+</Callout>
+</MistakeCard>

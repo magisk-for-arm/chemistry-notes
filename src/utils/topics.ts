@@ -108,6 +108,15 @@ export const topics: TopicMeta[] = [
     summary: '价态阶梯、NO/NO₂ 补氧计算、氨与喷泉、铵盐检验、硝酸两档氧化性与混合酸限量',
     tags: ['非金属元素', '氧化还原'],
   },
+  {
+    slug: 'nonmetal-sulfur',
+    subject: 'chemistry',
+    title: '硫及其化合物',
+    icon: '🌋',
+    order: 26,
+    summary: 'SO₂ 四重身份与褪色三机理、浓硫酸三性、SO₄²⁻ 检验、酸雨与含硫信息题',
+    tags: ['非金属元素', '氧化还原'],
+  },
 ];
 
 export const sectionMeta = {

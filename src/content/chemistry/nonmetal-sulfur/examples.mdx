@@ -1,0 +1,191 @@
+---
+title: "硫及其化合物 · 典型例题"
+topic: "nonmetal-sulfur"
+category: "examples"
+order: 5
+summary: "5 道典型例题：褪色归因选择、铜与浓硫酸熄火判断、酸雨 pH 追踪、SO₂/CO₂ 检验链、硫代硫酸钠双面孔压轴。"
+tags: ["例题", "非金属元素", "计算"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一训练「褪色归因」这一硫章第一考点；例题二与氯章例题二同款熄火逻辑（自测是否迁移成功）；例题三是酸雨教材实验的数字化版；例题四是检验链的标准答卷；例题五是信息题通法「先定价态」的示范。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：褪色归因（easy）
+
+<ExampleCard title="三管褪色三种命" difficulty="easy">
+
+$\ce{SO2}$ 分别通入：① 品红溶液；② 酸性 $\ce{KMnO4}$ 溶液；③ 滴有酚酞的 $\ce{NaOH}$ 溶液。三管均褪色，原因依次是（　　）
+
+- A．漂白性、漂白性、漂白性
+- B．漂白性、还原性、酸性氧化物通性
+- C．氧化性、还原性、漂白性
+- D．漂白性、氧化性、酸性氧化物通性
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：B">
+
+①与品红**化合**成不稳定无色物（加热复红——漂白性）；②$\ce{SO2}$ 被 $\ce{MnO4-}$ 氧化、紫色褪去（**还原性**，$5\ce{SO2 + 2MnO4- + 2H2O = 2Mn^2+ + 5SO4^2- + 4H+}$）；③$\ce{SO2}$ 作酸性氧化物耗掉 $\ce{OH-}$，酚酞退回无色态（**酸性**，加碱又红）。
+
+</Callout>
+
+<Callout type="why" title="验证设计">
+
+给①加热复红、给②补测溶液增酸、给③滴回 $\ce{NaOH}$——三个「反悔实验」正是三机理的判据。选择题没有反悔实验时，就按「对手是谁」分类。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** $\ce{SO2}$ 通入紫色石蕊试液，现象是？
+
+**答案**：**只变红不褪色**——$\ce{SO2}$ 的漂白有「择客」性，只对品红等有机色素有效，酸碱指示剂它漂不动（氯水则先红后褪，两相对照）。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：铜与浓硫酸的熄火（medium）
+
+<ExampleCard title="6.4 g 铜与 20 mL 18.4 mol/L 浓硫酸" difficulty="medium" source="改编 · 原型：铜与浓硫酸反应限度判断">
+
+$6.4\ \mathrm{g}\ \ce{Cu}$（$0.10\ \mathrm{mol}$）与 $20\ \mathrm{mL}\ 18.4\ \mathrm{mol/L}$ 浓硫酸（$0.368\ \mathrm{mol}$）共热充分反应。甲同学：「按方程 $\ce{Cu -> SO2}$ 为 $0.10\ \mathrm{mol}$，标况 $2.24\ \mathrm{L}$，酸还余 $0.168\ \mathrm{mol}$。」请指出错误并给出正确区间；说明如何验证反应后烧瓶中确有铜剩余。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="账面账与实际账">
+
+账面：$\ce{Cu + 2H2SO4(浓) ->[\Delta] CuSO4 + SO2 ^ + 2H2O}$，$0.10\ \mathrm{mol}$ 铜耗酸 $0.20\ \mathrm{mol}$，酸名义大过量——甲的思路似乎无懈可击。
+
+实际：反应**生成水、吃掉硫酸**，浓度跌到阈值即「不浓不热不反应」，中途熄火：**铜有剩余、酸有余而稀**，$\ce{SO2}$ 介于 $0$ 与 $0.10\ \mathrm{mol}$ 之间（标况 $< 2.24\ \mathrm{L}$）。$0.168\ \mathrm{mol}$ 的「余酸」连同未反应的铜一起留在瓶中。
+
+</Callout>
+
+<Callout type="right" title="验余铜的操作">
+
+冷却后把混合物**缓缓倒入少量水中**（防暴沸、酸液飞溅），底部若有**红色不溶固体**即余铜；或取上层清液加锌粒看是否放 $\ce{H2}$（证余酸）。**切勿直接向烧瓶加水**——浓硫酸残液遇水暴沸。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若金属换成 $6.5\ \mathrm{g}$ 锌（$0.10\ \mathrm{mol}$）与等量浓硫酸共热，气体还是「小于 $2.24\ \mathrm{L}$ 的 $\ce{SO2}$」吗？
+
+**答案**：气体**总量仍约 $0.10\ \mathrm{mol}$**（$2.24\ \mathrm{L}$），但成分是 $\ce{SO2}$ 与 $\ce{H2}$ 的**混合物**——锌太活泼，硫酸变稀后放氢线无缝接档（铜系则直接熄火）。每 mol 气体都对应 2 mol 电子，电子守恒不撒谎。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：酸雨的 pH 追踪（medium）
+
+<ExampleCard title="刚下的雨为何越放越酸" difficulty="medium" source="改编 · 原型：酸雨放置过程 pH 变化测定">
+
+某工厂区采集的雨水，刚测得 $\text{pH} = 4.8$；敞口放置数日，$\text{pH}$ 逐日降至 $3.4$ 后**不再变化**。回答：（1）该雨水是否属于酸雨？（2）解释 $\text{pH}$ 下降与「止跌」的原因，写关键方程式；（3）提出一条源头治理措施并写相关方程式。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="下降段：弱酸在变强酸">
+
+（1）$\text{pH} < 5.6$，**是酸雨**（界线 5.6 来自 $\ce{CO2}$ 饱和溶液，与 7 无关）。（2）溶解的 $\ce{SO2}$ 生成中强酸 $\ce{H2SO3}$，放置时被空气中 $\ce{O2}$ 缓慢氧化为**强酸** $\ce{H2SO4}$，$\ce{H+}$ 浓度大涨：$$2\ce{H2SO3 + O2 = 2H2SO4}$$
+
+</Callout>
+
+<Callout type="right" title="止跌段与治理">
+
+「不再变化」说明 $\ce{H2SO3}$（还原剂）**已被氧化殆尽**——没了反应物，pH 自然封顶。（3）燃煤掺石灰固硫：$2\ce{CaCO3 + 2SO2 + O2 ->[\text{高温}] 2CaSO4 + 2CO2}$（或氨法吸收、厂气回收制酸）。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 如何用一次化学检验佐证「放置后生成了 $\ce{SO4^2-}$」？
+
+**答案**：取放置后的雨水，加**足量盐酸**酸化（排除 $\ce{SO3^2-}$、$\ce{CO3^2-}$）后再滴 $\ce{BaCl2}$ 溶液，出现**不溶白色沉淀**即含 $\ce{SO4^2-}$——标准三步检验，一步都不能省。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：SO₂ 与 CO₂ 的检验链（medium）
+
+<ExampleCard title="四瓶试剂的破案顺序" difficulty="medium" source="改编 · 原型：SO₂、CO₂ 混合气体检验装置链">
+
+验证某混合气确含 $\ce{SO2}$ 与 $\ce{CO2}$，装置依次为：A 品红 → B 酸性 $\ce{KMnO4}$（足量）→ C 品红 → D 澄清石灰水。（1）说出 A、C 两处各自的现象与结论；（2）若去掉 C，谁的结论被动摇？为什么？（3）B 中若改用 $\ce{NaOH}$ 溶液，后果是什么？
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="逐位翻译">
+
+（1）A **褪色** → 证明含 $\ce{SO2}$；C **不褪色** → 证明 $\ce{SO2}$ 已被 B 除尽（为 D 的清场证明）。（2）**$\ce{CO2}$ 的结论**被动摇——$\ce{SO2}$ 也能使石灰水变浊（$\ce{CaSO3}$ 同型沉淀），没有 C 的「除尽」背书，D 的浑浊是**冒名**还是正身无从分辨。（3）$\ce{NaOH}$ 酸碱通吃，把 $\ce{CO2}$ 一并吸收干净——D 处永远无事发生，$\ce{CO2}$ 检不出。除杂试剂必须**只欺负目标、不连坐队友**（$\ce{KMnO4}$ 专氧化 $\ce{SO2}$，不碰 $\ce{CO2}$）。
+
+</Callout>
+
+<Callout type="right" title="答题模板">
+
+「A 中品红褪色，证明有 $\ce{SO2}$；C 中品红不褪色，说明 $\ce{SO2}$ 已除尽；D 中澄清石灰水变浑浊，证明有 $\ce{CO2}$」——四段链三句证词，缺一句扣一分。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若混合气是 $\ce{CO2}$ 中混有少量 $\ce{SO2}$，要**除去** $\ce{SO2}$ 收集纯净 $\ce{CO2}$，洗气瓶里装什么？
+
+**答案**：**饱和 $\ce{NaHCO3}$ 溶液**（$\ce{SO2 + 2NaHCO3 = Na2SO3 + 2CO2 + H2O}$ 型——酸性 $\ce{H2SO3 > H2CO3}$，强酸制弱酸，反手还补 $\ce{CO2}$）；后接干燥即可。石灰水反而不行（两者都收）。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：硫代硫酸钠的双面孔（hard）
+
+<ExampleCard title="大苏打：遇酸变脸 遇氯掏电子" difficulty="hard" source="改编 · 原型：Na₂S₂O₃ 性质综合（碘量法与氧化）">
+
+硫代硫酸钠（$\ce{Na2S2O3}$，海波）中硫平均价态 $+2$。（1）写出其与稀硫酸反应的离子方程式及可观察到的两种现象；（2）与**足量氯水**反应后硫全部转入 $\ce{SO4^2-}$，求每 $1\ \mathrm{mol}\ \ce{Na2S2O3}$ 转移电子数并配平离子方程式；（3）碘量法：$2\ce{S2O3^2- + I2 = S4O6^2- + 2I-}$。用 $0.1000\ \mathrm{mol/L}\ \ce{Na2S2O3}$ 标准液滴定 $20.00\ \mathrm{mL}$ 碘待测液，耗 $20.00\ \mathrm{mL}$，求 $c(\ce{I2})$ 与终点现象。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="（1）遇酸歧化">
+
+$$\ce{S2O3^2- + 2H+ = S v + SO2 ^ + H2O}$$
+
+现象：**淡黄色浑浊（硫）+ 刺激性气体（$\ce{SO2}$）**。同液之中硫一升一降（$+2 \to 0$ 与 $+2 \to +4$）——自身氧化还原（歧化）。
+
+</Callout>
+
+<Callout type="why" title="（2）遇氯全升 +6">
+
+$1\ \mathrm{mol}\ \ce{S2O3^2-}$ 含 $2\ \mathrm{mol}$ 硫，各自 $+2 \to +6$ 失 $4e$：共失 $\boxed{8\ \mathrm{mol}\ e^-}$。配平：$\ce{S2O3^2- + 4Cl2 + 5H2O = 2SO4^2- + 8Cl- + 10H+}$（电荷 $-2 = -2$ ✓、原子自查 ✓）。氯水过量时**不再有硫沉淀**——氧化线抢在歧化线前面把 $+2$ 硫直接押到 $+6$。
+
+</Callout>
+
+<Callout type="right" title="（3）滴定终笔">
+
+$n(\ce{S2O3^2-}) = 0.1000 \times 0.02000 = 2.000 \times 10^{-3}\ \mathrm{mol} \Rightarrow n(\ce{I2}) = 1.000 \times 10^{-3}\ \mathrm{mol}$，$c(\ce{I2}) = 1.000 \times 10^{-3} / 0.02000 = \boxed{0.0500\ \mathrm{mol/L}}$。终点：**滴入最后半滴标准液，溶液蓝色恰好褪去且半分钟内不复原**（淀粉已先入待测液报蓝）。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 有人担心（1）中放的 $\ce{SO2}$ 污染环境，能否在通风良好的敞口烧杯里做该实验？速率实验「出现浑浊的时间」还准吗？
+
+**答案**：$\ce{SO2}$ 有毒，敞口不可取（应扣表面皿/在通风橱内）；且敞口会使 $\ce{SO2}$ 逸出改变体系——但浑浊计时只看硫的析出，**同一浓度对比实验误差不大**；真正要控的是温度与加入酸的瞬间同步计时。信息题里「可观测信号」的选择（浑浊时间/气体体积）常是评分点。
+
+</Reveal>
+</ExampleCard>
