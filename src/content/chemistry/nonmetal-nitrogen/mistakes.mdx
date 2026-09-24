@@ -1,0 +1,238 @@
+---
+title: "氮及其化合物 · 易错点"
+topic: "nonmetal-nitrogen"
+category: "mistakes"
+order: 1
+summary: "8 条高频陷阱：NO 收集档位、NO₂ 不是酸性氧化物、钝化≠不反应、喷泉判据窄化、铵根检验缺字、CaCl₂ 干氨、硝酸不放氢、浓硝酸变稀双气体。"
+tags: ["易错点", "非金属元素"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+## 1. NO 用排空气法收集？
+
+<MistakeCard index={1} title="给 NO 选收集方法随手排空气" frequency="high" tags={['实验基础']}>
+<Callout type="wrong" title="错误示例">
+
+「$\ce{NO}$ 密度接近空气、微溶，用向下排空气法收集。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{NO}$ 与空气中的 $\ce{O2}$ **见面即反应**（$2\ce{NO + O2 = 2NO2}$），排空气等于边收集边销毁；密度又与空气相近，即使不反应也分不开。**能排水的气体才谈溶解性，能与氧气反应的气体直接判排空气死刑**。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{NO}$ **只能排水法**；$\ce{NO2}$ 能与水反应，**只能向上排空气**。一排水一排气，恰好是「溶解性—反应性」双标准的教科书对照。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+收集装置判断题三查：查是否与空气成分反应、查是否与水反应、查密度差。三问跑完，$\ce{NO/NO2/NH3/Cl2}$ 各归各位。
+
+</Callout>
+</MistakeCard>
+
+## 2. NO₂ 是酸性氧化物？
+
+<MistakeCard index={2} title="把 NO₂ 归进酸性氧化物家族" frequency="high" tags={['概念辨析']}>
+<Callout type="wrong" title="错误示例">
+
+「$\ce{NO2}$ 与水反应生成硝酸，是酸性氧化物；$\ce{NO}$ 是其酸酐的还原形态。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+酸性氧化物的定义要求**与碱反应只生成盐和水、且价态不变**。$\ce{3NO2 + H2O = 2HNO3 + NO}$ 中氮的价态发生了歧化（$+4 \to +5$ 与 $+2$），与碱反应同样出两种盐：$2\ce{NO2 + 2NaOH = NaNO3 + NaNO2 + H2O}$——**不符合「只成盐不降价」**。$\ce{N2O5}$ 才是硝酸的酸酐，$\ce{N2O3}$ 是亚硝酸的酸酐。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{NO2}$ 既不是酸性氧化物也不是酸酐；$\ce{NO}$ 同样出局（与水、碱都不搭话，属不成盐氧化物）。判断口诀：**先查价态变不变，再谈酸性不酸性**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+$N_A$ 与概念题爱拿「$\ce{NO2}$ 是酸性氧化物」当错误选项；同类陷阱还有「$\ce{CO2/NH3}$ 溶于水导电故为电解质」（导电的是反应产物）。
+
+</Callout>
+</MistakeCard>
+
+## 3. 常温铁铝遇浓硝酸「不反应」？
+
+<MistakeCard index={3} title="把钝化说成不反应" frequency="high" tags={['原理辨析']}>
+<Callout type="wrong" title="错误示例">
+
+「常温下铁、铝与浓硝酸不反应，所以两者互不干扰可以混装。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+钝化是浓硝酸**先把金属表面氧化**、生成一层致密氧化物薄膜，膜再阻止内部继续被蚀——**先反应、后保护**，属化学变化。条件一变即破功：加热则膜毁、反应汹涌；**稀**硝酸根本不钝化，铁铝照常溶解并放 $\ce{NO}$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+标准表述：「常温下，铁、铝遇**浓**硝酸（或浓硫酸）发生**钝化**」——因此可用铝/铁槽车运送**冷的浓**硝酸。选项里删掉「浓」「常温」任一定语，句意立刻从对变错。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+凡「钝化」选项先圈两个条件词（浓度、温度），再查结论用词（「不反应」为错，「无明显现象/可用铝罐盛装」为对）。
+
+</Callout>
+</MistakeCard>
+
+## 4. 喷泉实验非氨气不可？
+
+<MistakeCard index={4} title="把喷泉判据背成气体名单" frequency="medium" tags={['实验原理']}>
+<Callout type="wrong" title="错误示例">
+
+「只有 $\ce{NH3}$、$\ce{HCl}$ 能做喷泉实验，$\ce{CO2}$ 与水不行，故该装置永远喷不起来。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+喷泉的唯一裁判是**压强差**：气体在液体中消失得足够快即可。$\ce{CO2}$ 在水中溶解慢而少（喷不起来），但把烧杯里的水换成 **$\ce{NaOH}$ 溶液**，$\ce{CO2}$ 秒没——喷泉照喷。同理 $\ce{Cl2/SO2/H2S}$ 配 $\ce{NaOH}$ 是「反应型」喷泉。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+背**配对表**而不是单气体名单：$\ce{NH3}$—水/稀酸、$\ce{HCl}$—水/$\ce{NaOH}$、$\ce{CO2/SO2/Cl2}$—$\ce{NaOH}$ 溶液。引发操作也多样：热敷、冷敷、预先挤水都只是「制造第一口负压」的手段。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+问「能否喷泉」两步：气液对得上消失速度吗？装置能引发初始压强差吗？液体喷不满再算比例账（$\ce{NO2/O2}$ 按 $4:1$ 可满瓶）。
+
+</Callout>
+</MistakeCard>
+
+## 5. 检 NH₄⁺ 只加稀 NaOH？
+
+<MistakeCard index={5} title="铵根检验丢修饰词" frequency="high" tags={['物质检验']}>
+<Callout type="wrong" title="错误示例">
+
+「向待测液加入 $\ce{NaOH}$ 溶液，将干燥红色石蕊试纸靠近管口，试纸不变蓝，证明不含 $\ce{NH4+}$。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+三处丢字：稀碱不加热时 $\ce{NH3.H2O}$ 不分解逸出，**现象为零不等于含量为零**；试纸**干燥**则氨气无从电离，永远不显色。检验题的得分点全藏在「浓、热、湿」三个修饰词里。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+取样 → 加**浓** $\ce{NaOH}$ 溶液并**加热** → **湿润**的红色石蕊试纸靠近管口变蓝（或蘸浓盐酸玻璃棒靠近出白烟）→ 含 $\ce{NH4+}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+气体检验句式模板「湿的试纸靠近口」同样适用于 $\ce{Cl2}$（淀粉 KI 试纸）、$\ce{NH3}$（红色石蕊）；描述现象要说「试纸**变**蓝」而非「试纸是蓝色」。
+
+</Callout>
+</MistakeCard>
+
+## 6. 无水 CaCl₂ 什么氨都敢干？
+
+<MistakeCard index={6} title="干燥剂通用思维撞上氨气" frequency="medium" tags={['实验基础']}>
+<Callout type="wrong" title="错误示例">
+
+「用盛有无水 $\ce{CaCl2}$ 的干燥管除去氨气中的水蒸气。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{CaCl2}$ 与 $\ce{NH3}$ 直接化合生成加合物 $\ce{CaCl2.8NH3}$——干燥剂把被干燥的气体吃了。酸性干燥剂（浓硫酸、$\ce{P2O5}$）同理与碱性氨中和。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+干燥氨只用**碱性/中性**干燥剂：碱石灰（首选）、生石灰。对照表：酸性气体（$\ce{CO2/Cl2/SO2/HCl}$）用浓硫酸或 $\ce{P2O5}$、**禁**碱石灰；$\ce{NH3}$ 反向。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「干燥剂与被干燥气体能否共存」是装置评价题的第一问；看到 $\ce{CaCl2}$ 干燥氨直接判错，理由写生成加合物。
+
+</Callout>
+</MistakeCard>
+
+## 7. 铁与稀硝酸反应放出氢气？
+
+<MistakeCard index={7} title="用盐酸思维写硝酸" frequency="high" tags={['氧化还原']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Fe + 2HNO3 = Fe(NO3)2 + H2 ^}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+硝酸的氧化性在 **$\ce{NO3-}$（+5 氮）** 身上，抢到电子的是氮不是氢：与金属反应**从不产生 $\ce{H2}$**，还原产物按浓度走 $\ce{NO2}$（浓）或 $\ce{NO}$（稀）等档位。且铁的量还决定产物价态（过量铁才停在 $\ce{Fe^2+}$）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三行表记死：足量稀硝酸 $\ce{Fe -> Fe^3+ + NO}$；铁过量 $\ce{-> Fe^2+ + NO}$（$\ce{Fe + 4HNO3(稀) = Fe(NO3)3 + NO ^ + 2H2O}$ 与 $3\ce{Fe + 8HNO3(稀) = 3Fe(NO3)2 + 2NO ^ + 4H2O}$）；常温浓硝酸——钝化，方程不写。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「硝酸 + 金属 + 氢离子」型混合酸题（盐酸提供 $\ce{H+}$、硝酸盐提供 $\ce{NO3-}$）本质仍是硝酸在氧化——先合并 $\ce{H+}$ 与 $\ce{NO3-}$ 再按 $3\ce{Cu} \sim 8\ce{H+} \sim 2\ce{NO}$ 判限量。
+
+</Callout>
+</MistakeCard>
+
+## 8. 铜与浓硝酸「一条道走到黑」？
+
+<MistakeCard index={8} title="忽略反应进程中的浓变稀" frequency="medium" tags={['实验', '计算']}>
+<Callout type="wrong" title="错误示例">
+
+「足量铜丝与**少量**浓硝酸反应，收集到的气体纯净为 $\ce{NO2}$」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+反应本身生成水、硝酸又被消耗——浓硝酸**边反应边变稀**，后半程切换为产 $\ce{NO}$ 路线：烧瓶内气体实为 $\ce{NO2}$ 与 $\ce{NO}$ 的**混合物**（红棕色中夹无色），溶液也随 $\ce{Cu^2+}$ 累积转蓝绿。反向陷阱：若硝酸**足量且始终浓**才近似全 $\ce{NO2}$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+描述现象写全：「铜片逐渐溶解，溶液变蓝，产生**红棕色（后变无色）**气体」。计算题给「总气体量 + 总量数据」时用**双守恒**（N 守恒分盐/气、电子守恒配 $\ce{NO2}/\ce{NO}$ 比例），别套单一方程式。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+与浓盐酸 + $\ce{MnO2}$ 的「熄火陷阱」同族（见本站「氯及其化合物」例题二）：**凡靠浓度维持的反应，量多必留尾巴**——做题先问「浓度还够不够格」。
+
+</Callout>
+</MistakeCard>

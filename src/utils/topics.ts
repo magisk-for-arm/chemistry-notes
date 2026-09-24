@@ -99,6 +99,15 @@ export const topics: TopicMeta[] = [
     summary: '氯水三分四离、制备四件套与熄火陷阱、漂白三体系、卤族递变与海水资源',
     tags: ['非金属元素', '氧化还原'],
   },
+  {
+    slug: 'nonmetal-nitrogen',
+    subject: 'chemistry',
+    title: '氮及其化合物',
+    icon: '🌩️',
+    order: 25,
+    summary: '价态阶梯、NO/NO₂ 补氧计算、氨与喷泉、铵盐检验、硝酸两档氧化性与混合酸限量',
+    tags: ['非金属元素', '氧化还原'],
+  },
 ];
 
 export const sectionMeta = {

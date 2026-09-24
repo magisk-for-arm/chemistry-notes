@@ -1,0 +1,197 @@
+---
+title: "氮及其化合物 · 典型例题"
+topic: "nonmetal-nitrogen"
+category: "examples"
+order: 5
+summary: "5 道典型例题：氮氧化物辨析、试管补氧计算、混合酸限量、氨氧化法制硝酸、浓变稀双气体压轴。"
+tags: ["例题", "非金属元素", "计算"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一是概念筛子，例题二练「补氧法」的画面版（试管倒扣），例题三是混合酸判限量的母题，例题四走工业链条守恒，例题五是「浓变稀」双守恒压轴。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：氮氧化物辨析（easy）
+
+<ExampleCard title="关于 NO 与 NO₂ 的说法" difficulty="easy">
+
+下列关于氮氧化物的说法正确的是（　　）
+
+- A．$\ce{NO2}$ 与水反应生成硝酸，故 $\ce{NO2}$ 是酸性氧化物
+- B．$\ce{NO}$ 可用向上排空气法或排水法收集
+- C．常温下 $\ce{NO}$ 遇空气变红棕色，说明生成了 $\ce{NO2}$
+- D．$\ce{NO2}$ 与 $\ce{N2O4}$ 的转化是物理变化
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：C">
+
+$2\ce{NO + O2 = 2NO2}$——无色变红棕色正是 $\ce{NO}$ 的「验身指纹」。A 错：$\ce{NO2}$ 与水/碱反应发生**歧化**（价态改变），不合酸性氧化物定义；B 错：$\ce{NO}$ 与氧气见面就打，**只能排水**；D 错：$2\ce{NO2 <=> N2O4}$ 有新物质生成，是**化学变化**（且是 $N_A$ 题「46 g 混合气体分子数」陷阱的根源）。
+
+</Callout>
+
+<Callout type="why" title="一词之差">
+
+「酸性氧化物」的定义里藏着「价态不变」四个字——凡「某氧化物与水生成某酸即为其酸酐」的说法，先查歧化没有。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 除去 $\ce{NO}$ 气体中混有的少量 $\ce{NO2}$，方法是？
+
+**答案**：通过盛水的洗气瓶（$\ce{NO2}$ 与水反应转为 $\ce{NO}$ 和硝酸，$\ce{NO}$ 不溶照出）——**除杂反而增加了主料**，这是氮章少见的「作弊式」好题。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：试管补氧（medium）
+
+<ExampleCard title="充满 NO₂ 的试管倒扣在水槽里" difficulty="medium" source="改编 · 原型：NO₂ 试管倒立水槽补氧实验">
+
+标准状况下，一支 $20\ \mathrm{mL}$ 充满 $\ce{NO2}$ 的试管倒立于水槽中。（1）液面稳定后上升到约多少毫升？剩余什么气体？（2）若要让液体充满整支试管，需缓缓通入标准状况下的 $\ce{O2}$ 至少多少毫升？
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="第一问：三分法">
+
+$3\ce{NO2 + H2O = 2HNO3 + NO}$：每 3 体积 $\ce{NO2}$ 只余 1 体积 $\ce{NO}$。$20\ \mathrm{mL}$ 的 $\tfrac{2}{3}$ 被「吞掉」→ 液面上升至约 $\boxed{13.3\ \mathrm{mL}}$，管内余**无色** $\ce{NO}\ 6.7\ \mathrm{mL}$（$\tfrac{20}{3}\ \mathrm{mL}$）。
+
+</Callout>
+
+<Callout type="right" title="第二问：把欠的氧补上">
+
+法一（分步）：$\ce{NO}$ 补氧走 $4\ce{NO + 3O2 + 2H2O = 4HNO3}$，需 $\ce{O2}\ = \tfrac{20}{3} \times \tfrac{3}{4} = 5\ \mathrm{mL}$。
+
+法二（总账）：全程等价于 $4\ce{NO2 + O2 + 2H2O = 4HNO3}$，$20\ \mathrm{mL}\ \ce{NO2}$ 配 $\boxed{5\ \mathrm{mL}}$。两条路殊途同归——补氧法的核心：**每个 N 最终欠 ½ 个 $\ce{O2}$**（$\ce{NO2 -> HNO3}$）。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若试管里原来是 $20\ \mathrm{mL}$ 的 $\ce{NO}$，倒扣水中液面怎样？补 $\ce{O2}$ 至充满又要多少？
+
+**答案**：$\ce{NO}$ 不溶于水，**液面纹丝不动**；补氧按 $4\ce{NO} \sim 3\ce{O2}$ 需 $\ce{O2}\ 15\ \mathrm{mL}$（先变 $\ce{NO2}$ 再溶，边补边吸）。同是 20 mL，一个升 ⅓ 管、一个死活不升——溶解性是第一个必看属性。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：混合酸限量（medium）
+
+<ExampleCard title="铜进入硫酸与硝酸的混合液" difficulty="medium" source="改编 · 原型：稀硫酸与稀硝酸混合酸溶铜">
+
+$100\ \mathrm{mL}$ 混合酸中 $c(\ce{H2SO4}) = 0.2\ \mathrm{mol/L}$、$c(\ce{HNO3}) = 0.4\ \mathrm{mol/L}$，加入 $3.2\ \mathrm{g}$ 铜粉微热使其充分反应（还原产物只有 $\ce{NO}$）。求生成 $\ce{NO}$ 在标准状况下的体积。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="离子式判缺项">
+
+离子方程式 $3\ce{Cu + 8H+ + 2NO3- = 3Cu^2+ + 2NO ^ + 4H2O}$。持仓：$n(\ce{Cu}) = 0.05$；$n(\ce{H+}) = 0.1 \times (0.2 \times 2 + 0.4) = 0.08$；$n(\ce{NO3-}) = 0.04$。
+
+按 $3:8:2$ 配平消耗：$0.08\ \mathrm{mol}\ \ce{H+}$ 只够溶 $\ce{Cu}\ 0.03\ \mathrm{mol}$、耗 $\ce{NO3-}\ 0.02\ \mathrm{mol}$（另两项均有富余）——**$\ce{H+}$ 是唯一短板**。注意硫酸根不反应，但硫酸提供的 $\ce{H+}$ 让「闲着的」$\ce{NO3-}$ 干起了硝酸的活。
+
+</Callout>
+
+<Callout type="right" title="产气量">
+
+$n(\ce{NO}) = 0.08 \times \dfrac{2}{8} = 0.02\ \mathrm{mol}$，标况 $\boxed{0.448\ \mathrm{L}}$。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若铜粉加到 $6.4\ \mathrm{g}$，$\ce{NO}$ 体积变吗？反应后还需加入多少摩尔 $\ce{H2SO4}$ 才能让余铜继续溶解（$\ce{NO3-}$ 尚有余量）？
+
+**答案**：加铜至 $0.1\ \mathrm{mol}$ 仍溶不完（上限 $0.03\ \mathrm{mol}$），产气**不变** $0.448\ \mathrm{L}$；此时 $\ce{H+}$ 已尽、余 $\ce{NO3-}\ 0.02\ \mathrm{mol}$——它封顶了后续：$0.02\ \mathrm{mol}\ \ce{NO3-}$ 最多再溶 $\ce{Cu}\ 0.03\ \mathrm{mol}$，配套 $\ce{H+}\ \tfrac{8}{3} \times 0.03 = 0.08\ \mathrm{mol}$，即需补 $\ce{H2SO4}\ \boxed{0.04\ \mathrm{mol}}$。短板会换人，先比大小再动笔。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：氨氧化制硝酸的链条（medium）
+
+<ExampleCard title="44.8 L 氨能配多少成比例的硝酸" difficulty="medium" source="改编 · 原型：氨氧化法制硝酸产量计算">
+
+工业上用氨的催化氧化法制硝酸。若以标准状况下 $44.8\ \mathrm{L}\ \ce{NH3}$ 为原料，假设氮元素完全转化、$\ce{NO}$ 循环吸收无损失，可制得质量分数 $63\%$ 的硝酸溶液多少克？
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="挂一条氮轴">
+
+$n(\ce{NH3}) = \dfrac{44.8}{22.4} = 2\ \mathrm{mol}$。链条 $\ce{NH3 -> NO -> NO2 -> HNO3}$ 中每步氮原子 $1:1$ 传递（$3\ce{NO2 + H2O}$ 步产生的 $\ce{NO}$ 循环回氧化，摊薄后仍是 $1:1$），故 $n(\ce{HNO3}) = 2\ \mathrm{mol}$，$m = 2 \times 63 = 126\ \mathrm{g}$。
+
+</Callout>
+
+<Callout type="right" title="换算溶液">
+
+$m(\text{溶液}) = \dfrac{126}{0.63} = \boxed{200\ \mathrm{g}}$。
+
+多步工业流程题的总口诀：**逐段写 $1:1$ 关系式、或直接抓元素守恒**，一步跳到终点。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若全流程氮的总利用率为 $80\%$，配成 $40\%$ 的稀硝酸可得多少克？
+
+**答案**：$n(\ce{HNO3}) = 2 \times 0.8 = 1.6\ \mathrm{mol}$，$m = 100.8\ \mathrm{g}$，溶液 $= 1008 \div 4 = \boxed{252\ \mathrm{g}}$。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：浓变稀双气体（hard）
+
+<ExampleCard title="12.8 g 铜与 0.7 mol 硝酸恰好全耗" difficulty="hard" source="改编 · 原型：铜与浓硝酸反应浓变稀双产物计算">
+
+$12.8\ \mathrm{g}$ 铜与 $0.7\ \mathrm{mol}\ \ce{HNO3}$ 溶液恰好完全反应（铜溶完、硝酸耗尽），收集到 $\ce{NO2}$ 与 $\ce{NO}$ 的混合气体 $0.3\ \mathrm{mol}$。求两种气体各自的物质的量；若将混合气体通入 $\ce{NaOH}$ 溶液恰好完全吸收，求最少 $\ce{NaOH}$ 的物质的量。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="设而不写方程式：双守恒联立">
+
+设 $n(\ce{NO2}) = x$、$n(\ce{NO}) = y$。先对账：N 守恒 $0.2 \times 2\ (\text{盐}) + 0.3\ (\text{气}) = 0.7$ 恰好自动成立——题目数据自洽，但**不产生新方程**；真正的两条独立方程是「气体总量」与「电子守恒」：
+
+$$\text{电子：}\ x + 3y = 0.2 \times 2 = 0.4 \qquad \text{总量：}\ x + y = 0.3$$
+
+</Callout>
+
+<Callout type="right" title="解与验">
+
+两式相减：$2y = 0.1 \Rightarrow \boxed{y = 0.05\ \mathrm{mol}\ (\ce{NO}),\ x = 0.25\ \mathrm{mol}\ (\ce{NO2})}$。
+
+自检：N 账 $0.4\ (\text{盐}) + 0.3\ (\text{气}) = 0.7$ ✓；电子账 $0.25 \times 1 + 0.05 \times 3 = 0.4 = n(\ce{Cu}) \times 2$ ✓。「先浓后稀」在数字上留下指纹——$0.7 : 0.3$ 介于浓路线（$4:2$）与稀路线（$8:2$）之间。
+
+</Callout>
+
+<Callout type="skill" title="碱吸收的秒算">
+
+碱吸收氮氧化物时，无论归中（$\ce{NO + NO2 + 2NaOH = 2NaNO2 + H2O}$）还是歧化（$2\ce{NO2 + 2NaOH = NaNO2 + NaNO3 + H2O}$），**每个 N 原子恰配一个 NaOH**：$n(\ce{NaOH}) = n(\text{气体总}) = \boxed{0.3\ \mathrm{mol}}$。（此时 $\ce{NO2 > NO}$ 满足全吸条件；若 $\ce{NO}$ 过量则需先补氧。）
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若铜改与「足量浓硝酸」反应（近似始终为浓），$12.8\ \mathrm{g}$ 铜放气多少摩尔？所得溶液蒸干灼烧最终得到什么固体？
+
+**答案**：$\ce{Cu ~ 2NO2}$：$0.2\ \mathrm{mol}$ 铜放 $\boxed{0.4\ \mathrm{mol}}\ \ce{NO2}$；蒸干时 $\ce{Cu(NO3)2}$ 水解+热分解一路走到 $\boxed{\ce{CuO}}$（「蒸干氯化物得氧化物、蒸干硝酸盐也得氧化物」）。
+
+</Reveal>
+</ExampleCard>
