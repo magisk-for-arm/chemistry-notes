@@ -38,7 +38,11 @@
 }
 .prose pre code { background: none; border: none; padding: 0; }
 .prose table {
+  /* 移动端宽表格滚动壳：display:block 后浏览器以匿名 table 包裹行，列对齐不受影响 */
+  display: block;
   width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-collapse: collapse;
   margin: 1.2rem 0;
   font-size: 0.94rem;
@@ -50,3 +54,13 @@
 /* KaTeX 暗色适配 */
 .katex { color: var(--text); }
 .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
+/* 行内长公式兜底：窄屏下 KaTeX 行内盒改 inline-block（inline 盒的 max-width/overflow 无效），
+   自身出横向滚动条而不撑破段落/列表项；宽屏不启用，避免 KaTeX strut 微溢出给短公式带来无意义滚动条 */
+@media (max-width: 760px) {
+  .prose :is(p, li) > .katex {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}

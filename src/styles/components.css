@@ -78,7 +78,7 @@ a.tag-badge:hover { border-color: var(--primary); color: var(--primary-strong); 
   overflow: hidden;
 }
 .callout-head { padding: 0.5rem 0.9rem; font-weight: 700; font-size: 0.9rem; }
-.callout-body { padding: 0.15rem 0.9rem 0.7rem; }
+.callout-body { padding: 0.15rem 0.9rem 0.7rem; overflow-x: auto; }
 .callout-body > :first-child { margin-top: 0.35rem; }
 .callout-body > :last-child { margin-bottom: 0.35rem; }
 .callout-wrong { border-left-color: var(--danger); background: var(--danger-soft); }
@@ -171,7 +171,7 @@ a.tag-badge:hover { border-color: var(--primary); color: var(--primary-strong); 
 .diff-easy { color: var(--success); border-color: var(--success); background: var(--success-soft); }
 .diff-medium { color: var(--warning); border-color: var(--warning); background: var(--warning-soft); }
 .diff-hard { color: var(--danger); border-color: var(--danger); background: var(--danger-soft); }
-.ex-source { font-size: 0.75rem; color: var(--text-dim); }
+.ex-source { font-size: 0.75rem; color: var(--text-dim); flex: 1 1 100%; } /* 长来源串独占一行，避免把标题挤成竖排 */
 
 /* ---------- 折叠解析 ---------- */
 .reveal { margin: 0.8rem 0 0; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); }
@@ -185,7 +185,7 @@ a.tag-badge:hover { border-color: var(--primary); color: var(--primary-strong); 
 .reveal > summary::-webkit-details-marker { display: none; }
 .reveal > summary::before { content: '▸ '; }
 .reveal[open] > summary::before { content: '▾ '; }
-.reveal-body { padding: 0.2rem 0.9rem 0.9rem; }
+.reveal-body { padding: 0.2rem 0.9rem 0.9rem; overflow-x: auto; }
 
 /* ---------- 思维导图 ---------- */
 .markmap-wrap { margin: 1.5rem 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
