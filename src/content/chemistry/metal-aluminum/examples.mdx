@@ -1,0 +1,200 @@
+---
+title: "铝及其化合物 · 典型例题"
+topic: "metal-aluminum"
+category: "examples"
+order: 5
+summary: "5 道典型例题：互滴鉴别、图像读数、合金碱溶、沉淀两解、铝热+酸溶全链压轴。"
+tags: ["例题", "金属元素", "计算"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一练「不用试剂鉴别」，例题二是图像读数基本功，例题三合金双线账，例题四体验「一题两解」，例题五把铝热反应与后续酸溶串成链。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：互滴鉴别（easy）
+
+<ExampleCard title="两瓶无标签的溶液" difficulty="easy">
+
+有两瓶失去标签的无色溶液，已知分别是 $\ce{AlCl3}$ 溶液与 $\ce{NaOH}$ 溶液。只用试管和胶头滴管（不许用其他试剂）如何鉴别？
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="方案">
+
+取两支试管各盛少量待测液，**互相滴加**：一支中「先产生白色沉淀、振荡后沉淀又溶解」——是**向 $\ce{AlCl3}$ 中滴 $\ce{NaOH}$ 至过量**的视角；另一支「开始滴入时久无沉淀（碱过量区），继续滴加后白色沉淀突现且不消失」——是**向 $\ce{NaOH}$ 中滴 $\ce{AlCl3}$** 的视角。两种现象属于同一对溶液的不同滴加方向，据「哪瓶里先看到沉淀」即可指认。
+
+</Callout>
+
+<Callout type="why" title="本质">
+
+$\ce{Al^3+ + 3OH- -> Al(OH)3}$ 与 $\ce{Al(OH)3 + OH- -> [Al(OH)4]-}$ 的竞争：落点处碱过量则沉淀即生即溶；铝离子过量（碱被耗完后）则沉淀积累不消。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 把这对接替为「盐酸与 $\ce{Na[Al(OH)4]}$ 溶液」，互滴现象是什么？
+
+**答案**：酸入偏铝酸盐：先白色沉淀（$\ce{[Al(OH)4]- + H+ -> Al(OH)3}$）后溶解（酸过量）；偏铝酸盐入酸：开始无沉淀（酸海直接到 $\ce{Al^3+}$），酸耗尽后沉淀突现。与「盐酸与碳酸钠互滴」完全同构，只是耗酸耗碱格数不同。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：图像读数（medium）
+
+<ExampleCard title="三段折线读出三瓶浓度" difficulty="medium" source="改编 · 原型：NaOH 滴入盐酸与氯化铝混合液图像">
+
+$100\ \mathrm{mL}$ 盐酸与 $\ce{AlCl3}$ 的混合溶液中逐滴加入 $1\ \mathrm{mol/L}\ \ce{NaOH}$ 溶液：$0 \sim 20\ \mathrm{mL}$ 无沉淀，$20 \sim 50\ \mathrm{mL}$ 沉淀逐渐增多至最大，$50 \sim 60\ \mathrm{mL}$ 沉淀恰好完全溶解。求原溶液中 $c(\ce{HCl})$ 与 $c(\ce{AlCl3})$。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="每段折线翻译成一个反应">
+
+**0~20 mL**：$\ce{H+ + OH- = H2O}$，耗碱 $20\ \mathrm{mL} \times 1\ \mathrm{mol/L} = 0.02\ \mathrm{mol}$ → $n(\ce{HCl}) = 0.02\ \mathrm{mol}$；
+
+**20~50 mL**：$\ce{Al^3+ + 3OH- = Al(OH)3 v}$，耗碱 $30\ \mathrm{mL} = 0.03\ \mathrm{mol}$ → $n(\ce{Al^3+}) = 0.01\ \mathrm{mol}$；
+
+**50~60 mL**：$\ce{Al(OH)3 + OH- = [Al(OH)4]-}$，耗碱 $10\ \mathrm{mL} = 0.01\ \mathrm{mol}$，与上一步自洽（同额沉淀）✓
+
+</Callout>
+
+<Callout type="right" title="答案">
+
+$$c(\ce{HCl}) = \frac{0.02}{0.1} = \boxed{0.2\ \mathrm{mol/L}} \qquad c(\ce{AlCl3}) = \frac{0.01}{0.1} = \boxed{0.1\ \mathrm{mol/L}}$$
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 沉淀量最大时（第 $50\ \mathrm{mL}$ 时刻），沉淀质量为多少克？溶液中 $\ce{Na+}$ 的物质的量？
+
+**答案**：沉淀 $\ce{Al(OH)3}\ 0.01\ \mathrm{mol} \times 78 = 0.78\ \mathrm{g}$；$\ce{Na+}$ 只来自已加入的碱：$0.05\ \mathrm{L} \times 1\ \mathrm{mol/L} = 0.05\ \mathrm{mol}$（钠守恒一步到位，不必清点每个溶质）。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：合金碱溶（medium）
+
+<ExampleCard title="5.1 g 铝镁合金泡进烧碱里" difficulty="medium" source="改编 · 原型：铝镁合金与酸碱放氢对比">
+
+铝镁合金粉末 $5.1\ \mathrm{g}$，加入足量 $\ce{NaOH}$ 溶液充分反应，收集到标况下气体 $3.36\ \mathrm{L}$。求：（1）合金中铝的质量分数；（2）若改加足量同浓度盐酸，充分反应后放气总体积（标况）。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="碱只吃铝——一句话破题">
+
+镁不溶于碱，$3.36\ \mathrm{L}\ \ce{H2}$（$0.15\ \mathrm{mol}$）全部记在铝头上：$2\ce{Al} \sim 3\ce{H2}$ → $n(\ce{Al}) = 0.10\ \mathrm{mol}$，$m(\ce{Al}) = 2.7\ \mathrm{g}$。
+
+$$w(\ce{Al}) = \frac{2.7}{5.1} \approx \boxed{52.9\%}$$
+
+镁：$5.1 - 2.7 = 2.4\ \mathrm{g}$，$n(\ce{Mg}) = 0.10\ \mathrm{mol}$。
+
+</Callout>
+
+<Callout type="right" title="换盐酸：两本账合并">
+
+足量酸里 $\ce{Al}$ 产氢 $1.5 \times 0.10 = 0.15\ \mathrm{mol}$，$\ce{Mg}$ 产氢 $1 \times 0.10 = 0.10\ \mathrm{mol}$，共 $0.25\ \mathrm{mol}$，标况 $\boxed{5.6\ \mathrm{L}}$。
+
+（电子守恒验算：$3 \times 0.1 + 2 \times 0.1 = 0.5\ \mathrm{mol}\ e^- = 0.25 \times 2$ ✓）
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 合金与足量氢氧化钠反应的离子方程式怎么写？氧化剂是什么？
+
+**答案**：$2\ce{Al + 2OH- + 6H2O = 2[Al(OH)4]- + 3H2 ^}$；氧化剂是**水**（氢元素 $+1 \to 0$），$\ce{OH-}$ 只负责溶解氧化膜与配合铝酸根。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：沉淀量问碱量——双答案（medium）
+
+<ExampleCard title="7.8 g 沉淀背后的两笔账" difficulty="medium" source="改编 · 原型：AlCl₃ 与 NaOH 反应两解题">
+
+向 $100\ \mathrm{mL}\ 2\ \mathrm{mol/L}\ \ce{AlCl3}$ 溶液中加入 $4\ \mathrm{mol/L}\ \ce{NaOH}$ 溶液，得到沉淀 $7.8\ \mathrm{g}$。求加入的 $\ce{NaOH}$ 溶液体积。
+
+<Reveal summary="查看解析">
+
+<Callout type="wrong" title="先警惕：这是一题两解">
+
+总铝 $n(\ce{Al^3+}) = 0.2\ \mathrm{mol}$，而沉淀 $n(\ce{Al(OH)3}) = \dfrac{7.8}{78} = 0.1\ \mathrm{mol}$，只建起「一半」——**碱不足**与**碱过量回溶**都可能是剧情。
+
+</Callout>
+
+<Callout type="formula" title="两条路线分别结账">
+
+**路线一（碱不足）**：$\ce{OH-} = 3 \times 0.1 = 0.3\ \mathrm{mol}$，$V = \dfrac{0.3}{4} = \boxed{75\ \mathrm{mL}}$；
+
+**路线二（先建满 0.2 mol 再拆回 0.1 mol）**：$\ce{OH-} = 4 \times 0.2 - 0.1 = 0.7\ \mathrm{mol}$，$V = \dfrac{0.7}{4} = \boxed{175\ \mathrm{mL}}$。
+
+</Callout>
+
+<Callout type="skill" title="公式来历">
+
+建满每摩尔铝花 $4\ \mathrm{mol}\ \ce{OH-}$（3 建 + 1 拆）；拆掉的每摩尔沉淀「省」回 $1\ \mathrm{mol}\ \ce{OH-}$——即通式 $\ce{OH^-} = 4A - n_{\text{剩}}$。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若题目改为「得到沉淀恰好不再溶解的最大值」，碱体积是多少？
+
+**答案**：最大沉淀 = 全部铝成 $\ce{Al(OH)3}$：$0.2\ \mathrm{mol}$（$15.6\ \mathrm{g}$），耗碱 $0.6\ \mathrm{mol}$ → $150\ \mathrm{mL}$；此时图像正处于拐点，再多一滴便开始回溶。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：铝热 + 酸溶全链（hard）
+
+<ExampleCard title="焊轨之后的那杯盐酸" difficulty="hard" source="改编 · 原型：铝热反应产物与盐酸反应综合">
+
+$5.4\ \mathrm{g}$ 铝粉与 $32.0\ \mathrm{g}\ \ce{Fe2O3}$ 粉末配成铝热剂，引发充分反应后，将全部固体投入足量稀盐酸中。求：（1）反应后（加盐酸前）固体的组成与总质量；（2）加盐酸后放出气体的体积（标况）；（3）最终溶液中金属阳离子及其物质的量。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="第一幕：铝热反应定过量">
+
+$2\ce{Al + Fe2O3 ->[\text{高温}] Al2O3 + 2Fe}$：$n(\ce{Al}) = 0.2$、$n(\ce{Fe2O3}) = 0.2$，$\ce{Al}$ 是限量者，耗 $\ce{Fe2O3}\ 0.1\ \mathrm{mol}$。产物：$\ce{Fe}\ 0.2\ \mathrm{mol}$（$11.2\ \mathrm{g}$）、$\ce{Al2O3}\ 0.1\ \mathrm{mol}$（$10.2\ \mathrm{g}$）、剩余 $\ce{Fe2O3}\ 0.1\ \mathrm{mol}$（$16.0\ \mathrm{g}$）。
+
+固体共 $\boxed{37.4\ \mathrm{g}}$（恰等于投料总质量——密闭反应质量守恒 ✓）。
+
+</Callout>
+
+<Callout type="right" title="第二幕：足量盐酸里重新排座次">
+
+三段账：① $\ce{Fe2O3 + 6H+ -> 2Fe^3+}$ 得 $0.2\ \mathrm{mol}\ \ce{Fe^3+}$；② $\ce{Fe + 2Fe^3+ -> 3Fe^2+}$ 吃掉铁 $0.1\ \mathrm{mol}$、生成 $\ce{Fe^2+}\ 0.3\ \mathrm{mol}$；③ 余铁 $0.1\ \mathrm{mol}$ 与酸放氢：$\ce{Fe + 2H+ = Fe^2+ + H2 ^}$ 再产 $\ce{Fe^2+}\ 0.1\ \mathrm{mol}$。
+
+（2）$n(\ce{H2}) = 0.1\ \mathrm{mol}$ → 标况 $\boxed{2.24\ \mathrm{L}}$；
+
+（3）阳离子：$\ce{Fe^2+} = 0.3 + 0.1 = \boxed{0.4\ \mathrm{mol}}$、$\ce{Al^3+} = 0.1 \times 2 = \boxed{0.2\ \mathrm{mol}}$；无 $\ce{Fe^3+}$（固体铁够多，$\ce{KSCN}$ 检验不变红）。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 全过程共消耗 $\ce{HCl}$ 多少摩尔？
+
+**答案**：按各段计：溶 $\ce{Fe2O3}$ 用 $0.6$、铁放氢用 $0.2$、溶 $\ce{Al2O3}$（$\ce{Al2O3 + 6H+ -> 2Al^3+ + 3H2O}$）用 $0.6$，共 $\boxed{1.4\ \mathrm{mol}}$。或走终态清算：溶液中 $\ce{Cl-} = 2n(\ce{FeCl2}) + 3n(\ce{AlCl3}) = 0.8 + 0.6 = 1.4\ \mathrm{mol}$ ✓ 守恒法永远快一拍。
+
+</Reveal>
+</ExampleCard>

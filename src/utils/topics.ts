@@ -81,6 +81,15 @@ export const topics: TopicMeta[] = [
     summary: '铁三角、硝酸三档配比、Fe(OH)₂ 防氧化与 Fe²⁺/Fe³⁺ 检验，附铜的联动',
     tags: ['金属元素', '氧化还原'],
   },
+  {
+    slug: 'metal-aluminum',
+    subject: 'chemistry',
+    title: '铝及其化合物',
+    icon: '🥫',
+    order: 23,
+    summary: '铝三角与互滴图像、氢氧化铝制备路线评价，附镁、海水提镁与金属冶炼',
+    tags: ['金属元素', '离子反应'],
+  },
 ];
 
 export const sectionMeta = {

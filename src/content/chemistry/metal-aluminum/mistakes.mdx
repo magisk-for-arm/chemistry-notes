@@ -1,0 +1,238 @@
+---
+title: "铝及其化合物 · 易错点"
+topic: "metal-aluminum"
+category: "mistakes"
+order: 1
+summary: "8 条高频陷阱：铝碱反应氧化剂、氨水溶沉淀幻觉、Al₂O₃ 一步水化、蒸干水解、CO₂ 产物档位、熔化不滴落、镁着火灭火、明矾杀菌误判。"
+tags: ["易错点", "金属元素"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+## 1. 铝与碱反应，NaOH 是氧化剂？
+
+<MistakeCard index={1} title="把 NaOH 当成铝碱反应的还原对象" frequency="high" tags={['氧化还原']}>
+<Callout type="wrong" title="错误示例">
+
+$2\ce{Al + 2NaOH + 2H2O = 2NaAlO2 + 3H2 ^}$ 中，$\ce{NaOH}$ 是氧化剂，被还原产生 $\ce{H2}$；每生成 $3\ \mathrm{mol}\ \ce{H2}$ 转移 $3\ \mathrm{mol}$ 电子。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{NaOH}$ 里没有任何元素降价——真正的剧情是：$\ce{Al}$ 把**水**中的 $\ce{H}$ 还原出来（$\ce{H}$ 由 $+1 \to 0$），$\ce{NaOH}$ 只负责溶解氧化膜和 $\ce{Al(OH)3}$、把产物拉进溶液使反应不中断。**还原剂 $\ce{Al}$、氧化剂 $\ce{H2O}$**。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$3\ \mathrm{mol}\ \ce{H2}$ 对应 $6\ \mathrm{mol}\ \ce{H}$ 原子各得 $1e^-$，**转移 $6\ \mathrm{mol}$ 电子**（恰等于 $2\ \mathrm{mol}\ \ce{Al}$ 各失 $3e^-$）。等量铝与足量盐酸、足量强碱产氢**相同**（都是 $2\ce{Al} \sim 3\ce{H2}$），电子账都是 $6e^-$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+$\ce{H2}$ 溯源法：气体里的氢来自**水/酸中的 H**，不来自碱中的金属；凡「铝 + 碱」电子转移题，按「$\ce{Al -> 3e- -> 3H+}$」闭环记账。
+
+</Callout>
+</MistakeCard>
+
+## 2. 过量氨水能溶解 Al(OH)₃？
+
+<MistakeCard index={2} title="认为氨水与 NaOH 一样能溶氢氧化铝" frequency="high" tags={['物质分离']}>
+<Callout type="wrong" title="错误示例">
+
+「向 $\ce{AlCl3}$ 溶液中加**过量氨水**，先生成白色沉淀后沉淀溶解。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Al(OH)3}$ 只溶于**强**酸强碱；氨水是弱碱，电离出的 $\ce{OH-}$ 浓度不足以驱动 $\ce{Al(OH)3 + OH- -> [Al(OH)4]-}$ 这一步。沉淀一旦生成就「焊死」不回头。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{Al^3+ + 3NH3\cdot H2O = Al(OH)3 v + 3NH4+}$，氨水过量沉淀**不消失**——这恰是实验室制备 $\ce{Al(OH)3}$ 的最优路线（比控制 $\ce{NaOH}$ 量容易得多）。分离 $\ce{Mg^2+}$、$\ce{Al^3+}$ 也可用过量氨水：双双沉淀则不行，须改用过量强碱过滤。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「铝盐 + 碱」先问碱的强弱：强碱看**用量**（三段：沉淀增、不变点、溶解），弱碱（氨水）只看**定量**（沉淀一步到位不再变）。
+
+</Callout>
+</MistakeCard>
+
+## 3. Al₂O₃ 能一步变成 Al(OH)₃？
+
+<MistakeCard index={3} title="写 Al₂O₃ + H₂O → Al(OH)₃" frequency="high" tags={['转化关系']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Al2O3 + 3H2O = 2Al(OH)3}$（照搬 $\ce{Na2O}$ 的水化套路）。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Al2O3}$ **不溶于水、不与水反应**（刚玉坚硬致密正是明证）。碱性氧化物加水成碱的套路（$\ce{Na2O}$、$\ce{K2O}$、$\ce{CaO}$、$\ce{BaO}$ 四员）对铝完全不适用。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{Al2O3 -> Al(OH)3}$ 必须**两步走**：先酸溶成 $\ce{Al^3+}$（或碱溶成 $\ce{[Al(OH)4]-}$），再加碱（或通 $\ce{CO2}$）沉淀。工业炼铝的「氧化铝到铝」同理只有电解一条路。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「不溶于水又不与水反应的氧化物」黑名单：$\ce{Al2O3}$、$\ce{Fe2O3}$、$\ce{CuO}$、$\ce{SiO2}$（$\ce{SiO2}$ 连酸碱都不理，只亲 $\ce{HF}$ 和强碱）。
+
+</Callout>
+</MistakeCard>
+
+## 4. 蒸干 AlCl₃ 溶液得到 AlCl₃ 固体？
+
+<MistakeCard index={4} title="忽略氯化铝的深度水解" frequency="high" tags={['盐类水解']}>
+<Callout type="wrong" title="错误示例">
+
+「加热蒸干 $\ce{AlCl3}$ 溶液并灼烧，可制得无水 $\ce{AlCl3}$。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{AlCl3 + 3H2O <=> Al(OH)3 + 3HCl}$，升温水解加剧、$\ce{HCl}$ 挥发不可回头，蒸干得 $\ce{Al(OH)3}$，灼烧后变 $\ce{Al2O3}$。与 $\ce{FeCl3}$ 是同款陷阱。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+制无水 $\ce{AlCl3}$：**干燥 $\ce{HCl}$ 气流中**蒸干，或直接由 $2\ce{Al + 3Cl2 ->[\Delta] 2AlCl3}$ 干法化合；从 $\ce{AlCl3}$ 溶液里想结晶，也要在 $\ce{HCl}$ 气氛下浓缩冷却。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「蒸干产物」判断三查：查是否水解、查水解产物酸挥不挥发、查氧化还原（$\ce{Na2SO3}$ 蒸干被空气氧化成 $\ce{Na2SO4}$ 是第三种翻车姿势）。
+
+</Callout>
+</MistakeCard>
+
+## 5. 偏铝酸盐通「过量」CO₂ 仍写 CO₃²⁻？
+
+<MistakeCard index={5} title="CO₂ 过量时产物写成碳酸根" frequency="high" tags={['离子方程式', '量判断']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{2[Al(OH)4]- + CO2(过量) = 2Al(OH)3 v + CO3^2- + H2O}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{CO2}$ 过量意味着体系酸性相对更强，碳酸根待不住——**过量 $\ce{CO2}$ 必生成 $\ce{HCO3-}$**（与 $\ce{Na2CO3}$ 溶液通足量 $\ce{CO2}$ 转 $\ce{NaHCO3}$ 同一条逻辑）。反过来，$\ce{CO2}$ 少量才允许写 $\ce{CO3^2-}$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+过量：$\ce{[Al(OH)4]- + CO2 = Al(OH)3 v + HCO3-}$；少量：$2\ce{[Al(OH)4]- + CO2 = 2Al(OH)3 v + CO3^2- + H2O}$。妙处在：**无论 $\ce{CO2}$ 多少，$\ce{Al(OH)3}$ 都不会被碳酸溶解**，沉淀符号照写。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「过量找酸式」总纲：过量 $\ce{CO2 -> HCO3-}$、过量 $\ce{SO2 -> HSO3-}$、过量酸进下一档。$\ce{[Al(OH)4]-}$ 只怕强酸，$\ce{Al(OH)3}$ 生成后通 $\ce{CO2}$ 不重溶是选择题送分点。
+
+</Callout>
+</MistakeCard>
+
+## 6. 铝箔「熔化不滴落」是因为铝没熔？
+
+<MistakeCard index={6} title="误读加热铝箔实验现象" frequency="medium" tags={['实验现象']}>
+<Callout type="wrong" title="错误示例">
+
+用酒精灯加热铝箔，铝箔熔化却不滴落，说明铝箔「未达到熔点，没有熔化」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+铝**早已熔化**（熔点 $660\ ^\circ\mathrm{C}$，酒精灯足够）；兜住液态铝的是外面那层**熔点 $2050\ ^\circ\mathrm{C}$ 的 $\ce{Al2O3}$ 薄膜**——里面是「水袋」，外面是「皮囊」。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+标准表述：铝熔化后失去光泽，熔化的铝被氧化膜包裹、「托住」而不滴落。若先砂纸打磨再加热则氧化膜迅速重建，现象依旧——**成膜永远快于熔化滴落**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+凡「熔点比较」判断题：能兜住别者的膜熔点更高。同款结构：铁表面镀锌破损后锌先牺牲（比铁活泼）、铝制容器能装冷浓酸（膜致密）。
+
+</Callout>
+</MistakeCard>
+
+## 7. 镁着火用 CO₂ 灭火器？
+
+<MistakeCard index={7} title="用二氧化碳扑灭镁火灾" frequency="medium" tags={['安全', '镁']}>
+<Callout type="wrong" title="错误示例">
+
+金属镁着火，迅速用 $\ce{CO2}$ 灭火器扑救。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+镁还原性极强，**能在 $\ce{CO2}$ 中继续燃烧**：$2\ce{Mg + CO2 ->[\text{点燃}] 2MgO + C}$——「灭火剂」反成「燃料」，还甩出高温碳粒。钠着火禁水禁 $\ce{CO2}$（超氧化物问题），镁同理。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+镁（及钠、钾等活泼金属）着火用**干燥细沙覆盖**。$\ce{Mg}$ 也能在 $\ce{N2}$ 中燃烧：$3\ce{Mg + N2 ->[\text{点燃}] Mg3N2}$，故连氮气保护都对点燃态镁无效（$\ce{Mg3N2}$ 遇水又放出 $\ce{NH3}$，一并成为流程题考点）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+燃烧三要素的例外清单：$\ce{Mg}$ 可在 $\ce{CO2}$、$\ce{N2}$ 中烧；$\ce{Fe}$ 只能在纯氧中烧；「点燃 = 与氧气反应」是初中惯性，高中要整体刷新。
+
+</Callout>
+</MistakeCard>
+
+## 8. 明矾净水 = 杀菌消毒？
+
+<MistakeCard index={8} title="把吸附沉降说成杀菌" frequency="high" tags={['STSE', '水解应用']}>
+<Callout type="wrong" title="错误示例">
+
+「明矾溶于水生成 $\ce{Al(OH)3}$ 胶体，能**杀菌消毒**、使海水淡化。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Al(OH)3}$ 胶体靠**吸附悬浮颗粒、聚沉**净水，全程无杀菌作用、更除不掉 $\ce{NaCl}$（不淡化）。有杀菌资质的是带强氧化性的成员：氯气、漂白粉、臭氧、高铁酸钾。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+规范表述：明矾 $\ce{Al^3+}$ 水解生成胶体，**吸附悬浮杂质使其沉降**。注意长期铝摄入过量与骨软化、老年痴呆风险相关，饮用水已限制含铝絮凝剂——高频判断题眼。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+净水两档分类背：「吸附沉降档」$\ce{Al(OH)3}$/$\ce{Fe(OH)3}$ 胶体；「氧化杀菌档」$\ce{Cl2}$、$\ce{ClO2}$、$\ce{K2FeO4}$（杀菌 + 产物再吸附，双料冠军）。选项混档即错。
+
+</Callout>
+</MistakeCard>
