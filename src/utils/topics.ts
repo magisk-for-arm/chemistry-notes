@@ -171,6 +171,15 @@ export const topics: TopicMeta[] = [
     summary: 'VSEPR 模型与杂化轨道、孤电子对算账、大π键与等电子体、分子极性与相似相溶、手性、配位键与配合物',
     tags: ['分子结构', '物质结构'],
   },
+  {
+    slug: 'organic-basis',
+    subject: 'chemistry',
+    title: '研究有机化合物与分类命名',
+    icon: '🌿',
+    order: 51,
+    summary: '分离提纯三法、四大波谱定结构、碳的成键与八式、同分异构计数、共面共线、官能团分类与系统命名',
+    tags: ['有机化学'],
+  },
 ];
 
 export const sectionMeta = {

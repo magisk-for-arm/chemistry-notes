@@ -1,0 +1,195 @@
+---
+title: "研究有机化合物与分类命名 · 典型例题"
+topic: "organic-basis"
+category: "examples"
+order: 5
+summary: "5 道典型例题：除杂试剂选型、波谱拼图定 C₄H₈O₂、含苯环的 C₇H₈O 类别账、共面共线选择、命名与改错综合。"
+tags: ["例题", "有机化学"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一测除杂试剂的「伤不伤主体」；例题二走完波谱拼图四步；例题三算含苯环的类别账；例题四查共面共线的口径；例题五是命名四拍与改错三步的综合。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：除杂试剂选型（easy）
+
+<ExampleCard title="四组除杂方案找可行项" difficulty="easy" source="改编 · 原型：有机物除杂与分离选择题">
+
+下列除杂（括号内为杂质）方案可行的是（　　）
+
+- A．乙醇（水）：加入新制生石灰后蒸馏
+- B．甲烷（乙烯）：通过酸性高锰酸钾溶液洗气
+- C．苯（苯酚）：加入浓溴水后过滤
+- D．乙酸乙酯（乙酸）：加入 $\ce{NaOH}$ 溶液后分液
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：A">
+
+$\ce{CaO}$ 与水生成不挥发的 $\ce{Ca(OH)2}$，再蒸馏即得无水乙醇。**B**：$\ce{KMnO4}$ 氧化乙烯的产物是 $\ce{CO2}$——旧杂未走新杂登台，应改溴水洗气；**C**：三溴苯酚溶于苯，过量的溴也留在苯里，应改 $\ce{NaOH}$ 溶液分液（苯酚成盐入水层）；**D**：$\ce{NaOH}$ 会让乙酸乙酯大量水解，应改**饱和 $\ce{Na2CO3}$** 溶液振荡分液。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+速答三组：①乙炔（$\ce{H2S}$、$\ce{PH3}$）？②苯（$\ce{Br2}$）？③乙酸乙酯（乙醇、乙酸）？
+
+<Callout type="right" title="参考答案">
+
+①$\ce{CuSO4}$ 溶液洗气；②$\ce{NaOH}$ 溶液分液（常温产物为 $\ce{NaBr}$ 与 $\ce{NaBrO}$）；③饱和 $\ce{Na2CO3}$ 溶液振荡分液。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题二：波谱拼图定结构（medium）
+
+<ExampleCard title="一块 m/z 88 的拼图" difficulty="medium" source="改编 · 原型：四大波谱联判结构">
+
+有机物 X 仅含 C、H、O。质谱分子离子峰 m/z = 88；元素分析：C 54.5%、H 9.1%、O 36.4%；红外光谱显示 C=O 与 C—O 吸收峰、**未见** O—H 吸收峰；核磁共振氢谱共 3 组峰、面积比 $3:2:3$。求 X 的分子式与结构简式。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：C₄H₈O₂，CH₃COOCH₂CH₃（乙酸乙酯）">
+
+**定式**：$N(\ce{C})=\dfrac{88\times54.5\%}{12}\approx4$、$N(\ce{H})=\dfrac{88\times9.1\%}{1}\approx8$、$N(\ce{O})=\dfrac{88\times36.4\%}{16}\approx2$ → 分子式 $\ce{C4H8O2}$（式量恰 88）。不饱和度 $\Omega=\dfrac{2\times4+2-8}{2}=1$，一个双键。**定基**：红外有 C=O、C—O 而无 O—H → 是**酯**不是羧酸。**定骨架**：3 组峰 $3:2:3$ 即 3 种氢、个数 3/2/3——两段甲基夹一个 $\ce{-CH2-}$ 接酯基：$\ce{CH3COOCH2CH3}$（乙酰基上的甲基、氧端的 $\ce{CH2}$、末端甲基互不等效）。回验：H 总数 $3+2+3=8$ ✓。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+$\ce{C4H8O2}$ 的同分异构体中：能与 $\ce{NaHCO3}$ 反应放出气体的有几种？能水解的酯又有几种？
+
+<Callout type="right" title="参考答案">
+
+羧酸 2 种（正丙基、异丙基接 $\ce{-COOH}$）；酯 4 种（甲酸丙酯 2 + 乙酸甲酯 1 + 丙酸甲酯 1）。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题三：含苯环的类别账（medium）
+
+<ExampleCard title="C₇H₈O 的五路分账" difficulty="medium" source="改编 · 原型：含苯环同分异构体分类计数">
+
+分子式为 $\ce{C7H8O}$ 且含苯环的同分异构体共几种？其中：①能与 $\ce{NaOH}$ 反应的？②能与 $\ce{Na}$ 放出 $\ce{H2}$ 的？③遇 $\ce{FeCl3}$ 显紫色的？④与 $\ce{Na}$、$\ce{NaOH}$ 均不反应的？
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：共 5 种；①3 ②4 ③3 ④1">
+
+$\Omega=\dfrac{2\times7+2-8}{2}=4$ 恰一个苯环，剩 1 个碳 1 个氧按类别三路拆分：**芳香醇**苯甲醇 $\ce{C6H5CH2OH}$ 1 种、**芳香醚**苯甲醚 $\ce{C6H5OCH3}$ 1 种、**甲基苯酚**邻/间/对 3 种，共 5 种。①只有酚羟基耗 $\ce{NaOH}$ → 3；②醇、酚的 O—H 都能被 Na 夺氢 → 3+1=4；③酚的标志反应 → 3；④只剩苯甲醚（醚键两头都不活泼）→ 1。**「遇苯环先分醇酚醚」**：苯甲醇的 $\ce{-OH}$ 连在侧链饱和碳上是醇，苯酚类的 $\ce{-OH}$ 直连苯环才是酚——一字之差，①③两问全变。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+把分子式换成 $\ce{C7H8O}$、限定「苯环上只有一个取代基」，异构体还剩几种？
+
+<Callout type="right" title="参考答案">
+
+2 种（苯甲醇、苯甲醚）——邻间对甲酚的 $\ce{-OH}$ 与 $\ce{-CH3}$ 两个取代基被排除。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题四：共面共线口径检查（medium）
+
+<ExampleCard title="四句话里挑真货" difficulty="medium" source="改编 · 原型：有机分子共面共线判断选择题">
+
+下列说法正确的是（　　）
+
+- A．甲苯分子中所有 15 个原子可以共面
+- B．苯乙烯（$\ce{C6H5-CH=CH2}$）分子中最多 16 个原子共面
+- C．丙烯（$\ce{CH2=CHCH3}$）分子中最多 6 个原子共面
+- D．2-丁炔（$\ce{CH3-C#C-CH3}$）的 4 个碳原子一定不共线
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：B">
+
+**A 否**：甲基碳是 $sp^3$ 四面体，旋转只能把**至多 1 个** C—H 摆进苯环平面——甲苯至多 13 原子共面（环 12 + 甲基碳），氢永远补不齐 15。**B 是**：苯环块 12 + 乙烯基块 6 经单键旋转到两面合一，$8\ce{C}+8\ce{H}=16$ 全部共面。**C 否**：双键刚性面已含 C1、C2、三个 H 与 C3 共 6 个，甲基再旋 1 个 H 入面 → **最多 7**。**D 否**：三键 4 原子共线的直线骨架把两端甲基碳钉在 $\ce{C-C#C-C}$ 一条线上，4 碳**一定共线**。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+甲苯分子中**一定**共面的原子有多少个？
+
+<Callout type="right" title="参考答案">
+
+13 个——苯环 12 原子是刚性的，甲基碳替掉了环上那个 H 的位置、必在面内；甲基上的 3 个氢则「至多 1 个」入面。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题五：命名与改错综合（hard）
+
+<ExampleCard title="两命名、一改错、两个特殊户" difficulty="hard" source="改编 · 原型：系统命名与名称改正综合">
+
+给出下列有机物的系统命名：①$\ce{(CH3)3CCH2CH2CH3}$；②$\ce{CH2=CHCH(CH3)2}$；③某同学把 $\ce{(CH3)2C=CHCH3}$ 命名为「3-甲基-2-丁烯」，请判断并改正；④$\ce{HOCH2CHClCH2CH2COOH}$；⑤$\ce{CH3COOCH2C6H5}$。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案">
+
+① **2,2-二甲基戊烷**——主链是折线上的 5 个碳（不是「横看」的丁烷）；② **3-甲基-1-丁烯**——主链必须含双键、双键取小位号，取代基位次只是结果；③ **错误**：双键位号从两端数都是 2，并列时轮到取代基取小 → 正名 **2-甲基-2-丁烯**；④ **3-氯-5-羟基戊酸**——羧酸居优先做母体且 $\ce{-COOH}$ 碳为 1 号，氯、羟基都降为取代基、先简后繁书写；⑤ **乙酸苯甲酯**——酯读「某酸某酯」，$\ce{-CH2C6H5}$ 是苯甲基。
+
+</Callout>
+
+<Callout type="skill" title="每题动用的军规">
+
+①主链三查（最长压倒「看着顺眼」）；②烯炔双键位号打头；③位次和规则的适用顺位（官能团 ＞ 最近端 ＞ 位次和）；④多官能团优先级链「酸＞酯＞…＞醇＞…＞烯」；⑤酯的读法。改错题先默画结构再重走四拍，十有八九错在主链或编号方向。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「2-乙基丙烷」这个名称错在哪？正名是什么？
+
+<Callout type="right" title="参考答案">
+
+错在主链：$\ce{CH3CH2CH(CH3)CH3}$ 的最长链是 4 碳不是 3 碳，「乙基」本就该住进主链——正名 **2-甲基丁烷**。凡名称里出现「1-甲基」「2-乙基」，先起疑：它们几乎都是主链没选够长的信号。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 参考来源
+
+<Callout type="note" title="参考来源">
+
+题目与解析改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并逐条勘误（口径以本知识点[概览](/chemistry/organic-basis/)页末勘误清单为准）。
+
+</Callout>
