@@ -36,6 +36,15 @@ export const topics: TopicMeta[] = [
     summary: '物质的量计算的核心，高考选择题的高频陷阱区',
     tags: ['物质的量', '气体摩尔体积', '氧化还原'],
   },
+  {
+    slug: 'matter-classification',
+    subject: 'chemistry',
+    title: '物质的组成与分类',
+    icon: '🧩',
+    order: 11,
+    summary: '分类体系、电解质、胶体与化学常识，STSE 题的地基',
+    tags: ['物质的分类', '胶体', 'STSE'],
+  },
 ];
 
 export const sectionMeta = {

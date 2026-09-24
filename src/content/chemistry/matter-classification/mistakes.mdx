@@ -1,0 +1,260 @@
+---
+title: "物质的组成与分类 · 易错点"
+topic: "matter-classification"
+category: "mistakes"
+order: 1
+summary: "8 条高频概念陷阱：纯净物、氧化物归属、电解质、胶体、俗名与颜色，逐条给出接题方法。"
+tags: ["易错点", "物质的分类", "胶体"]
+difficulty: "easy"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+下面 8 条按高频程度排列，全部出自概念辨析与 STSE 题的经典设错方式。
+
+## 1. 只含一种物质才算纯净物
+
+<MistakeCard index={1} title="把「一种元素」当成「一种物质」" frequency="high" tags={['纯净物', '同素异形体']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{O2}$ 与 $\ce{O3}$ 的混合气体只含氧元素，属于纯净物。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+纯净物的标准是**只含一种物质（一种分子/化学式）**。$\ce{O2}$ 和 $\ce{O3}$ 是两种不同的单质（同素异形体），混合后是混合物。同理「$\ce{H2O}$ 与冰」是纯净物（同种分子），「氯水」「氨水」都是混合物。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+- $\ce{O2}$ 与 $\ce{O3}$ 混合 → 混合物；$\ce{CO}$ 与 $\ce{CO2}$ 混合 → 混合物。
+- 冰水混合物 → 纯净物；胆矾 $\ce{CuSO4.5H2O}$、绿矾等**结晶水合物有固定组成 → 纯净物**。
+- 常见混合物背一批：漂白粉、碱石灰、王水、水玻璃、福尔马林、石油及其馏分、氨水、盐酸。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「一物一定」判断法**：能写出**唯一化学式**的是纯净物；写不出、或需要「A 和 B」并列表达的，一律混合物。看到「只含一种元素」先警惕——一种元素可对应多种单质。
+
+</Callout>
+</MistakeCard>
+
+## 2. 氧化物归属一刀切
+
+<MistakeCard index={2} title="非金属氧化物＝酸性氧化物、金属氧化物＝碱性氧化物" frequency="high" tags={['氧化物', '概念辨析']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{CO2}$、$\ce{CO}$、$\ce{NO2}$ 都是非金属氧化物，所以都是酸性氧化物；$\ce{Na2O2}$ 是金属氧化物，所以是碱性氧化物。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+酸性氧化物的定义是「与碱反应**只**生成对应价态盐和水」。$\ce{CO}$、$\ce{NO}$ 与酸碱都不反应（不成盐）；$\ce{NO2}$ 与 $\ce{NaOH}$ 发生歧化（$2\ce{NO2 + 2NaOH -> NaNO3 + NaNO2 + H2O}$），价态变了，不是酸性氧化物。$\ce{Na2O2}$ 与酸反应还放出 $\ce{O2}$，属于过氧化物。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+反例三连背：$\ce{CO}$、$\ce{NO}$ 不成盐；$\ce{NO2}$ 歧化不成盐；$\ce{Na2O2}$、$\ce{KO2}$ 过氧化物/超氧化物。正例加一个「跨界」：$\ce{Mn2O7}$ 是**金属**氧化物却是**酸性**氧化物（对应 $\ce{HMnO4}$）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「反应产物检验法」**：判断氧化物类型，别猜出身，直接想它与酸/碱反应的产物——**只**生成对应价态盐和水的才算；有 $\ce{O2}$、有混合价态盐、不反应的，统统不是。
+
+</Callout>
+</MistakeCard>
+
+## 3. 导电就说是电解质
+
+<MistakeCard index={3} title="把「水溶液导电」当作电解质的判据" frequency="high" tags={['电解质', '非电解质']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{SO2}$、$\ce{NH3}$ 的水溶液能导电，所以它们是电解质；$\ce{Cu}$ 能导电，所以 $\ce{Cu}$ 是电解质。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+电解质必须是**自身电离**出离子的**化合物**。$\ce{SO2}$、$\ce{NH3}$ 溶于水导电靠的是反应产物 $\ce{H2SO3}$、$\ce{NH3.H2O}$ 的电离，自身不电离，均为**非电解质**。$\ce{Cu}$ 是单质，既不是电解质也不是非电解质。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+- 非电解质常客：大多数有机物（蔗糖、乙醇）、$\ce{CO2}$、$\ce{SO2}$、$\ce{SO3}$、$\ce{NO2}$、$\ce{NH3}$、$\ce{CO}$、$\ce{NO}$。
+- 电解质与导电解耦：纯醋酸、固态 $\ce{NaCl}$ 是电解质但（纯态/固态时）不导电；$\ce{BaSO4}$ 难溶，熔融态完全电离，是**强电解质**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**三问定性质**：① 是化合物吗？（单质、混合物直接出局）② 导电的离子是**它自己**电离的吗？（产物电离→非电解质）③ 问强弱才看电离程度：完全电离＝强，部分电离＝弱，**与溶解度无关**。
+
+</Callout>
+</MistakeCard>
+
+## 4. 丁达尔效应当本质
+
+<MistakeCard index={4} title="把丁达尔效应当作胶体与溶液的本质区别" frequency="medium" tags={['胶体', '分散系']}>
+<Callout type="wrong" title="错误示例">
+
+溶液与胶体的本质区别是溶液没有丁达尔效应。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+丁达尔效应只是**鉴别手段**。三类分散系的本质区别是**分散质粒子直径**：溶液 $<1$ nm、胶体 $1\sim100$ nm、浊液 $>100$ nm。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+- 胶体粒子是许多分子或离子的**聚集体**，「1 mol $\ce{FeCl3}$ 制胶体得 $N_A$ 个胶粒」是错的（呼应阿伏加德罗常数易错点第 10 条）。
+- $\ce{FeCl3}$ 浓溶液滴入**沸水**、继续煮沸至红褐色即得 $\ce{Fe(OH)3}$ 胶体；方程式产物写「$\ce{Fe(OH)3}$（胶体）」，**不标 ↓**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见到「本质区别」找**尺寸**，见到「区别/鉴别方法」才找丁达尔。胶体方程式检查两点：不标沉淀符号、注明「（胶体）」。
+
+</Callout>
+</MistakeCard>
+
+## 5. 俗名张冠李戴
+
+<MistakeCard index={5} title="俗名与化学式对不上号" frequency="high" tags={['俗名', '化学常识']}>
+<Callout type="wrong" title="错误示例">
+
+纯碱是碱（$\ce{Na2CO3}$ 属于碱类）；胆矾是 $\ce{FeSO4.7H2O}$；绿矾是 $\ce{CoSO4.7H2O}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Na2CO3}$ 分类上是**盐**，只是水解显碱性才叫「纯碱」。结晶水合物颜色各归各家：绿矾 $\ce{FeSO4.7H2O}$（铁）、胆矾/蓝矾 $\ce{CuSO4.5H2O}$（铜蓝）、明矾 $\ce{KAl(SO4)2.12H2O}$、石膏 $\ce{CaSO4.2H2O}$、芒硝 $\ce{Na2SO4.10H2O}$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+高频对照（易错项加粗）：**碱不是碱**——纯碱、碱石灰（混合物）；**钙族**——生石灰 $\ce{CaO}$、熟石灰/消石灰 $\ce{Ca(OH)2}$、石灰石/大理石 $\ce{CaCO3}$；**混合族**——漂白粉 $\ce{Ca(ClO)2 + CaCl2}$（有效成分 $\ce{Ca(ClO)2}$）、84 消毒液（$\ce{NaClO}$）、王水（浓盐酸∶浓硝酸 $= 3:1$）、水煤气（$\ce{CO + H2}$）；**名字带矾必含结晶水**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+俗名题按「族」扫：**钠族、钙族、铜铁族、矾类、混合物类**五组各默背一遍；选项里出现「俗名＋类别」（如「纯碱属于碱」）优先怀疑类别错误。
+
+</Callout>
+</MistakeCard>
+
+## 6. 颜色记忆串线
+
+<MistakeCard index={6} title="红棕、红褐、浅绿、血红混为一谈" frequency="medium" tags={['物质颜色', '实验现象']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Fe2O3}$ 是红褐色固体；$\ce{Fe(OH)3}$ 胶体是血红色；$\ce{FeCl2}$ 溶液是黄色。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+- $\ce{Fe2O3}$：**红（棕）色**粉末（铁红颜料）；$\ce{Fe(OH)3}$ 及其胶体：**红褐色**；$\ce{Fe^3+}$ 溶液：**棕/黄色**；$\ce{Fe^2+}$ 溶液：**浅绿色**。
+- 「血红色」只属于 $\ce{Fe^3+ + KSCN}$ 的络合现象，不是任何含铁物质的颜色。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+按色族归堆：黑（$\ce{CuO}$、$\ce{FeO}$、$\ce{Fe3O4}$、$\ce{MnO2}$、C 粉）、红（$\ce{Cu}$ 紫红、$\ce{Cu2O}$ 砖红、$\ce{Fe2O3}$ 红棕、$\ce{NO2}$ 与 $\ce{Br2}$ 蒸气红棕）、黄（$\ce{AgI}$ 黄色、$\ce{AgBr}$ 与 $\ce{Na2O2}$ 与 S 淡黄色）、蓝（$\ce{Cu^2+}$ 溶液、$\ce{CuSO4.5H2O}$）、紫（$\ce{KMnO4}$、碘蒸气）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+框图推断**从颜色开题**：红棕色气体只可能是 $\ce{NO2}$（溴蒸气红棕但为液体挥发而来）；「浅绿色→黄色」的变化就是 $\ce{Fe^2+ -> Fe^3+}$ 的氧化信号；淡黄色固体三选一（S、$\ce{Na2O2}$、$\ce{AgBr}$）再看能否与水/酸反应定身份。
+
+</Callout>
+</MistakeCard>
+
+## 7. 胶体「稳定、能透过半透膜」
+
+<MistakeCard index={7} title="高估胶体的稳定性与透过性" frequency="medium" tags={['胶体', '性质']}>
+<Callout type="wrong" title="错误示例">
+
+胶体是电中性的稳定分散系，静置不会聚沉，能透过半透膜。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+胶体是**介稳体系**：同种胶粒带同种电荷互相排斥才「暂时稳定」，加入电解质、加热或加带相反电荷的胶体都会**聚沉**。胶粒直径 $1\sim100$ nm，能透过滤纸但**不能透过半透膜**（溶液可以）——这是渗析提纯胶体的依据。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三性质对应三应用：**丁达尔效应**→鉴别；**电泳**→判断胶粒带电（$\ce{Fe(OH)3}$ 胶粒吸附阳离子带正电，移向阴极）；**聚沉**→明矾净水、豆腐、江河入海口三角洲。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「胶体稳定」出现就找「介稳」二字对答案；「透过性」题画一条数轴：溶液 <1 nm、胶体 1~100 nm、浊液 >100 nm，滤纸门槛约 100 nm 以下、半透膜门槛 1 nm 以下，看图说话。
+
+</Callout>
+</MistakeCard>
+
+## 8. STSE 性质用途乱点鸳鸯谱
+
+<MistakeCard index={8} title="用途对，性质解释错（或性质对用途错）" frequency="high" tags={['STSE', '性质用途']}>
+<Callout type="wrong" title="错误示例">
+
+明矾净水利用了铝的强氧化性；$\ce{SO2}$ 漂白纸浆利用了它的氧化性；硅胶作干燥剂因为硅胶能与水发生化学反应。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+- 明矾净水：$\ce{Al^3+}$ **水解**生成 $\ce{Al(OH)3}$ 胶体**吸附**悬浮物，无氧化还原。
+- $\ce{SO2}$ 漂白：与有色物质**化合生成不稳定的无色物质**（加热复原），不是氧化；$\ce{HClO}$、$\ce{Na2O2}$、$\ce{O3}$ 的漂白才是**氧化**（不可逆）。
+- 硅胶吸水是**物理吸附**（多孔），生石灰干燥才是化学反应。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+常考对应关系默写：$\ce{Na2O2}$→供氧剂（与水/$\ce{CO2}$ 反应放 $\ce{O2}$）；$\ce{ClO2}$/$\ce{K2FeO4}$→消毒净水（强氧化性＋产物胶体）；小苏打→膨松剂/胃酸剂（受热分解产气＋与酸反应）；铁粉→食品抗氧化剂（还原性）；$\ce{BaSO4}$→钡餐（不溶不反应＋吸收 X 射线）；$\ce{Si}$→半导体、$\ce{SiO2}$→光导纤维（**这对最常被故意互换**）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+STSE 两问定正误：**①性质陈述本身对不对？②该性质能否推出该用途？**凡「$\ce{SO2}$ 漂白纸浆—氧化性」「明矾净水—氧化性」「$\ce{SiO2}$—半导体」类型的搭配，见一个杀一个。
+
+</Callout>
+</MistakeCard>
+
+## 接题方法总表
+
+| 看到什么 | 立刻要问 / 要做的 |
+|----------|------------------|
+| 「只含一种元素」 | 是否同素异形体混合？→ 混合物 |
+| 氧化物分类 | 与酸碱反应的产物**只有**盐和水吗？ |
+| 「导电＝电解质」 | 化合物？自身电离？两问缺一不可 |
+| 强/弱电解质 | 只看电离程度，不看溶解度 |
+| 胶体 | 本质看粒径；方程式标「（胶体）」不标↓ |
+| 俗名 | 按钠/钙/铜铁/矾/混合物五族默背核对 |
+| 颜色题 | 先锁「唯一颜色」的物质再展开推断 |
+| STSE | 性质对不对＋性质推得出用途吗 |
