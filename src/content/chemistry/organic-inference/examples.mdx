@@ -1,0 +1,222 @@
+---
+title: "有机反应类型与合成推断 · 典型例题"
+topic: "organic-inference"
+category: "examples"
+order: 5
+summary: "5 道典型例题：条件判型快答、隐形醛基对号（甲酸酯双线）、阿司匹林耗 NaOH 三本账、溴丙烷经丙酮仿写 HCN 路线、C9H8O3 三线合参定结构。"
+tags: ["例题", "有机化学"]
+difficulty: "hard"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一考「条件→类型」的词典熟练度；例题二用「银镜＋水解」双线索逮隐形醛基；例题三算阿司匹林与 NaOH 的三本账；例题四仿写「丙酮＋HCN 再加水解」的信息路线（由 2-溴丙烷出发）；例题五以 $\ce{C9H8O3}$ 分子式做条件—现象—定量三线合参。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：条件判型快答（easy）
+
+<ExampleCard title="给箭头报反应类型" difficulty="easy" source="改编 · 原型：有机反应类型判断">
+
+指出下列各步的反应类型：
+(1) 溴乙烷 → 乙烯（NaOH 醇溶液、△）；
+(2) 溴乙烷 → 乙醇（NaOH 水溶液、△）；
+(3) 苯 → 溴苯（液溴、FeBr₃）；
+(4) 甲苯 → 对硝基甲苯（混酸、△）；
+(5) 乙醇 → 乙醚（浓硫酸、140 ℃）；
+(6) 乙酸乙酯 → 乙酸＋乙醇（稀硫酸、△）。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="对号答案">
+
+(1) **消去**（脱 HBr 成烯，邻碳有氢）；(2) **取代（水解）**（$-\ce{Br}$ 换 $-\ce{OH}$）；(3) **取代**（苯环氢被溴换）；(4) **取代**（硝化，苯环氢被硝基换）；(5) **取代**（分子间脱水成醚——同是浓硫酸，140 ℃ 与 170 ℃ 两条心）；(6) **水解（取代）**（酯的可逆拆解）。
+
+</Callout>
+
+<Callout type="skill" title="方法提炼">
+
+判型口诀「换是取代、开是加成、脱小成烯是消去」；(5)(6) 提醒：**水解反应是取代的子集**、成醚也是取代——多选题里别把它俩漏进「其他类型」。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「乙烯使溴水褪色与甲苯使酸性高锰酸钾褪色，原理相同吗？」
+
+<Callout type="right" title="参考答案">
+
+不同：前者是**加成**（$\ce{Br2}$ 加到双键上）；后者是**氧化**（侧链 α-H 被进攻，甲苯氧化成苯甲酸类）。现象都叫「褪色」，类型天差地别。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题二：隐形醛基对号（easy-medium）
+
+<ExampleCard title="能银镜又能水解的是什么酯" difficulty="easy" source="改编 · 原型：醛基与酯基的综合推断">
+
+某有机物分子式 $\ce{C3H6O2}$，不与 Na 反应、不能使 $\ce{NaHCO3}$ 放气，但**既能发生银镜反应、又能在 NaOH 溶液中水解**。写出其结构简式并说明推理链。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="推理链">
+
+不放气、不与 Na 反应→无 $-\ce{COOH}$、无自由 $-\ce{OH}$，排除羟基酸；能水解→酯；能银镜→酯里藏醛基——**甲酸酯**是唯一「自带醛基的酯」：$\ce{HCOOC2H5}$（甲酸乙酯）。水解产物甲酸（盐）继续银镜、乙醇收工；不饱和度核账：$\Omega=(2\times3+2-6)/2=1$，正好一枚酯基的碳氧双键 ✓。
+
+</Callout>
+
+<Callout type="skill" title="方法提炼">
+
+「银镜＋水解」双线索的交集几乎总是 $\ce{HCOO}-$；候补名单还有麦芽糖（水解出葡萄糖、自己也能银镜）与葡萄糖——但分子式一卡就出局。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「同分异构体里，只能水解不能银镜的 $\ce{C3H6O2}$ 是什么？与 Na 放气的又是什么（写一种）？」
+
+<Callout type="right" title="参考答案">
+
+乙酸甲酯 $\ce{CH3COOCH3}$（正常酯、无醛基）；放气档是羧酸：丙酸 $\ce{CH3CH2COOH}$——与 $\ce{NaHCO3}$ 放气非羧基不可，只与 Na 放气的则可为含 $-\ce{OH}$ 的羟基醛等异构体（但不能水解，两问各自对号）。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题三：阿司匹林的 NaOH 三本账（medium）
+
+<ExampleCard title="1 mol 阿司匹林最多吃几 mol NaOH" difficulty="medium" source="改编 · 原型：多官能团有机物与 NaOH 定量">
+
+阿司匹林（乙酰水杨酸）结构：苯环上相邻两取代基，一边 $-\ce{COOH}$、一边酚羟基乙酰化成的酯基（$-\ce{OOCCH3}$ 挂在苯环氧上）。问 1 mol 阿司匹林与足量 NaOH 溶液最多反应消耗几 mol NaOH，产物是什么。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="逐门挂号">
+
+第一本：**羧基中和** 1 mol；第二本：**酯基水解** 1 mol——但这是**酚酯**：水解出乙酸与酚羟基；第三本：新产生的**酚羟基**再吃 1 mol。合计 **3 mol**。终产物：水杨酸的二钠盐（羧酸钠＋酚钠）＋乙酸钠＋水。
+
+</Callout>
+
+<Callout type="why" title="为什么酚酯要吃双份碱">
+
+普通酯 RCOOR′（R′ 为烷基）水解出醇，醇不吃 NaOH——共 1 mol；酚酯水解出**酚**，酚羟基立刻被 NaOH 中和——共 2 mol。「水解产物有没有酚」是 NaOH 账的分水岭（同理：苯环上的卤原子水解出酚，1 变 2）。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「1 mol 乳酸乙酯 $\ce{CH3CH(OH)COOC2H5}$ 与 NaOH 溶液反应消耗几 mol？」
+
+<Callout type="right" title="参考答案">
+
+1 mol（只有酯基水解，产物醇羟基与羟基酸的羟基都**不是**酚羟基，不再多吃；若写水解后加酸酸化才析出乳酸）。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题四：仿写 HCN 信息路线（medium-hard）
+
+<ExampleCard title="从 2-溴丙烷出发制 α-羟基异丁酸" difficulty="medium-hard" source="改编 · 原型：炔醛酮与 HCN 加成信息题">
+
+**信息**：$\ce{CH3COCH3 + HCN ->[催化剂] (CH3)2C(OH)CN ->[H2O/H+][\Delta] (CH3)2C(OH)COOH}$。
+请以 2-溴丙烷为有机原料（无机试剂任选），仿照信息合成 $\ce{(CH3)2C(OH)COOH}$（2-羟基-2-甲基丙酸），写出路线。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="设计路线">
+
+信息的本质是「**酮羰基 + HCN → 羟基腈 → 羟基酸**」，要凑出 $(\ce{CH3})2\ce{C(OH)CN}$ 必须先有**丙酮**。路线四步：
+① $\ce{CH3CHBrCH3 ->[NaOH/H2O][\Delta] CH3CH(OH)CH3}$（水解装羟基）；
+② $\ce{2CH3CH(OH)CH3 + O2 ->[Cu][\Delta] 2CH3COCH3 + 2H2O}$（仲醇催化氧化成酮）；
+③④ 照搬信息两步：HCN 加成、酸性水解。
+检查：碳数账 3→3→3→4→4（加成那步 +1 碳 ✓）；每步底物都有对应官能团资格 ✓。
+
+</Callout>
+
+<Callout type="skill" title="方法提炼">
+
+仿写题**先拆信息的「成键动作」**（本例：C=O 打开、HCN 两半一边一份），再倒推「我的原料能不能长成信息的底物样子」——正着设计、倒着收账。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「若改用乙醛为信息底物（$\ce{CH3CHO + HCN -> CH3CH(OH)CN ->[H2O/H+] }$ 最终产物），能得到什么羟基酸？」
+
+<Callout type="right" title="参考答案">
+
+乳酸 $\ce{CH3CH(OH)COOH}$（3 碳：乙醛 2 碳 + HCN 的 1 碳）——与葡萄糖发酵得的乳酸同一物质，信息题与课本在此握手。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题五：三线合参定结构（hard）
+
+<ExampleCard title="C₉H₈O₃ 的三份证词" difficulty="hard" source="改编 · 原型：有机物结构推断综合">
+
+某有机化合物 A，分子式 $\ce{C9H8O3}$，实验记录：①遇 $\ce{FeCl3}$ 溶液显紫色；②1 mol A 与足量 $\ce{NaHCO3}$ 溶液反应放出 1 mol $\ce{CO2}$；③A 能使溴的四氯化碳溶液褪色（不发生萃取分层）；④苯环上只有两个取代基且处于对位。写出 A 的结构简式，并求 1 mol A 与足量 Na 反应放出多少 mol $\ce{H2}$。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="三线并案">
+
+①→**酚羟基**；②→**一个羧基**（$\ce{NaHCO3}$ 只跟 $-\ce{COOH}$ 结账，1∶1）；③→**一枚 $\ce{C=C}$**（四氯化碳体系褪色排除酚取代与水参与氧化）；④碳架：苯环（6C）＋对位两取代基共 3C。不饱和度验账：$\Omega=(2\times9+2-8)/2=6$＝苯环 4＋$\ce{C=C}$ 1＋$-\ce{COOH}$ 中碳氧双键 1 ✓ 恰好闭合。拼装：$-\ce{OH}$ 直接上苯环占一位，剩 $\ce{C3H3O2}$ 一整块——$\ce{-CH=CH-COOH}$。
+$A$ 的结构简式为 $\ce{HO-C6H4-CH=CH-COOH}$（两取代基处于对位）。
+与 Na 账：酚羟基 1＋羚基 1＝2 个活泼氢，供 **1 mol** $\ce{H2}$。
+
+</Callout>
+
+<Callout type="why" title="为什么不是别的装法" >
+
+若把 $-\ce{OH}$ 挂到侧链（醇羟基），①的 $\ce{FeCl3}$ 显色不成立；若含两枚双键（如 $\ce{-CH2-CH=COOH}$ 类乱拼），不饱和度 7 超出分子式预算——**Ω 总数是拼装的预算红线**，超支方案一律作废。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「1 mol A 与足量 NaOH 最多消耗几 mol？与足量 $\ce{H2}$（Ni、△）加成最多消耗几 mol？」
+
+<Callout type="right" title="参考答案">
+
+NaOH：酚羟基 1＋羧基 1＝**2 mol**（侧链 $\ce{C=C}$ 不吃碱）；$\ce{H2}$：苯环 3＋侧链双键 1＝**4 mol**（羧基的碳氧双键不加氢）。同一分子三本账，试剂换、门槛换。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 参考来源
+
+<Callout type="note" title="参考来源">
+
+内容改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并勘误（口径以[概览](/chemistry/organic-inference/)页末清单为准）。
+
+</Callout>

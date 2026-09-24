@@ -207,6 +207,15 @@ export const topics: TopicMeta[] = [
     summary: '糖类氨基酸蛋白质核酸与合成高分子：葡萄糖五本账、淀粉水解双线检验、肽键脱水与组合数、加聚缩聚对照与链节倒推单体、化学品合理使用',
     tags: ['有机化学'],
   },
+  {
+    slug: 'organic-inference',
+    subject: 'chemistry',
+    title: '有机反应类型与合成推断',
+    icon: '🧩',
+    order: 55,
+    summary: '推断三要素总枢纽：反应类型判型、条件现象定量三线词典、质量暗号 M±系列、碳骨架增长缩短成环、官能团引入搬移保护基、信息方程式仿写五步',
+    tags: ['有机化学'],
+  },
 ];
 
 export const sectionMeta = {

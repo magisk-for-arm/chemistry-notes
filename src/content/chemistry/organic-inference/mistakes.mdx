@@ -1,0 +1,246 @@
+---
+title: "有机反应类型与合成推断 · 易错点"
+topic: "organic-inference"
+category: "mistakes"
+order: 1
+summary: "8 张易错卡：酚与碳酸盐放气账、苯溴代混用溴水、溴水褪色四桩案底、马氏与反马氏适用条件、格氏试剂无水生死线、羟醛缩合碳账、保护基先藏后露、酯化质量数 M+42 与 M+28。"
+tags: ["易错点", "有机化学"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+<MistakeCard index={1} title="让苯酚与 Na₂CO₃、NaHCO₃「放气泡」" frequency="high" tags={['酸性', '定量账']}>
+
+<Callout type="wrong" title="错误示例">
+
+「1 mol 苯酚与 $\ce{NaHCO3}$ 溶液反应生成 1 mol $\ce{CO2}$；苯酚与 $\ce{Na2CO3}$ 反应放出 $\ce{CO2}$。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+酸性顺序：$\ce{H2CO3 > }$ 苯酚 $\ce{> HCO3-}$。苯酚连碳酸的第一步电离都比不过，**制不出 $\ce{CO2}$**；它与 $\ce{Na2CO3}$ 只能质子交换到 $\ce{NaHCO3}$ 为止（$\ce{C6H5OH + Na2CO3 -> C6H5ONa + NaHCO3}$，无气体）；对 $\ce{NaHCO3}$ 则**不反应**。「与 $\ce{NaHCO3}$ 放气」是羧基的专利（$\ce{RCOOH + NaHCO3 -> RCOONa + CO2 ^ + H2O}$），也是区分羧酸与酚的分界试剂。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三句账背死：①$-\ce{COOH}$ 与 $\ce{NaHCO3}$ 1∶1 放气；②$-\ce{COOH}$ 与 $\ce{Na2CO3}$ 按 $2\to1$ 放气；③酚与 $\ce{Na2CO3}$ 反应**不放气**、与 $\ce{NaHCO3}$ 不反应。与 Na 放 $\ce{H2}$ 才是 $-\ce{OH}$（醇、酚）与 $-\ce{COOH}$ 的共性（2 mol 活泼氢供 1 mol $\ce{H2}$）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「分别鉴别乙醇、苯酚、乙酸」先想三档试剂：Na 全应答、$\ce{Na2CO3}$ 认乙酸与酚、$\ce{NaHCO3}$ 只认乙酸——放气门槛一次比一次高。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={2} title="用溴水给苯做溴代、说「溴水褪色证明取代」" frequency="high" tags={['苯', '实验']}>
+
+<Callout type="wrong" title="错误示例">
+
+「苯与溴水混合加入铁粉可制溴苯；苯使溴水褪色发生了取代反应。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+苯的溴代要用**纯净液溴**加 $\ce{FeBr3}$（铁粉与溴原位生成）：$\ce{C6H6 + Br2 ->[FeBr3] C6H5Br + HBr}$。溴水里水太多，$\ce{Br2}$ 浓度低且 $\ce{HBr}$ 极易溶而不引发取代；苯把溴从水里**萃取**到上层——橙红色转移、分层，是物理褪色不是化学反应。烯烃使溴的四氯化碳褪色才是加成。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三种「溴褪色」分开挂号：苯（及 $\ce{CCl4}$ 类溶剂）→**萃取**分层；烯炔→**加成**、不分层无气体；苯酚溶液→**取代**出白色沉淀（三溴苯酚）。检验苯中混有甲苯：改用**酸性 $\ce{KMnO4}$**（侧链氧化褪色），溴水查不出。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+题干见「苯＋溴水」先问「褪色方式是什么」——凡把萃取说成反应一律判错；制备溴苯的方程式里出现「溴水」两字同样是错。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={3} title="「使溴水褪色＝含碳碳双键」一票通过" frequency="high" tags={['检验', '官能团']}>
+
+<Callout type="wrong" title="错误示例">
+
+「某气体使溴水褪色，证明分子中一定含碳碳双键。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+能使溴水褪色的戶头有四：烯炔**加成**、醛基**氧化**（$\ce{CH3CHO + Br2 + H2O -> CH3COOH + 2HBr}$）、酚类**取代**出沉淀、碱液与 $\ce{SO2/H2S}$ 等无机还原剂。只盯双键会漏判醛与酚。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+补一条分界：**醛基不能使溴的四氯化碳溶液褪色**（氧化须有水参与，见上式），烯烃在两种溶剂里都褪色。故「溴水褪色、四氯化碳版不褪」指向醛基；出白色沉淀指向酚。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+推断题里「褪色」后要立刻追问三件事：有没有分层（萃取）？有没有沉淀（酚）？换四氯化碳体系还褪吗（排除醛）？三问答完再写官能团。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={4} title="马氏规则背反方向、把反马氏当万能" frequency="high" tags={['加成', '规则']}>
+
+<Callout type="wrong" title="错误示例">
+
+「$\ce{CH3CH=CH2 + HBr -> CH3CH2CH2Br}$（主要产物）」；「任何 $\ce{HX}$ 在过氧化物下都走反马氏」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+马氏规则：氢加到**含氢较多**的碳上（丙烯＋$\ce{HBr}$ 主要出 2-溴丙烷）——本质是走更稳定的中间碳正离子。过氧化物效应**只对 HBr 成立**，$\ce{HCl}$、$\ce{HI}$ 加过氧化物也不反马（机理上只有 HBr 的自由基链两步都放热）。另外 $\ce{H2}$、$\ce{Br2}$、$\ce{H2O}$（酸催化）各题各表：水合也按马氏走（丙烯→异丙醇）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{CH3CH=CH2 + HBr -> CH3CHBrCH3}$；$\ce{CH3CH=CH2 + HBr ->[过氧化物] CH3CH2CH2Br}$。写主产物前先认「对称烯烃免谈、不对称加 HX 才分主次」。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+合成题想把 $-\ce{X}$ 装到链端还是链中，正是用「马氏/反马氏」当调位旋钮：要末端溴→过氧化物条件；要中间溴→常规条件。条件一换、产物搬家。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={5} title="格氏试剂对着水溶液就下手，增长碳数账算错一位" frequency="medium" tags={['格氏试剂', '信息题']}>
+
+<Callout type="wrong" title="错误示例">
+
+「用 $\ce{CH3CH2MgBr}$ 与 $\ce{CO2}$ 反应制丙酸时，在 NaOH 水溶液介质中进行」；「$\ce{CH3CH2MgBr}$ 加甲醛得乙醇」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+格氏试剂是「超级碱」：$\ce{RMgX + H2O -> RH + Mg(OH)X}$，遇水遇醇（含活泼氢的一切）当场报废——制备与反应必须**无水乙醚**氛围，$\ce{CO2}$ 羧化后还要**酸化**（$\ce{H3O+}$）才放出羧酸。碳数账：$\ce{RMgX + CO2}$ 得 R-**COOH**（加一碳）；$\ce{+HCHO}$ 得 R-**CH2OH**（加一碳的伯醇）——产物比烃基 R 多一个碳，说「甲醛得乙醇」是把 R 与产物搞混。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{CH3CH2Br + Mg ->[无水乙醚] CH3CH2MgBr}$、$\ce{CH3CH2MgBr ->[(1) CO2][(2) H2O/H+] CH3CH2COOH}$。同理 $\ce{NaCN}$ 取代、$\ce{HCN}$ 加成都是「**加一碳**」大户：水解出羧酸、还原出胺。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+信息题见格氏试剂先写三行小字：无水、后酸化、碳加一。数碳时用「产物碳数=原料卤代烃碳数+试剂碳数」核账，差一碳全盘错。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={6} title="羟醛缩合只会「加成」，忘失水、数错碳链" frequency="medium" tags={['羟醛缩合', '信息题']}>
+
+<Callout type="wrong" title="错误示例">
+
+「两分子乙醛羟醛缩合的最终产物是 $\ce{CH3CH(OH)CH2CHO}$（到此收工），碳数 3。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+反应分两步：含 α-H 的醛先**加成**成 $\beta$-羟基醛 $\ce{CH3CH(OH)CH2CHO}$（丁醛，4 碳），受热易**失水**成 $\alpha,\beta$-不饱和醛 $\ce{CH3CH=CHCHO}$（巴豆醛）。高考信息题常直接给脱水产物——停在加成步、或把 4 碳数成 3 碳都是账错。产物侧看：新碳碳键立在「一分子的 α-碳 × 另一分子的醛基碳」之间，醛基保留、羟基在 β 位。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{2CH3CHO ->[催化剂] CH3CH(OH)CH2CHO ->[\Delta][-H2O] CH3CH=CHCHO}$。丙醛自缩合同理：$\ce{CH3CH(OH)CH(CH3)CHO}$ 型——先圈 α-碳，再把它贴到对方羰基碳上。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「稀碱/催化剂＋两分子醛、产物碳数翻倍」即认羟醛缩合；两分子不同醛「交叉缩合」最多出 4 种产物，题目要单一产物时必给一方**无 α-H**（如甲醛、苯甲醛）当只能挨打的受体。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={7} title="保护基只顾藏、忘了还原，或氧化双键前先忘了加卤素" frequency="medium" tags={['合成路线', '保护基']}>
+
+<Callout type="wrong" title="错误示例">
+
+「要把 $\ce{CH2=CHCH2OH}$ 中的羟基氧化为醛基而保留双键，直接用酸性 $\ce{KMnO4}$ 氧化即可。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+酸性 $\ce{KMnO4}$ 先断双键（氧化性无差别）。正确剧本是「**先保护、再反应、后复原**」：$\ce{C=C}$ 先加 $\ce{Br2}$（或 $\ce{HX}$）暂存成二卤代物→用温和氧化剂（如 $\ce{Cu/O2}$ 催化氧化醇羟基）→最后 $\ce{NaOH}$ 醇溶液消去**重新打开双键**。同样地：羟基怕氧化就酯化（或成醚）保护、怕强碱就成醚保护；羧基高温脱羧风险下先转酯。保护基三步走完路线才闭合，**只藏不还**等于改了结构。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+写含保护基的路线固定三段式：引入保护基（写试剂）→目标转化→脱保护复原（写条件）。检查时对着起始物与终产物数官能团：被保护的基团必须**原位复活**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+框图里出现「某步前后同一官能团消失又出现」，中间那段就是保护-还原窗口，逆推被保护的正是这条线。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={8} title="酯化质量账 M+42、M+28 张冠李戴" frequency="medium" tags={['酯化', '定量推断']}>
+
+<Callout type="wrong" title="错误示例">
+
+「某醇与乙酸酯化后相对分子质量增加 28；某酸与乙醇酯化后增加 42。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+两笔账方向相反：**醇**被乙酰化（接 $\ce{CH3CO}-$ 换掉羟基 H）：$+43-1=+42$——乙醇 46→乙酸乙酯 88 ✓；**酸**被乙酯化（接 $\ce{-CH2CH3}$ 换掉羧基 H）：$+28$——乙酸 60→乙酸乙酯 88 ✓。谁做「东道主」决定增重是 42 还是 28，恰好与直觉「乙酸两碳=28」错位。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+配套记连续氧化链：$\ce{RCH2OH -> RCHO -> RCOOH}$ 质量 $M$、$M-2$、$M+14$。框图报数对暗号：减 2 是醇→醛，加 14 是醛→酸，加 42 认醇酯化，加 28 认酸成乙酯。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+任何质量账都拿「具体分子代进去算一遍」兜底：乙酸乙酯 88 是万能验算样本（乙醇 46→88：+42；乙酸 60→88：+28），一个数定两本账。
+
+</Callout>
+
+</MistakeCard>
+
+## 参考来源
+
+<Callout type="note" title="参考来源">
+
+内容改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并勘误（口径以[概览](/chemistry/organic-inference/)页末清单为准）。
+
+</Callout>
