@@ -1,0 +1,238 @@
+---
+title: "微粒间作用力与晶体 · 易错点"
+topic: "crystal-properties"
+category: "mistakes"
+order: 1
+summary: "8 条高频陷阱：凭外形判晶体、均摊份额用错位置、融化破坏了什么、稀有气体无共价键、金属与非金属的晶体类型反例、导电性身份证、配位数三连环、金属熔点跨度。"
+tags: ["易错点", "晶体", "物质结构"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+## 1. 粉末状就是非晶体？
+
+<MistakeCard index={1} title="凭宏观外形判定晶态" frequency="medium" tags={['晶体', '非晶体']}>
+<Callout type="wrong" title="错误示例">
+
+「水晶敲碎成粉末就不再是晶体；玻璃没有规则外形，所以玻璃是晶体被破坏了结构。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+自范性（规则外形）需要**生长速率适当**这个外部条件，但晶体的本质是**微粒周期性有序排列**——粉末每颗粒子内部依旧有序，仍是晶体（只是看不到大外形）。玻璃微粒排列相对无序，本身就是非晶体，与「有没有外形」无关。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+判据分级：最可靠 **X 射线衍射**（晶体有明锐衍射峰），其次是**固定熔点**；外形只是「适宜条件下」的表现，不作为判据。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见到「玛瑙 vs 水晶」「天然水晶 vs 熔融石英玻璃」成对出现，答「晶体/非晶体」并按急冷缓冷解释成因。
+
+</Callout>
+</MistakeCard>
+
+## 2. 棱上的离子也按 1/8 摊？
+
+<MistakeCard index={2} title="均摊份额与位置不配对" frequency="high" tags={['晶胞', '均摊法']}>
+<Callout type="wrong" title="错误示例">
+
+「某立方晶胞中 B 离子占据 12 条棱的棱心，B 的数目按 $12\times\dfrac{1}{8}=\dfrac{3}{2}$ 计算。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+份额跟着**被几个晶胞共用**走：顶角被 8 个晶胞共用（1/8）、**棱心被 4 个**（1/4）、面心被 2 个（1/2）、体内独占（1）。棱心写 1/8 是把「角」的账安到「棱」头上。六方晶柱另有一套：顶/底角 1/6、顶/底面心 1/2、腰棱 1/3。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+立方晶胞口诀「**角八棱四面心二体内一**」；落笔前指着位置报共用数，别背了份额忘了场合。上例正解：$12\times\dfrac{1}{4}=3$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+推出原子数后约分成最简整数比即化学式；算完回查一遍「哪种粒子占哪种位置」，位置读错题整道崩。
+
+</Callout>
+</MistakeCard>
+
+## 3. 水汽化破坏了共价键？
+
+<MistakeCard index={3} title="物理变化与化学变化的「破坏力」串线" frequency="high" tags={['分子晶体', '共价键']}>
+<Callout type="wrong" title="错误示例">
+
+「水的沸点高，说明 H—O 共价键很强；冰融化成水破坏了共价键。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+分子晶体的**熔化/汽化只拆分子间作用力**（范德华力，含氢键时还要多拆氢键），分子内的共价键毫发无损——水电离出 $\ce{H+}$ 和 $\ce{OH-}$ 才动共价键。**两条线各管各**：共价键的强弱管「化学稳定性」（HF 比 HCl 稳定），分子间作用力管「熔沸点高低」（$\ce{H2O}$ 沸点高是氢键的功劳）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+句式背熟：「$\ce{H2O}$ 沸点高，是因为**分子间存在氢键**」；「HF 很稳定，是因为 **H—F 键能大**」。问沸点答氢键/范德华力，问稳定答键能，绝不互换。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+特例档案：$\ce{HCl}$ **溶于水**电离，破坏了共价键（化学变化视角）——「分子晶体溶于水」与「熔化」拆的力不同，看清过程再答题。
+
+</Callout>
+</MistakeCard>
+
+## 4. 分子晶体里一定有共价键？
+
+<MistakeCard index={4} title="漏掉稀有气体这个『单身户』" frequency="medium" tags={['分子晶体', '稀有气体']}>
+<Callout type="wrong" title="错误示例">
+
+「氖晶体是分子晶体，所以 Ne 分子内存在共价键（或：Ne 的沸点低说明共价键弱）。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+稀有气体是**单原子分子**：晶体里只有原子（分子）间的范德华力，**没有任何化学键**。说「分子晶体一定含共价键」被 Ne 一票否决；说「无化学键的物质不存在」也被它否决。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+两条独立账：构成微粒是分子→是分子晶体；分子内**有没有**共价键看双原子或多原子。稀有气体：有分子晶体之名，无共价键之实。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+判断题见「一定」先举稀有气体的反例，再举 $\ce{AlCl3}$/铵盐的（见卡 5）。
+
+</Callout>
+</MistakeCard>
+
+## 5. 金属+非金属＝离子晶体？
+
+<MistakeCard index={5} title="用元素组成代替成键类型判晶体" frequency="high" tags={['晶体类型', '离子化合物']}>
+<Callout type="wrong" title="错误示例">
+
+「$\ce{AlCl3}$ 由金属 Al 与非金属 Cl 组成，是离子晶体；$\ce{NH4Cl}$ 全是非金属，是分子晶体。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+判晶体类型看**微粒间的作用力**，不看户口本：$\ce{AlCl3}$ 中 Al—Cl 电负性差 1.5，实质共价键 → **分子晶体**（易升华、熔融不导电）；铵盐内是 $\ce{NH4+}$ 与 $\ce{Cl-}$ 的离子键 → **离子晶体**（含极性共价键与离子键并存）。全由非金属组成≠共价。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+骑墙档案整套背：分子晶体侧——$\ce{AlCl3}$、$\ce{BeCl2}$；离子晶体侧——一切铵盐、强碱、活泼金属氧化物；金刚石/晶体硅/$\ce{SiO2}$/SiC 站共价晶体；石墨单列**混合型**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「熔融能否导电」是最硬的实验判据：能导电→有离子（离子晶体）；不能→分子晶体（$\ce{AlCl3}$ 熔融不导电实锤其共价身份）。
+
+</Callout>
+</MistakeCard>
+
+## 6. 离子晶体什么时候都导电？
+
+<MistakeCard index={6} title="导电条件与『身份证』混淆" frequency="high" tags={['离子晶体', '导电性']}>
+<Callout type="wrong" title="错误示例">
+
+「NaCl 溶液能导电，所以 NaCl 晶体也能导电；某晶体溶于水导电，说明它是离子晶体。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+离子晶体**固态时离子被钉在格点上**，无自由移动离子→不导电；**熔融或溶于水**才有自由离子。而「溶于水导电」不作身份证：$\ce{HCl}$（分子晶体，共价化合物）水溶液也导电——它是**电离**出了离子。**熔融态导电**才是离子晶体独有的通行证（金属导电靠电子、分子晶体熔融不导电）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三态三答：固态→不导电；熔融→导电（判离子化合物的金标准）；水溶液→导电但别拿它当离子晶体的证据。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「导电」题先问「载流子是谁」：自由电子（金属）？自由离子（电解质溶液/熔融）？答离子还必须写明**电离在先**（不是通电才产生离子）。
+
+</Callout>
+</MistakeCard>
+
+## 7. 配位数三连环：6？8？12？
+
+<MistakeCard index={7} title="NaCl/CsCl 晶型与堆积概念搅成一团" frequency="high" tags={['晶胞', '配位数']}>
+<Callout type="wrong" title="错误示例">
+
+「CsCl 是体心立方堆积；NaCl 晶体中 $\ce{Na+}$ 的配位数是 8；金刚石中每个 C 与 12 个 C 相邻。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+三句各错一处：**CsCl 型不是体心立方堆积**（体心立方是同种原子的堆积方式；CsCl 是两套简单立方穿插，配位数 8 来自几何而非堆积）；**NaCl 配位数 6**（正八面体），12 是「最近**同号**离子」数（面心方向）——6/12 是两个考点两问法；**金刚石每个 C 只与 4 个 C 成键**（$sp^3$），12 属于干冰、面心金属的密堆积世界。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+一张档案卡：NaCl——配位 6∶6、同号最近 12、晶胞 4+4、核距 $\dfrac{a}{2}$；CsCl——配位 8∶8、晶胞 1+1、核距 $\dfrac{\sqrt3}{2}a$；$\ce{CaF2}$——配位数 Ca 8、F 4，晶胞 4 Ca + 8 F（$\ce{F-}$ 住满 8 个四面体空隙）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+问「等距离最近」先分**同号/异号**再报数；问晶体结构类比（「CsCl 与体心立方有何同异」）时，答晶胞计数同（2 粒子/1 化学式）、堆积概念异。
+
+</Callout>
+</MistakeCard>
+
+## 8. 金属熔点一定比非金属高？
+
+<MistakeCard index={8} title="用『一般』当『一定』安排金属" frequency="medium" tags={['金属晶体', '熔沸点']}>
+<Callout type="wrong" title="错误示例">
+
+「金属都是高熔点固体，常温下固态金属都能用酒精灯熔化；硫的熔点比铁高。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+金属熔点**跨度最大**：Hg 常温液态（$-38.9^{\circ}\mathrm{C}$）、Cs 约 $28^{\circ}\mathrm{C}$，而常温固态的 S、$\ce{I2}$（分子晶体）熔点就有百余度；另一端，钨逾 $3400^{\circ}\mathrm{C}$，高于绝大多数晶体。「一般较高，部分较低」——「一般」两字不能吞。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+金属内部两把尺：同周期 Na＜Mg＜Al（价电子增多、半径缩小→金属键增强）；碱金属反向 Li＞Na＞K＞Rb＞Cs（半径主导）。特例记两个极端：W 最高、Hg 唯一常温液态。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+熔沸点排序题先给物质分晶体类型，再对「跨类笼统排序」保持警惕——题目给的往往就是反例现场。
+
+</Callout>
+</MistakeCard>

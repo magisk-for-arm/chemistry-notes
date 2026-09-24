@@ -1,0 +1,203 @@
+---
+title: "微粒间作用力与晶体 · 典型例题"
+topic: "crystal-properties"
+category: "examples"
+order: 5
+summary: "5 道典型例题：晶体类型判断、钙钛矿均摊定式、NaCl 密度计算、沸点反常解释、铜面心立方综合（硬）。"
+tags: ["例题", "晶体", "物质结构"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一考「例外档案」（$\ce{AlCl3}$ 骑墙户）；例题二是六方之外的钙钛矿均摊定式；例题三走密度五量方程全流程；例题四是氢键解释题的规范话术；例题五把面心立方的配位数、半径、密度、空间利用率一次算齐。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：晶体类型判断（easy）
+
+<ExampleCard title="这袋白色固体是什么晶体" difficulty="easy">
+
+某白色固体 $\ce{X}$，熔点约 $190^{\circ}\mathrm{C}$（$2.02\times10^{5}\ \mathrm{Pa}$ 下），易升华，其熔融态不导电，可溶于苯。$\ce{X}$ 最可能属于（　　）
+
+- A．离子晶体
+- B．分子晶体
+- C．共价晶体
+- D．金属晶体
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：B">
+
+三个实验特征全部指向分子晶体：熔沸点低且**易升华**（拆的只是分子间作用力）、**熔融不导电**（无自由离子，直接排除离子晶体）、**溶于苯**（相似相溶，非极性溶剂溶非极性分子）。若为离子晶体应「熔融导电」，共价晶体应「熔点极高、不溶不熔」。$\ce{X}$ 很可能就是 $\ce{AlCl3}$——「由活泼金属与活泼非金属组成却形成分子晶体」的头号反例。
+
+</Callout>
+
+<Callout type="skill" title="判据优先级">
+
+实验特征 ＞ 物质类别记忆 ＞ 元素组成。看到「金属+非金属」就写离子晶体，正好掉进 $\ce{AlCl3}$、$\ce{BeCl2}$ 的坑；反过来「全部由非金属组成」也可能是离子晶体——铵盐。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 单质 $\ce{Y}$ 熔点高、硬度大、不导电、不溶于任何常见溶剂；化合物 $\ce{Z}$ 熔点 $801^{\circ}\mathrm{C}$，固态不导电但熔融或溶于水均导电。判断 $\ce{Y}$、$\ce{Z}$ 的晶体类型。
+
+**答案**：$\ce{Y}$ 为共价晶体（高熔高硬又不导电，排除金属——是金刚石一类的账）；$\ce{Z}$ 为离子晶体（熔融导电是离子晶体的「身份证」），$\ce{Z}$ 即 $\ce{NaCl}$。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：钙钛矿均摊定式（medium）
+
+<ExampleCard title="从晶胞图读出化学式" difficulty="medium">
+
+某钙钛矿型晶体晶胞为立方体：$\ce{Ca}$ 原子位于 8 个顶点，$\ce{Ti}$ 原子位于体心，氧原子位于 6 个面心。写出该晶体的化学式，并指出每个 $\ce{Ti}$ 周围最近且等距的氧原子数。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：CaTiO₃，配位 6">
+
+均摊法逐一计：**顶点** $8\times\dfrac{1}{8}=1$ 个 Ca；**体心** $1\times1=1$ 个 Ti；**面心** $6\times\dfrac{1}{2}=3$ 个 O → 化学式 $\ce{CaTiO3}$。化合价互验：Ca$^{2+}$、Ti$^{4+}$、O$^{2-}$，$2+4=3\times2$ 电荷账平。体心 Ti 到 6 个面心距离相等（均为 $\dfrac{a}{2}$）且最近 → 每个 Ti 周围 **6 个 O**（正八面体配位，$\ce{TiO6}$ 八面体正是钙钛矿结构的积木块）。
+
+</Callout>
+
+<Callout type="why" title="错位陷阱">
+
+若把顶点/面心/体心的归属互换（Ca 换到体心、Ti 换到顶点），化学式**不变**——都是 $1:1:3$，只是原点选取不同。信息题常给你没见过的晶胞图，考的就是「位置→份额」这套通用账，而不是背过的 NaCl/CsCl 图。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 另一种画法的钙钛矿晶胞：Ca 位于体心，Ti 位于顶点，O 位于 12 条棱的棱心。验证化学式仍为 $\ce{CaTiO3}$。
+
+**答案**：Ca 体心 $1$；Ti 顶点 $8\times\dfrac{1}{8}=1$；O 棱心 $12\times\dfrac{1}{4}=3$ → $\ce{CaTiO3}$，与例题二同构（棱心 O 恰是相邻两顶点 Ti 的八面体位）。**棱的份额是 $\dfrac{1}{4}$**（被 4 个晶胞共用），别抄成面的 $\dfrac{1}{2}$。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：NaCl 晶胞密度（medium）
+
+<ExampleCard title="用晶胞参数算密度" difficulty="medium">
+
+$\ce{NaCl}$ 晶胞为立方面心结构，晶胞参数 $a=564\ \mathrm{pm}$。已知 $M(\ce{NaCl})=58.5\ \mathrm{g/mol}$、$N_A=6.02\times10^{23}\ \mathrm{mol^{-1}}$，计算 $\ce{NaCl}$ 晶体的密度（保留两位小数）。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：约 2.17 g/cm³">
+
+**数份**：$\ce{Cl-}$ 做面心立方堆积 $8\times\dfrac{1}{8}+6\times\dfrac{1}{2}=4$，$\ce{Na+}$ 占满棱心与体心 $12\times\dfrac{1}{4}+1=4$ → 每胞 $N=4$ 个「$\ce{NaCl}$ 单元」。**挂密度**：
+
+$$\rho=\frac{N\cdot M}{N_A\cdot a^3}=\frac{4\times58.5}{6.02\times10^{23}\times(564\times10^{-10})^3}$$
+
+**带单位**：$(564\times10^{-10})^3=564^3\times10^{-30}\approx1.794\times10^{-22}\ \mathrm{cm^3}$。分母 $=6.02\times1.794\times10^{1}\approx108.0$，$\rho=\dfrac{234}{108.0}\approx2.17\ \mathrm{g/cm^3}$。与实测值吻合，离子晶体落在 $2\sim4\ \mathrm{g/cm^3}$ 常识带，数量级落地。
+
+</Callout>
+
+<Callout type="wrong" title="两大失分点">
+
+①pm→cm 忘记**立方**：$1\ \mathrm{pm}=10^{-10}\ \mathrm{cm}$，体积因子是 $10^{-30}$ 不是 $10^{-10}$；②$N$ 数成离子总数 8 代入——$N$ 是「化学式单位数」，$M$ 用 58.5 就只能配 4，用 8 就得把 $M$ 拆成半份，两头只能取一种口径。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $\ce{NaCl}$ 密度 $2.17\ \mathrm{g/cm^3}$、$M=58.5$，估算两个最近的 $\ce{Na+}$ 间距（用 $a$ 表示再代入）。
+
+**答案**：反解 $a^3=\dfrac{234}{6.02\times10^{23}\times2.17}\approx1.79\times10^{-22}\ \mathrm{cm^3}$ → $a\approx564\ \mathrm{pm}$。$\ce{Na+}$ 之间最近为**面心对角线的一半**：$\dfrac{\sqrt2}{2}a\approx399\ \mathrm{pm}$。（异号最近才是 $\dfrac{a}{2}=282\ \mathrm{pm}$，同号、异号别拿混。）
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：沸点反常解释（medium）
+
+<ExampleCard title="为什么水不是「顺理成章」的最低" difficulty="medium">
+
+第 ⅥA 族元素氢化物沸点：$\ce{H2S}\lt\ce{H2Se}\lt\ce{H2Te}\lt\ce{H2O}$。而第 ⅤA 族氢化物为 $\ce{NH3}\lt\ce{PH3}\lt\ce{AsH3}\lt\ce{SbH3}$（$\ce{NH3}$ 亦高于同族轻端趋势线但不显眼）。请解释 $\ce{H2O}$ 沸点远高于 $\ce{H2Te}$ 的原因，并说明为何 $\ce{HF}\gt\ce{H2O}\gt\ce{NH3}$ 中水的排名介于两者之间需要两笔账。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="参考答案">
+
+**第一问**：$\ce{H2O}$ 分子间存在**氢键**，汽化时除破坏范德华力外还须额外破坏氢键，故沸点反常地高；$\ce{H2S}$、$\ce{H2Se}$、$\ce{H2Te}$ 分子间无氢键，沸点只随相对分子质量增大（范德华力增强）而升高。**第二问**：氢键数与强度两笔账——每个水分子平均**形成 2 条**氢键（2 个 H 供体 + 2 对孤对受体，四面体成网），而 $\ce{HF}$ 分子平均仅 1 条（H 只有一个）、$\ce{NH3}$ 平均 1 条（孤对只有一个而 H 有 3 个，供体过剩）；单体氢键强度虽 $\ce{F-H\cdots F}>\ce{O-H\cdots O}>\ce{N-H\cdots N}$，但水的**网状总量**胜出 $\ce{NH3}$，输给氟化氢的**个体强度加成链状聚合**——所以排序 $\ce{HF}>\ce{H2O}>\ce{NH3}$。
+
+</Callout>
+
+<Callout type="why" title="话术红线">
+
+解释题只许说「分子间存在氢键」，不许说「氢键是化学键」也不许说「氢键增强分子内作用」——氢键是**分子间**作用力（讨论分子内氢键时另说），强度介于化学键与范德华力之间。答题模板：氢键 → 汽化额外耗能 → 沸点反常偏高。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 乙醇与二甲醚（$\ce{C2H6O}$ 同分异构体）谁的沸点高？邻羟基苯甲醛与对羟基苯甲醛呢？
+
+**答案**：乙醇能分子间形成氢键，二甲醚的 O 无相连的 H、只能做受体不成键 → 乙醇沸点 $78^{\circ}\mathrm{C}$ 远高于二甲醚 $-24^{\circ}\mathrm{C}$。邻位形成**分子内**氢键，分子间作用减弱、沸点较低（易挥发，可水蒸气蒸馏）；对位只能**分子间**氢键，沸点高、难挥发。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：铜的面心立方综合（hard）
+
+<ExampleCard title="一块铜的四本账" difficulty="hard" source="改编 · 原型：Chemistry-Note-Refine 金属晶体堆积计算">
+
+铜晶体为面心立方最密堆积，晶胞参数 $a=361\ \mathrm{pm}$，$M(\ce{Cu})=64\ \mathrm{g/mol}$、$N_A=6.02\times10^{23}\ \mathrm{mol^{-1}}$。求：（1）配位数与每个晶胞含铜原子数；（2）铜原子半径（列式即可）；（3）晶体密度（保留一位小数）；（4）空间利用率。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案">
+
+**（1）** 面心立方最密堆积配位数 **12**（同层 6 + 上层 3 + 下层 3；晶胞内数法：以顶点原子计，最近邻为相连三个面心 ×8 顶点 ÷2 共用…直接背「角找面心 12 个」更快）。每胞原子数 $8\times\dfrac{1}{8}+6\times\dfrac{1}{2}=4$。
+
+**（2）** 面心对角线上原子相切：$4r=\sqrt2\,a$ → $r=\dfrac{\sqrt2}{4}\times361\approx128\ \mathrm{pm}$，与手册值吻合。
+
+**（3）**
+
+$$\rho=\frac{4\times64}{6.02\times10^{23}\times(361\times10^{-10})^3}=\frac{256}{6.02\times4.70\times10^{0}}\approx\frac{256}{28.3}\approx9.0\ \mathrm{g/cm^3}$$
+
+（$361^3\approx4.70\times10^{7}$，乘 $10^{-30}$ 得 $4.70\times10^{-23}\ \mathrm{cm^3}$。）实测 $8.96\ \mathrm{g/cm^3}$，落地。
+
+**（4）** 面心立方的 12 个近邻恰好把空间填满到理论极限：$\dfrac{4\times\frac{4}{3}\pi r^3}{a^3}$，代 $r=\dfrac{\sqrt2}{4}a$ 得 $\dfrac{\sqrt2\pi}{6}\approx74\%$——与六方最密堆积同为本色系纪录，体心 68%、简单立方 52% 依次落后。
+
+</Callout>
+
+<Callout type="skill" title="相切线是一切半径题的总开关">
+
+晶胞里原子「挤在一条线上」的那条线就是几何方程：**面心立方挤面对角线**（$4r=\sqrt2a$）、**体心立方挤体对角线**（$4r=\sqrt3a$）、**简单立方挤棱**（$2r=a$）、**金刚石挤 $\dfrac{1}{4}$ 体对角线**（$4r=\sqrt3a$ 但只算最近邻距）。先认堆积类型、再写相切方程、最后挂密度——三步流水，第四问的空间利用率其实不用重算，背四档数（52/68/74/74）即可。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 钾为体心立方堆积，$a=533\ \mathrm{pm}$、$M=39$。估算钾的密度。
+
+**答案**：体心立方每胞 $8\times\dfrac{1}{8}+1=2$ 个原子。$\rho=\dfrac{2\times39}{6.02\times10^{23}\times(533\times10^{-10})^3}$，$533^3\approx1.51\times10^{8}$ → 分母 $\approx9.10\times10^{1}$，$\rho\approx\dfrac{78}{91.0}\approx0.86\ \mathrm{g/cm^3}$——比水略轻，与「钾浮于水面熔成小球」的实验现象自洽（实测 $0.86$ 附近，账对上了）。
+
+</Reveal>
+</ExampleCard>
+
+## 来源标注
+
+<Callout type="note" title="参考来源">
+
+本知识点内容改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并逐条勘误（含汞熔点负号、$\ce{SbH3}$/$\ce{NH3}$ 沸点序、$\ce{MgCl2}$ 与 $\ce{NaCl}$ 口诀冲突等，详见概览页尾）。例题为原创命题或按原型改编，数据均经现场核算并与实测值互验。
+
+</Callout>

@@ -153,6 +153,15 @@ export const topics: TopicMeta[] = [
     summary: '能层能级与轨道、构造原理与能级组、三大排布规则与 Cr/Cu 特例、周期表分区、电离能电负性与半径周期律、元素推断',
     tags: ['物质结构', '元素周期律'],
   },
+  {
+    slug: 'crystal-properties',
+    subject: 'chemistry',
+    title: '微粒间作用力与晶体',
+    icon: '💎',
+    order: 42,
+    summary: '晶体四特征与晶胞、均摊法与密度方程、五种作用力、分子/共价/离子/金属四类晶体结构档案、熔沸点决策树',
+    tags: ['晶体', '物质结构'],
+  },
 ];
 
 export const sectionMeta = {
