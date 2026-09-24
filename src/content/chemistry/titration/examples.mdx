@@ -1,0 +1,204 @@
+---
+title: "滴定实验 · 典型例题"
+topic: "titration"
+category: "examples"
+order: 5
+summary: "5 道典型例题：量器选择与读数、终点表述补全、误差矩阵判断、KMnO₄ 测草酸计算、间接碘量测铜压轴。"
+tags: ["例题", "滴定", "化学实验", "计算"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一查「仪器选型+有效数字」双底线；例题二练终点句的三截拼装；例题三是误差矩阵的实战抽查（做错回看易错 1~4 补矩阵）；例题四、五是计算双璧——先搭守恒桥再代数。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：量器与读数（easy）
+
+<ExampleCard title="哪个数字出自滴定管" difficulty="easy">
+
+某学生记录的四组液体体积数据：① $25.40\ \mathrm{mL}$；② $25.4\ \mathrm{mL}$；③ $8.75\ \mathrm{mL}$；④ $25.30\ \mathrm{mL}$（用 $50\ \mathrm{mL}$ 滴定管）。其中**可能**来自滴定管的是（　　）
+
+- A．①③④
+- B．①④
+- C．②③
+- D．全部
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：A">
+
+滴定管读数必须**两位小数**：①④格式合格；③ $8.75\ \mathrm{mL}$ 也在 $0\sim25/50\ \mathrm{mL}$ 量程内、两位小数，同样可能（别被「数字小」骗了——小体积恰是「放液读数差」的常态）。②只有一位小数，是量筒/托盘天平口径，滴定管不会这么记。
+
+</Callout>
+
+<Callout type="why" title="口径速查">
+
+托盘天平 $0.1\ \mathrm{g}$、量筒 $0.1\ \mathrm{mL}$、滴定管 $0.01\ \mathrm{mL}$、温度计随分度。凡答案里有效数字与仪器口径不符，先判读数再判操作。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 「用 $25\ \mathrm{mL}$ 酸式滴定管放出溶液，初读 $0.50$、末读 $20.30$，放出体积记为 $19.8\ \mathrm{mL}$」，错在哪？
+
+**答案**：读数差是 $19.80\ \mathrm{mL}$——末位 0 是估读位，**不可丢弃**；丢掉等于把精度从 $0.01$ 降级为 $0.1$。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：终点表述（medium）
+
+<ExampleCard title="把漏掉的三截补全" difficulty="medium" source="改编 · 原型：中和滴定终点描述">
+
+用未知浓度盐酸滴定 $20.00\ \mathrm{mL}$ 未知浓度 NaOH 溶液（酚酞在碱液中）。甲同学作答：「滴到溶液变成无色时停止滴定。」（1）指出表述缺漏；（2）写出满分表述；（3）若终点时颜色「微红即褪且摇晃后复现粉红」，说明还没到终点的判据是什么？
+
+<Reveal summary="查看解析">
+
+<Callout type="why" title="（1）缺漏诊断">
+
+缺「最后半滴」的剂量限定、缺「半分钟内不恢复」的稳定判据、也没说清「浅红色→无色」的起点色——三截全漏，一句表述近乎不得分。
+
+</Callout>
+
+<Callout type="right" title="（2）满分句">
+
+「**当滴入最后半滴盐酸时**，溶液由**浅红色变为无色**，且**半分钟内不恢复浅红色**，即为滴定终点，停止滴定并记录读数。」
+
+</Callout>
+
+<Callout type="formula" title="（3）假终点识别">
+
+摇后复现粉红＝局部酸过量假象，振荡后碱仍占优（酚酞重新显色）——真正的终点是「退到无色且站得住」。反滴法兜底：若不慎滴过（无色偏酸），可补一滴待测碱液回色，或重做。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 同一份 NaOH 待测液改用甲基橙，终点颜色怎么变？
+
+**答案**：由**黄色变橙色**（碱侧黄→终点跨入酸性变色域），且半分钟不褪回。「指示剂不同、方向不同、句式不变」——三元素骨架通用。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：误差矩阵（medium）
+
+<ExampleCard title="四个操作四笔账" difficulty="medium" source="改编 · 原型：滴定误差判断组合选择">
+
+用标准盐酸滴定待测 NaOH（酚酞）。下列操作对结果的影响判断**正确**的是（　　）
+
+- A．酸式滴定管水洗后未用标准盐酸润洗——偏低
+- B．锥形瓶水洗后瓶壁残留少量蒸馏水——偏高
+- C．滴定前碱式滴定管（量待测液用）尖嘴有气泡、放出待测液后消失——偏低
+- D．滴定至终点时俯视读数——偏高
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：C">
+
+A 反了：管未润洗→盐酸被稀释→耗量 $V_{标}$ 增大→**偏高**。B 无影响：残水不改待测物的量。C 正确：气泡占了位，实际入瓶的待测碱**少于** $20.00\ \mathrm{mL}$ 账面值→耗酸变少，而算式里 $V_{待}$ 按读数拿大的→$c_{待}$ 被算**偏低**。D 反了：滴定管 0 在上，末读俯视偏小→$V_{标}$ 偏小→**偏低**。
+
+</Callout>
+
+<Callout type="skill" title="复核路径">
+
+每项都走三步：动了什么（浓度/记账/质量）→ $V_{标}$ 表现 → 方向。C 项的陷阱在「动的是 $V_{待}$ 的真实值」——单杠杆口诀要按公式里谁在分母想清楚。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 滴定终点读数正确，但尖嘴外挂着一滴标准液，结果偏高还是偏低？
+
+**答案**：**偏高**——那半滴已计入读数差却没进瓶反应，$V_{标}$ 记多。规范：终点前半滴碰壁冲下，终点后悬挂液滴应碰壁收回（或用瓶壁沾落）再读。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：KMnO₄ 测草酸（medium）
+
+<ExampleCard title="紫红自己报终点" difficulty="medium" source="改编 · 原型：高锰酸钾法测草酸浓度">
+
+移取 $25.00\ \mathrm{mL}$ 待测草酸溶液于锥形瓶中，加稀硫酸酸化，用 $0.1000\ \mathrm{mol/L}\ \ce{KMnO4}$ 标准液滴定至终点，三次平行平均耗 $20.00\ \mathrm{mL}$。（1）本实验是否需要另加指示剂？终点现象是什么？（2）$\ce{KMnO4}$ 装哪种滴定管？（3）求草酸的物质的量浓度。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="（1）（2）自指示与管型">
+
+（1）不加——$\ce{KMnO4}$ 紫红自身指示：「滴入最后半滴标准液，溶液由**无色变浅紫红色**，半分钟不褪色」。反证不选酚酞/甲基橙：草酸本身有还原性色扰且反应生成 $\ce{Mn^2+}$ 近无色，终点色由过量半滴的 $\ce{MnO4-}$ 撑起。（2）**酸式**（氧化橡胶，碱式免谈）。
+
+</Callout>
+
+<Callout type="right" title="（3）2∶5 电子账">
+
+$5\ce{H2C2O4 + 2MnO4- + 6H+ = 10CO2 ^ + 2Mn^2+ + 8H2O}$。$n(\ce{MnO4-}) = 0.1000 \times 0.02000 = 2.000 \times 10^{-3}\ \mathrm{mol} \Rightarrow n(\ce{H2C2O4}) = 2.000 \times 10^{-3} \times \dfrac{5}{2} = 5.000 \times 10^{-3}\ \mathrm{mol}$，$c = 5.000 \times 10^{-3} / 0.02500 = \boxed{0.2000\ \mathrm{mol/L}}$。
+
+</Callout>
+
+<Callout type="why" title="速率先慢后快">
+
+反应生成的 $\ce{Mn^2+}$ 是催化剂（自动催化）——滴定时第一滴紫色褪得很慢，越滴越快；这是「为什么开始要一滴一摇」的机理注脚，也是曲线题的信息点。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若草酸里混有少量 $\ce{Na2SO4}$（不反应），测得浓度怎么变？若混的是 $\ce{FeSO4}$？
+
+**答案**：$\ce{Na2SO4}$ 不耗 $\ce{MnO4-}$，按「草酸溶液」计的浓度**无影响**（只是单位体积草酸变少了——若测的是「草酸含量」则偏低，看清口径）；$\ce{Fe^2+}$ 同样耗 $\ce{MnO4-}$（$5\ce{Fe^2+}:\ce{MnO4-}$），结果**偏高**——共存还原性物质是氧化还原滴定的头号冒名者。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：间接碘量测铜（hard）
+
+<ExampleCard title="守恒桥上的铜含量" difficulty="hard" source="改编 · 原型：碘量法测定硫酸铜中铜含量">
+
+称取 $2.500\ \mathrm{g}$ 胆矾样品，配成 $250\ \mathrm{mL}$ 溶液。移取 $25.00\ \mathrm{mL}$，加足量 KI（$2\ce{Cu^2+ + 4I- = 2CuI v + I2}$），析出的 $\ce{I2}$ 用 $0.0500\ \mathrm{mol/L}\ \ce{Na2S2O3}$ 标准液滴定（近终点加淀粉），平均耗 $19.00\ \mathrm{mL}$。（1）搭出 $\ce{Cu^2+}$ 与 $\ce{S2O3^2-}$ 的系数桥；（2）求样品中 $\ce{CuSO4.5H2O}$ 的质量分数（$M = 250\ \mathrm{g/mol}$）；（3）终点现象；（4）若部分 $\ce{I2}$ 挥发损失，结果怎样？
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="（1）桥">
+
+$2\ce{Cu^2+} \sim 1\ce{I2} \sim 2\ce{S2O3^2-}$，消去中间物得 $\ce{Cu^2+} \sim \ce{S2O3^2-}$（**1∶1**）。
+
+</Callout>
+
+<Callout type="right" title="（2）一桥通到底">
+
+$n(\ce{S2O3^2-}) = 0.0500 \times 0.01900 = 9.500 \times 10^{-4}\ \mathrm{mol} = n(\ce{Cu^2+})$（25.00 mL 份中）→ $\dfrac{250}{25.00} = 10$ 倍放大，$n_{总} = 9.500 \times 10^{-3}\ \mathrm{mol}$ → $m(\ce{CuSO4.5H2O}) = 9.500 \times 10^{-3} \times 250 = 2.375\ \mathrm{g}$，$w = \dfrac{2.375}{2.500} \times 100\% = \boxed{95.00\%}$。算完自检：纯度落在 0~100\% 且接近标称档位，数据才落地。
+
+</Callout>
+
+<Callout type="why" title="（3）（4）照常成立">
+
+（3）终点：「滴入最后半滴标准液，溶液**由蓝色变为无色**，半分钟不恢复」（淀粉近终点加，此时瓶内应已呈浅黄—蓝）。若反滴（碘水滴样品液）则「出现蓝色且不褪」。（4）$\ce{I2}$ 挥发＝中间物跑了→滴到的 $\ce{S2O3^2-}$ 变少→$n(\ce{Cu^2+})$ 算**偏低**。防挥发三招：KI 过量（生成 $\ce{I3-}$ 稳碘）、避光、滴定不过久且摇动轻柔。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 滴定终了静置 5 分钟后蓝色又缓缓回现，原因是什么？算不算误差？
+
+**答案**：空气把过量 $\ce{I-}$ 缓慢氧化回 $\ce{I2}$（$4\ce{I- + O2 + 4H+ = 2I2 + 2H2O}$ 型），属**体系外干扰**——读数以「半分钟判据」时刻为准，回现不计误差；这也正是终点句里「半分钟不恢复」防的事。
+
+</Reveal>
+</ExampleCard>

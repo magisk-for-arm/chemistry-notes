@@ -135,6 +135,15 @@ export const topics: TopicMeta[] = [
     summary: '仪器三梯队与容量红线、检漏与气密性三步句、干燥剂配对、气体制备五站链、文字描述题采分模板',
     tags: ['化学实验'],
   },
+  {
+    slug: 'titration',
+    subject: 'chemistry',
+    title: '酸碱中和滴定',
+    icon: '🧪',
+    order: 32,
+    summary: '滴定管三系与读数、操作七步、指示剂选择、终点句式、误差矩阵、氧化还原滴定与守恒桥计算',
+    tags: ['滴定', '化学实验'],
+  },
 ];
 
 export const sectionMeta = {
