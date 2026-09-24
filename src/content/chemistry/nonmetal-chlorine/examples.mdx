@@ -1,0 +1,209 @@
+---
+title: "氯及其化合物 · 典型例题"
+topic: "nonmetal-chlorine"
+category: "examples"
+order: 5
+summary: "5 道典型例题：氯水成分配对、浓盐酸熄火陷阱、FeBr₂ 分档氧化、氯碱串联守恒、碘溴铁竞争氧化压轴。"
+tags: ["例题", "非金属元素", "计算"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一练「找责任人」，例题二是制备计算的经典陷阱（浓盐酸熄火），例题三、五同一套路——竞争氧化按档切面，五比三难在双亚铁共存；例题四是工业串联守恒的模板题。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：氯水成分配对（easy）
+
+<ExampleCard title="一瓶氯水的四种表现" difficulty="easy">
+
+新制氯水分别进行以下实验，各现象对应起主要作用的微粒是（　　）
+
+- A．滴入 $\ce{AgNO3}$ 溶液产生白色沉淀 —— $\ce{Cl2}$
+- B．滴入 $\ce{Na2CO3}$ 溶液有气泡 —— $\ce{HClO}$
+- C．有色布条褪色 —— $\ce{HClO}$
+- D．溶液呈黄绿色 —— $\ce{Cl-}$
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：C">
+
+A 的白色沉淀 $\ce{AgCl}$ 来自 **$\ce{Cl-}$**（盐酸电离）；B 的气泡 $\ce{CO2}$ 来自 **$\ce{H+}$**（酸性比碳酸强的是盐酸那一半）；D 的黄绿色是 **$\ce{Cl2}$ 分子**本身的颜色——氯水中唯一「看得见」的分子。只有 C 正确：漂白、杀菌的功劳簿上只写 $\ce{HClO}$。
+
+</Callout>
+
+<Callout type="why" title="命题逻辑">
+
+这类题考的就是「三分四离」的点名能力：$\ce{Cl2}$（颜色、氧化性）、$\ce{HClO}$（漂白）、$\ce{H+}$（酸性）、$\ce{Cl-}$（沉淀）。把复合现象拆回单一责任成分，答案只写一个。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 向氯水中加入少量 $\ce{NaHCO3}$ 粉末，$\ce{HClO}$ 浓度如何变化？
+
+**答案**：**增大**。$\ce{NaHCO3}$ 只消耗 $\ce{H+}$（放 $\ce{CO2}$）不与 $\ce{HClO}$ 反应，平衡 $\ce{Cl2 + H2O <=> H+ + Cl- + HClO}$ 右移——「除酸保漂」的工业操作原理。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：浓盐酸熄火陷阱（medium）
+
+<ExampleCard title="17.4 g MnO₂ 与 100 mL 12 mol/L 浓盐酸" difficulty="medium" source="改编 · 原型：二氧化锰与浓盐酸反应限度计算">
+
+$17.4\ \mathrm{g}\ \ce{MnO2}$（$0.20\ \mathrm{mol}$）与 $100\ \mathrm{mL}\ 12\ \mathrm{mol/L}$ 的浓盐酸共热制氯气。甲同学按 $\ce{MnO2}$ 满算得 $\ce{Cl2}\ 4.48\ \mathrm{L}$（标况），乙同学按 $\ce{HCl}$ 满算得 $6.72\ \mathrm{L}$。谁对？写出正确的产量区间。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="先比量、再判限">
+
+方程 $\ce{MnO2 + 4HCl(浓) ->[\Delta] MnCl2 + Cl2 ^ + 2H2O}$。$0.20\ \mathrm{mol}\ \ce{MnO2}$ 需 $0.80\ \mathrm{mol}\ \ce{HCl}$，实有 $1.2\ \mathrm{mol}$ ——名义上盐酸过量、$\ce{MnO2}$ 是限制试剂，甲的账面计算似乎成立。
+
+</Callout>
+
+<Callout type="wrong" title="两人都忽略了「熄火」">
+
+$\ce{MnO2}$ 只氧化**浓**盐酸：随反应进行、水生成稀释，浓度降到某值反应**自动停止**——$1.2\ \mathrm{mol}\ \ce{HCl}$ 永远吃不光，$\ce{MnO2}$ 也必然有剩余。**满算哪一边都偏大**。
+
+</Callout>
+
+<Callout type="right" title="正确结论">
+
+标况 $\ce{Cl2}$ **小于 $4.48\ \mathrm{L}$**（甲的理论值是上限而非产量）。此题答案本体是一句话：「实际产量介于 0 与理论值之间，因为盐酸变稀后反应停止」。若问反应后溶液里加 $\ce{AgNO3}$ 所得 $\ce{AgCl}$，则用 **Cl 守恒**：未反应的 $\ce{HCl}$ 中氯仍在溶液里，沉淀量不受产气多少影响。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若把 $\ce{MnO2}$ 换成 $\ce{KMnO4}$，还需要「浓」盐酸吗？
+
+**答案**：不需要，稀一些也能反应（$\ce{KMnO4}$ 氧化性远强，常温即放 $\ce{Cl2}$）——「氧化剂越强越省事」，这正是没有加热装置的替代方案原理。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：FeBr₂ 分档氧化（medium）
+
+<ExampleCard title="0.1 mol Cl₂ 通入含 0.1 mol FeBr₂ 的溶液" difficulty="medium" source="改编 · 原型：氯气与卤化亚铁分档反应">
+
+向含 $0.1\ \mathrm{mol}\ \ce{FeBr2}$ 的溶液中通入 $0.1\ \mathrm{mol}\ \ce{Cl2}$，恰好完全反应。写出总离子方程式，并求生成 $\ce{Br2}$ 的物质的量。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="灌水位：先 Fe²⁺ 后 Br⁻">
+
+还原性 $\ce{Fe^2+ > Br-}$。$0.1\ \mathrm{mol}\ \ce{Fe^2+}$ 全部被氧化需 $\ce{Cl2}\ 0.05\ \mathrm{mol}$；剩余 $0.05\ \mathrm{mol}\ \ce{Cl2}$ 可氧化 $\ce{Br-}\ 0.10\ \mathrm{mol}$（原液共有 $0.2\ \mathrm{mol}$，**只吃掉一半**）。
+
+被氧化名单：$\ce{Fe^2+}\ 0.1$、$\ce{Br-}\ 0.1$、$\ce{Cl2}\ 0.1$ —— 按 $1:1:1$ 配比写系数。
+
+</Callout>
+
+<Callout type="right" title="总方程式">
+
+$$\ce{2Fe^2+ + 2Br- + 2Cl2 = 2Fe^3+ + Br2 + 4Cl-}$$
+
+验算：电子 $2\times1 + 2\times1 = 4 = 2\times2$ ✓；电荷左 $+2$ 右 $+2$ ✓。生成 $n(\ce{Br2}) = \boxed{0.05\ \mathrm{mol}}$。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若要恰好把 $\ce{FeBr2}$ 中的 $\ce{Fe^2+}$、$\ce{Br-}$ 全部氧化，需 $\ce{Cl2}$ 多少摩尔？
+
+**答案**：$\ce{Fe^2+}$ 耗 $0.05$ + $\ce{Br-}\ 0.2$ 耗 $0.10$ = $\boxed{0.15\ \mathrm{mol}}$。比值 $\ce{Cl2}:\ce{FeBr2}=3:2$ 全氧化，$1:1$ 正好半档——记两个锚点，中间随意切。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：氯碱串联守恒（medium）
+
+<ExampleCard title="6.72 L 氯气全部做成「84」" difficulty="medium" source="改编 · 原型：氯碱工业与漂白液串联计算">
+
+电解饱和食盐水，标况下产生 $\ce{Cl2}\ 6.72\ \mathrm{L}$。将全部氯气通入冷的 $\ce{NaOH}$ 溶液中充分吸收（恰好无剩余），制得「84 消毒液」有效成分 $\ce{NaClO}$。求：（1）电路中转移电子的物质的量；（2）所得 $\ce{NaClO}$ 的质量。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="逐段挂关系式">
+
+$n(\ce{Cl2}) = \dfrac{6.72}{22.4} = 0.30\ \mathrm{mol}$。
+
+电解段：$2\ce{NaCl} + 2\ce{H2O} \xrightarrow{\text{电解}} 2\ce{NaOH} + \ce{Cl2} + \ce{H2}$，每生成 $1\ \mathrm{mol}\ \ce{Cl2}$ 转移 $2\ \mathrm{mol}\ e^-$ → 转移 $\boxed{0.60\ \mathrm{mol}}$，同步产 $\ce{NaOH}\ 0.60\ \mathrm{mol}$。
+
+吸收段（冷碱）：$\ce{Cl2 + 2NaOH = NaCl + NaClO + H2O}$，$0.30\ \mathrm{mol}$ 氯气恰好吃掉 $0.60\ \mathrm{mol}$ 碱（比例 $1:2$ 自检 ✓），产 $\ce{NaClO}\ 0.30\ \mathrm{mol}$。
+
+</Callout>
+
+<Callout type="right" title="结果">
+
+$m(\ce{NaClO}) = 0.30 \times 74.5 = \boxed{22.35\ \mathrm{g}}$。
+
+一条守恒链打通：$2e^- \sim \ce{Cl2} \sim 2\ce{NaOH} \sim \ce{NaClO}$——串联计算题只需把各段挂上同一根氯轴。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若吸收在**热**碱中进行，$\ce{NaClO}$ 产量怎样变化？
+
+**答案**：产物变 $\ce{NaClO3}$（$3\ce{Cl2} + 6\ce{NaOH ->[\Delta] 5NaCl} + \ce{NaClO3} + 3\ce{H2O}$），$\ce{NaClO}$ 产量**为零**——温度定档位的工业版再现。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：双亚铁竞争氧化（hard）
+
+<ExampleCard title="0.15 mol Cl₂ 灌进 FeI₂ 与 FeBr₂ 的混合液" difficulty="hard" source="改编 · 原型：卤素离子与亚铁离子竞争氧化">
+
+含 $0.1\ \mathrm{mol}\ \ce{FeI2}$ 与 $0.1\ \mathrm{mol}\ \ce{FeBr2}$ 的混合溶液中通入 $0.15\ \mathrm{mol}\ \ce{Cl2}$，恰好完全反应。（1）通过计算确定反应后溶液中各离子的物质的量；（2）说明把 $\ce{Cl2}$ 加到多少摩尔时 $\ce{Fe^2+}$ 恰好全部被氧化。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="持仓盘点 + 榜单排序">
+
+入场券：$\ce{Fe^2+}\ 0.20$、$\ce{I-}\ 0.20$、$\ce{Br-}\ 0.20\ \mathrm{mol}$。还原性榜 $\ce{I- > Fe^2+ > Br-}$。$\ce{Cl2}$ 供给电子容量 $0.15 \times 2 = 0.30\ \mathrm{mol}\ e^-$。
+
+- **一档 $\ce{I-}$**：$0.20\ \mathrm{mol}$ 尽数氧化为 $\ce{I2}$，吃 $0.20\ \mathrm{mol}\ e^-$（$\ce{Cl2}\ 0.10$）；
+- **二档 $\ce{Fe^2+}$**：余 $0.10\ \mathrm{mol}\ e^-$（$\ce{Cl2}\ 0.05$）只够氧化 $\ce{Fe^2+}\ 0.10\ \mathrm{mol}$，**切面停在二档半路**；
+- **三档 $\ce{Br-}$**：一分未动。
+
+</Callout>
+
+<Callout type="right" title="（1）终态账单">
+
+溶液中：$n(\ce{Fe^3+}) = 0.10$、$n(\ce{Fe^2+}) = 0.20 - 0.10 = 0.10$、$n(\ce{Br-}) = 0.20$（原封不动）、$n(\ce{Cl-}) = 2 \times 0.15 = 0.30\ \mathrm{mol}$；$\ce{I-}$ 归零（变 $\ce{I2}$）。
+
+**电荷自检**：正 $0.1\times3 + 0.1\times2 = 0.5$；负 $0.2 + 0.3 = 0.5$ ✓
+
+</Callout>
+
+<Callout type="why" title="（2）二档吃满的位置">
+
+$\ce{Fe^2+}$ 全部氧化完需电子 $0.20(\ce{I-}) + 0.20(\ce{Fe^2+}) = 0.40\ \mathrm{mol}$，即 $\ce{Cl2}\ \boxed{0.20\ \mathrm{mol}}$——此时指针恰好离开二档、$\ce{Br-}$ 一根未动。全部氧化完（含 $\ce{Br-}$）则需 $0.60\ \mathrm{mol}\ e^-$ 即 $\ce{Cl2}\ 0.30\ \mathrm{mol}$。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 通入 $\ce{Cl2}\ 0.10\ \mathrm{mol}$ 时反应恰好完成，写出这一段总离子方程式。
+
+**答案**：$0.10\ \mathrm{mol}\ \ce{Cl2}$ 恰好吃满一档：$\ce{Cl2 + 2I- = I2 + 2Cl-}$。注意**不能**写成含 $\ce{Fe^2+}$ 的形式——切面在档口内，谁上了桌由电子数量说话。
+
+</Reveal>
+</ExampleCard>

@@ -1,0 +1,238 @@
+---
+title: "氯及其化合物 · 易错点"
+topic: "nonmetal-chlorine"
+category: "mistakes"
+order: 1
+summary: "8 条高频陷阱：铁铜变价档位、烟与雾、漂白真凶、1∶1 混气失活、漂白粉变质产物、Cl⁻ 检验酸化、温度定产物、HF 弱酸。"
+tags: ["易错点", "非金属元素"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+## 1. 氯气不足时铁生成 FeCl₂？
+
+<MistakeCard index={1} title="按「铁过量」类推 FeCl₂" frequency="high" tags={['氧化还原']}>
+<Callout type="wrong" title="错误示例">
+
+「足量 $\ce{Fe}$ 与少量 $\ce{Cl2}$ 反应生成 $\ce{FeCl2}$」（照搬 $\ce{Fe}$ 与盐酸、$\ce{Fe}$ 与 $\ce{S}$ 的下限思维）。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Cl2}$ 氧化性足够强且反应在**干燥点燃/加热**下进行，产物只有 $\ce{FeCl3}$，**与用量无关**。「$\ce{Fe + 2Fe^3+ = 3Fe^2+}$」需要**溶液环境**才发生——固体烟里分子挨不着分子，无从归中。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+干燥体系：$\ce{Fe ->[\ce{Cl2}] FeCl3}$ 一步到位、写死；只有在**溶液中** $\ce{Fe^3+}$ 才可能被 $\ce{Fe}$、$\ce{Cu}$、$\ce{I-}$ 等还原。把「量的多少影响产物」限定在溶液反应里记忆。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+变价金属产物两判：一判氧化剂强弱（$\ce{Cl2}$ 强到 $+3$、$\ce{S/I2}$ 弱到 $+2$），二判环境（干燥无档位、溶液讲过量）。两把尺一起量，$\ce{FeCl2}$「由过量铁生成」只能发生在烧杯里。
+
+</Callout>
+</MistakeCard>
+
+## 2. 瓶口「白雾」写成「白烟」？
+
+<MistakeCard index={2} title="烟、雾、气不分" frequency="high" tags={['实验描述']}>
+<Callout type="wrong" title="错误示例">
+
+氢气在氯气中燃烧，瓶口出现大量**白烟**；钠在氯气中燃烧产生**白色雾气**。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+描述三件套有严格分工：**烟 = 固体小颗粒**（$\ce{NaCl}$ 粉尘、$\ce{FeCl3}$ 棕褐色烟），**雾 = 液体小液滴**（$\ce{HCl}$ 极易溶于水，吸收空气中水汽形成盐酸液滴），**气 = 气体本身**（氯气的黄绿色）。两者恰好都对反了。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{H2}$ 在 $\ce{Cl2}$ 中燃烧：**苍白色火焰 + 瓶口白雾**；钠在氯气中燃烧：**白烟**（$\ce{NaCl}$ 固体）。浓盐酸敞口的「白雾」同样是挥发 $\ce{HCl}$ 成滴，不是燃烧产物。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+判断流程：先问生成物常温态——固体说「烟」、液体/易溶气体吸水说「雾」；$\ce{NH3 + HCl}$ 生成固体 $\ce{NH4Cl}$ 说白烟，这是实验描述题的标答句式。
+
+</Callout>
+</MistakeCard>
+
+## 3. 使氯气漂白？干燥氯气也有漂白性？
+
+<MistakeCard index={3} title="把漂白功劳记在 Cl₂ 头上" frequency="high" tags={['原理辨析']}>
+<Callout type="wrong" title="错误示例">
+
+氯气有漂白性，所以能使干燥的有色布条褪色。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+对照组实验正是答案：干燥 $\ce{Cl2}$ 通入**干燥**布条——不褪色；通入**湿润**布条——褪色。起漂白作用的不是 $\ce{Cl2}$ 分子，而是它与水生成的 **$\ce{HClO}$**（强氧化性破坏色素）。所以「液氯（干燥）可存钢瓶，潮湿氯气却处处咬人」。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+规范表述：氯气**本身无漂白性**；氯水（含 $\ce{HClO}$）有漂白性。同类强氧化漂白（$\ce{HClO}$、$\ce{Na2O2}$、$\ce{K2FeO4}$、$\ce{H2O2}$）褪色**不可逆、还能杀菌**；$\ce{SO2}$ 型化合漂白可逆（加热复色）、不杀菌——三大漂白原理对比是选择题三选一常客。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「氯气漂白」先找水；见「使品红褪色加热复红」判 $\ce{SO2}$；见「漂白 + 消毒双功能」想 $\ce{NaClO}$/臭氧。
+
+</Callout>
+</MistakeCard>
+
+## 4. SO₂ 与 Cl₂ 混合「双倍快乐」？
+
+<MistakeCard index={4} title="以为混合漂白效果叠加" frequency="high" tags={['氧化还原']}>
+<Callout type="wrong" title="错误示例">
+
+等物质的量的 $\ce{SO2}$ 与 $\ce{Cl2}$ 混合后通入湿润品红溶液，漂白能力加倍。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+一个要氧化、一个要被氧化，见面就打：$\ce{SO2 + Cl2 + 2H2O = 2HCl + H2SO4}$——两位漂白剂**同归于尽**，所得稀酸混合液毫无漂白性。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$1:1$ 混合通入水中：酸性大大增强（二元强酸），漂白性归零，品红**不褪色**。反之，$\ce{SO2}$ 使品红褪色（加热复色）与氯水使品红褪色（不复色）仍可分别鉴别。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「混合后效果」题必先写**组间反应**再看余量——$\ce{SO2}$ 与 $\ce{Cl2}$、$\ce{H2S}$ 与 $\ce{SO2}$、$\ce{NH3}$ 与 $\ce{HCl}$ 全是「见面就反应」家族。
+
+</Callout>
+</MistakeCard>
+
+## 5. 漂白粉变质产物写成 Ca(HCO₃)₂？
+
+<MistakeCard index={5} title="CO₂ 通入 Ca(ClO)₂ 溶液产物错配" frequency="medium" tags={['离子方程式', '量判断']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Ca(ClO)2 + 2CO2 + 2H2O = Ca(HCO3)2 + 2HClO}$（照搬「过量 $\ce{CO2}$ 生成碳酸氢钙」套路，却忘了体系里另有主角）。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+常规情境（空气中变质、少量/适量 $\ce{CO2}$）：$\ce{Ca(ClO)2 + CO2 + H2O = CaCO3 + 2HClO}$——$\ce{CaCO3}$ 沉淀是必写产物。之所以谈不到 $\ce{Ca(HCO3)2}$，因为生成的 $\ce{HClO}$ 酸性远弱于把 $\ce{CaCO3}$ 溶成酸式盐所需的酸；「过量 $\ce{CO2}$ 生成碳酸氢钙」只在**纯悬浊液持续通气**时成立，漂白粉变质类题目标准答案是碳酸钙。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+漂白粉失效全过程：先变质（上式）→ $\ce{HClO}$ 光解（$2\ce{HClO ->[\text{光照}] 2HCl + O2 ^}$）→ 有效性尽失。密封保存是唯一解药。钠系同理对比：$\ce{NaClO + CO2 + H2O = NaHCO3 + HClO}$ 却**必须写 $\ce{NaHCO3}$**——钠盐无沉淀顾虑、且溶解度规律使然。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「钙写正盐、钠写酸式」：$\ce{CO2}$ 与次氯酸盐/苯酚钠等弱酸盐反应，阳离子决定产物档位——钙有 $\ce{CaCO3}$ 沉淀托底，钠无沉淀只能停在 $\ce{NaHCO3}$。
+
+</Callout>
+</MistakeCard>
+
+## 6. 直接加 AgNO₃ 就敢说含 Cl⁻？
+
+<MistakeCard index={6} title="检验氯离子漏掉酸化步骤" frequency="high" tags={['物质检验']}>
+<Callout type="wrong" title="错误示例">
+
+「向待测液中滴入 $\ce{AgNO3}$ 溶液产生白色沉淀，证明含 $\ce{Cl-}$」；「用稀盐酸酸化后再加 $\ce{AgNO3}$」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Ag2CO3}$、$\ce{Ag2SO4 (微溶)}$、$\ce{AgOH -> Ag2O}$ 都能制造白色/褐色沉淀假象，必须先用**稀硝酸**酸化排除（$\ce{Ag2CO3}$ 溶于硝酸并冒泡）。而「盐酸酸化」是自投罗网——把待检的 $\ce{Cl-}$ 亲手加了进去。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+标准两步：待测液 + 稀硝酸酸化（无现象或排除干扰）→ 加 $\ce{AgNO3}$ 溶液，**白色沉淀不溶解**则含 $\ce{Cl-}$。整套「先酸化、后沉淀」也是 $\ce{SO4^2-}$ 检验（盐酸酸化 + $\ce{BaCl2}$）的同族模板。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+沉淀法检验三查：查酸化试剂是否引入待检离子、查干扰离子是否被酸溶解、查沉淀颜色对应表（白 $\ce{AgCl}$、浅黄 $\ce{AgBr}$、黄 $\ce{AgI}$）。
+
+</Callout>
+</MistakeCard>
+
+## 7. 氯气通入烧碱，产物永远是 NaClO？
+
+<MistakeCard index={7} title="忽视温度对歧化产物的分档" frequency="medium" tags={['氧化还原', '条件']}>
+<Callout type="wrong" title="错误示例">
+
+热的 $\ce{NaOH}$ 溶液吸收尾气 $\ce{Cl2}$：$\ce{Cl2 + 2NaOH = NaCl + NaClO + H2O}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Cl2}$ 的碱歧化**看温度下菜**：常温走 $-1/+1$（$\ce{NaClO}$，漂白液路线）；加热走 $-1/+5$：$3\ce{Cl2 + 6NaOH ->[\Delta] 5NaCl + NaClO3 + 3H2O}$（$\ce{KClO3}$ 制备路线）。条件一换，$+1$ 价产物直接升档。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+同族记忆：$\ce{Br2/I2 + NaOH}$ 常温同型（$\ce{NaX + NaXO}$）；$\ce{3S + 6NaOH ->[\Delta] 2Na2S + Na2SO3 + 3H2O}$ 也是「加热走高价歧化」。两条方程式的**系数比**（$1:1$ 与 $5:1$）常用作离子浓度图像题的锚点。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「氯气 + 碱」先圈条件词：常温/冷 $\ce{NaOH}$ 次氯酸盐、热/浓碱氯酸盐，一词定产物。STSE 选项「84 消毒液制备利用了氯气的歧化」判对，「通入热水中效果更佳」判错。
+
+</Callout>
+</MistakeCard>
+
+## 8. HF 是强酸？氢氟酸能存玻璃瓶？
+
+<MistakeCard index={8} title="把卤化氢酸性排成一路强" frequency="high" tags={['卤族', '特殊性']}>
+<Callout type="wrong" title="错误示例">
+
+卤素氢化物酸性递增且全为强酸：$\ce{HF > HCl > HBr > HI}$（把「稳定性」的排序串到了「酸性」上）；氢氟酸装在细口玻璃瓶中。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+两把尺别混用：**热稳定性**跟键能走（$\ce{HF}$ 最强），**水溶液酸性**跟电离走（$\ce{HF}$ 是唯一的弱酸：$r(\ce{F-})$ 小、$\ce{H-F}$ 键难断），正确酸性强弱 $\ce{HF < HCl < HBr < HI}$。$\ce{HF}$ 还专蚀玻璃（$4\ce{HF + SiO2 = SiF4 ^ + 2H2O}$），必须用**塑料瓶**。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{HF}$ 三连：弱酸（写离子方程式**不拆**）、腐蚀玻璃（铅/塑料容器、雕刻玻璃原理）、卤化氢中沸点最高（氢键）。同理 $\ce{AgF}$ 易溶于水，硝酸银沉淀法检不了 $\ce{F-}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「稳定性 ≠ 酸性」是高频陷阱：前者的裁判是键能（气态分子），后者是电离能力（水溶液）。选项句式「氢化物稳定性强则酸性弱」看似因果，实为两条独立规律。
+
+</Callout>
+</MistakeCard>

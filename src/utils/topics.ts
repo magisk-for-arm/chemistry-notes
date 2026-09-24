@@ -90,6 +90,15 @@ export const topics: TopicMeta[] = [
     summary: '铝三角与互滴图像、氢氧化铝制备路线评价，附镁、海水提镁与金属冶炼',
     tags: ['金属元素', '离子反应'],
   },
+  {
+    slug: 'nonmetal-chlorine',
+    subject: 'chemistry',
+    title: '氯及其化合物',
+    icon: '🟢',
+    order: 24,
+    summary: '氯水三分四离、制备四件套与熄火陷阱、漂白三体系、卤族递变与海水资源',
+    tags: ['非金属元素', '氧化还原'],
+  },
 ];
 
 export const sectionMeta = {
