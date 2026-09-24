@@ -1,0 +1,94 @@
+---
+title: "离子反应 · 解题方法"
+topic: "ion-reaction"
+category: "methods"
+order: 3
+summary: "拆写判定树、定少法、序贯法、酸性链裁决与共存六查——五套可复用操作流程。"
+tags: ["解题方法", "解题模型", "离子反应"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import SolutionSteps from '@/components/SolutionSteps.astro';
+import Callout from '@/components/Callout.astro';
+
+## 一、拆写判定树
+
+<SolutionSteps
+  model="每个化学式过一遍三问"
+  steps={[
+    '问溶否：难溶物（CaCO₃、BaSO₄、Fe(OH)₃……）一律写化学式，不拆',
+    '问强弱：弱酸、弱碱、水写化学式；多元弱酸的酸式酸根（HCO₃⁻、HSO₃⁻、HS⁻）保留原形',
+    '问介质：强酸强碱可溶盐拆；浓硫酸整写 H₂SO₄，澄清石灰水拆、石灰乳不拆；HSO₄⁻ 例外必拆',
+  ]}
+  tip="拆完立刻做「两删一查」：删两边相同的旁观离子，查原子与电荷是否各自守恒。"
+/>
+
+## 二、定少法（少量物质定生死）
+
+<SolutionSteps
+  model="少量为 1，全部消耗"
+  steps={[
+    "把「少量」一方的物质的量定为 1 mol，它电离出的每种离子都必须用尽",
+    '过量一方按少量方的需求「点名配给」：需要几个 OH⁻ 就给几个',
+    '写完检查：少量方的离子是否已无剩余？是否误把过量方的离子也消耗光？',
+  ]}
+  tip="向 Ca(HCO₃)₂ 溶液加少量 NaOH：1 个 OH⁻ 只能激活 1 个 HCO₃⁻ → Ca²⁺ + HCO₃⁻ + OH⁻ = CaCO₃↓ + H₂O；NaOH 过量时 2 个 HCO₃⁻ 全激活 → Ca²⁺ + 2HCO₃⁻ + 2OH⁻ = CaCO₃↓ + CO₃²⁻ + 2H₂O。"
+/>
+
+## 三、序贯法（多元体系的排队消耗）
+
+<SolutionSteps
+  model="按优先序逐级发放 OH⁻/H⁺"
+  steps={[
+    '把溶液中能与滴加剂反应的离子全部列出（如 Al³⁺、NH₄⁺、可溶解的 Al(OH)₃）',
+    '排优先序：结合 OH⁻ 能力 Al³⁺ > NH₄⁺ > Al(OH)₃（与 H⁺ 能力反之）',
+    '按题目给定量逐级发放，前一队没喂饱不进下一队',
+    '恰好型条件（如「SO₄²⁻ 恰好完全沉淀」）先定系数再回推各队用量',
+  ]}
+  tip="NH₄Al(SO₄)₂ + Ba(OH)₂（SO₄²⁻ 恰好沉淀）：2 mol Ba(OH)₂ 供 4 mol OH⁻——Al³⁺ 拿 3、NH₄⁺ 拿 1，刚好分完，无多余碱溶解 Al(OH)₃。"
+/>
+
+## 四、酸性链裁决（少量/过量 CO₂、SO₂ 通入弱酸盐）
+
+<SolutionSteps
+  model="数准每个 H⁺ 能制住谁"
+  steps={[
+    '排酸性链：H₂CO₃ > HClO > 苯酚 > HCO₃⁻（对照 Ka 值）',
+    '第一问：H₂CO₃ 的第一个 H⁺ 能否制出目标弱酸？能则反应启动',
+    '第二问：HCO₃⁻ 的第二个 H⁺ 还能制住对方吗？制不动就停在 HCO₃⁻',
+    '对方酸根更强时（如 CO₃²⁻、S²⁻ 过量）两步全走，产物写 CO₃²⁻',
+  ]}
+  tip="少量 CO₂ 通入 Na₂S：两步都能制住 HS⁻ 吗？查 Ka₂(H₂CO₃) > Ka₂(H₂S)，第二步仍成立 → 2S²⁻ + CO₂ + H₂O = CO₃²⁻ + 2HS⁻；而 NaClO、苯酚钠卡在第二步，永远得 HCO₃⁻。"
+/>
+
+<Callout type="note" title="氧化还原插队">
+
+$\ce{SO2}$ 遇 $\ce{ClO-}$、$\ce{Fe^3+}$、$\ce{NO3-(H+)}$ 时**不走酸性链**，直接按氧化还原写：$\ce{ClO- + SO2 + H2O = Cl- + SO4^2- + 2H+}$（$\ce{SO2}$ 过量）；$\ce{SO2}$ 少量时生成的 $\ce{H+}$ 会被剩余 $\ce{ClO-}$ 扣住：$3\ce{ClO- + SO2 + H2O = Cl- + SO4^2- + 2HClO}$。
+
+</Callout>
+
+## 五、共存六查 + 交卷复验
+
+<Callout type="formula" title="固定扫描顺序">
+
+**色**（有色离子对无色条件）→ **沉**（沉淀对）→ **气**（挥发性组合）→ **弱**（弱电解质组合）→ **氧**（氧化剂 × 还原剂交叉检查）→ **促**（双水解互促对）→ **络**（$\ce{Fe^3+}$—$\ce{SCN-}$ 等）。
+
+两解条件（酸/碱不定）时，每组离子必须在**两种环境各扫一遍**，任一站点雷即整组出局。
+
+</Callout>
+
+## 六、检验描述题的「动—现—结」模板
+
+<Callout type="memory" title="一句话四件套">
+
+**取样**（取少量待测液于试管中）+ **操作**（滴加 ××，若需排除干扰写「先加足量 ×× 至无现象」）+ **现象**（颜色/沉淀/气体三要素写全：什么色、溶不溶、什么气味使什么试纸）+ **结论**（则含有/不含 ××）。
+
+</Callout>
+
+<Callout type="skill" title="自查清单">
+
+写离子方程式类题目交卷前：① 拆写三问跑了吗？② 三道守恒核了吗？③ 少量/过量与产物档位一致吗？④ 符号（$=$、$\rightleftharpoons$、$\uparrow\downarrow$、胶体）分档对吗？⑤ 氧化还原型先查了「插队」组合吗？
+
+</Callout>

@@ -1,0 +1,238 @@
+---
+title: "离子反应 · 易错点"
+topic: "ion-reaction"
+category: "mistakes"
+order: 1
+summary: "8 条高频陷阱：拆写越界、符号乱用、漏写配对反应、双水解当沉淀、隐含条件漏读。"
+tags: ["易错点", "离子反应"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+## 1. 该拆的不拆、不该拆的乱拆
+
+<MistakeCard index={1} title="拆写不看「易溶且易电离」" frequency="high" tags={['拆写规则']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{CaCO3 + 2H+ = Ca^2+ + H2O + CO2 ^}$ 写成 $\ce{CO3^2- + 2H+ = H2O + CO2 ^}$；$\ce{CH3COOH}$ 与 $\ce{NaOH}$ 反应写成 $\ce{H+ + OH- = H2O}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{CaCO3}$ 难溶、$\ce{CH3COOH}$ 弱酸，都以分子/固体形式参与反应，**没有自由移动的对应离子可供拆**。拆的资格只有「易溶 **且** 易电离」两个条件同时成立。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{CaCO3 + 2H+ = Ca^2+ + H2O + CO2 ^}$（$\ce{CaCO3}$ 整体写化学式）；$\ce{CH3COOH + OH- = CH3COO- + H2O}$（弱酸写分子）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+判断顺序：先问「溶不溶」，再问「电离完全吗」。看到 $\ce{CaCO3}$、$\ce{BaSO4}$、弱酸弱碱被拆成离子，一律判错；反向陷阱也成立——把该拆的（可溶盐、强酸）写成化学式同样判错。
+
+</Callout>
+</MistakeCard>
+
+## 2. 浓硫酸与 $\ce{HSO4-}$ 两个特例记反
+
+<MistakeCard index={2} title="浓硫酸拆了、$\ce{HSO4-}$ 没拆" frequency="high" tags={['特例', '酸式根']}>
+<Callout type="wrong" title="错误示例">
+
+铜与浓硫酸反应写成 $\ce{Cu + 4H+ + SO4^2- ->[\Delta] Cu^2+ + SO2 ^ + 2H2O}$；$\ce{NaHSO4}$ 溶液与 $\ce{BaCl2}$ 反应写成 $\ce{NaHSO4}$ 不拆。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+浓硫酸中水极少，硫酸主要以**分子**形式存在、几乎不电离——不可拆；而 $\ce{HSO4-}$ 在水中**完全电离**出 $\ce{H+}$（硫酸第一步就是强酸）——必须拆成 $\ce{H+ + SO4^2-}$。两者方向正好相反。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+浓硫酸参与的反应整写 $\ce{H2SO4}$；$\ce{NaHSO4}$ 溶液拆为 $\ce{Na+ + H+ + SO4^2-}$，与 $\ce{BaCl2}$：$\ce{Ba^2+ + SO4^2- = BaSO4 v}$。浓盐酸、浓硝酸**可拆**，唯浓硫酸不拆。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+口诀「**酸式根里硫酸氢最特殊**」：$\ce{HCO3-}$、$\ce{HSO3-}$、$\ce{HS-}$ 保留原形，$\ce{HSO4-}$ 拆成两半；介质里浓硫酸永远以分子出场。
+
+</Callout>
+</MistakeCard>
+
+## 3. 可逆号、等号与 ↑↓ 乱用一气
+
+<MistakeCard index={3} title="水解写成沉淀、双水解不敢标符号" frequency="high" tags={['符号规范']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Mg^2+ + 2H2O <=> Mg(OH)3 v + 2H+}$（水解标了沉淀符号）；$2\ce{Fe^3+ + 3CO3^2- + 3H2O <=> 2Fe(OH)3 v + 3CO2 ^}$（双水解用了可逆号）。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+单独的水解**程度微弱**，用 $\rightleftharpoons$ 且不产生沉淀/气体，不标 $\downarrow$、$\uparrow$；两种离子**相互促进**的水解能进行到底，改用 $=$ 且**必须**标 $\downarrow$、$\uparrow$。符号跟的是「反应进行的程度」。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+水解：$\ce{Mg^2+ + 2H2O <=> Mg(OH)2 + 2H+}$；完全双水解：$2\ce{Fe^3+ + 3CO3^2- + 3H2O = 2Fe(OH)3 v + 3CO2 ^}$。制胶体写「（胶体）」不写 $\downarrow$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「水解 + $\downarrow$/$\uparrow$」先亮红牌；见「$\ce{Al^3+}$ 遇 $\ce{HCO3- / CO3^2- / AlO2-}$、$\ce{Fe^3+}$ 遇 $\ce{CO3^2-}$」直接按完全双水解处理——泡沫灭火器原理即 $\ce{Al^3+}$ 与 $\ce{HCO3-}$ 互促。
+
+</Callout>
+</MistakeCard>
+
+## 4. 「删」字删过头——漏写配对反应
+
+<MistakeCard index={4} title="$\ce{CuSO4}$ 与 $\ce{Ba(OH)2}$ 只写一对" frequency="high" tags={['漏反应']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{CuSO4}$ 溶液与 $\ce{Ba(OH)2}$ 溶液反应：$\ce{Ba^2+ + SO4^2- = BaSO4 v}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Cu^2+}$ 与 $\ce{OH-}$ 同样生成 $\ce{Cu(OH)2}$ 沉淀，两对离子**都参加反应**，谁都不是「旁观离子」。类似的还有 $\ce{Ba(OH)2}$ 与 $\ce{H2SO4}$（$\ce{H+}$、$\ce{OH-}$ 中和不能删）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{Cu^2+ + SO4^2- + Ba^2+ + 2OH- = Cu(OH)2 v + BaSO4 v}$；稀 $\ce{H2SO4}$ 与 $\ce{Ba(OH)2}$：$2\ce{H+ + SO4^2- + Ba^2+ + 2OH- = 2H2O + BaSO4 v}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「删旁观离子」后回炉复查：把方程式两边的每种离子与对方所有离子**两两配对**过一遍（沉淀？气体？弱电解质？），只要还有一对能反应就是漏写。
+
+</Callout>
+</MistakeCard>
+
+## 5. 违背反应事实：复分解思路写氧化还原
+
+<MistakeCard index={5} title="$\ce{S^2-}$ 遇硝酸也敢写 $\ce{H2S}$" frequency="high" tags={['反应事实', '氧化还原']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Na2S}$ 溶液加稀硝酸：$\ce{S^2- + 2H+ = H2S ^}$；$\ce{FeO}$ 加稀硝酸：$\ce{FeO + 2H+ = Fe^2+ + H2O}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{S^2-}$、$\ce{SO3^2-}$、$\ce{Fe^2+}$、$\ce{I-}$ 都有强还原性，$\ce{HNO3}$（尤其含 $\ce{H+ + NO3-}$）有强氧化性，两者相遇**先发生氧化还原**，「强酸制弱酸」轮不到。$\ce{FeO}$ 溶于硝酸时 $\ce{Fe^2+}$ 会被氧化为 $\ce{Fe^3+}$ 并放出 $\ce{NO}$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{FeO}$ 与稀硝酸：$3\ce{FeO + 10H+ + NO3- = 3Fe^3+ + NO ^ + 5H2O}$。判断路径：先查双方有没有「氧化剂 + 还原剂」组合，有则按氧化还原写，没有才走复分解。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「硝酸/酸性 $\ce{NO3-}$」+「$\ce{Fe^2+}$、$\ce{S^2-}$、$\ce{SO3^2-}$、$\ce{I-}$、$\ce{Br-}$」立刻报警（关联 [[redox]] 的强弱序列）；另记两条事实：铁遇少量/过量硝酸产物不同，常温 $\ce{Fe}$、$\ce{Al}$ 遇浓硝酸**钝化**不是不反应。
+
+</Callout>
+</MistakeCard>
+
+## 6. 少量/过量写反：酸性强弱裁决失败
+
+<MistakeCard index={6} title="少量 $\ce{CO2}$ 通入 $\ce{NaClO}$ 写成 $\ce{CO3^2-}$" frequency="high" tags={['与量有关']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{2ClO- + CO2 + H2O = 2HClO + CO3^2-}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+酸性顺序 $\ce{H2CO3 > HClO > HCO3-}$：$\ce{H2CO3}$ 的第一个 $\ce{H+}$ 能制出 $\ce{HClO}$，但 $\ce{HCO3-}$ 的酸性比 $\ce{HClO}$ 弱，**第二个 $\ce{H+}$ 制不动**——「弱酸不能制强酸」卡在第二步，产物只能停在 $\ce{HCO3-}$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{ClO- + CO2 + H2O = HClO + HCO3-}$（少量、过量 $\ce{CO2}$ 写法相同，均得 $\ce{HCO3-}$）。苯酚钠同理：$\ce{C6H5O- + CO2 + H2O = C6H5OH + HCO3-}$，**与 $\ce{CO2}$ 用量无关**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「$\ce{CO2}$（$\ce{SO2}$）通入弱酸盐」三步：排出酸性链 → 数 $\ce{H2CO3}$ 的两个 $\ce{H+}$ 各能制住对方几次 → 产物按能制住的档位写。苯酚、次氯酸、$\ce{HS-}$ 都会卡在第二档。
+
+</Callout>
+</MistakeCard>
+
+## 7. 电荷守恒失守
+
+<MistakeCard index={7} title="只配原子不配电荷" frequency="medium" tags={['守恒检查']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Fe^3+ + Cu = Fe^2+ + Cu^2+}$（电荷左 $+3$ 右 $+4$）；$\ce{Fe^2+ + Cl2 = Fe^3+ + 2Cl-}$（左 $+2$ 右 $+1$，看似原子齐了、电荷两头都不平）。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+离子方程式有**三道守恒关卡**：原子守恒、电荷守恒、（氧化还原型）电子得失守恒。原子配平不代表电荷相等，命题人常在最后一个系数上做手脚。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$2\ce{Fe^3+ + Cu = 2Fe^2+ + Cu^2+}$（电荷左 $+6$ 右 $+6$ ✓，电子 $2 \times 1 = 1 \times 2$ ✓）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+交卷前把「左右电荷总数」当作固定动作算一遍；变价元素出现的题再补查升降总数相等。三查顺序：原子 → 电荷 → 电子。
+
+</Callout>
+</MistakeCard>
+
+## 8. 隐含条件漏读，共存题整组判错
+
+<MistakeCard index={8} title="对「无色」「透明」「与 Al 放氢气」视而不见" frequency="high" tags={['离子共存', '隐含条件']}>
+<Callout type="wrong" title="错误示例">
+
+「无色透明溶液中 $\ce{Fe^3+}$、$\ce{K+}$、$\ce{Cl-}$、$\ce{SO4^2-}$ 能大量共存」判对。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Fe^3+}$（黄）、$\ce{Fe^2+}$（浅绿）、$\ce{Cu^2+}$（蓝）、$\ce{MnO4-}$（紫）有色，与「无色」矛盾。「透明」≠无色，指不含悬浊颗粒，两种条件要分开读。「与 Al 反应放 $\ce{H2}$」的溶液是**强酸或强碱两解**——若含 $\ce{NO3-}$ 的酸性条件放的是 $\ce{NO}$ 不是 $\ce{H2}$，又多一层排除。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+先翻译隐含条件再判共存：无色 → 删有色离子组；强酸性 → 补 $\ce{H+}$ 查全员；强碱性 → 补 $\ce{OH-}$ 查全员；「水电离的 $c(\ce{H+}) = 10^{-13}$」→ 酸碱两解分别检验，两组都能共存才选。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+共存题固定流程「一读二翻三查」：读限制语 → 翻译成 $\ce{H+}$/$\ce{OH-}$ 或颜色名单 → 按六查清单（沉淀/气体/弱电解质/氧化还原/双水解/络合）扫描。选项里出现 $\ce{MnO4-}$ 且题干说无色，直接秒排。
+
+</Callout>
+</MistakeCard>

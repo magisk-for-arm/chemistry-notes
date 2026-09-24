@@ -54,6 +54,15 @@ export const topics: TopicMeta[] = [
     summary: '概念网、强弱规律、配平流程与电子守恒速算',
     tags: ['氧化还原', '计算'],
   },
+  {
+    slug: 'ion-reaction',
+    subject: 'chemistry',
+    title: '离子反应',
+    icon: '💧',
+    order: 13,
+    summary: '离子方程式书写与正误判断、离子共存与检验推断',
+    tags: ['离子反应'],
+  },
 ];
 
 export const sectionMeta = {

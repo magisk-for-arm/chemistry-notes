@@ -1,0 +1,257 @@
+---
+title: "离子反应 · 典型例题"
+topic: "ion-reaction"
+category: "examples"
+order: 5
+summary: "5 道典型例题：正误判断、共存筛查、序贯法书写、氧化还原插队、未知液推断。"
+tags: ["例题", "离子反应", "高考真题"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一～二练选择题基本功（五查、共存），例题三～四是「与量有关」的两大母题（序贯法、氧化还原插队），例题五是推断大题原型。先独立作答再看解析。
+
+</Callout>
+
+## 例题一：正误判断（easy）
+
+<ExampleCard title="四个方程式挑出正确项" difficulty="easy" source="改编 · 原型：离子方程式正误判断四选模板">
+
+下列说法中，离子方程式**书写正确**的是（　　）
+
+- A．氧化铁溶于稀盐酸：$\ce{Fe2O3 + 6H+ = 2Fe^3+ + 3H2O}$
+- B．碳酸钙溶于醋酸：$\ce{CaCO3 + 2H+ = Ca^2+ + H2O + CO2 ^}$
+- C．少量 $\ce{CO2}$ 通入 $\ce{NaClO}$ 溶液：$\ce{2ClO- + CO2 + H2O = 2HClO + CO3^2-}$
+- D．氯化铁溶液溶解铜粉：$\ce{Fe^3+ + Cu = Fe^2+ + Cu^2+}$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="A ✅ 正确">
+
+氧化物不拆、盐酸拆，原子电荷双守恒（左 $+6$ 右 $+6$）。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 醋酸被乱拆">
+
+$\ce{CH3COOH}$ 是弱酸，必须整写分子：$\ce{CaCO3 + 2CH3COOH = Ca^2+ + 2CH3COO- + H2O + CO2 ^}$。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 酸性卡档失败">
+
+酸性 $\ce{H2CO3 > HClO > HCO3-}$，$\ce{HCO3-}$ 制不动 $\ce{HClO}$，产物只能停在 $\ce{HCO3-}$：$\ce{ClO- + CO2 + H2O = HClO + HCO3-}$。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 电荷不守恒">
+
+左 $+3$ 右 $+4$。应为 $2\ce{Fe^3+ + Cu = 2Fe^2+ + Cu^2+}$（同时电子 $2 \times 1 = 1 \times 2$ ✓）。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+四个错误选项恰好踩中「五查」中的四查：拆分（B）、用量档位（C）、电荷守恒（D）。**A 这类「氧化物 + 酸」是唯一的常考正确相**，其余选项逐一对号入座即可秒杀。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 向 $\ce{NaHCO3}$ 溶液中加入足量 $\ce{Ba(OH)2}$ 溶液：$\ce{Ba^2+ + 2HCO3- + 2OH- = BaCO3 v + CO3^2- + 2H2O}$ 是否正确？
+
+**答案**：错误。「$\ce{Ba(OH)2}$ 足量」应以 $\ce{NaHCO3}$（少量方）定量：$1$ 个 $\ce{HCO3-}$ 配 $1$ 个 $\ce{OH-}$ 生成 $1$ 个 $\ce{CO3^2-}$，随即被充足的 $\ce{Ba^2+}$ 全部沉淀：$\ce{Ba^2+ + HCO3- + OH- = BaCO3 v + H2O}$。题目把「少量/足量」的主体搞反是最常见的量坑。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：共存筛查（easy）
+
+<ExampleCard title="无色透明强酸性溶液中的离子组" difficulty="easy">
+
+在无色透明的强酸性溶液中能**大量共存**的离子组是（　　）
+
+- A．$\ce{K+}$、$\ce{Na+}$、$\ce{SO4^2-}$、$\ce{HCO3-}$
+- B．$\ce{Mg^2+}$、$\ce{Al^3+}$、$\ce{Cl-}$、$\ce{SO4^2-}$
+- C．$\ce{Cu^2+}$、$\ce{Na+}$、$\ce{NO3-}$、$\ce{Cl-}$
+- D．$\ce{Na+}$、$\ce{Fe^2+}$、$\ce{NO3-}$、$\ce{Cl-}$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 弱酸根遇强酸">
+
+$\ce{HCO3- + H+ = H2O + CO2 ^}$（与强酸环境冲突）。
+
+</Callout>
+
+<Callout type="right" title="B ✅ 正确">
+
+四种离子两两不反应，且都与 $\ce{H+}$ 相容；$\ce{Mg^2+}$、$\ce{Al^3+}$ 只在碱性环境出局。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 颜色一票否决">
+
+$\ce{Cu^2+}$ 蓝色，与「无色」矛盾——这一组化学上其实能共存，**倒在第一道翻译关**。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 隐蔽的氧化还原">
+
+酸性条件下 $\ce{NO3-}$ 是强氧化剂，$\ce{Fe^2+}$ 必被氧化（$3\ce{Fe^2+ + 4H+ + NO3- = 3Fe^3+ + NO ^ + 2H2O}$）；何况 $\ce{Fe^2+}$ 浅绿色也不满足「无色」。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+共存题流程「一读二翻三查」：C、D 两项示范了两类最易漏的否决——**物理属性**（颜色）与**隐性氧化还原**（$\ce{H+}$ 与 $\ce{NO3-}$ 合体后才显氧化性）。单独的 $\ce{NO3-}$ 与 $\ce{Fe^2+}$ 在中性溶液是可以共存的。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 「与 Al 反应能放出 $\ce{H2}$ 的溶液」中，$\ce{Na+}$、$\ce{K+}$、$\ce{SO4^2-}$、$\ce{NO3-}$ 能否大量共存？
+
+**答案**：不能确定。放 $\ce{H2}$ 说明是强酸或强碱（两解）：碱性组里 $\ce{NO3-}$ 无妨碍、可共存；但**强酸性**时 $\ce{H+ + NO3-}$ 相当于硝酸，与 Al 反应放 NO 而非 $\ce{H2}$，题干条件自相矛盾、该解读下不成立。「两解条件」必须两个环境各验一遍。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：序贯法书写（medium）
+
+<ExampleCard title="NaOH 滴入 NH₄Al(SO₄)₂ 溶液" difficulty="medium" source="改编 · 原型：铵明矾与碱的量序贯母题">
+
+向 $\ce{NH4Al(SO4)2}$ 溶液中：（1）滴加**少量** $\ce{NaOH}$ 溶液；（2）滴加 $\ce{NaOH}$ 溶液至**过量**。写出离子方程式。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="先排队伍">
+
+结合 $\ce{OH-}$ 的优先序：$\ce{Al^3+}$（生成沉淀，3 份）→ $\ce{NH4+}$（生成弱电解质，1 份）→ $\ce{Al(OH)3}$（溶解，1 份）。
+
+- **（1）少量**：$\ce{OH-}$ 不够第一队分完，只有 $\ce{Al^3+}$ 反应：
+  $$\ce{Al^3+ + 3OH- = Al(OH)3 v}$$
+- **（2）过量**：三队全部走完（$3+1+1=5$ 份 $\ce{OH-}$）：
+  $$\ce{NH4+ + Al^3+ + 5OH- = AlO2- + NH3.H2O + 2H2O}$$
+
+</Callout>
+
+<Callout type="wrong" title="高频错法">
+
+（1）里写成「$\ce{NH4+}$、$\ce{Al^3+}$ 各反应一部分」——违反优先序；（2）里漏掉 $\ce{NH4+}$ 或忘了 $\ce{Al(OH)3}$ 已溶解——检查 $\ce{OH-}$ 总数是否 $=5$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+序贯法的账要**双向核对**：左边发出去几份 $\ce{OH-}$，右边各产物档位是否恰好消耗同样的份数。$\ce{NH4Fe(SO4)2}$ 把 $\ce{Al^3+}$ 换成 $\ce{Fe^3+}$ 后完全同理（$\ce{Fe^3+}$ 优先、量少时 $\ce{NH4+}$ 不反应）。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 向 $\ce{NH4Al(SO4)2}$ 溶液中滴加 $\ce{Ba(OH)2}$ 至 $\ce{SO4^2-}$ 恰好完全沉淀，写离子方程式。
+
+**答案**：$1\ \mathrm{mol}$ 盐配 $2\ \mathrm{mol}\ \ce{Ba(OH)2}$（$4\ \mathrm{mol}\ \ce{OH-}$）：$\ce{Al^3+}$ 拿 3、$\ce{NH4+}$ 拿 1，刚好分完且无余碱溶解沉淀：$\ce{NH4+ + Al^3+ + 2SO4^2- + 2Ba^2+ + 4OH- = NH3.H2O + Al(OH)3 v + 2BaSO4 v}$。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：氧化还原插队（medium）
+
+<ExampleCard title="SO₂ 通入 NaClO 溶液的两副面孔" difficulty="medium" source="改编 · 原型：SO₂ 与次氯酸盐量对比">
+
+向 $\ce{NaClO}$ 溶液中分别通入**过量**与**少量** $\ce{SO2}$，写出离子方程式并说明差异。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="第一步：谁跟谁反应">
+
+$\ce{ClO-}$ 有强氧化性、$\ce{SO2}$（$+4$ 硫）有还原性——**氧化还原插队**，不走「强酸制弱酸」：硫元素 $+4 \to +6$ 升 $2$，$\ce{ClO-}$ 中氯 $+1 \to -1$ 降 $2$，电子配比 $1:1$。
+
+</Callout>
+
+<Callout type="right" title="过量 SO₂：H⁺ 无处可去">
+
+$\ce{ClO-}$ 全部被消耗，生成的 $\ce{H+}$ 自由存在：
+$$\ce{ClO- + SO2 + H2O = Cl- + SO4^2- + 2H+}$$
+
+</Callout>
+
+<Callout type="right" title="少量 SO₂：H⁺ 被剩余 ClO⁻ 扣住">
+
+溶液中还有大量 $\ce{ClO-}$，$2$ 个 $\ce{H+}$ 结合 $2$ 个 $\ce{ClO-}$ 生成弱酸 $\ce{HClO}$：
+$$\ce{3ClO- + SO2 + H2O = Cl- + SO4^2- + 2HClO}$$
+
+（电荷左 $-3$ 右 $-3$ ✓；$\ce{Cl}$：$1$ 份被还原、$2$ 份转 $\ce{HClO}$ ✓）
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+「氧化还原定骨架，剩余离子修档位」：先按电子守恒写出氧化型/还原型主干，再问生成的 $\ce{H+}$（或 $\ce{OH-}$）在**当前过量组分**存在下能否安身——不能就并入弱电解质。向 $\ce{Ba(ClO)2}$ 通少量 $\ce{SO2}$ 还要再叠一层：$\ce{SO4^2-}$ 遇 $\ce{Ba^2+}$ 沉淀，$\ce{SO2 + 3ClO- + Ba^2+ + H2O = BaSO4 v + Cl- + 2HClO}$。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 把 $\ce{SO2}$ 分别通入 ① $\ce{BaCl2}$ 溶液 ② $\ce{Ba(NO3)2}$ 溶液，各有无沉淀？
+
+**答案**：① 无沉淀——$\ce{H2SO3}$ 酸性弱于 $\ce{HCl}$，「弱酸不能制强酸」；② 有 $\ce{BaSO4}$ 沉淀——溶解的 $\ce{SO2}$ 显酸性，$\ce{H+}$ 与 $\ce{NO3-}$ 合体把 $+4$ 硫氧化为 $+6$，产生不溶于酸的 $\ce{BaSO4}$。同一气体、两种命运，差别就在氧化性酸根。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：未知液推断（hard）
+
+<ExampleCard title="氯水还能留无色——五离子悬案" difficulty="hard" source="改编 · 原型：无色溶液阴离子推断经典题">
+
+某无色溶液的阴离子可能是 $\ce{Cl-}$、$\ce{Br-}$、$\ce{I-}$、$\ce{SO3^2-}$、$\ce{SO4^2-}$ 中的一种或几种。取少量溶液滴加**少量氯水**，溶液仍为无色；将所得溶液分成两份，分别加入 $\ce{AgNO3}$ 溶液和 $\ce{BaCl2}$ 溶液，均产生白色沉淀。判断各阴离子的存在情况。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="三条证据链">
+
+1. **氯水少量 + 仍无色** → 氯水被消耗且没有生成有色物：$\ce{Br2}$（橙黄）、$\ce{I2}$（黄）若有被氧化必然显色，说明被氧化的不是它们；还原性序 $\ce{SO3^2- > I- > Br-}$，氯水先氧化 $\ce{SO3^2-}$ → **$\ce{SO3^2-}$ 一定存在**；
+2. **遇 $\ce{BaCl2}$ 白色沉淀** → 是 $\ce{BaSO4}$，但 $\ce{SO4^2-}$ 既可能本来就有、也可能全部由 $\ce{SO3^2-}$ 被氯水氧化而来 → **$\ce{SO4^2-}$ 不能确定**；
+3. **遇 $\ce{AgNO3}$ 白色沉淀** → 是 $\ce{AgCl}$，但氯水本身就引入了 $\ce{Cl-}$ → **$\ce{Cl-}$ 不能确定**；$\ce{Br-}$、$\ce{I-}$ 未被氧化也无从显形 → **不能确定**。
+
+</Callout>
+
+<Callout type="right" title="结论">
+
+一定存在：$\ce{SO3^2-}$；不能确定：$\ce{Cl-}$、$\ce{Br-}$、$\ce{I-}$、$\ce{SO4^2-}$；一定不存在：无（题干阴离子均未被排除）。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+推断题的两个「证据作废」陷阱本作全中：**氧化剂引入的 $\ce{Cl-}$ 污染银盐证据**、**氯水把 $\ce{SO3^2-}$ 洗成 $\ce{SO4^2-}$ 污染钡盐证据**。所以结论只能建立在「不可被前步操作解释」的现象上；「仍无色」这种否定式现象反而是最强证据。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 只另取原溶液一次，如何设计实验检验是否含 $\ce{SO4^2-}$（不加氯水）？
+
+**答案**：取原溶液，先加**足量稀盐酸**（$\ce{SO3^2-}$ 以 $\ce{SO2}$ 逸除、并排除 $\ce{CO3^2-}$ 类干扰），再加 $\ce{BaCl2}$ 溶液——若仍有白色沉淀，则原溶液确含 $\ce{SO4^2-}$。全程远离硝酸，防止把 $\ce{SO3^2-}$ 就地氧化造成假阳性。
+
+</Reveal>
+</ExampleCard>
