@@ -1,0 +1,246 @@
+---
+title: "烃的衍生物 · 易错点"
+topic: "hydrocarbon-derivatives"
+category: "mistakes"
+order: 1
+summary: "8 张易错卡：卤素检验漏酸化、水解消去溶剂混淆、醇氧化消去的氢资格、酚的三处酸账、溴水除苯酚翻车、银镜操作五条、甲醛甲酸计量坑、酯水解符号与酚酯扩账。"
+tags: ["易错点", "有机化学"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+<MistakeCard index={1} title="检验卤代烃里的卤素，水解后直接滴 AgNO₃" frequency="high" tags={['卤代烃', '检验']}>
+
+<Callout type="wrong" title="错误示例">
+
+「溴乙烷与 NaOH 溶液共热后，直接滴入 $\ce{AgNO3}$ 溶液，出现淡黄色沉淀，证明含溴元素。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+水解后溶液里**过量的 NaOH 还在**：$\ce{Ag+ + OH-}$ 立刻生成 $\ce{AgOH}$（不稳、分解为褐色 $\ce{Ag2O}$ 沉淀），颜色盖过 $\ce{AgBr}$ 的淡黄，结论不作数。而且溴乙烷中溴是**共价键**结合的，不水解根本不产生 $\ce{Br-}$——「直接滴」两头都错。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三步流水线：①$\ce{NaOH}$ 水溶液共热（把溴拆成 $\ce{Br-}$）→ ②冷却、加**过量稀硝酸**酸化（中和 NaOH，且硝酸不引入干扰卤素）→ ③滴 $\ce{AgNO3}$：白 $\ce{AgCl}$／浅黄 $\ce{AgBr}$／黄 $\ce{AgI}$ 对号入座。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「检验卤代烃中卤素」先默背三步「**水解—酸化—银硝**」；酸化只能问硝酸——题目若写「加稀硫酸/盐酸酸化」即为埋雷（引入 $\ce{SO4^2-}$/$\ce{Cl-}$ 自造沉淀）。与「分类命名」篇的酸化三步同一逻辑。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={2} title="NaOH「水溶液」与「醇溶液」不分，水解消去张冠李戴" frequency="high" tags={['卤代烃', '反应条件']}>
+
+<Callout type="wrong" title="错误示例">
+
+「溴乙烷与 NaOH 溶液共热生成乙烯」「把溴乙烷通入 NaOH 的乙醇溶液得到乙醇」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+溶剂决定路线：**水**溶液里 $\ce{OH-}$ 当亲核试剂取代 Br 走水解（得醇）；**醇**溶液里 $\ce{OH-}$ 当碱抢 β-H 走消去（得烯）。一字之差产物两判。另外消去有资格门槛：一碳卤代烃（$\ce{CH3Cl}$）无 β-碳、**卤素直接连苯环的氯苯**不能消去、β-碳上无 H 的（如 neopentyl 型）也不能。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{CH3CH2Br + NaOH ->[H2O][\Delta] CH3CH2OH + NaBr}$（水解）；$\ce{CH3CH2Br + NaOH ->[乙醇][\Delta] CH2=CH2 ^ + NaBr + H2O}$（消去）。消去前三查：碳数 ≥2、β-碳有 H、卤素不在苯环上。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+条件记「**水解 aqueous 变醇，消去 alcoholic 变烯**」：要增长官能团（引入 -OH）走水解，要造不饱和键走消去；合成题里想「从一卤变二卤/引入三键」，先想消去加成的组合拳。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={3} title="醇的氧化与消去，看的不是同一种「氢」" frequency="high" tags={['醇', '反应机理']}>
+
+<Callout type="wrong" title="错误示例">
+
+「叔丁醇 $(\ce{CH3})3\ce{COH}$ 能催化氧化成酮」「醇都能被 Cu 催化氧化」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+三副「氢眼镜」各管各的：羟基 H 管置换与酯化（断 $\ce{O-H}$）；**α-H（连 -OH 的碳上的 H）**管催化氧化（断 O-H + α-C-H 脱成 C=O）；**β-H（邻位碳上的 H）**管消去。叔丁醇**无 α-H** → 催化氧化免谈；但它三个甲基上 β-H 充足 → 消去照走（得异丁烯）。「不能氧化」≠「不能消去」。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+催化氧化账：**伯醇（-CH₂OH）→ 醛 → 酸**；**仲醇（-CHOH-）→ 酮**；叔醇不反应。甲醇比较特殊：碳上 3 个 H，氧化得甲醛。消去账：浓硫酸 170 ℃，只要邻位碳有 H 即可，且多个邻位时产物是混合物（2-丁醇消去得 1-丁烯 + 2-丁烯）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+拿到醇先圈两个位置：连氧碳数 H（定氧化资格）、邻碳数 H（定消去资格），两问两答再动笔。选择题见「一切醇都能催化氧化」直接判错。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={4} title="把苯酚的酸性当乙醇：指示剂、CO₂ 产物、Na₂CO₃ 三处翻车" frequency="high" tags={['酚', '酸性']}>
+
+<Callout type="wrong" title="错误示例">
+
+「苯酚溶液使紫色石蕊变红」「苯酚钠溶液中通入**过量** $\ce{CO2}$ 生成 $\ce{Na2CO3}$」「苯酚与 $\ce{Na2CO3}$ 反应放出 $\ce{CO2}$」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+苯酚酸性太弱（$\ce{HCO3^-}$ 之下），**不能使任何指示剂变色**；通 $\ce{CO2}$ 时**无论量多少**，苯酚都排在 $\ce{HCO3^-}$ 一侧，产物只能是 $\ce{NaHCO3}$——写 $\ce{Na2CO3}$ 等于让比碳酸弱的酸往强处顶；苯酚与 $\ce{Na2CO3}$ 反应只到 $\ce{NaHCO3}$ 为止，**不放气泡**（酸性：碳酸的第一级 ＞ 苯酚 ＞ 碳酸氢根）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{C6H5ONa + CO2 + H2O -> C6H5OH + NaHCO3}$（CO₂ 少量、过量同式）；$\ce{C6H5OH + Na2CO3 -> C6H5ONa + NaHCO3}$（无气体）。苯酚能与 Na、NaOH 反应放/生成对应产物，但**不与 NaHCO₃** 反应——这条分界线正是「酚 vs 羧酸」的鉴别依据。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+酸性排队背到苯酚为止：「乙甲苯乙丙、碳酚氢碳根」（乙二酸＞甲酸＞苯甲酸＞乙酸＞丙酸＞碳酸＞苯酚＞$\ce{HCO3^-}$）。凡见「强酸制弱酸」的方程式，先在这条队里查位置：只能后边制前边的逆反？不——**强者制弱者**，位置靠前的酸才能把靠后的从盐里顶出来。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={5} title="用浓溴水除去苯中的苯酚——沉淀是没了，苯废了" frequency="medium" tags={['酚', '除杂']}>
+
+<Callout type="wrong" title="错误示例">
+
+「向含苯酚的苯中加入过量浓溴水，过滤除去三溴苯酚沉淀，得到纯净苯。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+双重翻车：①生成的 2,4,6-三溴苯酚是**有机物，溶于苯**（相似相溶），根本滤不出来；②**过量的溴**也全部溶进苯层，引入新杂质。除杂铁律「不增不减易分离」两条全违。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+加**过量 NaOH 溶液**振荡：苯酚变苯酚钠进水层，苯不反应不分层，**分液**即得苯。（反过来「溴水中混的苯酚」也不用试剂，苯酚钠+CO₂ 那套路属于另一题。）
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+除杂题先问两句：杂质去哪了（沉淀？水层？气跑了？）、过量试剂哪去了？「沉淀法除杂」在有机溶液里十有八九栽在「沉淀又溶了」——三溴苯酚溶于苯、这个坑年年有人掉。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={6} title="银镜反应直火加热、氨水过量都不知道——操作五条全数漏" frequency="medium" tags={['醛', '实验操作']}>
+
+<Callout type="wrong" title="错误示例">
+
+「配制银氨溶液：向氨水中滴加 $\ce{AgNO3}$ 至不再产生沉淀」「试管放在酒精灯上直接加热至沸腾，快速完成银镜」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+配银氨溶液的**顺序反了**：应是向 $\ce{AgNO3}$ 中**逐滴加氨水**至初生沉淀**恰好溶解**；按错误配法氨水不足，溶液里留 $\ce{AgOH}$ 悬浊，镜面变黑渣。直火加热局部过热，银析出成黑色沉淀而非光亮银镜——必须**水浴**。新制 $\ce{Cu(OH)2}$ 同理有两道门槛：**NaOH 过量**、加热至**沸腾**（但不久沸，否则砖红 $\ce{Cu2O}$ 转黑 CuO）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+银镜五注意：试管洁净、银氨液现配现用、水浴加热、醛量宜少（乙醛约 3 滴）、做完的银镜用**稀硝酸**泡洗。斐林/新制氢氧化铜三注意：$\ce{CuSO4}$ 滴入**过量 NaOH**、现配、煮沸。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+凡实验题出现银镜，检查清单五连「净、配、浴、少、硝」按条对照打分点；写方程式漏「水」或把 $\ce{NH3}$ 配平成 2 是失分重灾区——口诀「水银铵 1、2、3，再加一个羧酸铵」。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={7} title="甲醛、甲酸按「一个醛基一份银」的常规账算，量少一半" frequency="high" tags={['醛', '定量']}>
+
+<Callout type="wrong" title="错误示例">
+
+「1 mol 甲醛发生银镜反应生成 2 mol Ag」「能与银氨溶液反应的物质只有醛类」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+甲醛氧化产物是**甲酸**（铵盐），甲酸里还挂着第二个「隐形醛基」，可再银镜一次，最终碳变成碳酸盐——**1 HCHO ~ 4 Ag**；与新制 $\ce{Cu(OH)2}$ 同样 1∶4。第二句漏了「隐形醛基家族」：**甲酸、甲酸盐、甲酸酯、葡萄糖、麦芽糖**都含 $\ce{-CHO}$ 结构片段，都能银镜。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{HCHO + 4[Ag(NH3)2]OH ->[\Delta] (NH4)2CO3 + 2H2O + 4Ag v + 6NH3}$。含两个醛基的二元醛（如乙二醛 $\ce{OHC-CHO}$）1 mol 出 4 mol Ag——「翻倍」有两个入口：甲醛翻倍、双醛基翻倍。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「甲醛」「甲酸」「甲酸某酯」任一字样，立刻在旁边标注 ×4 或「能银镜」；定量题问「生成 Ag 的物质的量」先排查分子是不是这三个特例，再看醛基个数。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={8} title="酯的水解不分酸碱：符号乱写、酚酯少算一份 NaOH" frequency="high" tags={['酯', '水解']}>
+
+<Callout type="wrong" title="错误示例">
+
+「$\ce{CH3COOC2H5 + NaOH -> CH3COOH + C2H5OH}$」「1 mol 乙酸苯酚酯（$\ce{CH3COOC6H5}$）水解消耗 1 mol NaOH」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+碱性水解产物**不可能留酸**——生成的羧酸立刻被 NaOH 中和成羧酸钠，方程式要用「$\ce{->}$」直写到底且产物写 $\ce{CH3COONa}$；只有**酸催化**才写可逆「$\ce{<=>}$」且产物为酸+醇。第二句是**酚酯扩账**：$\ce{CH3COOC6H5}$ 水解先得乙酸与**苯酚**，两个产物在碱性条件继续各吃 1 mol NaOH——共耗 **2 mol**（普通醇酯只耗 1）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+酸催化：$\ce{RCOOR' + H2O <=>[稀硫酸][\Delta] RCOOH + R'OH}$；碱：$\ce{RCOOR' + NaOH ->[\Delta] RCOONa + R'OH}$。耗 NaOH 账逐官能团登记：羧基 1、酚羟基 1、普通酯 1（碱水解）、**酚酯 2**、卤代烃中的卤原子 1（水解，产物 NaX 一锅带走）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「与 NaOH 反应」题先给分子做体检：几个 $-\ce{COOH}$（中和）、几个酚 $-\ce{OH}$（中和）、几个酯基（水解、看清是醇酯还是酚酯）、几个卤原子（普通卤代烃水解每个吃 1；**苯环上的卤**水解后生出的酚羟基再吃 1、共 2）——分类各挂号再总加，漏一类必错。油脂碱性水解（皂化）也按此账：1 mol 甘油三酯吃 3 mol NaOH。
+
+</Callout>
+
+</MistakeCard>
+
+## 参考来源
+
+<Callout type="note" title="参考来源">
+
+内容改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并勘误（口径以[概览](/chemistry/hydrocarbon-derivatives/)页末清单为准）。
+
+</Callout>

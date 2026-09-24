@@ -189,6 +189,15 @@ export const topics: TopicMeta[] = [
     summary: '烷烯炔苯主线：取代加成加聚氧化四类反应、乙炔溴苯制备实验、物理递变与石油炼制、侧链氧化与定位',
     tags: ['有机化学'],
   },
+  {
+    slug: 'hydrocarbon-derivatives',
+    subject: 'chemistry',
+    title: '烃的衍生物',
+    icon: '🧴',
+    order: 53,
+    summary: '卤代烃醇酚醛酮酸酯胺酰胺油脂：水解消去两条路、醇的断键表、酚的三本账、银镜与斐林、酸性序与异构总账',
+    tags: ['有机化学'],
+  },
 ];
 
 export const sectionMeta = {

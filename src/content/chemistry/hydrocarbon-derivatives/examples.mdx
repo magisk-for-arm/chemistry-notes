@@ -1,0 +1,203 @@
+---
+title: "烃的衍生物 · 典型例题"
+topic: "hydrocarbon-derivatives"
+category: "examples"
+order: 5
+summary: "5 道典型例题：溴乙烷中溴的检验程序、丁醇四种异构体的三种氢账、三装置比酸性、C₅H₁₀O₂ 异构总账、溴乙烷制乙二醇三步路线。"
+tags: ["例题", "有机化学"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一考检验程序的完整三步；例题二把四种丁醇的氧化、消去资格一次算清；例题三拆酸性比较的三装置流水线；例题四是 $\ce{C5H10O2}$ 的异构总账（25/13/16 三问）；例题五走「消去—加成—水解」组合拳的三步合成。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：溴乙烷中溴的检验（easy）
+
+<ExampleCard title="水解之后为什么不能直接滴硝酸银" difficulty="easy" source="改编 · 原型：卤代烃中卤素元素的检验">
+
+某同学检验溴乙烷中的溴元素：取溴乙烷加 NaOH 溶液共热，冷却后**直接**滴入 $\ce{AgNO3}$ 溶液，观察到褐色沉淀，遂得出「含溴」的结论。请评价该方案与结论，并给出正确程序。
+
+<Reveal summary="查看解析">
+
+<Callout type="wrong" title="方案错在哪">
+
+两处：①水解液中**剩余的 NaOH** 与 $\ce{Ag+}$ 反应生成 $\ce{AgOH}$，随即分解为**褐色** $\ce{Ag2O}$ 沉淀——看到的根本不是 $\ce{AgBr}$ 的淡黄色，结论无效；②未酸化就加银盐，等于让 $\ce{OH-}$ 抢答。
+
+</Callout>
+
+<Callout type="right" title="正确程序">
+
+三步「水解—酸化—银硝」：取水解液，加**过量稀硝酸**至溶液呈酸性（中和 NaOH、且不引入干扰性卤素），再滴 $\ce{AgNO3}$——出现**淡黄色**沉淀 $\ce{AgBr}$，方证明含溴。酸化若误用盐酸会引入 $\ce{Cl-}$（白色 $\ce{AgCl}$）、用硫酸会出 $\ce{Ag2SO4}$ 微溶浑浊，只有硝酸是「干净」的酸。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「把溴乙烷改为四氯化碳，同法检验氯元素，最终沉淀什么颜色？」
+
+<Callout type="right" title="参考答案">
+
+白色（$\ce{AgCl}$）。注意 $\ce{CCl4}$ 中氯同样不电离，必须先水解（或钠熔）把共价氯变成 $\ce{Cl-}$ 再检验。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题二：四种丁醇的「三种氢」账（medium）
+
+<ExampleCard title="同是丁醇，命运四种" difficulty="medium" source="改编 · 原型：丁醇异构体催化氧化与消去产物判断">
+
+分子式 $\ce{C4H10O}$ 的醇有 4 种同分异构体。分别写出它们经 Cu 催化氧化的产物；再指出谁能消去、消去产物是什么。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案">
+
+① 1-丁醇 $\ce{CH3CH2CH2CH2OH}$（伯）→ **丁醛**；② 2-甲基-1-丙醇（异丁醇，伯）→ **2-甲基丙醛**；③ 2-丁醇（仲）→ **丁酮**；④ 2-甲基-2-丙醇（叔丁醇）：连羟基的碳上无 α-H，**不能被催化氧化**。消去账（看 β-H）：四位都有邻位 C−H，全部能消去——①得 1-丁烯；②得 2-甲基丙烯（异丁烯）；③两个邻位都有 H，得 1-丁烯 + 2-丁烯混合物；④三个甲基等效，只得异丁烯。
+
+</Callout>
+
+<Callout type="skill" title="账法">
+
+每张醇结构上圈两个位置：连 $-\ce{OH}$ 的碳数 H（定氧化资格与产物档次）、邻位碳数 H（定消去资格）。「叔丁醇不能氧化却能消去」正是两套资格独立审查的样板。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「新戊醇 $(\ce{CH3})3\ce{C-CH2OH}$ 能被催化氧化吗？能消去吗？」
+
+<Callout type="right" title="参考答案">
+
+能氧化（α-碳即 $\ce{CH2OH}$ 碳上有 2 个 H，伯醇 → 特戊醛）；**不能消去**——β-碳是季碳、无 H。与叔丁醇恰好互补：一个能消去不能氧化，一个能氧化不能消去。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题三：三装置比酸性（medium）
+
+<ExampleCard title="乙酸、碳酸、苯酚的排队实验" difficulty="medium" source="改编 · 原型：比较碳酸与苯酚酸强的实验装置分析">
+
+按「A（分液漏斗中乙酸滴入盛 $\ce{Na2CO3}$ 固体的烧瓶）→ B（洗气瓶）→ C（试管中盛苯酚钠溶液）」连接装置，观察到 A 中冒气泡、C 中溶液变浑浊。回答：①该实验能否直接证明酸性 乙酸＞碳酸＞苯酚？②B 中应盛什么、作用是什么？③写出 C 中反应的离子方程式。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案">
+
+① A 冒气泡证明乙酸制出了碳酸（分解为 $\ce{CO2}$）：乙酸＞碳酸；C 变浑说明 $\ce{CO2}$ 制出了苯酚：碳酸＞苯酚——但**没有 B 则结论不成立**，因为挥发出的**乙酸蒸气**随气流进 C 同样能把苯酚顶出来，浑浊不再专属碳酸。② B 盛**饱和 $\ce{NaHCO3}$ 溶液**：吸收乙酸（变成 $\ce{CO2}$ 不损失气体）而留下纯净 $\ce{CO2}$——注意不能选 NaOH（把 $\ce{CO2}$ 也吃了）。③ $\ce{C6H5O- + CO2 + H2O -> C6H5OH + HCO3-}$；浑浊是苯酚（常温溶解度小），**与 $\ce{CO2}$ 是否过量无关**，产物永远写 $\ce{NaHCO3}$。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「把乙酸换成苯酚溶液，能否与 $\ce{Na2CO3}$ 反应放出 $\ce{CO2}$？」
+
+<Callout type="right" title="参考答案">
+
+不能。苯酚酸性介于碳酸与 $\ce{HCO3^-}$ 之间，与 $\ce{CO3^2-}$ 只反应到 $\ce{HCO3^-}$：$\ce{C6H5OH + CO3^2- -> C6H5O- + HCO3-}$，无气体。这正是「苯酚 vs 羧酸」的分界线。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题四：C₅H₁₀O₂ 的异构总账（hard）
+
+<ExampleCard title="二十五种分子三本账" difficulty="hard" source="改编 · 原型：饱和一元酸酯羟基醛异构体计数与性质子集">
+
+分子式 $\ce{C5H10O2}$ 的有机物（只考虑羧酸、酯、羟基醛三类）共多少种？其中：①能与 NaOH 反应的几种？②能发生银镜反应的几种？③与 Na 反应放出 $\ce{H2}$ 的几种？
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案">
+
+总数 **25**：酸 4（$\ce{C4H9-COOH}$，丁基 4 式）+ 酯 9（甲酸丁酯 4、乙酸丙酯 2、丙酸乙酯 1、丁酸甲酯 2）+ 羟基醛 12。①耗 NaOH = 酸 4（中和）+ 酯 9（水解）= **13**。②银镜 = 羟基醛 12（有 $\ce{-CHO}$）+ 甲酸酯 4（「隐形醛基」）= **16**。③放 $\ce{H2}$ = 酸 4（$\ce{-COOH}$）+ 羟基醛 12（醇羟基）= **16**——与②同数不同路，一本查碱性、一本查活泼氢，别混。
+
+</Callout>
+
+<Callout type="skill" title="账法">
+
+酯的 9 种按「酸侧碳数」排队：$\ce{HCOOC4H9}$（4）→ $\ce{CH3COOC3H7}$（2）→ $\ce{C2H5COOC2H5}$（1）→ $\ce{C3H7COOCH3}$（2），丙基只 2 式、丁基 4 式是硬材料。羟基醛 12 先搭碳骨架（正丁醛 4 位 + 异丁醛系 8 位…按 OH 位置穷举）——大题给到 12 不必重推，验证时抓「总数 25 = 4+9+12」闭合即可。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「$\ce{C4H8O2}$ 的同样三问答案是什么？」
+
+<Callout type="right" title="参考答案">
+
+总数 11（酸 2 + 酯 4 + 羟基醛 5）；①NaOH：2+4 = 6；②银镜：5+2（甲酸丙酯有 2 式）= 7；③放氢气：酸 2 + 羟基醛 5 = 7。方法与例题完全同构。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题五：三步拿下乙二醇（hard）
+
+<ExampleCard title="从溴乙烷出发制 1,2-乙二醇" difficulty="hard" source="改编 · 原型：卤代烃消去加成水解组合路线设计">
+
+以溴乙烷为原料合成 1,2-乙二醇 $\ce{HOCH2CH2OH}$，无机试剂任选。写出三步路线（每步注明试剂与条件、反应类型），并说明为什么不能一步到位。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="三步流水线">
+
+**第一步 消去**：$\ce{CH3CH2Br + NaOH ->[乙醇][\Delta] CH2=CH2 ^ + NaBr + H2O}$——先把双键「立」起来（开路的唯一手段）；**第二步 加成**：$\ce{CH2=CH2 + Br2 -> CH2BrCH2Br}$——双键打开各挂一个溴，一卤变二卤；**第三步 水解**：$\ce{CH2BrCH2Br + 2NaOH ->[H2O][\Delta] HOCH2CH2OH + 2NaBr}$——两个溴整齐换成羟基。类型依次：消去、加成、取代（水解）。
+
+</Callout>
+
+<Callout type="why" title="为什么不能一步">
+
+溴乙烷直接水解只得**一元**乙醇——一个 $-\ce{Br}$ 只能换一个 $-\ce{OH}$，第二羟基无处落位。引入第二个官能团必须借双键当「装卸平台」：凡一官能团变相邻双官能团，一律走「消去 → 加成 → 水解」三件套。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「改以 1-丙醇为原料，其余同上，合成 1,2-丙二醇。」
+
+<Callout type="right" title="参考答案">
+
+$\ce{CH3CH2CH2OH ->[浓硫酸][170\degree C] CH3CH=CH2 ->[Br2] CH3CHBrCH2Br ->[NaOH水][\Delta] CH3CH(OH)CH2OH}$。丙烯不对称只影响马氏加 HX/H₂O；$\ce{Br2}$ 加成两端各挂一半，无选择问题。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 参考来源
+
+<Callout type="note" title="参考来源">
+
+题目与解析改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并勘误（口径以[概览](/chemistry/hydrocarbon-derivatives/)页末清单为准）。
+
+</Callout>
