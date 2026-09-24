@@ -198,6 +198,15 @@ export const topics: TopicMeta[] = [
     summary: '卤代烃醇酚醛酮酸酯胺酰胺油脂：水解消去两条路、醇的断键表、酚的三本账、银镜与斐林、酸性序与异构总账',
     tags: ['有机化学'],
   },
+  {
+    slug: 'polymer-biomolecule',
+    subject: 'chemistry',
+    title: '生物大分子与合成高分子',
+    icon: '🧶',
+    order: 54,
+    summary: '糖类氨基酸蛋白质核酸与合成高分子：葡萄糖五本账、淀粉水解双线检验、肽键脱水与组合数、加聚缩聚对照与链节倒推单体、化学品合理使用',
+    tags: ['有机化学'],
+  },
 ];
 
 export const sectionMeta = {

@@ -1,0 +1,246 @@
+---
+title: "生物大分子与合成高分子 · 易错点"
+topic: "polymer-biomolecule"
+category: "mistakes"
+order: 1
+summary: "8 张易错卡：糖与碳水的名实陷阱、果糖银镜翻案、淀粉纤维素不同分异构、盐析与变性分家、水解检验加碱顺序、缩聚方程漏小分子、PVC 食品包装、油脂哈喇是氧化。"
+tags: ["易错点", "有机化学"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+<MistakeCard index={1} title="按「甜不甜」「通式像不像水合物」认糖" frequency="medium" tags={['糖类', '概念']}>
+
+<Callout type="wrong" title="错误示例">
+
+「糖类都有甜味，符合 $\ce{C_m(H2O)_n}$ 通式的都是糖；木糖醇/蜜汁红枣天然健康，随便吃。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+三个漏洞：①不甜的糖有的是——淀粉、纤维素都是糖；②符合通式的不一定是糖——乙酸 $\ce{C2H4O2}$、甲醛 $\ce{CH2O}$；不符合的也可能是糖——鼠李糖 $\ce{C6H12O5}$；③「糖」的定义看**结构**：多羟基醛、多羟基酮及水解能生成它们的物质。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+认糖三步：先问结构（多羟基醛/酮或其水解产物）、再谈分类（单糖不水解、二糖多糖水解）、甜味与溶解性只是物理侧写。非糖甜味剂（阿斯巴甜、木糖醇）反而不属于糖类。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+判断题见「所有的糖都甜/都符合碳水通式」直接判错；写「碳水化合物」加引号当历史名处理。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={2} title="果糖是酮糖，就判它不能发生银镜反应" frequency="high" tags={['果糖', '还原糖']}>
+
+<Callout type="wrong" title="错误示例">
+
+「果糖分子中无醛基（是酮羰基），不能发生银镜反应，属于非还原糖。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+银镜反应在**碱性**介质进行：果糖受碱催化经烯醇式中间体异构化为葡萄糖（醛糖），照样把 $\ce{[Ag(NH3)2]+}$ 还原成银镜。酮糖是还原糖——「无醛基 ≠ 不能银镜」。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+还原糖名单：**所有单糖（葡萄糖、果糖、核糖…）+ 麦芽糖、乳糖**；非还原糖代表：**蔗糖**、全部多糖。检验葡萄糖用银氨/新制 $\ce{Cu(OH)2}$ 阳性即可，但要区分葡萄糖与果糖得换溴水等酸性条件氧化（酮糖不被溴水氧化）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「蔗糖能否银镜」答不能（高考标配非还原糖）；见「果糖」先在心里标红——它是「酮糖却还原」的反例专业户。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={3} title="淀粉与纤维素：同分子式、同通式，就判同分异构" frequency="high" tags={['多糖', '概念']}>
+
+<Callout type="wrong" title="错误示例">
+
+「淀粉和纤维素分子式都是 $\ce{(C6H10O5)_n}$，二者互为同分异构体；二者水解最终产物不同。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$n$ 值**都不固定且互不相等**：各自是一堆聚合度不同的分子的混合——同通式≠同分子式，谈不上同分异构；且二者都是混合物。后半句也错：水解**最终**产物都是葡萄糖（淀粉先经糊精、麦芽糖阶段）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+正确表述：淀粉与纤维素**不是**同分异构体、也**不是**同系物（结构单元数不同且均多分散）；均能水解至葡萄糖；淀粉遇碘变蓝、人体可消化，纤维素人体**无酶不水解**、只做膳食纤维。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+凡带 $n$ 的高聚物式子，先问「$n$ 固定吗」——固定才有分子式可比；「同通式高聚物互称同分异构体」一律判错。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={4} title="盐析与变性混为一谈：都叫「沉淀」，一个可逆一个覆水难收" frequency="high" tags={['蛋白质', '实验']}>
+
+<Callout type="wrong" title="错误示例">
+
+「鸡蛋清溶液中加入饱和 $\ce{(NH4)2SO4}$ 溶液出现沉淀，蛋白质变性；CuSO₄ 溶液使蛋白质盐析，可用于消毒。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+两张处方恰好互斥：**盐析**＝浓的轻金属盐/**铵盐**（$\ce{Na2SO4}$、$\ce{(NH4)2SO4}$）溶液，物理变化、可逆、加水复溶、**生理活性保留**——分离提纯蛋白质的手段；**变性**＝加热/紫外线/强酸碱/**重金属盐**（$\ce{Cu^2+}$、$\ce{Pb^2+}$）/甲醛/酒精，化学变化、不可逆、活性丧失——杀菌消毒的原理。把「铵盐浓溶液」错升格为变性、把「重金属」错降格为盐析，是本题的两种翻车法。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+口诀「**轻铵盐浓只盐析，重热酸碱酒甲醛**」。消毒酒精选 75% 左右：过浓先在细菌表面形成硬化膜反而保护之。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+看到「沉淀」二字先问可逆性：可逆（加水复溶、活性在）＝盐析；不可逆（失活）＝变性。命题人最爱在「提纯蛋白质用变性法」这种句子里下毒。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={5} title="检验淀粉水解产物，碱加错了地方" frequency="high" tags={['实验', '水解检验']}>
+
+<Callout type="wrong" title="错误示例">
+
+「淀粉水解液中直接加入银氨溶液水浴加热，未出现银镜，证明淀粉尚未水解。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+水解用**稀硫酸**催化，液里酸还没走：银氨配离子被酸破坏（$\ce{OH-}$ 与 $\ce{NH3}$ 先后被中和），就算葡萄糖满瓶也不出银镜——阴性不作数。反向坑：检验剩余淀粉时若**先加碱后加碘水**，$\ce{I2}$ 与 NaOH 反应（歧化），蓝色也不出来，同样假阴性。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+双线取样：一份**直接加碘水**（看淀粉还剩多少）；另一份**先加 NaOH 中和至碱性**再加银氨溶液（看葡萄糖生成没有）。两路分开取样、各测各的，别把试剂加串门。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「先中和后检验」与卤代烃检验酸化同理，只是方向相反：银镜/斐林要**碱性环境**（加碱），$\ce{AgNO3}$ 查卤离子要**酸性环境**（加酸）——检验试剂的酸碱口味必须背牢。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={6} title="写缩聚方程式：忘了小分子、链节照抄单体" frequency="high" tags={['高分子', '方程式']}>
+
+<Callout type="wrong" title="错误示例">
+
+「$\ce{nCH3CH(OH)COOH ->[催化剂] [-CH2CH(OH)COOH-]_{n}}$」（羟基丙烯酸式照抄加聚写法）。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+乳酸没有碳碳双键，不走加聚；它靠 $-\ce{OH}$ 与 $-\ce{COOH}$ 相互酯化缩聚：链节是**酯化的残体** $\ce{-OCH(CH3)CO-}$（少一分子水的组成），尾巴必须写副产物 **$(n-1)\ce{H2O}$**。缩聚三记：链节≠单体、小分子不能漏、两端有时要写 H— 与 —OH 封端。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{nCH3CH(OH)COOH ->[催化剂] [-OCH(CH3)CO-]_{n} + (n-1)H2O}$。二元酸+二元醇型（如 PET）脱水数 $(2n-1)$；酚醛树脂型缩聚写 $n\ce{H2O}$（每对邻/对位接一个 $\ce{CH2}$ 出一支水，教学口径按链节成套配平）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+判「该写加聚还是缩聚」只看单体：有 $\ce{C=C}$（烯/二烯/炔）→ 加聚、无副产物；靠 -OH/-COOH/-NH2 两两接线 → 缩聚、脱 $\ce{H2O}$（或 HX）。产物侧验证：链节组成与单体**相同**是加聚、**变瘦**是缩聚。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={7} title="聚氯乙烯薄膜保鲜食品、酚醛树脂加热重塑——材料安全两用错" frequency="medium" tags={['材料', 'STSE']}>
+
+<Callout type="wrong" title="错误示例">
+
+「聚氯乙烯薄膜可放心包装熟食；电木（酚醛塑料）插座裂了可以加热焊接复用。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+PVC 本身含氯单体残留、且加工必掺**增塑剂**（可迁移进食品），熟食油脂更加速溶出——食品包装用聚乙烯（PE）。酚醛树脂是**热固性**网状结构：一次成型后受热不熔不溶，只能粉碎填埋、不能加热重塑——可反复加热成型的是热塑性（PE、PVC 本体）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+材料档案：热塑=链状（聚乙烯、聚丙烯、PVC 本体）；热固=网状（酚醛/脲醛树脂、硫化橡胶）；「结构决定性能」句式答题。食品相关只认 PE/PP 制品；PP（聚丙烯）可微波、PE 分高低压。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+STSE 判断题见「PVC 保鲜膜」「铝箔长期盛酸性食品」「用甲醛海产品保鲜」一律亮红牌；「热固性能重塑」是概念级错误。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={8} title="油脂哈喇味当「水解」，抗氧化剂当「调味」" frequency="medium" tags={['油脂', '变质']}>
+
+<Callout type="wrong" title="错误示例">
+
+「久置油脂产生哈喇味是水解生成了脂肪酸和甘油，加少量水焖一下即可恢复。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+哈喇味是不饱和脂肪酸甘油酯中**碳碳双键被空气氧化**：先成过氧化物，再裂解成低分子醛、酮、酸——有异味、有危害，不可逆，变质油不可食用。水解（酸败的另一路）需要水与酶/酸碱，与「敞口放置」无关。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+防护三件套：**抗氧化剂**（抗坏血酸/维 C 牺牲自己先被氧化、TBHQ、BHA）、**密封隔氧**、**避光低温**。油脂氢化（硬化）同时降低不饱和度，也让油更耐存。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「油脂变质/哈喇」一律答**氧化**（与乙烯使高锰酸钾褪色同理的加成体系被进攻）；维 C 作抗氧化剂体现其**还原性**——这条常与「维 C 酸性」并考，别写反角色。
+
+</Callout>
+
+</MistakeCard>
+
+## 参考来源
+
+<Callout type="note" title="参考来源">
+
+内容改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并勘误（口径以[概览](/chemistry/polymer-biomolecule/)页末清单为准）。
+
+</Callout>
