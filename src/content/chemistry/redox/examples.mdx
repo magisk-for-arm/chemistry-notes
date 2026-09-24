@@ -1,0 +1,256 @@
+---
+title: "氧化还原反应 · 典型例题"
+topic: "redox"
+category: "examples"
+order: 5
+summary: "5 道典型例题：氧化剂还原剂辨析、强弱排序、缺项配平、电子守恒速算、归中反应分析。"
+tags: ["例题", "氧化还原", "计算"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一～二打基础（角色辨析与强弱排序），例题三是流程题标配（缺项配平），例题四～五冲高分（电子守恒速算、归中反应定量分析）。建议先做题再看解析。
+
+</Callout>
+
+## 例题一：角色与份额（easy）
+
+<ExampleCard title="MnO₂ 与浓盐酸反应的正确说法" difficulty="easy">
+
+$\ce{MnO2 + 4HCl(浓) ->[\Delta] MnCl2 + Cl2 ^ + 2H2O}$，下列说法**正确**的是（　　）
+
+- A．氧化剂与还原剂的物质的量之比为 $1:2$
+- B．浓盐酸在反应中只表现还原性
+- C．每生成 $1\ \mathrm{mol}\ \ce{Cl2}$ 转移 $4N_A$ 个电子
+- D．$\ce{MnO2}$ 被氧化，是还原剂
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="A ✅ 正确">
+
+$\ce{MnO2}$（Mn $+4 \to +2$）是氧化剂，$1\ \mathrm{mol}$；$4\ \mathrm{mol}$ HCl 中只有生成 $\ce{Cl2}$ 的 **$2\ \mathrm{mol}$** 被氧化（$-1 \to 0$）作还原剂，另 $2\ \mathrm{mol}$ 进入 $\ce{MnCl2}$ 表现酸性。比例 $1:2$。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 漏了酸性">
+
+生成盐 $\ce{MnCl2}$ 的部分只表现**酸性**——浓盐酸「酸性 + 还原性」双线兼表。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 电子数翻倍">
+
+$2\ \mathrm{mol}\ \ce{Cl-}$ 共失 $2\ \mathrm{mol}$ 电子生成 $1\ \mathrm{mol}\ \ce{Cl2}$，应为 $2N_A$。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 氧化剂还原剂互换">
+
+$\ce{MnO2}$ 中 Mn 降价、得电子，**被还原**，是氧化剂。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+「剂」的辨析三步：标价态 → 找降价者（氧化剂）与升价者（还原剂）→ 数「**真正变价**」的微粒数。「参加反应的酸」与「作还原剂的酸」经常不相等，比例题先分清这一点。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 该反应中消耗 $0.8\ \mathrm{mol}$ HCl 且反应完全，求生成的 $\ce{Cl2}$ 在标准状况下的体积与转移电子数。
+
+**答案**：由方程式系数比 $\ce{HCl}:\ce{Cl2} = 4:1$ 得 $n(\ce{Cl2}) = 0.8 \times \frac{1}{4} = 0.2\ \mathrm{mol}$，体积 $4.48\ \mathrm{L}$；每生成 $1\ \mathrm{mol}\ \ce{Cl2}$ 转移 $2\ \mathrm{mol}\ e^-$，共 $0.4N_A$ 个。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：由反应推强弱（easy）
+
+<ExampleCard title="三个反应排出一条链" difficulty="easy">
+
+已知反应：① $\ce{Cl2 + 2Br- -> 2Cl- + Br2}$；② $\ce{Br2 + 2Fe^2+ -> 2Br- + 2Fe^3+}$；③ $\ce{2Fe^3+ + 2I- -> 2Fe^2+ + I2}$。还原性由强到弱的顺序是？
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="方向性规律：还原剂 > 还原产物">
+
+- ①得 $\ce{Br- > Cl-}$；
+- ②得 $\ce{Fe^2+ > Br-}$；
+- ③得 $\ce{I- > Fe^2+}$。
+
+拼接：$\ce{I- > Fe^2+ > Br- > Cl-}$。
+
+</Callout>
+
+<Callout type="tip" title="顺手推氧化性">
+
+同理解「氧化剂 > 氧化产物」：$\ce{Cl2 > Br2 > Fe^3+ > I2}$。两张链互为倒序，背一张验另一张。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+排序题不凭感觉：每个方程式折成一条「剂 > 产物」的小于/大于链，再按公共项拼接。拼完代回原方程式检查「强 + 强 → 弱 + 弱」是否成立（反应总是由强者生成弱者）。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 向含等物质的量 $\ce{FeI2}$（即 $\ce{Fe^2+}$、$\ce{I-}$ 共存）的溶液中缓缓通入少量氯水，先被氧化的离子是谁？
+
+**答案**：$\ce{I-}$（还原性 $\ce{I- > Fe^2+}$）。离子方程式 $2\ce{I- + Cl2 -> I2 + 2Cl-}$——「少量」意味着轮不到 $\ce{Fe^2+}$。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：缺项配平（medium）
+
+<ExampleCard title="补全并配平：KMnO₄ 滴定 H₂O₂" difficulty="medium" source="改编 · 原型：缺项配平常考方程">
+
+配平离子方程式并回答：
+
+$$\ce{\_\_ MnO4- + \_\_ H2O2 + \_\_\_\_ -> \_\_ Mn^2+ + \_\_ O2 ^ + \_\_ H2O}$$
+
+（1）缺项是什么，系数是多少？（2）每消耗 $1\ \mathrm{mol}\ \ce{MnO4-}$ 生成标况下 $\ce{O2}$ 多少升？
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="五步走">
+
+标价：Mn $+7 \to +2$（降 5）；$\ce{H2O2}$ 中 O $-1 \to 0$（每个 O 升 1，双氧水 2 个 O 共升 2）。
+求最小公倍数 10：$\ce{MnO4-}$ 系数 2、$\ce{H2O2}$ 系数 5。
+电荷：左边现有 $-2$，右边 $+4$，差 6——**酸性环境补 $6\ \ce{H+}$**。
+观察收尾：$2\ce{MnO4- + 5H2O2 + 6H+ -> 2Mn^2+ + 5O2 ^ + 8H2O}$（查 O：左 $8+10=18$，右 $10+8=18$ ✓）。
+
+</Callout>
+
+<Callout type="right" title="答案">
+
+（1）缺项为 $6\ \ce{H+}$（反应物侧）；（2）$n(\ce{O2}) = \frac{5}{2}n(\ce{MnO4-}) = 2.5\ \mathrm{mol}$，标况 $56\ \mathrm{L}$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+缺项补项的裁决权在**电荷守恒**：配完变价物质后先比两边电荷，再按介质（酸性补 $\ce{H+}$、碱性补 $\ce{OH-}$）拉平，最后用水收 H、O。碱性环境绝不出现自由 $\ce{H+}$，反之亦然。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 碱性条件下 $\ce{NaClO}$ 氧化 $\ce{Fe(OH)3}$ 制 $\ce{Na2FeO4}$：$\ce{\_\_ ClO- + \_\_ Fe(OH)3 + \_\_\_\_ -> \_\_ FeO4^2- + \_\_ Cl- + \_\_ H2O}$。
+
+**答案**：$3\ce{ClO-} + 2\ce{Fe(OH)3} + 4\ce{OH-} -> 2\ce{FeO4^2-} + 3\ce{Cl-} + 5\ce{H2O}$（Fe 升 3×2、Cl 降 2×3；电荷左 $-7$ 右 $-7$）。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：电子守恒速算（hard）
+
+<ExampleCard title="不写方程式解 Cu–Cu₂O 混合物" difficulty="hard" source="改编 · 原型：电子守恒计算高频模型">
+
+$\ce{Cu}$ 与 $\ce{Cu2O}$ 的混合物共 $2.88\ \mathrm{g}$，恰好完全溶于稀硝酸，还原产物只有 $\ce{NO}$，标况下收集到 $0.448\ \mathrm{L}$。求混合物中 $\ce{Cu}$ 的物质的量与消耗 $\ce{HNO3}$ 的总量。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="两个等式，零个方程式">
+
+设 $n(\ce{Cu}) = x$、$n(\ce{Cu2O}) = y$。
+
+- **质量**：$64x + 144y = 2.88$
+- **电子守恒**（$\ce{Cu -> Cu^2+}$ 失 2，$\ce{Cu2O -> 2Cu^2+}$ 失 2，N 得 3）：$2x + 2y = 3 \times \frac{0.448}{22.4} = 0.06$
+
+联立解得 $x = 0.018\ \mathrm{mol}$、$y = 0.012\ \mathrm{mol}$。
+
+</Callout>
+
+<Callout type="right" title="硝酸两分法">
+
+总 $n(\ce{HNO3}) = \underbrace{2\,n(\ce{Cu^2+})}_{\text{成盐}} + \underbrace{n(\ce{NO})\times 3}_{\text{被还原}} = 2 \times 0.042 + 0.06 = 0.144\ \mathrm{mol}$（其中 $n(\ce{Cu^2+}) = x + 2y = 0.042$）。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+混合物与硝酸反应的「免方程式」套路：升幅总和（金属侧）$=$ 降幅总和（气体侧）；硝酸用量拆两块——成盐看金属电荷数，被远见气体电子数。两块数据都来自已算出的 $x$、$y$，**一次配平、终身受益**。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 若原题目中混合物组成不变（$x = 0.018$、$y = 0.012$），改溶于浓硝酸，收集到 $\ce{NO}$ 与 $\ce{NO2}$ 的混合气体共 $0.04\ \mathrm{mol}$，求两者物质的量之比。
+
+**答案**：混合物失电子总数不变，$2x + 2y = 0.06\ \mathrm{mol}$。设 $n(\ce{NO}) = a$、$n(\ce{NO2}) = b$：$a + b = 0.04$（原子/总量），$3a + b = 0.06$（电子守恒），解得 $a = 0.01$、$b = 0.03$，比值 $1:3$。**气体种类变了，每 mol 气体对应得电子数就变**（$\ce{NO}$ 得 3、$\ce{NO2}$ 得 1），务必重新列电子等式。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：归中反应定量分析（hard）
+
+<ExampleCard title="氨催化还原 NO 的算账题" difficulty="hard" source="改编 · 原型：SCR 脱硝归中反应">
+
+汽车尾气处理反应：$4\ce{NH3 + 6NO ->[催化剂] 5N2 + 6H2O}$（归中反应）。下列说法**正确**的是（　　）
+
+- A．$\ce{NH3}$ 中氮元素被还原，作氧化剂
+- B．氧化产物与还原产物的质量比为 $2:3$
+- C．每生成 $1\ \mathrm{mol}\ \ce{N2}$ 转移 $3N_A$ 个电子
+- D．每消耗 $1\ \mathrm{mol}\ \ce{NH3}$ 失去 $2N_A$ 个电子
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 角色颠倒">
+
+$\ce{NH3}$ 中 N 为 $-3$ 价，升到 $\ce{N2}$ 的 $0$ 价——**被氧化，作还原剂**；NO 中 $+2$ 价 N 降低，作氧化剂。
+
+</Callout>
+
+<Callout type="right" title="B ✅ 正确">
+
+$5$ 个 $\ce{N2}$（10 个 N 原子）中：来自 $\ce{NH3}$ 的 4 个（氧化产物，即 $2$ 个 $\ce{N2}$）、来自 NO 的 6 个（还原产物，即 $3$ 个 $\ce{N2}$），比 $= 2:3$（同种分子，质量比即分子数比）。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 平均电子算错">
+
+全反应转移 $12\ \mathrm{mol}\ e^-$（$4 \times 3$ 升 $=$ $6 \times 2$ 降），生成 $5\ \mathrm{mol}\ \ce{N2}$，故每 mol $\ce{N2}$ 对应 $\frac{12}{5} = 2.4N_A$ 个电子。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 每原子降幅数错">
+
+$-3 \to 0$ 每分子 $\ce{NH3}$ 失 **3** 个电子，应为 $3N_A$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+归中反应算「氧化产物 : 还原产物」：**数来源原子，不数方程式系数**。把产物分子按 N 原子来源分堆，谁升来的归谁。转移电子只盯降价一侧：$6\ \mathrm{mol}\ \ce{NO} \times 2e^- = 12\ \mathrm{mol}$。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 反应 $\ce{2H2S + SO2 -> 3S + 2H2O}$ 中，氧化产物与还原产物质量比是多少？
+
+**答案**：$2:1$。$\ce{H2S}$（$-2$）升为 S 的是氧化产物（2 份 S 原子）；$\ce{SO2}$（$+4$）降为 S 的是还原产物（1 份）。归中不相交：$-2$ 与 $+4$ 只汇于 $0$。
+
+</Reveal>
+</ExampleCard>

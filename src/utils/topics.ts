@@ -45,6 +45,15 @@ export const topics: TopicMeta[] = [
     summary: '分类体系、电解质、胶体与化学常识，STSE 题的地基',
     tags: ['物质的分类', '胶体', 'STSE'],
   },
+  {
+    slug: 'redox',
+    subject: 'chemistry',
+    title: '氧化还原反应',
+    icon: '⚡',
+    order: 12,
+    summary: '概念网、强弱规律、配平流程与电子守恒速算',
+    tags: ['氧化还原', '计算'],
+  },
 ];
 
 export const sectionMeta = {

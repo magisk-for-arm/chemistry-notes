@@ -1,0 +1,251 @@
+---
+title: "氧化还原反应 · 易错点"
+topic: "redox"
+category: "mistakes"
+order: 1
+summary: "8 条高频陷阱：强弱看难易不看数目、归中不相交、钝化与氧化性酸的产物坑。"
+tags: ["易错点", "氧化还原"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+## 1. 失电子越多还原性越强？
+
+<MistakeCard index={1} title="用失电子数目衡量强弱" frequency="high" tags={['强弱判断']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Mg}$ 与酸反应失 2 个电子、$\ce{Na}$ 只失 1 个，所以 $\ce{Mg}$ 还原性强于 $\ce{Na}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+氧化性/还原性强弱只由**得失电子的难易程度**决定，与得失电子数目无关。$\ce{Na}$ 比 $\ce{Mg}$ 更易失电子，还原性 $\ce{Na > Mg}$（金属活动性顺序即还原性顺序）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+比较强弱三条硬依据：① 金属活动性/非金属活动性顺序；② **同一反应**中「剂 > 产物」；③ 与同种物质反应的难易剧烈程度（$\ce{F2}$ 冷暗处爆炸置换 $\ce{H2O}$ 中的氧 → $\ce{F2}$ 氧化性极强）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「失去 $n$ 个电子所以更强」直接判错——**数目是配额，难易才是能力**。强弱排序题先圈出「剂」和「产物」，用方向性规律重排。
+
+</Callout>
+</MistakeCard>
+
+## 2. 高价必强氧化、低价必强还原？
+
+<MistakeCard index={2} title="把价态高低直接等同氧化性强弱" frequency="high" tags={['氧化性', '反例']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{HClO4}$ 中 Cl 为 +7 是最高价，所以 $\ce{HClO4}$ 氧化性强于 $\ce{HClO}$；$\ce{Na2SO3}$ 中 S 为 +4，只能作还原剂。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+最高价只有氧化性、最低价只有还原性——这句对；但**氧化性强弱还与得电子难易有关**：$\ce{HClO}$ 中 +1 价 Cl 极不稳定易得电子，氧化性 $\ce{HClO > HClO4}$（稀高氯酸甚至难与多数还原剂反应）。+4 价 S 处于中间价态，**既能升又能降**（遇 $\ce{H2S}$ 显氧化性、遇氯水显还原性）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+中间价态「两边都能变」：$\ce{Fe^2+}$、$\ce{SO2}$、$\ce{H2O2}$ 是三大「墙头草」，遇强氧化剂显还原性、遇强还原剂显氧化性。$\ce{H2O2}$ 遇 $\ce{KMnO4}$ 作还原剂（产物 $\ce{O2}$）、遇 $\ce{Fe^2+}$ 作氧化剂（产物 $\ce{H2O}$，绿色变棕黄）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「一定」「越……越……」句式先想反例：最高价≠强氧化（$\ce{H3PO4}$ 中 +5 的 P 无氧化性、$\ce{CO2}$ 不助燃却稳定）；判角色看**对手**，中间价态两头晃。
+
+</Callout>
+</MistakeCard>
+
+## 3. 归中反应「就近交错」
+
+<MistakeCard index={3} title="归中时高价被降得过低、低价被升得过高" frequency="high" tags={['归中', '化合价规律']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{H2S}$ 与浓 $\ce{H2SO4}$ 反应：$\ce{H2S + H2SO4(浓) -> S + SO2 + H2O}$ 中认为 $-2$ 价 S 可升到 $+4$、$+6$ 价 S 可降到 $0$，产物按「交叉」写。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+同种元素不同价态反应时**只靠拢、不交叉**（高价→中间、低价→中间，各让一步到相邻价态）。$\ce{H2S}$ 的 $-2$ 价 S 升为 $0$ 价，浓 $\ce{H2SO4}$ 的 $+6$ 降为 $+4$，产物 $\ce{S + SO2}$ 正确；若写成交叉（$-2 \to +4$、$+6 \to 0$）就出现「跳轨」，违反能量最低路径。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+两个必背案例：① $\ce{Fe + 2Fe^3+ -> 3Fe^2+}$（0 与 +3 归中到 +2）；② $\ce{NH3}$ 与 $\ce{NO}$ 催化归中生成 $\ce{N2}$（$-3$ 与 $+2$ 只汇于 $0$，永不互穿）。**相邻价态的同种元素不能归中反应**：$\ce{SO2}$ 与浓 $\ce{H2SO4}$（+4/+6 相邻）可共存，所以浓硫酸能干燥 $\ce{SO2}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+画价态数轴：把该元素所有出现的价态标上去，归中产物只能落在**两点之间**；看到产物落在原两点外侧的写法，一律判错。
+
+</Callout>
+</MistakeCard>
+
+## 4. 氧化性酸的「气体陷阱」
+
+<MistakeCard index={4} title="金属与硝酸/浓硫酸反应写成放 H₂" frequency="high" tags={['硝酸', '浓硫酸']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Zn + 2HNO3(稀) -> Zn(NO3)2 + H2 ^}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+硝酸（不论稀浓）、浓硫酸的氧化性是**中心原子**（+5 的 N、+6 的 S）发力，远强于 $\ce{H+}$，放 $\ce{H2}$ 轮不到：稀硝酸一般放 $\ce{NO}$，浓硝酸放 $\ce{NO2}$，浓硫酸加热放 $\ce{SO2}$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{3Zn + 8HNO3(稀) -> 3Zn(NO3)2 + 2NO ^ + 4H2O}$。同时记住铁、铝**常温**遇浓硝酸/浓硫酸**钝化**——是反应生成致密氧化膜**阻止继续反应**，不是「不反应」（加热即进行）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+先分类酸再写产物：**非氧化性酸**（盐酸、稀硫酸）→ 金属放 $\ce{H2}$；**氧化性酸**（硝酸、浓硫酸）→ 放还原产物气体，且酸拆成「表现酸性的部分＋表现氧化性的部分」分开计数。
+
+</Callout>
+</MistakeCard>
+
+## 5. 复分解思维写「FeO + 硝酸」
+
+<MistakeCard index={5} title="忽略隐藏氧化还原，按强酸制弱氧化物写" frequency="high" tags={['硝酸', 'Fe2+']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{FeO + 2H+ -> Fe^2+ + H2O}$（稀硝酸溶解氧化亚铁）；$\ce{Na2S + 2HNO3(稀) -> H2S ^ + 2NaNO3}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Fe^2+}$、$\ce{S^2-}$、$\ce{SO3^2-}$、$\ce{I-}$ 都是**还原性选手**，遇到硝酸（酸性条件下 $\ce{NO3-}$ 的强氧化性）必被氧化：$\ce{Fe^2+ -> Fe^3+}$、$\ce{S^2- -> S}$（甚至到 $\ce{SO4^2-}$）。「酸溶」外衣下藏着氧化还原，是实验题与方程式书写的双料陷阱。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+溶解含 $\ce{Fe^2+}$ 的氧化物用**稀盐酸/稀硫酸**；必须用硝酸时按氧化还原配平（如 $3\ce{FeO + 10HNO3(稀) -> 3Fe(NO3)3 + NO ^ + 5H2O}$）。「$\ce{FeO + H+}$」写法只在**无氧化性酸**的前提下成立。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+离子方程式见「$\ce{H+}$（或硝酸）＋还原性微粒（$\ce{Fe^2+}$、$\ce{SO3^2-}$、$\ce{S^2-}$、$\ce{I-}$）」先举手：这是氧化还原不是复分解。检验自己敏感度：$\ce{BaCl2}$ 通 $\ce{SO2}$ 不沉淀，加 $\ce{HNO3}$ 就出 $\ce{BaSO4}$。
+
+</Callout>
+</MistakeCard>
+
+## 6. 转移电子数算错（歧化重灾区）
+
+<MistakeCard index={6} title="把全部变价原子都算成「真正变价」" frequency="high" tags={['电子转移', '歧化']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{3NO2 + H2O -> 2HNO3 + NO}$ 中，3 mol $\ce{NO2}$ 转移 $3N_A$ 个电子。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{NO2}$ 中 N 为 +4：其中 **1 mol 降到 +2**（生成 NO，得 2e⁻），另外 2 mol 升到 +5（生成 $\ce{HNO3}$，共失 2e⁻）——「得 2 = 失 2」，故 3 mol $\ce{NO2}$ 只转移 **2 mol** 电子。歧化反应里「变价原子数 ≠ 全部原子数」。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+同类校准三例：① $\ce{Cl2 + 2NaOH -> NaCl + NaClO + H2O}$，1 mol $\ce{Cl2}$ 转移 $1N_A$；② $2\ce{Na2O2 + 2H2O -> 4NaOH + O2 ^}$，1 mol $\ce{Na2O2}$ 转移 $1N_A$；③ $\ce{Cl2 + H2O -> HCl + HClO}$ 同样 1∶1。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+数电子三步：**只盯降者**（选一个被还原的原子数 × 降价数）即得转移数，不必两边都数；歧化题先在方程式上方标出「谁升谁降、各几份」。呼应阿伏加德罗常数易错点第 9 条。
+
+</Callout>
+</MistakeCard>
+
+## 7. 双线桥三件套画错
+
+<MistakeCard index={7} title="桥上漏写得失、原子数与电子数混乘" frequency="medium" tags={['双线桥', "规范表达"]}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Zn + CuSO4 -> ZnSO4 + Cu}$ 的双线桥画成：Zn 指向 Cu，标「$2e^-$」（无得失字样），或标成「失 $2\times6.02\times10^{23}e^-$」乱乘。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+双线桥**从反应物指向生成物中的同种元素**（Zn→Zn，Cu→Cu 两条桥），桥上必须写「**失** $2e^-$」「**得** $2e^-$」；系数写法为「变价原子个数 × 每原子得失数」，如 $\ce{3NO2}$ 的桥标「得 $2e^-$（1 个 N 得 2）」与「失 $2e^-$（2 个 N 各失 1）」，不能把未变价的原子乘进去。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+规范自检：① 箭头起止在同种元素；② 有「得/失」字样；③ 两桥电子总数相等；④ 单线桥则**不写得失**、箭头从还原剂指向氧化剂。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+画完默念「同元素、标得失、数相等」六字。判断题见「起点终点不同元素」或「桥上有无得失字样」两处挑错即可。
+
+</Callout>
+</MistakeCard>
+
+## 8. 「剂」与「酸」混为一谈（硝酸的三分天下）
+
+<MistakeCard index={8} title="忘记一部分硝酸只表现酸性" frequency="high" tags={['配平', '产物计算']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Cu}$ 与稀硝酸反应消耗 8 mol $\ce{HNO3}$ 时，认为被还原的硝酸也是 8 mol。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$3\ce{Cu + 8HNO3(稀) -> 3Cu(NO3)2 + 2NO ^ + 4H2O}$：8 mol 硝酸里，**6 mol 变成盐（酸性）**、只有 2 mol 降为 NO（氧化剂）。氧化剂占比 $=\dfrac{\text{还原产物系数}}{\text{酸总系数}}=\dfrac{2}{8}=\dfrac14$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+金属与酸反应的通用拆解：$n(\text{酸总}) = n(\text{成盐的酸根}) + n(\text{被还原部分})$，酸根部分 $= \text{金属离子电荷总数}$（电荷守恒视角）。同类：$\ce{MnO2 + 4HCl(浓)}$ 中一半 HCl 被氧化、一半作「酸根供应商」。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+凡问「被还原的占几分」：**先配平，数产物，再回看系数**。$N_A$ 题里「足量 Cu 与含 2 mol $\ce{HNO3}$ 的稀硝酸完全反应，被还原的硝酸为 $0.5$ mol（转移 $1.5N_A$ 个电子）」的算法同源于此（注意浓硝酸随反应进行变稀，产物会从 $\ce{NO2}$ 逐渐过渡到 $\ce{NO}$）。
+
+</Callout>
+</MistakeCard>
+
+## 接题方法总表
+
+| 看到什么 | 立刻要问 / 要做的 |
+|----------|------------------|
+| 「失电子多所以强」 | 强弱只看难易，与数目无关 |
+| 最高价/最低价 | 中间价态才两头晃；高价未必强氧化 |
+| 同种元素多种价态相遇 | 归中不相交，画数轴 |
+| 硝酸、浓硫酸＋金属 | 不放 $\ce{H2}$，酸拆「酸性＋氧化性」两份 |
+| $\ce{H+}$＋$\ce{Fe^2+}$/$\ce{SO3^2-}$/$\ce{I-}$ | 先怀疑氧化还原 |
+| 转移电子数 | 只盯降者数电子；歧化先分「几升几降」 |
+| 双线桥 | 同元素、标得失、数相等 |
+| 混合还原剂＋少量氧化剂 | 强的先反应（$\ce{I- > Fe^2+ > Br-}$） |
