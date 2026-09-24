@@ -1,0 +1,238 @@
+---
+title: "铁及其化合物 · 易错点"
+topic: "metal-iron"
+category: "mistakes"
+order: 1
+summary: "8 条高频陷阱：变价价态判、钝化幻觉、Fe₃O₄ 与硝酸、Fe(OH)₂ 防氧化、加铁粉顺序、蒸干水解、检验顺序、Cu₂O 歧化。"
+tags: ["易错点", "金属元素"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+## 1. 铁与谁反应都生成 +3 价？
+
+<MistakeCard index={1} title="Fe 与 S、I₂ 反应写成 Fe₂S₃、FeI₃" frequency="high" tags={['氧化还原', '产物判断']}>
+<Callout type="wrong" title="错误示例">
+
+$2\ce{Fe + 3S ->[\Delta] Fe2S3}$、$2\ce{Fe + 3I2 = 2FeI3}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+变价金属的产物价态由**氧化剂强弱**决定：$\ce{Cl2}$、$\ce{Br2}$、硝酸等强氧化剂把铁推到 $+3$；而 $\ce{S}$、$\ce{I2}$、$\ce{H+}$、$\ce{Cu^2+}$ 氧化能力有限，铁只到 $+2$。$\ce{Fe2S3}$、$\ce{FeI3}$ 均不稳定（$\ce{Fe^3+}$ 会立刻氧化 $\ce{S^2-}$、$\ce{I-}$），**根本不存在的产物**写出来必错。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{Fe + S ->[\Delta] FeS}$、$\ce{Fe + I2 = FeI2}$、$\ce{2Fe + 3Cl2 ->[\Delta] 2FeCl3}$。铜同理：$\ce{2Cu + S ->[\Delta] Cu2S}$（硫把铜压到 $+1$）、$\ce{Cu + Cl2 ->[\Delta] CuCl2}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+口诀「**氯硫分家**」：见 $\ce{Cl2}$/$\ce{O2}$（点燃）上高价，见 $\ce{S}$/$\ce{I2}$ 下低价；$\ce{Fe3O4}$ 是 $\ce{FeO\cdot Fe2O3}$ 混合型，别写成单一价态。
+
+</Callout>
+</MistakeCard>
+
+## 2. 钝化 = 不反应？
+
+<MistakeCard index={2} title="认为常温下铁遇浓硫酸、浓硝酸不反应" frequency="high" tags={['特性']}>
+<Callout type="wrong" title="错误示例">
+
+把铁片投入常温浓硫酸中「无任何变化，属于物理过程，不发生反应」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+钝化是**化学变化**：浓酸把铁表面迅速氧化成一层致密的氧化物薄膜，阻止内部金属继续溶解。「不溶解」是结果，「被氧化成膜」才是过程。且钝化只对**冷、浓**的硫酸/硝酸成立——加热后膜被破坏，反应剧烈进行；稀硝酸则直接溶解铁。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+表述为：常温下铁（铝同）遇**浓硫酸、浓硝酸发生钝化**，故可用**铁、铝制容器**盛装并储运冷浓硫酸/浓硝酸。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+判断容器材质题眼：「常温 + 浓 + 硫/硝」三条件齐 → 钝化可行；缺一（稀、热、换盐酸）→ 立刻被溶解，选项判错。
+
+</Callout>
+</MistakeCard>
+
+## 3. Fe₃O₄ 遇稀硝酸只写复分解？
+
+<MistakeCard index={3} title="Fe₃O₄（或 FeO）与稀硝酸反应不写 NO" frequency="high" tags={['离子方程式']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Fe3O4 + 8H+ = Fe^2+ + 2Fe^3+ + 4H2O}$ 当作「与稀硝酸反应」的最终答案。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+该式只对**盐酸**成立。稀硝酸有强氧化性，会把产物里的 $\ce{Fe^2+}$ 继续氧化为 $\ce{Fe^3+}$ 并放出 $\ce{NO}$——「溶酸复分解」只是第一步，「氧化续账」才是终点。$\ce{FeO}$、$\ce{Fe(OH)2}$、$\ce{Fe^2+}$ 盐遇硝酸同理。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$3\ce{Fe3O4 + 28H+ + NO3- = 9Fe^3+ + NO ^ + 14H2O}$；$\ce{FeO}$：$3\ce{FeO + 10H+ + NO3- = 3Fe^3+ + NO ^ + 5H2O}$。配平按电子守恒：每 $3\ \mathrm{mol}\ \ce{Fe^2+}$ 失 $3\ \mathrm{mol}\ e^-$ 恰对应 $1\ \mathrm{mol}\ \ce{NO}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+写含 $+2$ 铁物质的离子方程式，先看酸：**盐酸看溶解，硝酸看氧化**；反过来的还原性酸（氢碘酸 $\ce{HI}$）则把 $+3$ 铁还原成 $\ce{Fe^2+}$、$\ce{I-}$ 变 $\ce{I2}$。
+
+</Callout>
+</MistakeCard>
+
+## 4. 制 Fe(OH)₂ 像普通沉淀一样随便滴？
+
+<MistakeCard index={4} title="制备氢氧化亚铁不做任何防氧化措施" frequency="high" tags={['实验']}>
+<Callout type="wrong" title="错误示例">
+
+用胶头滴管把 $\ce{NaOH}$ 溶液悬空滴入 $\ce{FeSO4}$ 溶液，期望直接得到稳定的白色 $\ce{Fe(OH)2}$ 沉淀。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Fe(OH)2}$ 还原性极强，溶液中溶解的 $\ce{O2}$ 与液面接触就能把它氧化：$4\ce{Fe(OH)2 + O2 + 2H2O = 4Fe(OH)3}$，现象是白色絮状沉淀**迅速变灰绿、最终红褐**，白色转瞬即逝。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+全程「赶氧 + 隔氧」：① 用**新煮沸冷却**的蒸馏水配液（赶走溶解氧）；② $\ce{FeSO4}$ 溶液现配并加铁粉防氧化；③ 滴管**插入液面以下**再挤出 $\ce{NaOH}$；④ 液面覆一层苯或植物油隔绝空气。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+实验改进题的答题模板 = 「煮沸除氧、油膜隔氧、滴管入液、现配现用」四件套，问哪步对应哪目的，逐条回填即可。
+
+</Callout>
+</MistakeCard>
+
+## 5. 铁粉撒进混合盐溶液，谁先反应？
+
+<MistakeCard index={5} title="加铁粉时先置换铜后还原铁离子" frequency="high" tags={['反应顺序']}>
+<Callout type="wrong" title="错误示例">
+
+向 $\ce{FeCl3}$、$\ce{CuCl2}$ 混合液中加铁粉，写「铁先与 $\ce{Cu^2+}$ 置换出铜，生成的铜再与 $\ce{Fe^3+}$ 反应」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+还原剂遇到多种氧化剂时，**氧化性最强者优先**。氧化性顺序 $\ce{Fe^3+ > Cu^2+ > H+}$；即使先置换出铜，铜也立刻被 $\ce{Fe^3+}$ 溶回（$\ce{Cu + 2Fe^3+ = Cu^2+ + 2Fe^2+}$），绕一圈还是 $\ce{Fe^3+}$ 先消耗。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+分三段：$\ce{Fe + 2Fe^3+ = 3Fe^2+}$（无固体析出）→ $\ce{Fe + Cu^2+ = Fe^2+ + Cu}$（析出红色固体）→ $\ce{Fe + 2H+ = Fe^2+ + H2 ^}$（若为酸性环境）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「先强后弱」序贯法：把氧化剂按 $\ce{Fe^3+}$、$\ce{Cu^2+}$、$\ce{H+}$ 排队，铁粉的量像注水一样从第一名开始逐级消耗，各级剩余量决定固体与溶液组成。
+
+</Callout>
+</MistakeCard>
+
+## 6. 蒸干 FeCl₃ 溶液能得到无水 FeCl₃？
+
+<MistakeCard index={6} title="直接蒸发蒸干氯化铁溶液制无水盐" frequency="high" tags={['盐类水解']}>
+<Callout type="wrong" title="错误示例">
+
+「加热蒸干 $\ce{FeCl3}$ 溶液、继续灼烧，得到无水 $\ce{FeCl3}$ 固体。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{FeCl3 + 3H2O <=> Fe(OH)3 + 3HCl}$，升温促进水解且 $\ce{HCl}$ 挥发使平衡**一去不返**；蒸干得到 $\ce{Fe(OH)3}$，灼烧后变为 $\ce{Fe2O3}$。想抑制水解必须**补足 $\ce{HCl}$**——在 $\ce{HCl}$ 气流中蒸发，让挥发掉的气氛从外部补回来。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+制无水 $\ce{FeCl3}$：在干燥 $\ce{HCl}$ 气流中加热蒸干；同理 $\ce{MgCl2\cdot 6H2O}$ 脱水制无水 $\ce{MgCl2}$（海水中提镁的最后一步）也必须在 $\ce{HCl}$ 气流中进行。例外：蒸 $\ce{Fe2(SO4)3}$ 溶液可得原固体——硫酸不挥发。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「蒸干得到什么」三分法：不水解 → 原物质；水解产物酸**挥发**（氯化物）→ 氢氧化物/氧化物；水解产物酸**不挥发**（硫酸盐）→ 仍得原盐。
+
+</Callout>
+</MistakeCard>
+
+## 7. 检 Fe²⁺ 先加氯水？
+
+<MistakeCard index={7} title="检验亚铁离子的试剂加入顺序颠倒" frequency="high" tags={['物质检验']}>
+<Callout type="wrong" title="错误示例">
+
+「向溶液中先加氯水再加 $\ce{KSCN}$，变红，证明原溶液含 $\ce{Fe^2+}$。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+氯水已把可能存在的 $\ce{Fe^2+}$ 氧化为 $\ce{Fe^3+}$，此时变红**只能证明加入氯水之后溶液里有 $\ce{Fe^3+}$**，无法区分原溶液装的是 $\ce{Fe^2+}$ 还是本来就有 $\ce{Fe^3+}$。另外「加盐酸」也不行——$\ce{HCl}$ 没有氧化性，不能把 $\ce{Fe^2+}$ 氧化（氧化剂要用氯水或 $\ce{H2O2}$）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+证「含 $\ce{Fe^2+}$ 不含 $\ce{Fe^3+}$」：**先加 $\ce{KSCN}$ 不变红，再加氯水变红**。或直接取样，滴加 $\ce{K3[Fe(CN)6]}$ 溶液生成**蓝色沉淀**（滕氏蓝，专属反应，一步到位）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+检验类选项抓「顺序 + 专属」两把尺：涉及先氧化后显色的顺序必查；看到 $\ce{K3[Fe(CN)6]}$ 对 $\ce{Fe^2+}$、$\ce{K4[Fe(CN)6]}$ 对 $\ce{Fe^3+}$、**苯酚对 $\ce{Fe^3+}$ 显紫色**，对应错即判错。
+
+</Callout>
+</MistakeCard>
+
+## 8. Cu₂O 遇酸只写「溶解」？
+
+<MistakeCard index={8} title="忽略 Cu₂O 在酸中的歧化反应" frequency="medium" tags={['铜的化合物']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Cu2O + H2SO4 = CuSO4 + H2O}$（当作碱性氧化物直接复分解）。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$+1$ 价铜在水溶液中不稳定，发生**歧化**：一半升为 $\ce{Cu^2+}$（溶液变蓝），一半降为 $\ce{Cu}$（红色固体），产物其实有**三样**：$\ce{Cu^2+}$、$\ce{Cu}$、$\ce{H2O}$。漏掉单质铜的方程式必然不平。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{Cu2O + 2H+ = Cu + Cu^2+ + H2O}$。应用：还原 $\ce{CuO}$ 所得「红色固体」可能是 $\ce{Cu}$ 或 $\ce{Cu/Cu2O}$ 混合物，加稀硫酸看**是否残留红色固体 + 溶液是否变蓝**即可鉴别。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+记住 $+1$ 铜的「两面性」：酸中歧化、氧中归中（$4\ce{CuO ->[\text{高温}] 2Cu2O + O2 ^}$）；检验醛基的砖红色沉淀就是 $\ce{Cu2O}$，别与 $\ce{Fe2O3}$ 的红棕色混淆。
+
+</Callout>
+</MistakeCard>

@@ -72,6 +72,15 @@ export const topics: TopicMeta[] = [
     summary: '钠三角、过氧化钠记账、碳酸钠与碳酸氢钠对比及焰色反应',
     tags: ['金属元素'],
   },
+  {
+    slug: 'metal-iron',
+    subject: 'chemistry',
+    title: '铁及其化合物',
+    icon: '🧲',
+    order: 22,
+    summary: '铁三角、硝酸三档配比、Fe(OH)₂ 防氧化与 Fe²⁺/Fe³⁺ 检验，附铜的联动',
+    tags: ['金属元素', '氧化还原'],
+  },
 ];
 
 export const sectionMeta = {

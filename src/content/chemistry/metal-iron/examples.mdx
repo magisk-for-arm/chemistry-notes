@@ -1,0 +1,204 @@
+---
+title: "铁及其化合物 · 典型例题"
+topic: "metal-iron"
+category: "examples"
+order: 5
+summary: "5 道典型例题：加铁粉顺序判断、硝酸三档计算、混合物双守恒、Fe(OH)₂ 实验设计、铁铜混合定量压轴。"
+tags: ["例题", "金属元素", "计算"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一考「谁先反应」，例题二、三是铁章两大计算母题（三档硝酸、双守恒混合物），例题四是 $\ce{Fe(OH)2}$ 实验表述训练，例题五把铁三角推到定量极致。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：加铁粉的先后（easy）
+
+<ExampleCard title="铁粉入三混合液" difficulty="easy">
+
+向含等物质的量的 $\ce{FeCl3}$、$\ce{CuCl2}$ 的混合溶液中缓慢加入铁粉，可能观察到的现象顺序正确的是（　　）
+
+- A．先析出红色固体，后产生气泡
+- B．先无可见现象，后析出红色固体
+- C．立即析出红色固体，溶液黄色变浅
+- D．先产生气体，后析出红色固体
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：B">
+
+氧化性 $\ce{Fe^3+ > Cu^2+}$（酸性若存在再排 $\ce{H+}$）。第一段 $\ce{Fe + 2Fe^3+ = 3Fe^2+}$：只把黄色 $\ce{Fe^3+}$ 变成浅绿色 $\ce{Fe^2+}$，**无气体无沉淀**；第二段才 $\ce{Fe + Cu^2+ = Fe^2+ + Cu}$ 析出红色固体。
+
+</Callout>
+
+<Callout type="why" title="C 的迷惑点">
+
+「立即析出铜」忽略了 $\ce{Fe^3+}$ 会把刚生成的铜溶回去（$\ce{Cu + 2Fe^3+ = Cu^2+ + 2Fe^2+}$）——只要溶液还有 $\ce{Fe^3+}$，铜就存不住。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若把铁粉换成铜粉，第一段反应的离子方程式是什么？
+
+**答案**：$\ce{Cu + 2Fe^3+ = Cu^2+ + 2Fe^2+}$（铜不能置换 $\ce{Cu^2+}$，只还原 $\ce{Fe^3+}$）——「印刷电路板腐蚀液」的原理同款。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：硝酸三档（medium）
+
+<ExampleCard title="5.6 g 铁与 0.30 mol 稀硝酸" difficulty="medium" source="改编 · 原型：Fe 与 HNO₃ 配比计算">
+
+$5.6\ \mathrm{g}\ \ce{Fe}$（$0.10\ \mathrm{mol}$）完全溶于含 $0.30\ \mathrm{mol}\ \ce{HNO3}$ 的稀溶液，还原产物只有 $\ce{NO}$。求：（1）溶液中 $\ce{Fe^2+}$、$\ce{Fe^3+}$ 的物质的量；（2）标况下 $\ce{NO}$ 体积。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="定档 + 双守恒">
+
+比值 $n(\ce{Fe}):n(\ce{HNO3}) = 0.10:0.30 = 1:3$，介于 $3:8$ 与 $1:4$ 之间 → **两档之间的混合档**。设 $n(\ce{Fe^2+}) = x$、$n(\ce{Fe^3+}) = y$：
+
+$$\text{铁守恒：}\ x + y = 0.10 \qquad \text{N守恒}\times\text{电子守恒合一：}\ \tfrac{4}{3}(2x + 3y) = 0.30$$
+
+解得 $2x + 3y = 0.225$，联立 $x + y = 0.10$：$\boxed{x = 0.075\ \mathrm{mol},\ y = 0.025\ \mathrm{mol}}$。
+
+</Callout>
+
+<Callout type="right" title="气体量">
+
+$n(\ce{NO}) = \dfrac{2x+3y}{3} = \dfrac{0.225}{3} = 0.075\ \mathrm{mol}$，标况 $\boxed{1.68\ \mathrm{L}}$。
+
+验算 N 守恒：盐中 $\ce{NO3-}$ $=0.225\ \mathrm{mol}$ + 气体 $0.075\ \mathrm{mol}$ = $0.30\ \mathrm{mol}$ ✓
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 想让 $0.10\ \mathrm{mol}$ 铁全部转化为 $\ce{Fe(NO3)3}$，至少需要该浓度稀硝酸多少摩尔？此时产气多少？
+
+**答案**：按 $\ce{Fe} \sim 4\ce{HNO3} \sim \ce{NO}$：至少 $0.40\ \mathrm{mol}$ 硝酸，放 $\ce{NO}\ 0.10\ \mathrm{mol}$。比值 $1:4$ 正是「全三价」的临界档。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：混合物双守恒（medium）
+
+<ExampleCard title="铁与氧化铁的混合物溶于稀硫酸" difficulty="medium" source="改编 · 原型：Fe/Fe₂O₃ 混合物计算">
+
+$\ce{Fe}$ 与 $\ce{Fe2O3}$ 的混合物 $3.84\ \mathrm{g}$，加入足量稀硫酸使其完全溶解，收集到标况下氢气 $0.672\ \mathrm{L}$，向反应后溶液中滴加 $\ce{KSCN}$ 溶液不变红。求混合物中 $\ce{Fe}$ 的质量分数与原硫酸的消耗量（物质的量）。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="话术翻译 + 分段记账">
+
+「$\ce{KSCN}$ 不变红」→ 终态铁全部以 $\ce{Fe^2+}$ 存在。$n(\ce{H2}) = 0.03\ \mathrm{mol}$，与酸反应放氢的铁 $= 0.03\ \mathrm{mol}$。
+
+设 $n(\ce{Fe2O3}) = y$：它溶出的 $2y\ \mathrm{mol}\ \ce{Fe^3+}$ 被铁归中（$\ce{Fe + 2Fe^3+ = 3Fe^2+}$），耗铁 $y\ \mathrm{mol}$。
+
+质量账：$56(y + 0.03) + 160y = 3.84 \Rightarrow 216y = 2.16 \Rightarrow y = 0.01\ \mathrm{mol}$。
+
+</Callout>
+
+<Callout type="right" title="结果清算">
+
+$m(\ce{Fe}) = 56 \times (0.01 + 0.03) = 2.24\ \mathrm{g}$，$w(\ce{Fe}) = \dfrac{2.24}{3.84} \approx \boxed{58.3\%}$。
+
+酸耗：$\ce{Fe2O3}$ 消耗 $3 \times 0.01 = 0.03\ \mathrm{mol}$，放氢铁消耗 $0.03\ \mathrm{mol}$，共 $\boxed{0.06\ \mathrm{mol}}$。（验证：终态 $\ce{FeSO4}$，$n(\ce{Fe^2+}) = 0.06\ \mathrm{mol}$ 恰等于硫酸根 $0.06\ \mathrm{mol}$ ✓）
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 将所得溶液中的 $\ce{Fe^2+}$ 完全转化为氢氧化物沉淀，过滤后将沉淀在空气中充分灼烧至质量不变，最终固体为多少克？（用守恒法，不必管中间氧化）
+
+**答案**：全程 **Fe 守恒**：$0.06\ \mathrm{mol}$ 铁最终全进 $\ce{Fe2O3}$，$n = 0.03\ \mathrm{mol}$，$m = 0.03 \times 160 = \boxed{4.8\ \mathrm{g}}$。沉淀中途被氧化成 $\ce{Fe(OH)3}$ 也好、灼烧失水也好，都是「中间戏」。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：Fe(OH)₂ 防氧化设计（medium）
+
+<ExampleCard title="让白色沉淀多活一会儿" difficulty="medium" source="改编 · 原型：氢氧化亚铁制备实验改进">
+
+用新制的 $\ce{FeSO4}$ 溶液与 $\ce{NaOH}$ 溶液制备并**长时间**观察白色 $\ce{Fe(OH)2}$ 沉淀。回答：（1）配制溶液用的蒸馏水需如何处理？（2）$\ce{FeSO4}$ 溶液需随加少量什么物质？（3）加碱的具体操作？（4）写出沉淀变色的两个化学方程式。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="四步封锁 O₂">
+
+（1）蒸馏水**煮沸后冷却**——赶尽溶解氧；（2）加**少量铁粉**——防止 $\ce{Fe^2+}$ 被氧化（并加少量稀硫酸抑水解）；（3）胶头滴管吸碱后**插入液面以下（近试管底）**再缓慢挤出，液面预先覆一层苯或植物油隔绝空气。
+
+</Callout>
+
+<Callout type="right" title="变色方程">
+
+$$\ce{FeSO4 + 2NaOH = Fe(OH)2 v + Na2SO4}$$
+$$4\ce{Fe(OH)2 + O2 + 2H2O = 4Fe(OH)3}$$
+
+现象：白色絮状沉淀迅速转**灰绿**、最终变**红褐**。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 电解法也能「自带除氧」，为什么？
+
+**答案**：铁作**阳极**电解 $\ce{NaOH}$ 溶液：阳极 $\ce{Fe - 2e- + 2OH- = Fe(OH)2 v}$，阴极产 $\ce{H2}$——氢气把装置内空气赶净，边生成边保护，白色保持时间显著延长。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：铁铜定量压轴（hard）
+
+<ExampleCard title="2.24 g 铁粉进入 0.02+0.02 混合液" difficulty="hard" source="改编 · 原型：FeCl₃/CuCl₂ 混合液加铁粉定量">
+
+含 $0.02\ \mathrm{mol}\ \ce{FeCl3}$ 与 $0.02\ \mathrm{mol}\ \ce{CuCl2}$ 的混合溶液中加入 $2.24\ \mathrm{g}$ 铁粉（$0.04\ \mathrm{mol}$），充分反应。求：（1）剩余固体的质量与组成；（2）反应后溶液中主要溶质及其物质的量。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="序贯法切段">
+
+**第一段** $\ce{Fe + 2Fe^3+ = 3Fe^2+}$：吃 $0.02\ \mathrm{mol}\ \ce{Fe^3+}$ 耗铁 $0.01\ \mathrm{mol}$，生成 $\ce{Fe^2+}\ 0.03\ \mathrm{mol}$；
+
+**第二段** $\ce{Fe + Cu^2+ = Fe^2+ + Cu}$：$0.02\ \mathrm{mol}\ \ce{Cu^2+}$ 全部析出耗铁 $0.02\ \mathrm{mol}$，生成 $\ce{Fe^2+}\ 0.02\ \mathrm{mol}$、$\ce{Cu}\ 0.02\ \mathrm{mol}$；
+
+共用铁 $0.03\ \mathrm{mol}$，剩余 $0.04 - 0.03 = 0.01\ \mathrm{mol}$ 铁粉以固体形式存在。
+
+</Callout>
+
+<Callout type="right" title="清算">
+
+（1）固体 = $\ce{Cu}\ 0.02 \times 64 + \ce{Fe}\ 0.01 \times 56 = 1.28 + 0.56 = \boxed{1.84\ \mathrm{g}}$；
+
+（2）溶液溶质只有 $\ce{FeCl2}$：$n = 0.03 + 0.02 = \boxed{0.05\ \mathrm{mol}}$。
+
+验算 Cl 守恒：$0.02 \times 3 + 0.02 \times 2 = 0.10\ \mathrm{mol} = 2 \times 0.05$ ✓
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若铁粉只加 $0.56\ \mathrm{g}$（$0.01\ \mathrm{mol}$），固体与溶液组成如何？
+
+**答案**：恰好走完第一段：无固体析出（**铜一步没碰**），溶液为 $\ce{FeCl2}\ 0.03\ \mathrm{mol}$ 与剩余 $\ce{CuCl2}\ 0.02\ \mathrm{mol}$。「加了多少铁」决定指针停在第几段——序贯法的精髓。
+
+</Reveal>
+</ExampleCard>
