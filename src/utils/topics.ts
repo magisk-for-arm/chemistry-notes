@@ -180,6 +180,15 @@ export const topics: TopicMeta[] = [
     summary: '分离提纯三法、四大波谱定结构、碳的成键与八式、同分异构计数、共面共线、官能团分类与系统命名',
     tags: ['有机化学'],
   },
+  {
+    slug: 'hydrocarbon',
+    subject: 'chemistry',
+    title: '烃',
+    icon: '🔥',
+    order: 52,
+    summary: '烷烯炔苯主线：取代加成加聚氧化四类反应、乙炔溴苯制备实验、物理递变与石油炼制、侧链氧化与定位',
+    tags: ['有机化学'],
+  },
 ];
 
 export const sectionMeta = {

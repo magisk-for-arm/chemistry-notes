@@ -1,0 +1,246 @@
+---
+title: "烃 · 易错点"
+topic: "hydrocarbon"
+category: "mistakes"
+order: 1
+summary: "8 张易错卡：氯代物状态、褪色两机制、KMnO₄ 除杂引 CO₂、乙炔制备三禁、马氏滥用、侧链氧化 α-H、卤代条件定位置、炼制变化分类。"
+tags: ["易错点", "有机化学"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+<MistakeCard index={1} title="记住「烷烃不反应」，却忘了它只认纯卤素、光照" frequency="high" tags={['烷烃', '取代']}>
+
+<Callout type="wrong" title="错误示例">
+
+「甲烷通入溴水中，溴水褪色，发生取代反应生成一溴甲烷；标况下 22.4 L $\ce{CHCl3}$ 含 $N_A$ 个分子。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+烷烃卤代的试剂条件是**纯卤素单质 + 光照**，溴水中的 $\ce{Br2}$ 浓度低且环境含水，与甲烷不反应（褪色？不存在的）。第二句是状态陷阱：氯代物中**只有 $\ce{CH3Cl}$ 标况为气体**，$\ce{CH2Cl2}$、$\ce{CHCl3}$、$\ce{CCl4}$ 常温均为液体，22.4 L 无从谈起。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+取代链条 $\ce{CH4 -> CH3Cl -> CH2Cl2 -> CHCl3 -> CCl4}$ 逐步进行、产物是混合物，每步同时生成 $\ce{HCl}$；气体只有一氯甲烷。一般不用 $\ce{F2}$（爆炸性取代）与 $\ce{I2}$（几乎不反应）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「烷烃 + 溴水/高锰酸钾褪色」直接判错；见氯代物配 22.4 L 先查是不是 $\ce{CH3Cl}$——这是 $N_A$ 题与有机题的共同埋雷点。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={2} title="把苯使溴水褪色说成加成反应" frequency="high" tags={['苯', '萃取']}>
+
+<Callout type="wrong" title="错误示例">
+
+「苯能与溴水发生加成反应使溴水褪色，所以苯的不饱和度较高。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+苯**不能**与溴水加成（也不能与溴的 $\ce{CCl4}$ 溶液加成），混合后溴水层变浅是**萃取**：溴转移到苯层，上层（苯层）呈橙红。苯与液溴只在 $\ce{FeBr3}$ 催化下走**取代**。把「萃取褪色」「加成褪色」「氧化褪色」混为一谈，鉴别题全错。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+褪色机制对号表：烯/炔使溴水褪色 = 加成；烯/炔使酸性 $\ce{KMnO4}$ 褪色 = 氧化；苯使溴水褪色 = 萃取（化学结构未动）；苯使酸性 $\ce{KMnO4}$ 褪色 = **不能**（对照：甲苯**能**）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「退色的四种真相」——加成、氧化、萃取、反应消耗（如 $\ce{NaOH}$ 中和溴水）。题目说「因发生反应褪色」先排除萃取选项。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={3} title="用酸性高锰酸钾除去乙烷里的乙烯" frequency="high" tags={['除杂', '鉴别']}>
+
+<Callout type="wrong" title="错误示例">
+
+「把混有乙烯的乙烷通过酸性 $\ce{KMnO4}$ 溶液洗气，即可得到纯净乙烷。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{KMnO4}$ 把乙烯**彻底氧化成 $\ce{CO2}$**——乙烯走了，二氧化碳来了，杂质换了个门牌。该方案能**鉴别**（褪色与否）却**不能除杂**。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+除烯用**溴水洗气**（加成产物 $\ce{CH2BrCH2Br}$ 留在溶液里）；反过来，鉴别烷烯既可用溴水也可用酸性 $\ce{KMnO4}$，「鉴别」与「除杂」两问各走各的试剂。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+除杂三问：吃得掉杂质吗？会伤主体吗？产物离开体系了吗（变沉淀/液体/被吸收）？第三问答「变成气体」即宣告失败。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={4} title="制乙炔：启普发生器、纯水、不洗气三连环" frequency="high" tags={['乙炔', '实验']}>
+
+<Callout type="wrong" title="错误示例">
+
+「用启普发生器以电石与水反应制乙炔，随开随停；导出的气体直接通入溴水验证性质。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+三禁全犯：①电石反应**剧烈且不可控**、大量**放热**、$\ce{Ca(OH)2}$ 糊状**堵塞**球形漏斗——启普发生器三条件（块状固体+液体、不加热、不堵不光放热）条条不满足；②应换**饱和食盐水**减缓反应速率；③电石含杂质，气体里混 $\ce{H2S}$、$\ce{PH3}$，二者也能使溴水/高锰酸钾褪色，**不洗气就验证等于没做**。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+分液漏斗 + 圆底烧瓶（或大试管）发生、饱和食盐水滴加、导管口塞棉花防泡沫倒冲、$\ce{CuSO4}$ 溶液洗气后再性质检验。方程式：$\ce{CaC2 + 2H2O -> HC#CH ^ + Ca(OH)2}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+凡「能否用启普发生器」一律回三条件审查：块状不溶固体、常温、产物不堵不糊。$\ce{Na2O2}$、粉末状药品、放热剧烈者全部出局。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={5} title="马氏规则见谁套谁，忘了它只管不对称加成" frequency="medium" tags={['加成', '马氏规则']}>
+
+<Callout type="wrong" title="错误示例">
+
+「丙烯与氢气、与溴的加成也要按马氏规则判断主产物。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+马氏规则的主语是**不对称试剂**（$\ce{HBr}$、$\ce{HCl}$、$\ce{H2O}$ 等）加到不对称烯烃上——「氢往氢多的碳去」。$\ce{H2}$、$\ce{Br2}$、$\ce{Cl2}$ 两原子相同，加到哪个碳结果一样，根本没有选择题要做。另一个反面：**过氧化物存在时 $\ce{HBr}$ 反马氏**，题干给「过氧化物」条件还照抄马氏必翻车。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三步：①试剂对称吗？对称直接写产物；②不对称 + 不对称烯烃 → 马氏（过氧化物 + $\ce{HBr}$ → 反马氏）；③共轭二烯看温度：低温 1,2-、高温 1,4-。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「某烯烃只能生成一种一氯代物/加成产物无选择」类题，反向利用对称性讨论双键位置——对称是捷径，不对称才动马氏。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={6} title="凡是苯的同系物都能被高锰酸钾氧化" frequency="high" tags={['侧链氧化', '甲苯']}>
+
+<Callout type="wrong" title="错误示例">
+
+「叔丁基苯、甲苯、乙苯都能被酸性 $\ce{KMnO4}$ 氧化为苯甲酸。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+侧链氧化的资格证是 **α-碳（与苯环直接相连的碳）上必须有 H**。叔丁基苯的 α-碳连了三个甲基、没有氢——高锰酸钾拿它没办法，不褪色。甲苯、乙苯 α 位分别有 3 个、1 个 H，都能氧化。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+氧化结果与侧链长度无关：无论丙基、丁基，整条侧链在 α 位折断，只留下 $\ce{-COOH}$（乙苯、丙苯都得苯甲酸）。多侧链则各自变羧基：对二甲苯 → 对苯二甲酸。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「某芳香烃不能使酸性高锰酸钾褪色，推断结构」——答案锁定 α-H 缺失型（叔丁基苯类）。这条判据与「褪色生成苯甲酸」组合成推断题的固定机关。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={7} title="甲苯卤代不看条件，环上位与侧链位混淆" frequency="high" tags={['甲苯', '卤代']}>
+
+<Callout type="wrong" title="错误示例">
+
+「甲苯与氯气在光照下主要生成邻氯甲苯和对氯甲苯。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+条件是方向盘：**光照**模仿烷烃自由基取代，打在**甲基的 C—H** 上（生成苄基氯 $\ce{C6H5CH2Cl}$ 一路）；**$\ce{FeBr3}$ 催化**走苯环亲电取代，甲基活化**邻、对位**（得邻氯甲苯 + 对氯甲苯）。条件与产物错位一整行。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+对照记：甲苯硝化（混酸、加热）同样邻对位为主，三步到 2,4,6-三硝基甲苯（TNT）；苯环上二元取代物数目题里「氯在环上」与「氯在甲基上」分开记账，甲苯一氯代物共 4 种（环上邻、间、对 3 + 侧链 1）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+写「甲苯 + $\ce{Cl2}$ 产物」前先圈条件词：光照 / 催化剂 / 溴水 / 液溴，一词定生死。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={8} title="分馏当化学变化、裂化裂解一个样" frequency="medium" tags={['石油', '煤化工']}>
+
+<Callout type="wrong" title="错误示例">
+
+「石油的分馏、裂化、裂解、重整都是化学变化；裂化的目的是获取乙烯。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+分馏（常压、减压）只按**沸点差分离馏分**，是物理变化；裂化（把重油大分子截短**提高汽油产量与质量**）、裂解（深度裂化取**乙烯、丙烯等化工原料**）、重整（直链变芳香烃/支链）才是化学变化。目的串线是第二大错：要汽油找裂化，要乙烯找裂解。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+一张表背下：物理——分馏；化学——裂化（重油→汽油）、裂解（→烯烃化工原料）、重整（→芳香烃）；煤干馏、气化、液化全部化学变化。馏分沸点序：石油气＜汽油＜煤油＜柴油＜润滑油＜重油。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「汽油能使溴水褪色是化学反应吗」——催化重整/裂解产物里含烯烃，直馏汽油（烷烃为主）不能使溴水褪色，裂解汽油能。凡「汽油」先问直馏还是裂化产物。
+
+</Callout>
+
+</MistakeCard>
+
+## 参考来源
+
+<Callout type="note" title="参考来源">
+
+内容改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并勘误，口径以[概览](/chemistry/hydrocarbon/)页末清单为准。
+
+</Callout>

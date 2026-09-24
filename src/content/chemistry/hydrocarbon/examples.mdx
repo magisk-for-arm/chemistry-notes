@@ -1,0 +1,196 @@
+---
+title: "烃 · 典型例题"
+topic: "hydrocarbon"
+category: "examples"
+order: 5
+summary: "5 道典型例题：褪色机制对号、丁二烯加成两路、溴苯实验装置拆解、混合烃燃烧计算、C₈H₁₀ 苯环一氯代物推断。"
+tags: ["例题", "有机化学"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一区分四种褪色机制；例题二走共轭二烯的温度双路径；例题三是溴苯制备装置的完整流水线；例题四用一条方程解混合烃燃烧；例题五以苯环一氯代物种数反推芳香烃结构。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：褪色机制对号（easy）
+
+<ExampleCard title="哪种褪色是加成反应" difficulty="easy" source="改编 · 原型：褪色机制判断选择题">
+
+下列褪色情形中，因**加成反应**引起的是（　　）
+
+- A．乙烯使溴水褪色
+- B．苯使溴水褪色
+- C．乙烯使酸性高锰酸钾溶液褪色
+- D．二氧化硫使溴水褪色
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：A">
+
+A：$\ce{CH2=CH2 + Br2 -> CH2BrCH2Br}$，双键打开各接一半，典型加成。B：苯不与溴水反应，溴被萃取进苯层（上层橙红），**物理变化**；C、D 都是**氧化还原**——乙烯被 $\ce{KMnO4}$ 氧化成 $\ce{CO2}$，$\ce{SO2}$ 被溴水氧化（$\ce{SO2 + Br2 + 2H2O = H2SO4 + 2HBr}$）。四种机制一句话：加成、萃取、氧化、氧化，各走各的门。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「丙烯分别使溴水、酸性高锰酸钾褪色，原理相同吗？」
+
+<Callout type="right" title="参考答案">
+
+不同：前者加成（生成 1,2-二溴丙烷），后者氧化（双键处折断生成 $\ce{CO2}$ 与乙酸类碎片）。鉴别可用两者，除杂只可选溴水。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题二：丁二烯的温控加成（medium）
+
+<ExampleCard title="一支丁二烯的三条去路" difficulty="medium" source="改编 · 原型：1,3-丁二烯与溴加成产物书写">
+
+写出 1,3-丁二烯 $\ce{CH2=CH-CH=CH2}$ 与溴反应的产物：①1∶1、低温主产物；②1∶1、高温主产物；③1∶2 完全加成产物。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案">
+
+①**1,2-加成**（低温）：$\ce{CH2Br-CHBr-CH=CH2}$——溴挤到相邻两碳，另一半双键原样保留；②**1,4-加成**（高温）：$\ce{CH2Br-CH=CH-CH2Br}$——溴占两端（1、4 号碳），2、3 号碳之间新出一个双键；③**完全加成**：$\ce{CH2Br-CHBr-CHBr-CH2Br}$（1,2,3,4-四溴丁烷）。①②互为「温度可迁移」关系：低温产物升温可向 1,4-产物转化。
+
+</Callout>
+
+<Callout type="skill" title="账法">
+
+1,2-与 1,4-加成都是「吃 1 mol $\ce{Br2}$ 留 1 个双键」，原子账相同、只换溴与双键的位置；写罢按「溴位次和」核对：1,2-型位次和 3、1,4-型位次和 5，不会撞名。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+1,3-丁二烯发生加聚反应（1,4-聚合）的链节是什么？
+
+<Callout type="right" title="参考答案">
+
+$\ce{-CH2-CH=CH-CH2-}$（聚丁二烯，双键留在链节中央）——「两端牵手、中间留双键」与 1,4-加成同一幅骨架。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题三：溴苯装置流水线（medium）
+
+<ExampleCard title="拆一遍苯的溴代装置" difficulty="medium" source="改编 · 原型：溴苯制备实验装置分析">
+
+苯与液溴在铁粉催化下制溴苯（装置：烧瓶 + 长直导管 + 导管通入 $\ce{AgNO3}$ 溶液，中间可加洗气瓶）。回答：①为何用液溴而不用溴水？②长直导管的作用？③有同学直接把气体通入 $\ce{AgNO3}$ 溶液看到淡黄色沉淀就认定生成了 HBr，请评价；④如何从反应液中得到纯净溴苯？
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案要点">
+
+①溴水中 $\ce{Br2}$ 浓度低且含水，苯与溴水只发生萃取不发生取代；必须**纯液溴 + $\ce{FeBr3}$**（铁粉与溴原位生成 $\ce{FeBr3}$）。②长直导管**冷凝回流**苯与溴（二者易挥发），同时导出 HBr 气体——管口有白雾（HBr 遇水蒸气）。③**不严谨**：挥发出的 $\ce{Br2}$ 蒸气随气流进入溶液，$\ce{Br2 + H2O}$ 也产生 $\ce{Br-}$ 生成 $\ce{AgBr}$ 淡黄色沉淀，无法区分 HBr 与溴干扰——应先在导管间串一只 $\ce{CCl4}$ 洗气瓶溶掉溴蒸气。④反应液依次：水洗（除 $\ce{FeBr3}$、HBr）→ 稀 $\ce{NaOH}$ 洗（除溶存的 $\ce{Br2}$）→ 再水洗 → 干燥 → **蒸馏**除去苯，得无色溴苯（密度大于水，洗涤分液时在**下层**）。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+「把纯净溴苯滴入 $\ce{AgNO3}$ 溶液，有无淡黄色沉淀？说明什么？」
+
+<Callout type="right" title="参考答案">
+
+无。溴苯中的溴是**共价键结合的溴原子**，不电离出 $\ce{Br-}$——检验卤代烃中的卤素必须先 $\ce{NaOH}$ 水解、再硝酸酸化、后 $\ce{AgNO3}$（与「分类命名」篇酸化三步同一逻辑）。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题四：混合烃燃烧一条方程（medium）
+
+<ExampleCard title="10 升混合气与 26 升氧气" difficulty="medium" source="改编 · 原型：甲烷乙烯混合气体燃烧计算">
+
+常温下 $\ce{CH4}$ 与 $\ce{C2H4}$ 的混合气体 10 L，恰好与 26 L $\ce{O2}$（同温同压）完全燃烧。求：①两气体各多少升？②生成 $\ce{CO2}$ 多少升？③若燃烧后恢复至 150 ℃（水为气态），气体总体积与反应前相比如何变化？
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案">
+
+①设 $V(\ce{CH4}) = x$，则 $V(\ce{C2H4}) = 10 - x$。耗氧式（$\ce{CH4}$ 需 $2\ce{O2}$、$\ce{C2H4}$ 需 $3\ce{O2}$）：$2x + 3(10 - x) = 26$，解得 $x = 4$——$\ce{CH4}$ 4 L、$\ce{C2H4}$ 6 L。②$V(\ce{CO2}) = 4 + 6\times2 = 16$ L。③**不变**。150 ℃ 下水算气态，每 1 L 烃反应前后体积差为 $(\frac{y}{4} - 1)$ L：$\ce{CH4}$、$\ce{C2H4}$ 都是 $y = 4$，差量同为 0，任意比例混合体积都恒定——这正是「y=4 体积不变」铁律的数字面貌。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+把混合气换成 $\ce{C2H2}$ 与 $\ce{C2H4}$，想让「点燃前后（150 ℃）总体积不变」，可行吗？
+
+<Callout type="right" title="参考答案">
+
+不可行。差量 $\frac{y}{4}-1$：$\ce{C2H2}$（y=2）为 −0.5、$\ce{C2H4}$（y=4）为 0，任何比例混合总差量 $<0$，体积必缩小。要体积不变必须**每个组分都 y=4**。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 例题五：苯环一氯代物反推结构（hard）
+
+<ExampleCard title="三种 C₈H₁₀ 的对称性指纹" difficulty="hard" source="改编 · 原型：芳香烃一氯代物数目推断">
+
+分子式 $\ce{C8H10}$ 的芳香烃有 4 种同分异构体。A、B、C 的苯环上一氯代物分别为 1 种、2 种、3 种，且：A 被足量酸性 $\ce{KMnO4}$ 氧化后生成**二元酸**；B 氧化后也生成二元酸。推断 A、B，并说出 C 的两种可能。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案">
+
+四种芳香烃：乙苯、邻二甲苯、间二甲苯、对二甲苯。苯环一氯代物账（画对称轴数等效氢）：对二甲苯 **1** 种、邻二甲苯 **2** 种、乙苯 **3** 种、间二甲苯 **3** 种。A 只 1 种 → **对二甲苯**；氧化成二元酸（两个甲基都变羧基 → 对苯二甲酸）自洽 ✓。B 有 2 种且氧化得二元酸（邻位二甲苯 → 邻苯二甲酸）→ **邻二甲苯**。C 的 3 种指纹对应两位候选人：**乙苯或间二甲苯**——氧化账可一刀切开：乙苯氧化只得**一元酸**（苯甲酸），间二甲苯得二元酸（间苯二甲酸），题目若补「C 氧化也得一元酸」则锁定乙苯。
+
+</Callout>
+
+<Callout type="skill" title="两把钥匙">
+
+第一把：苯环一氯代物种数 = 环上等效氢种数，先画对称轴；第二把：**侧链氧化看 α-H、数羧基看甲基数**——「几个侧链几个羧基，一条侧链只留一个碳」。两把钥匙合用，$\ce{C8H10}$ 家族四位成员身份唯一确定。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+某芳香烃 $\ce{C9H12}$ 苯环上一氯代物只有 1 种，写出其结构。
+
+<Callout type="right" title="参考答案">
+
+均三甲苯（1,3,5-三甲苯）——三个甲基轮换对称，环上 3 个 H 全等效。乙基甲苯类都达不到这种对称度。
+
+</Callout>
+
+</Reveal>
+
+</ExampleCard>
+
+## 参考来源
+
+<Callout type="note" title="参考来源">
+
+题目与解析改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并勘误（口径以[概览](/chemistry/hydrocarbon/)页末清单为准）。
+
+</Callout>
