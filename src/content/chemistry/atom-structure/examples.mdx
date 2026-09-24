@@ -1,0 +1,183 @@
+---
+title: "原子结构与元素周期律 · 典型例题"
+topic: "atom-structure"
+category: "examples"
+order: 5
+summary: "5 道典型例题：两种运动状态辨析、特例与离子排布书写、电离能反常与突跃判价、电负性四应用、短周期元素推断综合。"
+tags: ["例题", "物质结构", "元素周期律"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一测「空间/电子运动状态」口径；例题二过 Cr/Cu 特例与失电子顺序双关卡；例题三是电离能「反常+突跃」的组合拳（改编自福建真题）；例题四把电负性数据表用满；例题五是推断压轴，两条线索互锁。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：两种运动状态（easy）
+
+<ExampleCard title="基态氧原子的账目" difficulty="easy">
+
+关于基态 $\ce{O}$ 原子核外电子，下列说法正确的是（　　）
+
+- A．电子有 8 种空间运动状态
+- B．有 3 对电子对、2 个单电子
+- C．2s 轨道中的两个电子自旋方向可以相同
+- D．有 5 种运动状态不同的电子
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：B">
+
+O 的排布 $1s^2 2s^2 2p^4$：1s、2s 各一对，2p 三格中一对两单——共 **3 对电子对、2 个单电子**，B 对。A 错：空间运动状态数 $=$ 被占轨道数 $=1+1+3=5$ 种；C 错：同轨必反向（泡利原理）；D 错：运动状态不同的电子数 $=$ 电子数 $=8$。
+
+</Callout>
+
+<Callout type="why" title="口径卡片">
+
+「空间数格子、电子数人头」——两个 5 与 8 恰好互为本题的干扰项，命题人最顺手的花活。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 基态 $\ce{N}$ 原子的空间运动状态数、电子运动状态数、单电子数各是多少？
+
+**答案**：$1s,2s$ 加三个 $2p$ 格 → 空间 **5** 种；电子 **7** 种；$2p^3$ 三格各一 ↑ → 单电子 **3** 个（半充满，正是电离能反常的结构底牌）。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：特例与离子（medium）
+
+<ExampleCard title="四个排布式连着写" difficulty="medium">
+
+写出下列微粒的电子排布式：（1）$_{24}\ce{Cr}$；（2）$_{26}\ce{Fe}$；（3）$\ce{Cu+}$；（4）$\ce{Fe^3+}$。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案">
+
+（1）$\ce{Cr}:[\ce{Ar}]3d^5 4s^1$（借 4s 一格换 $3d$ 半满）；（2）$\ce{Fe}:[\ce{Ar}]3d^6 4s^2$（Fe **无**特例，别顺杆爬）；（3）$\ce{Cu+}:[\ce{Ar}]3d^{10}$（先剥 $4s^1$，得全满）；（4）$\ce{Fe^3+}:[\ce{Ar}]3d^5$（先剥 $4s^2$ 成 $3d^6$ 的 $\ce{Fe^2+}$，再失 1 落半满）。
+
+</Callout>
+
+<Callout type="skill" title="工序复盘">
+
+填的时候 4s 抢 3d 的队，写和丢的时候 3d 站前排、4s 先出门——一句话「**填 4s 优先，丢 4s 也优先，位置各不同**」。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 为什么溶液中的 $\ce{Fe^2+}$ 久置易被氧化，而 $\ce{Fe^3+}$ 相对稳定？用结构回答。
+
+**答案**：$\ce{Fe^2+}$ 为 $3d^6$，再失一个电子即得 $3d^5$ **半充满稳定结构**，「一步登稳」动力足；$\ce{Fe^3+}$ 已坐在半满位上，再失电子要拆稳定构型，代价高。（呼应「铁及其化合物」中 $\ce{Fe^2+}$ 的还原性。）
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：电离能反常与突跃判价（medium）
+
+<ExampleCard title="两问电离能" difficulty="medium" source="改编 · 原型：2021·福建 解释 N、O、S 第一电离能序 + 逐级电离能表判价">
+
+（1）$I_1(\ce{N})\gt I_1(\ce{O})\gt I_1(\ce{S})$，请解释。 （2）某短周期主族元素 E 的逐级电离能（kJ/mol）为：$I_1=578$、$I_2=1817$、$I_3=2745$、$I_4=11545$，判断 E 的常见化合价并指认元素。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="（1）两跳论证">
+
+N 与 O 比**结构红利**：N 的 $2p^3$ 为半充满稳定结构，失去一个电子需额外能量，故 $I_1(\ce{N})\gt I_1(\ce{O})$；O 与 S 比**半径**：同主族，S 能层多、半径大、核对价电子引力弱、更易失电子，故 $I_1(\ce{O})\gt I_1(\ce{S})$。答题铁序：先半满全满，再能层半径。
+
+</Callout>
+
+<Callout type="right" title="（2）突跃在 I₄">
+
+$I_3\to I_4$ 出现数量级跳变（$2745\to11545$，约 4.2 倍且破万），说明第 4 个电子开始拆 **Ne 型内核** → 价电子 3 个 → 常见化合价 $+3$ → E 为 $\ce{Al}$（数据与 Al 档案完全吻合，对照：Na 突跃在 $I_2$、Mg 在 $I_3$）。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** O 与 N 之间能否再用「半径小引力大」解释 $I_1(\ce{O})\gt I_1(\ce{N})$？
+
+**答案**：不能——同周期 O 核电荷更大、半径更小，按趋势应是 $I_1(\ce{O})\gt I_1(\ce{N})$，而**实测恰好反号**，这正是「半充满红利」压过趋势的证据。凡趋势与反常打架处，必考「解释反常」。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：电负性应用（medium）
+
+<ExampleCard title="一张数据表用到底" difficulty="medium" source="改编 · 原型：电负性应用综合">
+
+电负性：H 2.1、C 2.5、N 3.0、O 3.5、F 4.0、Si 1.8、S 2.5、Cl 3.0、Na 0.9、Mg 1.2、Al 1.5。（1）判断 $\ce{AlCl3}$ 是离子化合物还是共价化合物；（2）确定 $\ce{SOCl2}$ 中 S 的化合价；（3）HF 中电负性差 $4.0-2.1=1.9\gt1.7$，HF 却是共价化合物，这说明什么？（4）将 C—F、C—Cl、C—H 键的极性按从大到小排序。
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="（1）（2）差值两笔账">
+
+（1）差值 $3.0-1.5=1.5\lt1.7$ → **共价化合物**（$\ce{AlCl3}$ 是「金属+非金属也共价」的头号骑墙档案）。（2）O（3.5）、Cl（3.0）电负性都大于 S（2.5），键合电子全部偏向 O 与 Cl：O 记 $-2$、两个 Cl 各 $-1$，故 S 为 $\boxed{+4}$。
+
+</Callout>
+
+<Callout type="why" title="（3）（4）参考线与极性尺">
+
+（3）1.7 只是**通常**经验的分界，不是绝对判决线；个别物质（HF、$\ce{BeCl2}$）按实验事实归档。（4）差值越大键极性越大：C—F 差 $1.5$ ＞ C—Cl 差 $0.5$ ＞ C—H 差 $0.4$，排序即 **C—F＞C—Cl＞C—H**。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** $\ce{SiHCl3}$（三氯氢硅，「硅及其化合物」提纯线的主角）中各元素的化合价？
+
+**答案**：电负性 $\ce{Cl}>\ce{H}>\ce{Si}$，故 $\ce{Cl}$ 三个各 $-1$、$\ce{H}$ 为 $-1$、$\ce{Si}$ 为 $+4$——含 Si—H 键里 H 显负价是本类题最阴的一档，判断只认电负性不认「氢正一」的惯性。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：短周期推断综合（hard）
+
+<ExampleCard title="四条线索锁四元素" difficulty="hard" source="改编 · 原型：短周期元素推断综合题">
+
+原子序数依次增大的短周期主族元素 W、X、Y、Z：W 的最简单气态氢化物是中学常见**唯一碱性气体**；X 基态原子 $2p$ 能级上有 **2 个单电子**，且 X 是地壳中含量最多的元素；短周期主族元素中 Y 的原子半径最大；X 与 Z 同主族。
+
+（1）确定四元素并写出 W 的电子排布式；（2）解释 $I_1(\ce{W})\gt I_1(\ce{X})$；（3）比较 X、Z 简单氢化物的稳定性并说明理由；（4）比较 $r(\ce{Y+})$ 与 $r(\ce{Z^2-})$。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="（1）开锁与回代">
+
+碱性气体 → $\ce{NH3}$ → **W=N**；地壳第一 → **X=O**（验：O 的 $2p^4$ 恰有 2 个单电子 ✓，两线索互锁）；短周期主族半径最大 → **Y=Na**；与 O 同主族且序更大 → **Z=S**。序关系 $7\lt8\lt11\lt16$ ✓。N：$1s^2 2s^2 2p^3$（即 $[\ce{He}]2s^22p^3$）。
+
+</Callout>
+
+<Callout type="right" title="（2）（3）（4）三问三连">
+
+（2）N 的 $2p^3$ **半充满**、能量低更难失电子，故 $I_1(\ce{N})\gt I_1(\ce{O})$。（3）同主族自上而下半径增大、非金属性减弱：稳定性 $\ce{H2O}\gt\ce{H2S}$（键长 O—H 短、键能大）。（4）先比层：$\ce{Na+}$ 两个能层（Ne 型），$\ce{S^2-}$ 三个能层（Ar 型）→ $r(\ce{S^2-})\gt r(\ce{Na+})$。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** Y 与 X 可形成哪两种常见的二元化合物？各含什么键？等电子追问：$\ce{Y+}$ 与哪些简单离子「同构」？
+
+**答案**：$\ce{Na2O}$（只含离子键）与 $\ce{Na2O2}$（离子键 + 过氧根内非极性共价键）。$\ce{Na+}$ 与 $\ce{O^2-}$、$\ce{F-}$、$\ce{Mg^2+}$、$\ce{Al^3+}$ 同为 10 电子构型——一排里比半径用「序大径小」：$r(\ce{O^2-})\gt r(\ce{F-})\gt r(\ce{Na+})\gt r(\ce{Mg^2+})\gt r(\ce{Al^3+})$。
+
+</Reveal>
+</ExampleCard>

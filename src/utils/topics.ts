@@ -144,6 +144,15 @@ export const topics: TopicMeta[] = [
     summary: '滴定管三系与读数、操作七步、指示剂选择、终点句式、误差矩阵、氧化还原滴定与守恒桥计算',
     tags: ['滴定', '化学实验'],
   },
+  {
+    slug: 'atom-structure',
+    subject: 'chemistry',
+    title: '原子结构与元素周期律',
+    icon: '⚛️',
+    order: 41,
+    summary: '能层能级与轨道、构造原理与能级组、三大排布规则与 Cr/Cu 特例、周期表分区、电离能电负性与半径周期律、元素推断',
+    tags: ['物质结构', '元素周期律'],
+  },
 ];
 
 export const sectionMeta = {
