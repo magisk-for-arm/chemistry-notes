@@ -1,0 +1,241 @@
+---
+title: "硅及其化合物 · 易错点"
+topic: "nonmetal-silicon"
+category: "mistakes"
+order: 1
+summary: "8 条高频陷阱：HF 例外、SiO₂ 无分子键数账、硅与碱放氢氧化剂是谁、试剂瓶三连、CO₂ 过量档、酸性比较两条边界、碳还原产物是 CO、硅烷自燃反常。"
+tags: ["易错点", "非金属元素"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+## 1. 酸性氧化物都不与酸反应？
+
+<MistakeCard index={1} title="把「酸性氧化物不与酸反应」说成绝对" frequency="high" tags={['概念辨析']}>
+<Callout type="wrong" title="错误示例">
+
+「$\ce{SiO2}$ 是酸性氧化物，不与任何酸反应。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{SiO2}$ 恰恰**能溶于氢氟酸**——这是中学阶段酸性氧化物与酸反应的**唯一常考例外**：$\ce{SiO2 + 4HF = SiF4 ^ + 2H2O}$。其余酸（盐酸、硫酸、硝酸）对它无可奈何，所以玻璃瓶能装绝大多数试剂。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+记「一个例外一句话」：**SiO₂ 只跪 HF**（刻蚀玻璃、雕花原理）。推论：氢氟酸**不能用玻璃瓶**，必须用塑料瓶盛装。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+判断题出现「酸性氧化物都不与酸反应」「SiO₂ 不与任何酸反应」一律打错；实验装置题里 HF 相关试剂容器选塑料，是同款知识。
+
+</Callout>
+</MistakeCard>
+
+## 2. 60 g SiO₂ 里有 N_A 个分子？
+
+<MistakeCard index={2} title="用分子思维算共价晶体的账" frequency="high" tags={['NA陷阱', '结构']}>
+<Callout type="wrong" title="错误示例">
+
+「$60\ \mathrm{g}\ \ce{SiO2}$ 含 $N_A$ 个 $\ce{SiO2}$ 分子、$2N_A$ 条 Si—O 键。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{SiO2}$ 是**共价晶体**，整个晶体是一张巨型网状分子，**不存在单个 $\ce{SiO2}$ 分子**——化学式只是原子个数比（最简式）。每个 $\ce{Si}$ 伸出 $4$ 条 Si—O 键，所以 $1\ \mathrm{mol}\ \ce{SiO2}$（$60\ \mathrm{g}$）含 $\boxed{4N_A}$ 条 Si—O 键、$0$ 个分子。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三本账分开背：$\ce{Si}$ 原子数 ∶ $\ce{O}$ 原子数 $=1:2$；$\ce{Si}$ 原子数 ∶ Si—O 键数 $=1:4$；$\ce{O}$ 原子数 ∶ Si—O 键数 $=1:2$（每桥氧摊 $2$ 条键）。最小环是**十二元环**（6 硅 6 氧），不是苯环式六元环。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+$N_A$ 选择题看到「$\ce{SiO2}$ 分子数」直接判错；看到「$60\ \mathrm{g}\ \ce{SiO2}$ 含 $4N_A$ 共价键」是对的。同款无分子陷阱还有金刚石、晶体硅（$1\ \mathrm{mol}$ 硅含 $2\ \mathrm{mol}$ Si—Si 键）。回链本站「阿伏加德罗常数」知识点的气体陷阱清单。
+
+</Callout>
+</MistakeCard>
+
+## 3. 与碱放氢的金属只有铝？
+
+<MistakeCard index={3} title="忘了硅也会与碱溶液放氢" frequency="medium" tags={['元素推断']}>
+<Callout type="wrong" title="错误示例">
+
+「能与 NaOH 溶液反应放出 $\ce{H2}$ 的单质只有 Al 和 Zn。」「$\ce{Si + 2NaOH + H2O = Na2SiO3 + 2H2 ^}$ 中氧化剂是 $\ce{NaOH}$。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+**硅**也是与碱溶液放氢的单质，且它是**非金属**——推断题里「与强碱溶液放氢的单质」暗号有两张牌：金属 $\ce{Al}$、非金属 $\ce{Si}$。氧化剂判定也易错位：放出的 $\ce{H2}$ 中氢**来自水**，$\ce{NaOH}$ 只是溶解硅酸、把反应推到底的「帮手」。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$\ce{Si + 2NaOH + H2O = Na2SiO3 + 2H2 ^}\quad(\ce{Si}:\ce{H2}=1:2)$$
+$$\ce{2Al + 2NaOH + 2H2O = 2NaAlO2 + 3H2 ^}\quad(\ce{Al}:\ce{H2}=2:3)$$
+
+两式的物质的量之比是计算题的对照卡：等物质的量的 Si、Al 与足量 NaOH 溶液反应，Si 放氢更多（每摩尔 Si 放 $2\ \mathrm{mol}$、每摩尔 Al 放 $1.5\ \mathrm{mol}$）；等质量时比 $2/28$ 与 $1.5/27$，仍是 Si 略胜。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+推断题题干出现「非金属单质 + 强碱溶液 → 气体」立即写硅；「金属单质 + 强碱 → 气体」立即写铝；两个都出现看「酸溶不放氢」等旁证区分。
+
+</Callout>
+</MistakeCard>
+
+## 4. 试剂瓶选择随意？
+
+<MistakeCard index={4} title="硅的贮存三连坑" frequency="medium" tags={['实验常识']}>
+<Callout type="wrong" title="错误示例">
+
+「NaOH 溶液盛在带玻璃塞的细口瓶中。」「氢氟酸保存在玻璃试剂瓶里。」「水玻璃用铁铲直接舀。」（第三句夸张，但「水玻璃粘住瓶塞」的事故真实高频）
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+三条都栽在硅的化合物上：①玻璃含 $\ce{SiO2}$，与 NaOH 表面缓慢反应生成**硅酸钠**——矿物胶把瓶塞与瓶颈粘成一体的「死结瓶」，所以碱液瓶用**橡胶塞**；②$\ce{SiO2}$ 溶于 HF，玻璃瓶直接被蚀穿，HF 只能住**塑料瓶**；③水玻璃本身就是黏合剂，敞口失水变稠、粘附器壁。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+贮存表默写：**碱液→橡胶塞**（磨砂玻璃塞会粘死）；**HF→塑料瓶**；**水玻璃→密封**且随用随取。反过来，盛放**氢氟酸之外的酸**、有机溶剂等用玻璃瓶无妨——玻璃的「抗酸」名片除 HF 外无人能撕。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+实验选择题问「试剂保存错误的是」，先扫一遍有没有「碱+玻璃塞」「HF+玻璃瓶」两个经典错位，命中即选。
+
+</Callout>
+</MistakeCard>
+
+## 5. CO₂ 通入硅酸钠溶液只写 Na₂CO₃？
+
+<MistakeCard index={5} title="漏掉过量 CO₂ 的第二档" frequency="high" tags={['方程式书写']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Na2SiO3 + CO2 + H2O = Na2CO3 + H2SiO3 v}$（题目明确写「**过量** $\ce{CO2}$」也照抄）。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{CO2}$ 过量时，生成的 $\ce{Na2CO3}$ 会继续与 $\ce{CO2}$、水反应转为 $\ce{NaHCO3}$——**碳酸钠档在过量二氧化碳面前站不住**。这与「过量 $\ce{CO2}$ 通入 $\ce{Ca(ClO)2}$、苯酚钠」同族：**产物写碳酸氢盐**是过量档的统一姿势。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+两档分开：少量 $\ce{CO2}$：$\ce{Na2SiO3 + CO2 + H2O = Na2CO3 + H2SiO3 v}$；**过量** $\ce{CO2}$：$\ce{Na2SiO3 + 2CO2 + 2H2O = 2NaHCO3 + H2SiO3 v}$。无论哪档，沉淀都是 $\ce{H2SiO3 v}$（强酸制弱酸：碳酸 > 硅酸）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+离子方程式正误判断里，见到「过量 $\ce{CO2}$」先查对方产物是不是还写着 $\ce{CO3^2-}$——写了就错。此陷阱在 $\ce{NaOH}$、$\ce{Ca(ClO)2}$、$\ce{C6H5ONa}$、$\ce{Na2SiO3}$ 四个体系里反复出现，一次记全。
+
+</Callout>
+</MistakeCard>
+
+## 6. 用盐酸比硅酸就敢排非金属性？
+
+<MistakeCard index={6} title="酸性比较的两条边界越线" frequency="high" tags={['元素周期律']}>
+<Callout type="wrong" title="错误示例">
+
+「盐酸酸性 > 碳酸 > 硅酸，故非金属性 Cl > C > Si。」「$\ce{SiO2 + Na2CO3 ->[\text{高温}] Na2SiO3 + CO2 ^}$，说明硅酸酸性强于碳酸。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+两连错：①比较非金属性必须用**最高价氧化物对应水化物**的酸性——盐酸不是氯的最高价含氧酸（该是 $\ce{HClO4}$），氢卤酸的酸性规律（HI > HBr > HCl > HF）与非金属性**反着走**；②高温固相反应能赶出 $\ce{CO2}$ 靠的是**难挥发酸酐制易挥发酸酐**（$\ce{SiO2}$ 沸点极高、$\ce{CO2}$ 是气体跑掉拉动平衡），与溶液中酸性无关——水溶液里恰恰是碳酸制硅酸。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+验证链结论只写到「**酸性：碳酸 > 硅酸**」，进而「非金属性 **C > Si**」（这两步成立）；想比 Cl 得换 $\ce{HClO4}$。高温反应的口诀：**溶液里强酸制弱酸，窑炉里难挥发赶易挥发**——两套规则各管各的场子。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+实验题给「盐酸+石灰石→饱和 NaHCO₃→硅酸钠溶液」装置链问「能否证明非金属性 Cl>C>Si」——标准答案是否定的，扣分点就在「盐酸不是最高价含氧酸」。
+
+</Callout>
+</MistakeCard>
+
+## 7. SiO₂ + C 的产物写 CO₂？
+
+<MistakeCard index={7} title="碳还原尾气与「纯硅」的双重错位" frequency="high" tags={['方程式书写', '工业流程']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{SiO2 + C ->[\text{高温}] Si + CO2 ^}$；「工业上用该反应直接制得**高纯硅**」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+高温、碳过量、缺氧环境下碳的氧化产物是 **CO**（$\ce{CO2}$ 会被炽热碳还原：$\ce{CO2 + C ->[\text{高温}] 2CO}$），方程式配平应为 $\ce{SiO2 + 2C ->[\text{高温}] Si + 2CO ^}$。且电炉里炼出来的是**粗硅**（约 98%~99%），半导体级 $9N+$ 高纯硅必须绕道 $\ce{SiHCl3}$ 提纯——「一步登天」的流程图必错。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三行默写：①$\ce{SiO2 + 2C ->[\text{高温}] Si + 2CO ^}$（粗硅）；②$\ce{Si + 3HCl ->[\text{高温}] SiHCl3 + H2}$；③$\ce{SiHCl3 + H2 ->[\text{高温}] Si + 3HCl}$（高纯硅）。碳再多一档还有 $\ce{SiO2 + 3C ->[\text{高温}] SiC + 2CO ^}$（金刚砂）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+流程题查三件套：尾气是 CO（可燃，常设计为燃料回收）、产物纯度措辞（粗/高纯）、②③之间的循环物（H₂ 与 HCl 双向奔赴）。
+
+</Callout>
+</MistakeCard>
+
+## 8. 硅烷像甲烷一样安静？
+
+<MistakeCard index={8} title="同族递变想当然" frequency="low" tags={['信息题']}>
+<Callout type="wrong" title="错误示例">
+
+「$\ce{SiH4}$ 与 $\ce{CH4}$ 同型，常温稳定，点燃才燃烧。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+硅烷系列活性**远高于**对应烷烃：$\ce{SiH4}$ 在空气中**自燃**——$\ce{SiH4 + 2O2 = SiO2 + 2H2O}$，不需要点火。同族自上而下 E—H 键变弱（Si—H < C—H），热稳定性 $\ce{CH4 > SiH4}$，「上稳下不稳」是递变正道，想当然押反就错。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+信息题里的对应关系：氢化物稳定性 $\ce{CH4 > SiH4}$；最高价含氧酸酸性 $\ce{H2CO3 > H2SiO3}$（用碳酸制硅酸实验佐证）；两族元素都得遵守「同族上到下单质还原性增强、氢化物稳定性减弱」。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+$\ce{Mg2Si + 4HCl = 2MgCl2 + SiH4 ^}$ 是制硅烷的信息线——见到「硅化镁 + 酸 → 自燃气体」的题干直接翻译为硅烷。此类「大学先修味」信息不背也无妨，方程式题目自会给，读懂价态零变化（$-4$ 价硅进、$-4$ 价硅出）即可。
+
+</Callout>
+</MistakeCard>

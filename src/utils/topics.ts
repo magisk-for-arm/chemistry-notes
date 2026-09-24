@@ -117,6 +117,15 @@ export const topics: TopicMeta[] = [
     summary: 'SO₂ 四重身份与褪色三机理、浓硫酸三性、SO₄²⁻ 检验、酸雨与含硫信息题',
     tags: ['非金属元素', '氧化还原'],
   },
+  {
+    slug: 'nonmetal-silicon',
+    subject: 'chemistry',
+    title: '硅及其化合物',
+    icon: '🪨',
+    order: 27,
+    summary: '硅与碱放氢、SiO₂ 结构与五路反应、硅酸两档与酸性验证链、高纯硅三步法、无机非金属材料',
+    tags: ['非金属元素', '无机非金属材料'],
+  },
 ];
 
 export const sectionMeta = {
