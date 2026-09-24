@@ -1,0 +1,238 @@
+---
+title: "化学实验基础 · 易错点"
+topic: "chem-experiment"
+category: "mistakes"
+order: 1
+summary: "8 条高频陷阱：加热液体容量数、酒精灯操作禁条、坩埚材质选错、气密性描述缺步、干燥剂打架、熄灯撤管顺序、沸石补加时机、倾倒与滴加细节。"
+tags: ["易错点", "化学实验"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+## 1. 试管加热液体装到一半？
+
+<MistakeCard index={1} title="加热与常温的容量线记混" frequency="high" tags={['基本操作']}>
+<Callout type="wrong" title="错误示例">
+
+「给试管里的液体加热，液体不超过试管容积的 $\frac{1}{2}$（甚至 $\frac{2}{3}$）。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\frac{1}{2}$ 是**常温盛液**的参考线；**加热时沸腾翻滚的空间需求更大**，液体超过 $\frac{1}{3}$ 就易冲出管口烫人。受热面积也要够：试管倾斜与桌面成 $45^{\circ}$、用外焰、先来回移动均匀预热再集中——一上来就盯住液面下部烧，局部暴沸直接喷。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+数字四线一张表：试管盛液 ≤$\frac{1}{2}$、加热 ≤$\frac{1}{3}$；烧瓶加热 $\frac{1}{3}\sim\frac{2}{3}$；酒精灯内酒精 $\frac{1}{4}\sim\frac{2}{3}$；蒸发皿 ≤$\frac{2}{3}$。加热固体时管口**略向下倾斜**（冷凝水倒流炸管），高锰酸钾制氧还要在口塞棉花（防粉末冲入导管）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+装置改错题找「液体高度」先问三件事：加不加热？什么仪器？固体还是液体？三答对齐，容量线与管口朝向就都定了。
+
+</Callout>
+</MistakeCard>
+
+## 2. 酒精灯随手吹灭？
+
+<MistakeCard index={2} title="灯上三禁一处疏忽" frequency="medium" tags={['安全']}>
+<Callout type="wrong" title="错误示例">
+
+「实验结束，用嘴吹灭酒精灯；灯内酒精快没了，趁着还燃着补一点。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+嘴吹只能把火苗压进灯芯管内引燃酒精蒸气（灯内爆燃）；向**燃着的灯**添酒精，洒出的蒸气瞬间被引燃。两件事共同的雷区都是「灯内酒精蒸气遇明火」。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+熄灯**灯帽盖灭**（盖一次提一下再盖实，平衡气压防下次拔不开）；添酒精必须熄灯后借助漏斗，量在 $\frac{1}{4}\sim\frac{2}{3}$；点燃用火柴，**禁灯对灯**；桌上洒酒精着火——湿布扑盖，切勿用水冲（流淌火越冲越远）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+安全判断题的排除顺序：先看有没有「吹、添、对火」三连动作，再看灭火介质（湿布/砂土对水）。
+
+</Callout>
+</MistakeCard>
+
+## 3. 灼烧纯碱用瓷坩埚？
+
+<MistakeCard index={3} title="坩埚材质与药品酸碱性对冲" frequency="high" tags={['仪器选择']}>
+<Callout type="wrong" title="错误示例">
+
+「灼烧 $\ce{NaOH}$ 固体样品，选用瓷坩埚（或氧化铝、石英坩埚）。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+瓷坩埚、石英坩埚的骨架都含 $\ce{SiO2}$，高温下 $\ce{SiO2 + 2NaOH = Na2SiO3 + H2O}$——坩埚自己被熔穿（氧化铝也扛不住熔融强碱）。「玻璃耐酸不耐碱」在高温档更加致命。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+灼烧碱性（或能与 $\ce{SiO2}$ 反应）物质——**铁坩埚**；普通中性/酸性固体——瓷坩埚即可。配套口诀：三脚架上泥三角，坩埚钳夹要记牢；灼后骤冷必炸裂，石棉网上降温好。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「灼烧海带/石灰石」选瓷坩埚没问题；题干出现 NaOH、$\ce{Na2CO3}$ 碱熔，选项里的瓷/石英/氧化铝三件套全部淘汰。原理详见本站「硅及其化合物」SiO₂ 五路反应。
+
+</Callout>
+</MistakeCard>
+
+## 4. 气密性检验只写「微热看气泡」？
+
+<MistakeCard index={4} title="三步句式缺头少尾" frequency="high" tags={['文字表述']}>
+<Callout type="wrong" title="错误示例">
+
+「检验气密性：用手捂住试管，导管口冒气泡。（完）」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+漏了第一步「**如何形成封闭体系**」（关闭活塞/弹簧夹夹住/末端入水液封）——体系不封闭，微热的气只会从各处溜走；也漏了「松手后**倒吸一段稳定水柱**」的回归证据与结语。踩分点按步给分，跳步=丢分。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+微热法满分句：「关闭分液漏斗活塞，将导管末端插入水中，用手焐热（酒精灯微热）烧瓶，导管口**有气泡冒出**，松开手后导管内**回升一段稳定不下降的水柱**，说明装置气密性良好。」注水（液差）法满分句：「关闭活塞，向长颈漏斗中注水至**漏斗内液面高于瓶内液面**，静置片刻**液面差不改变**，气密性良好。」
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+动笔前默背三要素：**封闭—压差—稳定现象**。带分液漏斗/长颈漏斗的装置先处理漏斗（关活塞或液封），否则压差从漏斗口泄掉。
+
+</Callout>
+</MistakeCard>
+
+## 5. 浓硫酸是万能的？
+
+<MistakeCard index={5} title="干燥剂与气体私下反应" frequency="high" tags={['除杂干燥']}>
+<Callout type="wrong" title="错误示例">
+
+「用浓硫酸干燥 $\ce{NH3}$（或 $\ce{H2S}$、$\ce{HBr}$、$\ce{HI}$）；用无水 $\ce{CaCl2}$ 干燥氨气。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+浓硫酸两条底线：**酸性**（碱性的 $\ce{NH3}$ 被成盐吸收）、**强氧化性**（$\ce{H2S}$、$\ce{HBr}$、$\ce{HI}$ 被氧化，硫溴碘单质析出）。无水 $\ce{CaCl2}$ 看似中性老实，却和氨结成 $\ce{CaCl2.8NH3}$ 配合物——「氯化钙干燥氨」是最经典的潜伏错。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三句话配对：氨气只配**碱石灰**（干燥管）；酸性/中性氧化性气体（$\ce{CO2}$、$\ce{SO2}$、$\ce{Cl2}$、$\ce{H2}$、$\ce{O2}$）交给浓硫酸；碱性气体远离一切酸性干燥剂，还原性气体远离氧化性干燥剂。$\ce{P2O5}$ 是酸性氧化物不碰氨，但也不适合干燥需长时间接触的碱蒸气。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+干燥题先给气体贴三标签：酸/碱/中、氧化/还原、能否与 $\ce{CaCl2}$ 配位。三标一贴，冲突自见。
+
+</Callout>
+</MistakeCard>
+
+## 6. 先熄灯还是先撤管？
+
+<MistakeCard index={6} title="收尾顺序倒放酿倒吸" frequency="high" tags={['操作流程']}>
+<Callout type="wrong" title="错误示例">
+
+「排水法收集氧气结束，先熄灭酒精灯，再把导管从水槽中取出。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+熄灯后试管冷却、内部气压骤降，水槽里的水沿导管**倒吸入热试管**——炸裂。顺序倒放是实验操作选择题的常客，易溶气体（$\ce{NH3}$、HCl）尾气吸收同理。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+**先撤导管、后熄灯**（口诀「茶庄定点收利息」：查—装—定—点—收—离—熄）。防倒吸装置三件套：倒扣漏斗（边缘刚好接触液面）、安全瓶（短进短出的空瓶）、球形干燥管粗口向上。氢气还原氧化铜的收尾反过来：**先熄灯、继续通氢至铜冷却**——防倒吸与防氧化各有各的顺序，看清保护对象。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+凡问「为什么先×后×」，答句模板：「防止××装置内气压降低，液体倒吸进入热试管引起炸裂」——对象、机理、后果三截齐全。
+
+</Callout>
+</MistakeCard>
+
+## 7. 忘加沸石立刻掀盖补？
+
+<MistakeCard index={7} title="暴沸急救图省事" frequency="medium" tags={['安全']}>
+<Callout type="wrong" title="错误示例">
+
+「加热发现忘加沸石，立即打开瓶塞往热液里投入几粒。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+热液已处于过热（甚至微微暴沸）状态，沸石的多孔结构瞬间提供大量汽化核——液体带着热气**涌出瓶口**烫伤人，开塞瞬间冲出的蒸气也会烫脸。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+**停止加热，待液体冷却至室温后补加沸石**再重新加热。碎瓷片同理。延伸：减压蒸馏用毛细管持续通微小气泡，兼「沸石+搅拌」双职，还能调真空度。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「实验中途补救」类问题共同原则：**先让体系退回安全态，再补操作**——补加、补读数、补洗涤都吃这条。
+
+</Callout>
+</MistakeCard>
+
+## 8. 滴管伸进试管、瓶塞正放？
+
+<MistakeCard index={8} title="取用三细节满盘皆漏" frequency="medium" tags={['基本操作']}>
+<Callout type="wrong" title="错误示例">
+
+「胶头滴管伸入试管内滴加；倾倒液体时瓶塞正放在桌面；量筒量取后把残留液甩入容器。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+滴管**伸入即污染**（管壁碰到试液再回瓶，整瓶试剂报废）；瓶塞正放，接触药品的面朝上沾灰、再盖回污染试剂且标签被腐蚀；量筒的刻度按「自然残留」校准，**甩出残留＝多倒**（实际取量偏大）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+滴管竖直悬滴于管口正上方；瓶塞**倒放**、标签**对手心**、瓶口**紧挨**容器口；量筒取液后自然流尽、不冲洗不甩残（量筒洗涤液并入反而多计）。滴瓶上的专用滴管**不洗**（洗了反而稀释）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+基本操作判断题备一张「四小动作」清单：悬滴/倒塞/贴口/不甩筒，扫一遍通常能揪出选项里的违规动作。
+
+</Callout>
+</MistakeCard>

@@ -126,6 +126,15 @@ export const topics: TopicMeta[] = [
     summary: '硅与碱放氢、SiO₂ 结构与五路反应、硅酸两档与酸性验证链、高纯硅三步法、无机非金属材料',
     tags: ['非金属元素', '无机非金属材料'],
   },
+  {
+    slug: 'chem-experiment',
+    subject: 'chemistry',
+    title: '化学实验基础',
+    icon: '⚗️',
+    order: 31,
+    summary: '仪器三梯队与容量红线、检漏与气密性三步句、干燥剂配对、气体制备五站链、文字描述题采分模板',
+    tags: ['化学实验'],
+  },
 ];
 
 export const sectionMeta = {
