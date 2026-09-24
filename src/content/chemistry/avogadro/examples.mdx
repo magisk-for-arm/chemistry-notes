@@ -3,11 +3,11 @@ title: "阿伏加德罗常数 · 典型例题"
 topic: "avogadro"
 category: "examples"
 order: 5
-summary: "9 道典型例题分三层递进：基础巩固、高考真题、较难突破，含逐项解析与变式训练。"
+summary: "10 道典型例题分三层递进：基础巩固、高考真题、较难突破，含逐项解析与变式训练。"
 tags: ["例题", "计算", "氧化还原", "高考真题"]
 difficulty: "medium"
 examFrequency: "high"
-updated: "2026-09-14"
+updated: "2026-09-24"
 ---
 
 import ExampleCard from '@/components/ExampleCard.astro';
@@ -17,7 +17,7 @@ import ChemStructure from '@/components/ChemStructure.astro';
 
 <Callout type="note" title="使用指南">
 
-例题一～三打基础（辨析概念与适用条件），例题四～七是高考同款（含福建卷真题，逐项分析陷阱），例题八～九冲高分（晶体计数、电子守恒）。建议先做题再看解析，每题的「方法复盘」是接题套路，「变式训练」用来检验是否真会。
+例题一～三打基础（辨析概念与适用条件），例题四～七是高考同款（含福建卷真题，逐项分析陷阱），例题八～十冲高分（晶体计数、电子守恒、气体溶于水配比分析）。建议先做题再看解析，每题的「方法复盘」是接题套路，「变式训练」用来检验是否真会。
 
 </Callout>
 
@@ -550,6 +550,60 @@ C．$\dfrac{1}{22.4a}\ \mathrm{mol/L}$
 D．无法确定
 
 **答案**：A。$n(\ce{NH3}) = \dfrac{a}{22.4}$ mol，溶液体积 $a$ L，$c = \dfrac{a/22.4}{a} = \dfrac{1}{22.4}\ \mathrm{mol/L}$，与烧瓶容积无关。
+
+</Reveal>
+</ExampleCard>
+
+## 例题十：NO 与 O₂ 混合喷泉的配比分析（hard | 改编）
+
+<ExampleCard title="任意配比都能得到的浓度" difficulty="hard" source="改编 · 原型：Chemistry-Note-Refine 气体溶于水浓度考点">
+
+设 $N_A$ 为阿伏加德罗常数的值。标准状况下，容积为 $a$ L 的烧瓶中充满按体积比 4∶3 混合的 $\ce{NO}$ 和 $\ce{O2}$，倒扣在水中充分反应后溶液充满烧瓶（发生 $\ce{4NO + 3O2 + 2H2O -> 4HNO3}$）。下列说法**正确**的是（　　）
+
+- A．所得硝酸溶液的浓度为 $\dfrac{1}{22.4}\ \mathrm{mol/L}$
+- B．所得硝酸溶液的浓度为 $\dfrac{4}{7}\times\dfrac{1}{22.4}\ \mathrm{mol/L}$
+- C．反应中转移电子的数目为 $\dfrac{4a}{7\times22.4}N_A$
+- D．若改为 $\ce{NO2}$ 与 $\ce{O2}$ 按体积比 4∶3 混合，所得溶液浓度不变
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 忽略了溶质只来自 NO">
+
+$\dfrac{1}{22.4}$ 是「气体全部转化为溶质且系数为 1」时的结论（如纯 $\ce{NH3}$、纯 $\ce{HCl}$）。本题 $\ce{HNO3}$ 只来自占总气体 $\frac47$ 的 $\ce{NO}$。
+
+</Callout>
+
+<Callout type="right" title="B ✅ 正确">
+
+4∶3 恰好完全反应，溶液充满烧瓶。$n(\ce{HNO3}) = n(\ce{NO}) = \dfrac{4a/7}{22.4}$ mol，溶液体积 $a$ L，故 $c = \dfrac{4}{7}\times\dfrac{1}{22.4}\ \mathrm{mol/L}$。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 漏乘每分子转移电子数">
+
+$\ce{NO}$ 中 N 为 +2 价，生成 $\ce{HNO3}$ 升至 +5 价，每 mol $\ce{NO}$ 失 3 mol 电子。转移电子数应为 $3\times\dfrac{4a}{7\times22.4}N_A = \dfrac{12a}{7\times22.4}N_A$。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 比例变了，溶液体积也变了">
+
+$\ce{NO2}$ 与 $\ce{O2}$ 按 4∶3 混合时发生 $\ce{4NO2 + O2 + 2H2O -> 4HNO3}$，1 份 $\ce{O2}$ 反应后还剩 2 份 $\ce{O2}$ 不溶，溶液只充满烧瓶的 $\frac57$。$c = \dfrac{4a/7\div22.4}{5a/7} = \dfrac{4}{5}\times\dfrac{1}{22.4}\ \mathrm{mol/L}$，与 B 项结果不同。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+喷泉配比题两步定胜负：**第一步找过量**——写出总反应关系式，判断哪种气体剩余（剩余气体不溶于水、不进溶液体积）；**第二步分母对齐**——$c = n(\text{溶质})/V(\text{被吸收气体})$，分子用「真正反应」的气体算，分母用「消失」的气体算。两个气体都没剩余（恰好反应）时，溶液才充满烧瓶。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 标准状况下，容积为 $a$ L 的烧瓶中充满按体积比 1∶1 混合的 $\ce{NO}$ 和 $\ce{O2}$，倒扣在水中充分反应，求所得硝酸溶液的浓度。
+
+**答案**：恰好反应需 $\ce{NO}:\ce{O2} = 4:3$，实际 $1:1$ 中 $\ce{O2}$ 过量，以 $\ce{NO}$ 为基准：设各 $\frac{a}{2}$ L，$\ce{NO}$ 全部被吸收，消耗 $\ce{O2}$ $= \frac{3}{4}\times\frac{a}{2} = \frac{3a}{8}$，被吸收气体总体积（即溶液体积）$= \frac{a}{2} + \frac{3a}{8} = \frac{7a}{8}$，$n(\ce{HNO3}) = n(\ce{NO}) = \dfrac{a/2}{22.4}$，故 $c = \dfrac{a/2\div22.4}{7a/8} = \dfrac{4}{7}\times\dfrac{1}{22.4}\ \mathrm{mol/L}$。**结论**：只要 $\ce{NO}$、$\ce{O2}$ 同时存在且充分反应，无论配比如何，标况下所得硝酸浓度恒为 $\dfrac{4}{7}\times\dfrac{1}{22.4}\ \mathrm{mol/L}$（约 $0.026\ \mathrm{mol/L}$）——剩余的气体（无论哪种）不溶于水，分子分母同比例削减。
 
 </Reveal>
 </ExampleCard>

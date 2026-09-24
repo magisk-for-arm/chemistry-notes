@@ -7,7 +7,7 @@ summary: "核心转化模型、四问审题法、守恒法与检查清单，可�
 tags: ["解题方法", "解题模型"]
 difficulty: "medium"
 examFrequency: "high"
-updated: "2026-09-13"
+updated: "2026-09-24"
 ---
 
 import SolutionSteps from '@/components/SolutionSteps.astro';
@@ -99,4 +99,25 @@ import Callout from '@/components/Callout.astro';
     '量级与有效数字：结果是否合理？保留位数是否恰当？',
   ]}
   tip="把这份清单练成条件反射，选择题的错误率会明显下降。"
+/>
+
+## 六、溶液浓度与气体溶于水计算
+
+<Callout type="formula" title="浓度三式">
+
+$$c = \frac{n}{V} = \frac{1000\,\rho\, w}{M}$$
+
+其中 $\rho$ 为溶液密度（$\text{g/cm}^3$），$w$ 为溶质质量分数（小数）。已知溶解度 $S$（g/100g 水）时：$w = \dfrac{S}{100 + S}$。三个量（$c$、$\rho$、$w$）知二求一，入口永远是先把 $1000\,\rho\, w$ 化成 $c$。
+
+</Callout>
+
+<SolutionSteps
+  model="气体溶于水浓度模型（喷泉实验）"
+  steps={[
+    '写关系式：判断气体是否恰好反应完（如 4NO2 + O2 + 2H2O -> 4HNO3）',
+    '定溶质：由「真正反应的」气体物质的量确定 n(溶质)',
+    '定体积：溶液体积 = 被吸收的气体体积（不溶气体不占溶液体积）',
+    '相除得 c：标况下结论常形如 k × 1/22.4 mol/L，与烧瓶容积无关',
+  ]}
+  tip="抓牢 c = n(溶质)/V(溶液) 两条腿：多余气体既不进 n，也不进 V，死套比例必错。"
 />
