@@ -1,0 +1,238 @@
+---
+title: "分子空间结构与物质性质 · 易错点"
+topic: "molecular-structure"
+category: "mistakes"
+order: 1
+summary: "8 张易错卡：VSEPR 名与构型名、π 键不入价层账、孤对公式漏电荷、杂化轨道不搭 π 键、大π记法颠倒、等电子体双账、极性键≠极性分子、配位数≠配体数。"
+tags: ["易错点", "分子结构", "物质结构"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+<MistakeCard index={1} title="把 VSEPR 模型名当成分子立体构型" frequency="high" tags={['VSEPR', '空间构型']}>
+
+<Callout type="wrong" title="错误示例">
+
+「$\ce{NH3}$ 的 VSEPR 模型是四面体，所以 $\ce{NH3}$ 的空间构型也是四面体；$\ce{H2O}$ 有 4 对价层电子，所以水是直线形（两对 H—O 键朝两头）。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+VSEPR 模型给**电子对**排座次（含孤对），分子立体构型只报**原子核**的位置（孤对隐身）。4 对电子的三种落点：0 孤对 $\ce{CH4}$ 正四面体、1 孤对 $\ce{NH3}$ 三角锥、2 孤对 $\ce{H2O}$ V 形——电子对骨架相同、分子形状全不同。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+两步走：先由价层电子对数定电子对骨架（2 对直线、3 对平面三角、4 对四面体），再**按孤对数裁形**：$\ce{AB2E1}$→V 形、$\ce{AB3E1}$→三角锥、$\ce{AB2E2}$→V 形。题目问「VSEPR 模型」答含孤对的名字，问「空间构型/立体构型」答略孤对的名字。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+落笔前默念「**模型数电子、构型数原子**」十个字；见到 $\ce{SO2}$ 想「平面三角形模型削成 V 形」、见到 $\ce{SO3^2-}$ 想「四面体模型削成三角锥」（它和 $\ce{NH3}$ 同是 3σ+1 孤对，只是元素换了）。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={2} title="把 π 键电子计入价层电子对数" frequency="high" tags={['VSEPR', 'σ 键']}>
+
+<Callout type="wrong" title="错误示例">
+
+「$\ce{CO2}$ 有两个双键、共 4 对成键电子，加上 O 侧孤对，碳的价层电子对数是 4 → $sp^3$ 杂型、VSEPR 模型四面体。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+VSEPR 与杂化都**只数 σ 键**：双键、三键无论几对电子都只提供 1 对 σ 键电子对，π 键电子住在未杂化的 p 轨道里、不参与取向谈判。$\ce{CO2}$ 的碳：2 个双键 → 2 对 σ、0 孤对 → 价层 2 对。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{CO2}$：价层电子对数 $=2+0=2$ → $sp$ 杂化、直线形（键角 $180^{\circ}$），碳上剩余 2 个未杂化 p 轨道与两侧 O 各搭一套 $\Pi^4_3$。同口径：$\ce{N2}$、$\ce{C2H2}$ 的 C 都是 $sp$；乙烯、苯的 C 都是 $sp^2$（双键只记 1 个 σ）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+数「**连着几个原子**」而不是「几根键」：一个双键端头仍是一个邻居。快速账——$sp$ 连 2、$sp^2$ 连 3、$sp^3$ 连 4（再加孤对补足电子对数）。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={3} title="孤电子对公式漏掉离子电荷调整" frequency="high" tags={['孤电子对', '离子']}>
+
+<Callout type="wrong" title="错误示例">
+
+「$\ce{NH4+}$ 的 N：$\frac12(5-4\times1)=\frac12$ 对？取整 0；$\ce{CO3^2-}$ 的 C 用 $a=4$ 算：$\frac12(4-3\times2)=-1$，负数说明没有孤对——蒙对结论。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$a$ 必须是**调整后的价电子数**：阳离子减电荷数、阴离子加电荷数。$\ce{NH4+}$ 的 $a=5-1=4$、$\ce{CO3^2-}$ 的 $a=4+2=6$。漏调账会得出半整数或负数，遇到电荷大的离子（$\ce{SO4^2-}$、$\ce{PO4^3-}$）直接翻车——源头笔记自己的 $\ce{CO3^2-}$ 表就写错过一次。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{NH4+}$：$\frac12(5-1-4\times1)=0$，4 对 → $sp^3$ 正四面体；$\ce{CO3^2-}$：$\frac12(4+2-3\times2)=0$，3 对 → $sp^2$ 平面三角形；$\ce{SO3^2-}$：$\frac12(6+2-3\times2)=1$，3+1=4 对 → $sp^3$、三角锥。同是 $\ce{AO3^2-}$，C 与 S 的价电子差 2，形状就分道扬镳。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+公式先写「**±电荷**」小尾巴再代入；算完检查两件事——孤对数是否非负整数、价层电子对数是否等于 σ 数加孤对数。b 的取值口诀：H/卤 1、O/S 每键 2（按「还能接受几个电子」口径）。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={4} title="以为杂化轨道也管 π 键、孤对都进大π键" frequency="medium" tags={['杂化', '大π键']}>
+
+<Callout type="wrong" title="错误示例">
+
+「乙烯的 C 是 $sp^2$ 杂化，所以碳碳双键里的 π 键也是杂化轨道头碰头形成的；吡啶的 N 有孤对电子，所以它的大π键该算 $\Pi^7_6$。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+杂化轨道的法定用途只有两个：**搭 σ 骨架、收容孤对**。π 键永远由**未杂化**的 p 轨道肩并肩形成——$sp^2$ 剩 1 个 p、$sp$ 剩 2 个 p。吡啶 N 的孤对躺在 $sp^2$ 杂化轨道里（在环平面内），与环面垂直的 p 轨道里只有 1 个电子参与大π键，所以仍是 $\Pi^6_6$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+乙烯：C 的 3 个 $sp^2$ 搭 σ（2 个 C—H、1 个 C—C），余 p 轨道成全键 $\pi$。大π键电子账按原子逐一过：每个 $sp^2$ 原子贡献「价电子数 − σ 键数 − 杂化轨道里的孤对电子数」，吡啶各 C 出 1、N 出 1，共 6 电子 6 原子。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+辨析两句话：「杂化轨道**不形成** π 键」「不是所有孤对都进大π键——**在杂化轨道里的孤对不进**，在未杂化 p 轨道里的才进」。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={5} title="大 π 键记法上下标颠倒" frequency="medium" tags={['大π键', '符号']}>
+
+<Callout type="wrong" title="错误示例">
+
+「$\Pi^m_n$ 里 $m$ 是原子数、$n$ 是电子数」（源头笔记的定义原文），于是苯写成 $\Pi^6_6$ 碰巧对、三原子系写成 $\Pi^3_4$ 就露馅了。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+本站口径（与教材一致）：**上标 = 电子数，下标 = 原子数**。读法「$\Pi^4_3$」即「3 个原子共享 4 个电子」。上标像质量数写在元素符号上方，是「装的东西（电子）」；下标像质子数，是「架台子的（原子）」。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+常见账：$\ce{CO2}$（每侧一套）$\Pi^4_3$、$\ce{O3}$、$\ce{SO2}$、$\ce{NO2-}$ 均 $\Pi^4_3$；$\ce{CO3^2-}$、$\ce{NO3-}$、$\ce{SO3}$、$\ce{BF3}$ 均 $\Pi^6_4$；苯 $\Pi^6_6$、吡啶 $\Pi^6_6$、咪唑 $\Pi^6_5$；例外单记 $\ce{ClO2}$ 为 $\Pi^5_3$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+自查法：电子数一般**不超过**原子数的 2 倍且多为「4/6/5」这类偶数（奇数必有单电子背景如 $\ce{ClO2}$）；若你写出的「下标」比常见值大，多半是颠倒了自己检查一遍。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={6} title="等电子体只数电子不比原子，或反过来推性质相同" frequency="medium" tags={['等电子体']}>
+
+<Callout type="wrong" title="错误示例">
+
+「$\ce{CO2}$ 和 $\ce{CO}$ 都是碳氧化合物、价电子都是 16，互为等电子体；既然 $\ce{N2}$ 无毒，等电子体 $\ce{CO}$ 也无毒；$\ce{CO2}$ 与 $\ce{SiO2}$ 同族组成，结构也相同。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+等电子体要**两个总数同时相等**：原子总数 + 价电子总数。$\ce{CO2}$（3 原子 16e）与 $\ce{CO}$（2 原子 10e）原子数不同，出局；$\ce{SiO2}$ 是 3 原子但化学式单元结构完全不同（共价晶体无小分子）。等电子原理只保证**结构相似**，化学性质差别可以很大——$\ce{CO}$ 剧毒而 $\ce{N2}$ 惰性正是经典反例。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{CO2}$ 的合法等电子家族：$\ce{N2O}$、$\ce{CS2}$、$\ce{BeCl2}$（分子）、$\ce{N3-}$、$\ce{SCN-}$、$\ce{CNO-}$（离子）——都是 3 原子 16 价电子、直线形、$sp$ 杂化。$\ce{N2}$ 家族（2 原子 10e）：$\ce{CO}$、$\ce{CN-}$、$\ce{C2^2-}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+判断三连：数原子→数价电子→缺一即否；应用时**只推结构与成键**（键型、杂化、几何），不推毒性、酸碱性等化学性质。构造新等电子体用三招：同族换、价电子迁移、电荷互换。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={7} title="有极性键就喊极性分子" frequency="high" tags={['分子极性']}>
+
+<Callout type="wrong" title="错误示例">
+
+「$\ce{CO2}$ 的 C=O 是极性键，所以 $\ce{CO2}$ 是极性分子；$\ce{CH4}$ 和 $\ce{CH3Cl}$ 都是正四面体、都含极性键，所以都是非极性分子。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+分子极性看**键极性向量和**：结构对称时极性键的效应互相抵消（$\ce{CO2}$ 两头拉、合力为零）。$\ce{CH3Cl}$ 虽是四面体骨架，但 3 个 H 与 1 个 Cl 不同种、正负电中心不重合——**对称性看配体是否同种**，不能只看骨架形状。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+化合价法一票通过制：$AB_m$ 型中中心原子「化合价绝对值 $=$ 价电子数」→ 非极性（$\ce{CO2}$：4=4、$\ce{BF3}$：3=3、$\ce{CH4}$：4=4、$\ce{SO3}$：6=6、$\ce{CCl4}$ 同）；不等 → 极性（$\ce{H2O}$：2≠6、$\ce{NH3}$：3≠5、$\ce{SO2}$：4≠6、$\ce{CO}$ 本身极性）。配体不同种的四面体（$\ce{CH3Cl}$）走构型法判极性。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+两步排查：①只有非极性键或直接单质双原子同核 → 非极性；②含极性键就问「**形状对称吗、配体全同吗**」——双问都是才非极性。顺带接相似相溶：非极性分子易溶 $\ce{CCl4}$、苯；极性分子易溶于水。
+
+</Callout>
+
+</MistakeCard>
+
+<MistakeCard index={8} title="配位数直接等同配体数、四配位只认一种形状" frequency="medium" tags={['配合物', '配位数']}>
+
+<Callout type="wrong" title="错误示例">
+
+「$\ce{[Cu(en)2]^{2+}}$ 里有两个配体分子，配位数是 2；$\ce{[Zn(NH3)4]^{2+}}$ 与 $\ce{[Cu(NH3)4]^{2+}}$ 都是四配位，所以都是正四面体；$\ce{[Ag(NH3)2]+}$ 的杂化是 $sp^1$。」
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+配位数数的是**配位键的条数**（直接跟中心原子搭上线的配位原子数），不是配体分子个数——en（乙二胺）双齿，一分子搭两条线。四配位分两型：$\ce{[ZnCl4]^{2-}}$ 类 $sp^3$ 正四面体，$\ce{[PtCl4]^{2-}}$、$\ce{[Ni(CN)4]^{2-}}$、$\ce{[Cu(NH3)4]^{2+}}$ 类 $dsp^2$ **平面正方形**。$sp^1$ 是杜撰写法，二配位直线形就是 $sp$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{[Cu(en)2]^{2+}}$ 配位数 $2\times2=4$；$\ce{[Fe(CN)6]^{4-}}$ 六配位八面体；$\ce{[Ag(NH3)2]+}$、$\ce{[Cu(NH3)2]+}$ 二配位直线形（$sp$）。$\ce{[BF4]-}$、$\ce{[Al(OH)4]-}$ 中普通共价键与配位键成键后无差别，配位数统一按 4 计。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+拆配合物三段账：内界（方括号内：中心+配体）/外界（括号外离子）/电离关系——外界可自由电离、内界配体拆不开；数配位数时先问「这配体几条腿」：单齿（$\ce{NH3}$、$\ce{H2O}$、$\ce{CN-}$）一条腿，en 两条腿。
+
+</Callout>
+
+</MistakeCard>

@@ -162,6 +162,15 @@ export const topics: TopicMeta[] = [
     summary: '晶体四特征与晶胞、均摊法与密度方程、五种作用力、分子/共价/离子/金属四类晶体结构档案、熔沸点决策树',
     tags: ['晶体', '物质结构'],
   },
+  {
+    slug: 'molecular-structure',
+    subject: 'chemistry',
+    title: '分子空间结构与物质性质',
+    icon: '🧬',
+    order: 43,
+    summary: 'VSEPR 模型与杂化轨道、孤电子对算账、大π键与等电子体、分子极性与相似相溶、手性、配位键与配合物',
+    tags: ['分子结构', '物质结构'],
+  },
 ];
 
 export const sectionMeta = {
