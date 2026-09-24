@@ -1,0 +1,73 @@
+---
+title: "钠及其化合物 · 解题方法"
+topic: "metal-sodium"
+category: "methods"
+order: 3
+summary: "Na₂O₂ 增重等价式、差量法、分步滴酸图像法与钠化合物转化网络四套模型。"
+tags: ["解题方法", "解题模型", "金属元素", "计算"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import SolutionSteps from '@/components/SolutionSteps.astro';
+import Callout from '@/components/Callout.astro';
+
+## 一、Na₂O₂ 吸收计算：增重等价式
+
+<Callout type="formula" title="背三条等价，甩开方程式">
+
+足量 $\ce{Na2O2}$ 吸收 $\ce{CO2}$/$\ce{H2O}$ 后，固体增重只看「留下的部分」：
+
+$$\ce{CO2} \rightsquigarrow \text{增重} = m(\ce{CO}) = 44n - 16n \quad\quad \ce{H2O} \rightsquigarrow \text{增重} = m(\ce{H2}) = 18n - 16n$$
+
+（放走的恰是半个 $\ce{O2}$：$16\ \mathrm{g/mol}$ 每摩尔气体。）
+
+推论：$\ce{CO}$、$\ce{H2}$ 可在 $\ce{Na2O2}$ 体系中「燃烧—吸收」闭环，**等摩尔的 CO 或 $\ce{H2}$ 完全被吞**；通式 $\ce{(CO)_{m}(H2)_{n}}$ 类有机物（如甲醛 $\ce{CH2O}$、乙酸 $\ce{C2H4O2}$ 写成 $\ce{(CO)_{n}(H2)_{m}}$ 形式）燃烧产物也能被全吞。
+
+</Callout>
+
+## 二、加热混合物：差量法
+
+<SolutionSteps
+  model="固体减轻只记在 NaHCO₃ 头上"
+  steps={[
+    '写分解式：2NaHCO₃ → Na₂CO₃ + H₂O↑ + CO₂↑，每 2 mol NaHCO₃ 固体减 62 g',
+    '用题给减轻量反推 n(NaHCO₃) = 2Δm/62 = Δm/31',
+    '剩余固体再算组成（原 Na₂CO₃ + 新生成 Na₂CO₃）',
+    '若继续加盐酸至中性，用「Na 守恒 + Cl 守恒」直接得 NaCl 量，跳过中间所有反应',
+  ]}
+  tip="Δm 为 0 说明无 NaHCO₃ 或已经恒重——「加热至恒重」四字既除杂又定量。"
+/>
+
+## 三、逐滴加酸：两段图像法
+
+<SolutionSteps
+  model="把滴酸过程切成两个耗 H⁺ 阶段"
+  steps={[
+    "第一段（无气泡）：CO₃²⁻ + H⁺ = HCO₃⁻，耗 H⁺ = n(CO₃²⁻)",
+    '第二段（产气泡）：HCO₃⁻ + H⁺ = H₂O + CO₂↑，耗 H⁺ = 总 HCO₃⁻（原存 + 第一段生成）',
+    '图像斜率与转折点：V(第一段) ∶ V(第二段) = 1 ∶ 1 为纯 Na₂CO₃；第二段更长含 NaHCO₃；第一段更长含 NaOH',
+    '反向滴加（把碳酸钠滴入盐酸）：酸始终过量，一滴即产气，n(CO₂) = n(Na₂CO₃)×1（受 H⁺ 总量限制时按 2H⁺~CO₂ 折半）',
+  ]}
+  tip="混合碱滴定「1∶1 看纯碱、前长含烧碱、后长含小苏打」是工业分析经典判据。"
+/>
+
+## 四、钠化合物转化网络
+
+<Callout type="memory" title="一张图的骨架">
+
+$\ce{Na ->[O2 常温] Na2O ->[O2, \Delta] Na2O2 ->[H2O/CO2] NaOH/Na2CO3 ->[CO2 量] NaHCO3}$；支线：$\ce{NaOH ->[过量 CO2] NaHCO3 ->[\Delta 或 NaOH] Na2CO3}$。
+
+- 工业/实验室制干燥 $\ce{NaOH}$ 固体：由 $\ce{Na2O2}$（或 $\ce{Na}$）与水反应得溶液后**蒸发至干**，并在隔绝空气（防 $\ce{CO2}$、防潮解）条件下保存；直接加热蒸干时需警惕溶液吸收空气中 $\ce{CO2}$ 混入 $\ce{Na2CO3}$；
+- 「$\ce{Na2CO3}$ 与 $\ce{NaHCO3}$ 互转」永远只用两种温和试剂：$\ce{CO2}$（往酸式转）与加热/$\ce{NaOH}$（往正盐转）。
+
+</Callout>
+
+## 五、自查清单
+
+<Callout type="skill" title="钠题交卷五问">
+
+① 钠进溶液，「先水后盐」写了吗？② $\ce{Na2O2}$ 的电子转移按 $1\ \ce{O2} \sim 2e^-$ 数了吗？③ 阴离子数是 $\ce{O2^2-}$ 整体还是拆开了？④ 鉴别/除杂是否引入新杂质？⑤ 焰色：钴玻璃、盐酸、铂丝三件套齐了吗？
+
+</Callout>

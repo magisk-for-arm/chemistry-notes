@@ -1,0 +1,238 @@
+---
+title: "钠及其化合物 · 易错点"
+topic: "metal-sodium"
+category: "mistakes"
+order: 1
+summary: "8 条高频陷阱：钠置换幻觉、过氧根离子比、先红后褪、互滴顺序、焰色三禁。"
+tags: ["易错点", "金属元素"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+## 1. 钠投入盐溶液置换出金属？
+
+<MistakeCard index={1} title="Na 置换 CuSO₄ 中的铜" frequency="high" tags={['反应顺序']}>
+<Callout type="wrong" title="错误示例">
+
+$2\ce{Na + CuSO4 = Na2SO4 + Cu}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+钠太活泼，遇到水溶液**必先与水电离的 $\ce{H+}$ 反应**，根本轮不到与 $\ce{Cu^2+}$ 的置换。只有**熔融态**盐才可能被钠还原（且高考范围内基本不考）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+分两步写：$2\ce{Na + 2H2O = 2NaOH + H2 ^}$、$2\ce{NaOH + CuSO4 = Cu(OH)2 v + Na2SO4}$；总效果：$2\ce{Na + 2H2O + Cu^2+ = Cu(OH)2 v + 2Na+ + H2 ^}$。现象是**蓝色沉淀 + 气泡**，没有红色铜。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「活泼金属（K、Ca、Na）入盐溶液 → 先水后盐」是铁律。见「钠 + 盐溶液 = 新金属」的方程式或选项，直接判错。
+
+</Callout>
+</MistakeCard>
+
+## 2. 过氧化钠是碱性氧化物？
+
+<MistakeCard index={2} title="把 Na₂O₂ 归入碱性氧化物" frequency="high" tags={['物质分类']}>
+<Callout type="wrong" title="错误示例">
+
+$\ce{Na2O2}$ 与酸反应生成盐和水，所以是碱性氧化物；其与水反应 $2\ce{Na2O2 + 2H2O = 4NaOH + O2 ^}$ 中水被氧化。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+碱性氧化物要求「与酸反应**只**生成盐和水」。$\ce{Na2O2}$ 与酸反应还放出 $\ce{O2}$（$2\ce{Na2O2 + 4HCl = 4NaCl + 2H2O + O2 ^}$），它是**过氧化物**。且水中 H、O 价态都没变——氧化剂和还原剂都是 $\ce{Na2O2}$ 自身的 $\ce{O2^2-}$（歧化）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$\ce{Na2O2}$ 中氧为 $-1$ 价，反应中一半升到 $0$（$\ce{O2}$）、一半降到 $-2$（$\ce{NaOH}$/$\ce{Na2CO3}$）。生成 $1\ \mathrm{mol}\ \ce{O2}$ 转移 $2\ \mathrm{mol}\ e^-$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+$N_A$ 题见 $\ce{Na2O2}$ 盯三数：阴离子是 $\ce{O2^2-}$ 整体（$1\ \mathrm{mol}$ 固体含 $2N_A$ 个 $\ce{Na+}$、$N_A$ 个阴离子）；电子转移按「$1\ \ce{O2} \sim 2e^-$」；与 $\ce{CO2}$、$\ce{H2O}$ 反应按「$2$ 吸 $1$ 放」体积减半算。
+
+</Callout>
+</MistakeCard>
+
+## 3. 酚酞遇过氧化钠「只红不褪」？
+
+<MistakeCard index={3} title="漏掉 Na₂O₂ 的漂白性" frequency="high" tags={['强氧化性']}>
+<Callout type="wrong" title="错误示例">
+
+把足量 $\ce{Na2O2}$ 粉末加入滴有酚酞的水中，溶液变红且不褪色。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{Na2O2}$ 与水反应生成 $\ce{NaOH}$（碱性→变红），同时其强氧化性中间体（反应历程中的 $\ce{H2O2}$ 类活性氧）**破坏酚酞的显色结构**（氧化漂白→褪色）。两步现象缺一不可。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+**先变红后褪色**，并有气泡产生。同理：$\ce{Na2O2}$ 能使品红溶液褪色（氧化型漂白，与活性炭吸附漂白、$\ce{SO2}$ 化合型漂白机理并列三大家族）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见「$\ce{Na2O2}$ + 指示剂/品红/石蕊」先写双现象「变…随后褪色」；判断题干只给单一现象的选项直接排除。
+
+</Callout>
+</MistakeCard>
+
+## 4. 热稳定性方向记反 + 套管实验读反
+
+<MistakeCard index={4} title="认为 Na₂CO₃ 受热易分解" frequency="high" tags={['热稳定性', '实验']}>
+<Callout type="wrong" title="错误示例">
+
+「碳酸钠不稳定，加热产生使澄清石灰水变浑浊的气体」；套管实验中把内外管药品放反而使结论打折扣。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+稳定性 $\ce{Na2CO3 > NaHCO3}$：$2\ce{NaHCO3 ->[\Delta] Na2CO3 + H2O + CO2 ^}$，$\ce{Na2CO3}$ 受热难分解。套管实验把 $\ce{NaHCO3}$ 放在**温度更低的小试管（内管）**、$\ce{Na2CO3}$ 放在**温度更高的大试管（外管）**：低温的分解了而高温的不分解，**反差之下**结论才无可辩驳。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+现象：连接内管的石灰水变浑浊，连接外管的无明显变化 → 外管温度高尚且不分解，内管温度低却分解，证明 $\ce{Na2CO3}$ 更稳定。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「谁装在小试管里？」——答案永远是易分解的 $\ce{NaHCO3}$。若实验设计题把两药位置互换，要指出「无法比较稳定性」（低温者不分解可能只是温度不够）。
+
+</Callout>
+</MistakeCard>
+
+## 5. 溶解度大小与「通 CO₂ 析晶」
+
+<MistakeCard index={5} title="NaHCO₃ 溶解度比 Na₂CO₃ 大" frequency="medium" tags={['溶解度']}>
+<Callout type="wrong" title="错误示例">
+
+「常温下 $\ce{NaHCO3}$ 溶解度更大，所以向饱和 $\ce{Na2CO3}$ 溶液通 $\ce{CO2}$ 不会析出固体」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+同温下 $\ce{Na2CO3}$ 溶解度**大于** $\ce{NaHCO3}$。向饱和 $\ce{Na2CO3}$ 溶液通入 $\ce{CO2}$：$\ce{Na2CO3 + CO2 + H2O = 2NaHCO3}$，溶质质量增大（$106 \to 168$）而溶剂水被消耗，产物 $\ce{NaHCO3}$ 溶解度又小——三重不利叠加，**白色晶体析出**。侯氏制碱法中 $\ce{NaHCO3}$ 最先析出同理。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+溶解度序（常温）：$\ce{Na2CO3 > NaHCO3}$；「饱和碳酸钠通二氧化碳变浑浊」本身就是一个经典判断考点。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+凡「析晶」类问题按三查：溶质质量增没增、溶剂少没少、产物溶解度是不是更小。命中两条以上就敢写「有晶体析出」。
+
+</Callout>
+</MistakeCard>
+
+## 6. 盐酸与碳酸钠互滴，现象相同？
+
+<MistakeCard index={6} title="忽略滴加顺序的差别" frequency="high" tags={['反应分步', '鉴别']}>
+<Callout type="wrong" title="错误示例">
+
+「稀盐酸与 $\ce{Na2CO3}$ 溶液无论互滴顺序，现象都是立即产生气泡」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\ce{CO3^2-}$ 结合 $\ce{H+}$ 分两步：$\ce{CO3^2- ->[H+] HCO3- ->[H+] H2O + CO2 ^}$。**盐酸滴入碳酸钠**（局部碱过量）：开始 $\ce{H+}$ 少、只走到第一步，**先无气泡后有气泡**；**碳酸钠滴入盐酸**（局部酸过量）：$\ce{H+}$ 充裕一步到位，**一开始就有气泡**。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+互滴现象不同，正好可**不用其他试剂鉴别**稀盐酸与碳酸钠溶液。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+定量题同理会「顺序给不同答案」：向 $\ce{Na2CO3}$ 中滴入少量盐酸不产气（只生成 $\ce{NaHCO3}$）；计算 $\ce{CO2}$ 产量前先问酸是否足以走完全程（$2\ \mathrm{mol}\ \ce{H+}$ 才换 $1\ \mathrm{mol}\ \ce{CO2}$）。
+
+</Callout>
+</MistakeCard>
+
+## 7. 除杂选错试剂引入新杂质
+
+<MistakeCard index={7} title="用盐酸除去 Na₂CO₃ 中的 NaHCO₃" frequency="medium" tags={['除杂']}>
+<Callout type="wrong" title="错误示例">
+
+向混有 $\ce{NaHCO3}$ 的 $\ce{Na2CO3}$ 中加入适量盐酸。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+盐酸把主料 $\ce{Na2CO3}$ 也一并反应掉（它比 $\ce{NaHCO3}$ 更快结合 $\ce{H+}$ 进入溶液反应网络），且极易过量。除杂原则是「**减杂不减主、不引入新杂**」。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+固体混合物：**加热至恒重**（$\ce{NaHCO3}$ 自分解为主料）；溶液：加**适量 $\ce{NaOH}$**（$\ce{NaHCO3 + NaOH = Na2CO3 + H2O}$）。反向除杂（$\ce{NaHCO3}$ 溶液中混 $\ce{Na2CO3}$）：通**足量 $\ce{CO2}$**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+碳酸盐体系除杂的「万能钥匙」是 $\ce{CO2}$ 与加热：$\ce{CO2}$ 只把 $\ce{CO3^2-}$ 往 $\ce{HCO3-}$ 方向推、加热只把 $\ce{HCO3-}$ 往 $\ce{CO3^2-}$ 方向推，两条通道各管一边。
+
+</Callout>
+</MistakeCard>
+
+## 8. 焰色反应三大操作坑
+
+<MistakeCard index={8} title="玻璃棒蘸样、黄焰断无钾、硫酸洗丝" frequency="high" tags={['焰色反应', '实验操作']}>
+<Callout type="wrong" title="错误示例">
+
+用玻璃棒蘸溶液灼烧，火焰呈黄色→证明含 $\ce{Na+}$ 不含 $\ce{K+}$；焰色实验前用稀硫酸洗涤铂丝。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+三连错：① 玻璃含 $\ce{Na2SiO3}$，本身黄光干扰实验（只能用铂丝/无锈铁丝/镍丝）；② 黄光会掩盖微弱的紫光，**不透过蓝色钴玻璃不能否定 $\ce{K+}$**；③ 洗丝必须用盐酸——金属**氯化物沸点低易挥发**，硫酸盐难挥发会残留污染。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+铂丝蘸稀盐酸灼烧至与原火焰同色 → 蘸样灼烧 → 观察黄色（有 $\ce{Na+}$）；检验 $\ce{K+}$ 必须**透过蓝色钴玻璃**看紫光。焰色反应是**物理变化**、检验的是**元素**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+实验评价题里「玻璃棒/稀硫酸/直接断言无钾」三句是命题人固定的埋雷位；见到即锁定错误选项。
+
+</Callout>
+</MistakeCard>

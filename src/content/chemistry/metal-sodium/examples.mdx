@@ -1,0 +1,210 @@
+---
+title: "钠及其化合物 · 典型例题"
+topic: "metal-sodium"
+category: "examples"
+order: 5
+summary: "5 道典型例题：钠入盐溶液现象、Na₂O₂ 性质辨析、增重与电子记账、差量法、滴加顺序定量。"
+tags: ["例题", "金属元素", "计算"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-24"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一～二巩固性质与现象描述，例题三是 $\ce{Na2O2}$ 记账标准题，例题四差量法求组成，例题五把「滴加顺序」考到定量。建议限时完成再对解析。
+
+</Callout>
+
+## 例题一：钠入盐溶液（easy）
+
+<ExampleCard title="钠投入硫酸铜溶液的完整现象" difficulty="easy">
+
+将一小块金属钠投入盛有 $\ce{CuSO4}$ 溶液的烧杯中，观察到的现象**不可能**包括（　　）
+
+- A．钠浮在液面上熔成小球，四处游动
+- B．放出无色无味的气体
+- C．溶液中生成蓝色沉淀
+- D．析出红色固体
+
+<Reveal summary="查看解析">
+
+<Callout type="right" title="答案：D">
+
+钠**先与水反应**（A、B 是钠与水反应的标配现象：浮、熔、游、响），生成的 $\ce{NaOH}$ 再与 $\ce{CuSO4}$ 复分解出**蓝色** $\ce{Cu(OH)2}$ 沉淀（C 正确）；置换出红色铜（D）需要钠直接与 $\ce{Cu^2+}$ 反应——在水溶液中**永远不会发生**。
+
+</Callout>
+
+<Callout type="skill" title="方法复盘">
+
+总离子方程式：$2\ce{Na + 2H2O + Cu^2+ = Cu(OH)2 v + 2Na+ + H2 ^}$。「K、Ca、Na 入盐溶液先与水反应」；只有熔融体系才谈得上活泼金属置换。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 等质量钠分别投入足量盐酸与足量水中，产氢气谁多？
+
+**答案**：**一样多**。酸中 $\ce{H+}$ 浓度大反应更剧烈（速率不同），但氢气的量由钠提供电子数决定（$2\ \mathrm{Na} \sim 1\ \ce{H2}$），足量酸/水下钠全部消耗，产氢相同——「剧烈程度 ≠ 产量」是经典双概念陷阱。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：Na₂O₂ 性质辨析（easy）
+
+<ExampleCard title="关于过氧化钠的四句话" difficulty="easy" source="改编 · 原型：过氧化钠性质正误判断合集">
+
+下列关于 $\ce{Na2O2}$ 的说法正确的是（　　）
+
+- A．$\ce{Na2O2}$ 是碱性氧化物，与水反应生成 $\ce{NaOH}$
+- B．$\ce{Na2O2}$ 中阳离子与阴离子个数比为 $1:1$
+- C．每生成 $1\ \mathrm{mol}\ \ce{O2}$，反应转移 $2\ \mathrm{mol}$ 电子
+- D．$\ce{Na2O2}$ 使酚酞水溶液变红后不褪色
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 类别错误">
+
+它与酸反应还放出 $\ce{O2}$，不是碱性氧化物，是**过氧化物**；与水反应的氧化剂、还原剂均为其自身。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 阴离子是整体">
+
+阴离子为过氧根 $\ce{O2^2-}$，$2\ \mathrm{mol}\ \ce{Na+} : 1\ \mathrm{mol}\ \ce{O2^2-}$，比值 $2:1$（$1\ \mathrm{mol}$ 固体含 $3N_A$ 个离子）。
+
+</Callout>
+
+<Callout type="right" title="C ✅ 正确">
+
+$-1$ 价的 O 歧化：一半升为 $0$（$\ce{O2}$）、一半降为 $-2$，生成 $1\ \mathrm{mol}\ \ce{O2}$ 恰转移 $2\ \mathrm{mol}\ e^-$。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 漏了氧化性">
+
+生成碱使酚酞变红，随后强氧化性漂白褪色——**先红后褪**。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+$\ce{Na2O2}$ 题四件套：类别（非碱性氧化物）、离子比（$2:1$，过氧根不拆）、电子账（$1\ \ce{O2} \sim 2e^-$）、双现象（碱性 + 漂白）。四个维度各刷一遍，选项无所遁形。
+
+</Callout>
+</ExampleCard>
+
+## 例题三：Na₂O₂ 吸收记账（medium）
+
+<ExampleCard title="二氧化碳与水蒸气混合气过过氧化钠" difficulty="medium" source="改编 · 原型：Na₂O₂ 差量与增重综合">
+
+标准状况下 $0.448\ \mathrm{L}\ \ce{CO2}$ 与 $0.224\ \mathrm{L}\ \ce{H2O(g)}$ 的混合气体通过足量 $\ce{Na2O2}$ 固体，充分反应。求：（1）逸出气体（标况）的体积；（2）反应中转移电子数；（3）固体增重。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="两条反应分别记账">
+
+$n(\ce{CO2}) = 0.02\ \mathrm{mol}$、$n(\ce{H2O}) = 0.01\ \mathrm{mol}$。
+
+- $2\ce{Na2O2 + 2CO2 = 2Na2CO3 + O2}$：放 $\ce{O2}\ 0.01\ \mathrm{mol}$；
+- $2\ce{Na2O2 + 2H2O = 4NaOH + O2 ^}$：放 $\ce{O2}\ 0.005\ \mathrm{mol}$；
+- 逸出气（只剩 $\ce{O2}$）共 $0.015\ \mathrm{mol}$，标况 $\boxed{336\ \mathrm{mL}}$。
+
+电子：每生成 $1\ \mathrm{mol}\ \ce{O2}$ 转移 $2\ \mathrm{mol}\ e^-$，共 $0.03\ \mathrm{mol}$，即 $\boxed{0.03N_A}$ 个。
+
+</Callout>
+
+<Callout type="right" title="增重用等价式秒算">
+
+$\ce{CO2}$ 留下「$\ce{CO}$」：$0.02 \times 28 = 0.56\ \mathrm{g}$；$\ce{H2O}$ 留下「$\ce{H2}$」：$0.01 \times 2 = 0.02\ \mathrm{g}$。合计 $\boxed{0.58\ \mathrm{g}}$。（验证：进 $0.88 + 0.18 = 1.06\ \mathrm{g}$，出 $\ce{O2}\ 0.015 \times 32 = 0.48\ \mathrm{g}$，差恰为 $0.58\ \mathrm{g}$ ✓）
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** $\ce{CO}$ 与 $\ce{H2}$ 的混合气体 $a\ \mathrm{mol}$（各半）在足量 $\ce{O2}$ 中完全燃烧，产物立即被足量 $\ce{Na2O2}$ 全部吸收，固体增重多少克？
+
+**答案**：$\ce{CO}$、$\ce{H2}$ 各自的燃烧产物被吸收时增重恰好等于**它们自身的质量**（「$\ce{CO2 -> CO}$、$\ce{H2O -> H2}$」逆着用）：增重 $= \dfrac{a}{2} \times 28 + \dfrac{a}{2} \times 2 = 15a\ \mathrm{g}$。消耗的 $\ce{O2}$ 只是「过桥费」，不计入增重。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：差量法定组成（medium）
+
+<ExampleCard title="加热混合物，沉淀说话" difficulty="medium" source="改编 · 原型：碳酸氢钠含量测定">
+
+$\ce{Na2CO3}$ 与 $\ce{NaHCO3}$ 的混合物 $4.42\ \mathrm{g}$，充分加热至恒重，将放出的气体通入足量澄清石灰水，得白色沉淀 $2.00\ \mathrm{g}$。求原混合物中 $\ce{NaHCO3}$ 的质量分数。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="从沉淀倒爬回去">
+
+$n(\ce{CaCO3}) = \dfrac{2.00}{100} = 0.02\ \mathrm{mol} = n(\ce{CO2})$。
+
+由 $2\ce{NaHCO3 ->[\Delta] Na2CO3 + H2O + CO2 ^}$：$n(\ce{NaHCO3}) = 2 \times 0.02 = 0.04\ \mathrm{mol}$，质量 $0.04 \times 84 = 3.36\ \mathrm{g}$。
+
+$$w(\ce{NaHCO3}) = \frac{3.36}{4.42} \approx 76.0\%$$
+
+</Callout>
+
+<Callout type="right" title="交叉验证">
+
+固体应减轻 $0.04 \times 31 = 1.24\ \mathrm{g}$（每 mol $\ce{NaHCO3}$ 带走 $\ce{H2O}$+$\ce{CO2}$ 共 62/2 g）；$\ce{Na2CO3}$ 为 $\dfrac{1.06\ \mathrm{g}}{106\ \mathrm{g/mol}} = 0.01\ \mathrm{mol}$，加热至恒重无损失 ✓。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 若加热后剩余固体直接与盐酸反应至中性，共需 $\ce{HCl}$ 多少摩尔？（用守恒法）
+
+**答案**：全程 **Na 守恒 + Cl 守恒**：最终溶液只有 $\ce{NaCl}$，$n(\ce{HCl}) = n(\ce{Na+}) = 2n(\ce{Na2CO3}) + n(\ce{NaHCO3}) = 2 \times 0.01 + 0.04 = 0.06\ \mathrm{mol}$。加热分解步骤完全是「中间戏」，守恒法直接跳过。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：滴加顺序定产量（hard）
+
+<ExampleCard title="同样一瓶酸一瓶碱，谁滴进谁手里" difficulty="hard" source="改编 · 原型：盐酸与碳酸钠互滴定量比较">
+
+$20\ \mathrm{mL}\ 0.1\ \mathrm{mol/L}\ \ce{Na2CO3}$ 溶液与 $30\ \mathrm{mL}\ 0.1\ \mathrm{mol/L}$ 稀盐酸进行两组实验：Ⅰ．将盐酸**逐滴加入**碳酸钠溶液中；Ⅱ．将碳酸钠溶液**逐滴加入**盐酸中。均充分反应，比较两实验放出 $\ce{CO2}$ 的物质的量（标况体积）。
+
+<Reveal summary="查看解析">
+
+<Callout type="formula" title="n(CO₃²⁻)=0.002 mol，n(H⁺)=0.003 mol">
+
+**实验Ⅰ**（酸入碱，$\ce{CO3^2-}$ 始终过量）：$\ce{H+}$ 先执行第一步 $\ce{CO3^2- + H+ = HCO3-}$ 耗 $0.002\ \mathrm{mol}$，剩余 $\ce{H+}\ 0.001\ \mathrm{mol}$ 才执行 $\ce{HCO3- + H+ = H2O + CO2 ^}$：
+$$n_1(\ce{CO2}) = 0.001\ \mathrm{mol}\ (22.4\ \mathrm{mL})$$
+
+**实验Ⅱ**（碱入酸，$\ce{H+}$ 始终过量）：每滴 $\ce{CO3^2-}$ 落进酸海直接走完全程（每个 $\ce{CO3^2-}$ 消耗 $2$ 个 $\ce{H+}$）。$0.003\ \mathrm{mol}\ \ce{H+}$ 最多伺候 $0.0015\ \mathrm{mol}$ 碳酸根：
+$$n_2(\ce{CO2}) = 0.0015\ \mathrm{mol}\ (33.6\ \mathrm{mL})$$
+
+</Callout>
+
+<Callout type="wrong" title="常见翻车点">
+
+认为「药品相同、产物必相同」而写 $n_1 = n_2$。滴加顺序决定**每一瞬间谁过量**，瞬间环境决定反应走到第几步。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 实验Ⅰ结束后溶液中主要溶质是什么（除 $\ce{NaCl}$）？
+
+**答案**：第一步生成的 $\ce{NaHCO3}$ 剩余 $0.002 - 0.001 = 0.001\ \mathrm{mol}$——即 $\ce{NaCl}$ 与 $\ce{NaHCO3}$。逐滴加酸的体系里「气泡还没出完，$\ce{HCO3-}$ 已堆了一池」。
+
+</Reveal>
+</ExampleCard>

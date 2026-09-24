@@ -63,6 +63,15 @@ export const topics: TopicMeta[] = [
     summary: '离子方程式书写与正误判断、离子共存与检验推断',
     tags: ['离子反应'],
   },
+  {
+    slug: 'metal-sodium',
+    subject: 'chemistry',
+    title: '钠及其化合物',
+    icon: '🧂',
+    order: 21,
+    summary: '钠三角、过氧化钠记账、碳酸钠与碳酸氢钠对比及焰色反应',
+    tags: ['金属元素'],
+  },
 ];
 
 export const sectionMeta = {
