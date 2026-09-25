@@ -41,7 +41,18 @@
   --shape-xl: 28px;
   --shape-full: 999px;
 
-  /* --- 1.3 UI 字阶（MD3 type scale，只定义不应用） ---
+  /* --- 1.3 间距阶梯（阶段 2 新增）：4 / 8 / 12 / 16 / 24 / 32 / 48 ---
+   * 对应 MD3 的 4dp 基数网格，命名与 --shape-* 同为「档位序号」 */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* --- 1.4 UI 字阶（MD3 type scale，只定义不应用） ---
    * 命名：--type-<组>-<档位>-<size|lh|weight>
    * size = font-size，lh = line-height，weight = font-weight */
   /* display */
@@ -96,7 +107,7 @@
   --type-label-small-weight: 500;
 }
 
-/* --- 1.4 暗色方案（默认） --- */
+/* --- 1.5 暗色方案（默认） --- */
 :root,
 [data-theme='dark'] {
   /* primary tonal 角色：暗色 primary = tone 80（AA 文字对比度） */
@@ -139,7 +150,7 @@
   --elev-3: 0 1px 3px rgba(0, 0, 0, 0.5), 0 4px 8px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* --- 1.5 亮色方案 --- */
+/* --- 1.6 亮色方案 --- */
 [data-theme='light'] {
   /* primary tonal 角色：亮色 primary = tone 40 */
   --md-primary: #0560c7;

@@ -2,7 +2,7 @@
 .tag-badge {
   display: inline-block;
   padding: 0.12rem 0.6rem;
-  border-radius: 999px;
+  border-radius: var(--shape-full);
   border: 1px solid var(--md-outline-variant);
   background: var(--md-surface-container-highest);
   color: var(--md-on-surface-variant);
@@ -25,9 +25,22 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
 .sidebar-block + .sidebar-block { margin-top: 1.5rem; }
 .sidebar-title { margin: 0 0 0.6rem; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
 .sidebar-list { list-style: none; margin: 0; padding: 0; }
-.sidebar-list a { display: flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.55rem; border-radius: var(--radius-sm); color: var(--md-on-surface-variant); }
+/* padding-left 由 0.55rem 放宽到 0.8rem，给 .active 的 MD3 指示条让位 */
+.sidebar-list a { position: relative; display: flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.55rem 0.35rem 0.8rem; border-radius: var(--radius-sm); color: var(--md-on-surface-variant); }
 .sidebar-list a:hover { background: var(--md-surface-container-highest); color: var(--md-on-surface); text-decoration: none; }
+/* 选中态 = MD3 指示条 + state layer（12% primary 底色），两者叠加 */
 .sidebar-list a.active { background: color-mix(in srgb, var(--md-primary) 12%, transparent); color: var(--md-primary); font-weight: 600; }
+.sidebar-list a.active::before {
+  content: '';
+  position: absolute;
+  left: 0.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  border-radius: var(--shape-full);
+  background: var(--md-primary);
+}
 
 .toc { position: sticky; top: 5rem; font-size: 0.85rem; }
 .toc-title { margin: 0 0 0.6rem; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
@@ -41,9 +54,9 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 1.1rem 1.2rem;
+  padding: var(--space-4);
   border: 1px solid var(--md-outline-variant);
-  border-radius: var(--radius);
+  border-radius: var(--shape-md);
   background: var(--md-surface-card);
   color: var(--md-on-surface);
   transition: border-color 0.15s, transform 0.15s;
@@ -54,7 +67,7 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
   place-items: center;
   width: 42px;
   height: 42px;
-  border-radius: 10px;
+  border-radius: var(--shape-sm);
   background: var(--md-primary-container);
   color: var(--md-on-primary-container);
   font-weight: 800;
@@ -70,41 +83,44 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
 
 /* ---------- Callout ---------- */
 .callout {
-  margin: 0.9rem 0;
+  margin: var(--space-4) 0;
   border: 1px solid var(--md-outline-variant);
   border-left-width: 4px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--shape-md);
   background: var(--md-surface-card);
   overflow: hidden;
 }
-.callout-head { padding: 0.5rem 0.9rem; font-weight: 700; font-size: 0.9rem; }
-.callout-body { padding: 0.15rem 0.9rem 0.7rem; overflow-x: auto; }
+.callout-head { padding: var(--space-2) var(--space-4); font-weight: 700; font-size: 0.9rem; }
+/* 只动 .callout-body 自身的 padding；其内部（带 prose）排版一律不碰 */
+.callout-body { padding: 0.15rem var(--space-4) 0.7rem; overflow-x: auto; }
 .callout-body > :first-child { margin-top: 0.35rem; }
 .callout-body > :last-child { margin-bottom: 0.35rem; }
-.callout-wrong { border-left-color: var(--danger); background: var(--danger-soft); }
+/* 8 种 type 统一为「卡片底 + 语义色按比例混合」的 tonal 底色（阶段 2）：
+   相比固定 rgba soft，color-mix 混的是主题色，暗/亮两主题都成立；
+   左边框与 callout-head 文字色全部保持原样。 */
+.callout-wrong { border-left-color: var(--danger); background: color-mix(in srgb, var(--danger) 10%, var(--md-surface-card)); }
 .callout-wrong .callout-head { color: var(--danger); }
-.callout-why { border-left-color: var(--warning); background: var(--warning-soft); }
+.callout-why { border-left-color: var(--warning); background: color-mix(in srgb, var(--warning) 10%, var(--md-surface-card)); }
 .callout-why .callout-head { color: var(--warning); }
-.callout-right { border-left-color: var(--success); background: var(--success-soft); }
+.callout-right { border-left-color: var(--success); background: color-mix(in srgb, var(--success) 10%, var(--md-surface-card)); }
 .callout-right .callout-head { color: var(--success); }
-.callout-skill { border-left-color: var(--md-primary); background: color-mix(in srgb, var(--md-primary) 12%, transparent); }
+.callout-skill { border-left-color: var(--md-primary); background: color-mix(in srgb, var(--md-primary) 12%, var(--md-surface-card)); }
 .callout-skill .callout-head { color: var(--md-primary); }
-.callout-tip { border-left-color: var(--purple); background: var(--purple-soft); }
+.callout-tip { border-left-color: var(--purple); background: color-mix(in srgb, var(--purple) 10%, var(--md-surface-card)); }
 .callout-tip .callout-head { color: var(--purple); }
-.callout-note { border-left-color: var(--text-dim); }
-.callout-memory { border-left-color: var(--purple); background: var(--purple-soft); }
+.callout-note { border-left-color: var(--text-dim); background: color-mix(in srgb, var(--md-outline) 14%, var(--md-surface-card)); }
+.callout-memory { border-left-color: var(--purple); background: color-mix(in srgb, var(--purple) 10%, var(--md-surface-card)); }
 .callout-memory .callout-head { color: var(--purple); }
-.callout-formula { border-left-color: var(--md-primary); background: var(--md-surface-container-highest); }
+.callout-formula { border-left-color: var(--md-primary); background: color-mix(in srgb, var(--md-primary) 8%, var(--md-surface-card)); }
 .callout-formula .callout-head { color: var(--md-primary); }
 
 /* ---------- 易错点卡片 ---------- */
 .mistake-card {
-  margin: 1.75rem 0;
+  margin: var(--space-5) 0;
   border: 1px solid var(--md-outline-variant);
-  border-radius: var(--radius);
+  border-radius: var(--shape-md);
   background: var(--md-surface-card-deep);
   padding: 1rem 1.1rem 1.2rem;
-  box-shadow: var(--elev-1);
 }
 .mistake-head { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
 .mistake-head h3 { margin: 0; font-size: 1.08rem; flex: 1; }
@@ -113,25 +129,25 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
   place-items: center;
   min-width: 30px;
   height: 30px;
-  border-radius: 8px;
+  border-radius: var(--shape-sm);
   background: var(--md-primary);
   color: var(--md-on-primary);
   font-weight: 800;
   font-size: 0.9rem;
 }
-.freq { font-size: 0.75rem; padding: 0.1rem 0.5rem; border-radius: 999px; border: 1px solid var(--md-outline-variant); }
+.freq { font-size: 0.75rem; padding: 0.1rem 0.5rem; border-radius: var(--shape-full); border: 1px solid var(--md-outline-variant); }
 .freq-high { color: var(--danger); border-color: var(--danger); background: var(--danger-soft); }
 .freq-medium { color: var(--warning); border-color: var(--warning); background: var(--warning-soft); }
 .freq-low { color: var(--success); border-color: var(--success); background: var(--success-soft); }
 .mistake-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.6rem 0 0.2rem; }
-.mistake-tags .tag { font-size: 0.74rem; color: var(--text-dim); border: 1px dashed var(--md-outline-variant); border-radius: 999px; padding: 0.05rem 0.5rem; }
+.mistake-tags .tag { font-size: 0.74rem; color: var(--text-dim); border: 1px dashed var(--md-outline-variant); border-radius: var(--shape-full); padding: 0.05rem 0.5rem; }
 
 /* ---------- 解题步骤 ---------- */
 .solution-steps {
   margin: 1.4rem 0;
   padding: 1rem 1.2rem;
   border: 1px solid var(--md-outline-variant);
-  border-radius: var(--radius);
+  border-radius: var(--shape-md);
   background: var(--md-surface-card);
 }
 .ss-title { margin: 0 0 0.7rem; font-size: 1.05rem; color: var(--md-primary); }
@@ -148,7 +164,7 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
   place-items: center;
   width: 1.5rem;
   height: 1.5rem;
-  border-radius: 50%;
+  border-radius: var(--shape-full);
   background: var(--md-primary-container);
   color: var(--md-on-primary-container);
   font-size: 0.8rem;
@@ -158,23 +174,22 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
 
 /* ---------- 例题卡片 ---------- */
 .example-card {
-  margin: 1.75rem 0;
+  margin: var(--space-5) 0;
   border: 1px solid var(--md-outline-variant);
-  border-radius: var(--radius);
+  border-radius: var(--shape-md);
   background: var(--md-surface-card-deep);
   padding: 1rem 1.1rem 1.2rem;
-  box-shadow: var(--elev-1);
 }
 .ex-head { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
 .ex-head h3 { margin: 0; font-size: 1.05rem; flex: 1; }
-.diff { font-size: 0.75rem; padding: 0.1rem 0.5rem; border-radius: 999px; border: 1px solid var(--md-outline-variant); }
+.diff { font-size: 0.75rem; padding: 0.1rem 0.5rem; border-radius: var(--shape-full); border: 1px solid var(--md-outline-variant); }
 .diff-easy { color: var(--success); border-color: var(--success); background: var(--success-soft); }
 .diff-medium { color: var(--warning); border-color: var(--warning); background: var(--warning-soft); }
 .diff-hard { color: var(--danger); border-color: var(--danger); background: var(--danger-soft); }
 .ex-source { font-size: 0.75rem; color: var(--text-dim); flex: 1 1 100%; } /* 长来源串独占一行，避免把标题挤成竖排 */
 
 /* ---------- 折叠解析 ---------- */
-.reveal { margin: 0.8rem 0 0; border: 1px solid var(--md-outline-variant); border-radius: var(--radius-sm); background: var(--md-surface-card); }
+.reveal { margin: 0.8rem 0 0; border: 1px solid var(--md-outline-variant); border-radius: var(--shape-md); background: var(--md-surface-card); }
 .reveal > summary {
   cursor: pointer;
   padding: 0.55rem 0.9rem;
@@ -188,7 +203,7 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
 .reveal-body { padding: 0.2rem 0.9rem 0.9rem; overflow-x: auto; }
 
 /* ---------- 思维导图 ---------- */
-.markmap-wrap { margin: 1.5rem 0; border: 1px solid var(--md-outline-variant); border-radius: var(--radius); background: var(--md-surface-card); overflow: hidden; }
+.markmap-wrap { margin: 1.5rem 0; border: 1px solid var(--md-outline-variant); border-radius: var(--shape-md); background: var(--md-surface-card); overflow: hidden; }
 .markmap-toolbar { display: flex; gap: 0.5rem; padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--md-outline-variant); }
 .markmap-toolbar button {
   padding: 0.3rem 0.75rem;
@@ -219,19 +234,19 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
 
 /* ---------- 下一页/上一页 ---------- */
 .section-pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--md-outline-variant); }
-.section-pager a { padding: 0.5rem 0.9rem; border: 1px solid var(--md-outline-variant); border-radius: var(--radius-sm); background: var(--md-surface-card); font-size: 0.9rem; }
+.section-pager a { padding: 0.5rem 0.9rem; border: 1px solid var(--md-outline-variant); border-radius: var(--shape-md); background: var(--md-surface-card); font-size: 0.9rem; }
 .section-pager a:hover { border-color: var(--md-primary); text-decoration: none; }
 
 /* ---------- 搜索 ---------- */
 .search-status { color: var(--md-on-surface-variant); }
-.search-status code { font-family: var(--font-mono); background: var(--code-bg); padding: 0.1em 0.4em; border-radius: 4px; }
+.search-status code { font-family: var(--font-mono); background: var(--code-bg); padding: 0.1em 0.4em; border-radius: var(--shape-xs); }
 
 /* ---------- 化学结构图（ChemStructure） ---------- */
 .chem-figure {
   margin: 1.25rem 0;
   padding: 0.75rem;
   border: 1px solid var(--md-outline-variant);
-  border-radius: var(--radius);
+  border-radius: var(--shape-md);
   background: var(--md-surface-card);
   text-align: center;
 }

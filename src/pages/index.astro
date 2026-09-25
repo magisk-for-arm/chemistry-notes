@@ -14,7 +14,7 @@ const totalEntries = await getCollection('knowledge');
   </section>
 
   <h2 class="section-title">学科</h2>
-  <div class="card-grid">
+  <div class="card-grid card-grid--wide">
     {
       subjectList.map((s) => (
         <KnowledgeCard
@@ -22,6 +22,7 @@ const totalEntries = await getCollection('knowledge');
           icon={s.icon}
           title={s.title}
           summary={s.description}
+          wide
         />
       ))
     }

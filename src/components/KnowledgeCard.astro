@@ -4,10 +4,12 @@ interface Props {
   icon: string;
   title: string;
   summary?: string;
+  /** 通栏横排卡（首页「学科」区用），配合 .card-grid--wide */
+  wide?: boolean;
 }
-const { href, icon, title, summary = '' } = Astro.props;
+const { href, icon, title, summary = '', wide = false } = Astro.props;
 ---
-<a class="knowledge-card" href={href}>
+<a class:list={['knowledge-card', { 'knowledge-card--wide': wide }]} href={href}>
   <span class="kc-icon">{icon}</span>
   <h3>{title}</h3>
   {summary && <p>{summary}</p>}
