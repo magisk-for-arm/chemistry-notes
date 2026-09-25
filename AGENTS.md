@@ -131,7 +131,7 @@ Frontmatter schema 定义在 `src/content.config.ts`，字段如下：
 ## 完工前自检
 
 1. `npm run check` 通过（0 errors）。
-2. 内容/路由有改动时 `npm run build` 通过（确认 22 个页面正常生成，新页面在其中）。
+2. 内容/路由有改动时 `npm run build` 通过（当前生成 158 个页面；页数随内容增长，重点确认新页面在其中）。
 3. 视觉/样式改动：`npm run dev` 或 `npm run build && npm run preview`，在暗色与亮色、桌面与移动宽度下各看一眼；涉及导图时重点看暗色可读性。
 4. 变更保持聚焦，不顺手重排无关文件；提交信息用 Conventional Commits 中文描述，沿用 `feat:` / `fix:` / `content:` 等前缀（如 `content: 补充某某易错点`）。
 
