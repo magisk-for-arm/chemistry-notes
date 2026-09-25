@@ -1,3 +1,194 @@
+/* ==========================================================================
+ * 设计令牌 · Material Design 3 角色化色板
+ *
+ * Seed（色板种子）：#4a9eff（HSL hue ≈ 212°）
+ *   所有 --md-primary-* 都由该种子推导出的 tonal 阶得到：
+ *   tone 10 #0C1927   20 #0F3157   30 #0B488E   40 #0560C7   50 #0077FF
+ *   tone 60 #3392FF   70 #66ADFF   80 #9CC9FC   90 #D0E4FB   95 #E9F2FB
+ *   tone 99 #FBFCFD
+ *
+ * 中性面（surface）：沿用站点既有的「深蓝灰」色相（hue ≈ 211°，与 seed 同族），
+ *   不推翻原基调，而是在现有 #0f1419 → #212a35 的区间上补齐 MD3 的
+ *   surface container 五层（暗色每级亮度差约 2.2–2.5%，亮色约 2.4–2.7%）。
+ *
+ * 文件结构：
+ *   ===== 1. MD3 角色令牌（--md-* 角色色 + state/shape/elevation/type）
+ *   ===== 2. 既有兼容令牌（原名原值全部保留，作为别名继续可用）
+ *
+ * 迁移策略：
+ *   - 旧变量（--bg/--primary/--text/...）保持原名原值不动，组件层零破坏；
+ *     阶段 2 再把 global.css / components.css / prose.css 逐个迁移到 --md-*。
+ *   - 暗色 --md-primary 用 tone 80（比旧 --primary: #4a9eff 更亮）是刻意的：
+ *     MD3 暗色方案中 primary 用于文字/图标/指示器，tone 80 才能达到 AA 对比度。
+ *   - --type-* 字阶阶段 1 只定义、不应用到任何选择器，阶段 2 才接入。
+ *   - 主题机制不变：<html data-theme> 切换，未设置时按暗色（:root）渲染。
+ * ========================================================================== */
+
+/* ===== 1. MD3 角色令牌 ===== */
+
+/* --- 1.1 主题无关：state layer 透明度（阶段 2 才使用） --- */
+:root {
+  --state-hover: 0.08;
+  --state-pressed: 0.12;
+  --state-focus: 0.10;
+  --state-drag: 0.16;
+
+  /* --- 1.2 形状阶梯（radius 兼容值恰好等于 md 12px / sm 8px） --- */
+  --shape-xs: 4px;
+  --shape-sm: 8px;
+  --shape-md: 12px;
+  --shape-lg: 16px;
+  --shape-xl: 28px;
+  --shape-full: 999px;
+
+  /* --- 1.3 UI 字阶（MD3 type scale，只定义不应用） ---
+   * 命名：--type-<组>-<档位>-<size|lh|weight>
+   * size = font-size，lh = line-height，weight = font-weight */
+  /* display */
+  --type-display-large-size: 57px;
+  --type-display-large-lh: 64px;
+  --type-display-large-weight: 400;
+  --type-display-medium-size: 45px;
+  --type-display-medium-lh: 52px;
+  --type-display-medium-weight: 400;
+  --type-display-small-size: 36px;
+  --type-display-small-lh: 44px;
+  --type-display-small-weight: 400;
+  /* headline */
+  --type-headline-large-size: 32px;
+  --type-headline-large-lh: 40px;
+  --type-headline-large-weight: 400;
+  --type-headline-medium-size: 28px;
+  --type-headline-medium-lh: 36px;
+  --type-headline-medium-weight: 400;
+  --type-headline-small-size: 24px;
+  --type-headline-small-lh: 32px;
+  --type-headline-small-weight: 400;
+  /* title */
+  --type-title-large-size: 22px;
+  --type-title-large-lh: 28px;
+  --type-title-large-weight: 400;
+  --type-title-medium-size: 16px;
+  --type-title-medium-lh: 24px;
+  --type-title-medium-weight: 500;
+  --type-title-small-size: 14px;
+  --type-title-small-lh: 20px;
+  --type-title-small-weight: 500;
+  /* body */
+  --type-body-large-size: 16px;
+  --type-body-large-lh: 24px;
+  --type-body-large-weight: 400;
+  --type-body-medium-size: 14px;
+  --type-body-medium-lh: 20px;
+  --type-body-medium-weight: 400;
+  --type-body-small-size: 12px;
+  --type-body-small-lh: 16px;
+  --type-body-small-weight: 400;
+  /* label */
+  --type-label-large-size: 14px;
+  --type-label-large-lh: 20px;
+  --type-label-large-weight: 500;
+  --type-label-medium-size: 12px;
+  --type-label-medium-lh: 16px;
+  --type-label-medium-weight: 500;
+  --type-label-small-size: 11px;
+  --type-label-small-lh: 16px;
+  --type-label-small-weight: 500;
+}
+
+/* --- 1.4 暗色方案（默认） --- */
+:root,
+[data-theme='dark'] {
+  /* primary tonal 角色：暗色 primary = tone 80（AA 文字对比度） */
+  --md-primary: #9cc9fc;
+  --md-on-primary: #0f3157;
+  --md-primary-container: #0b488e;
+  --md-on-primary-container: #d0e4fb;
+
+  /* 中性面：保持现有 #0f1419 深蓝灰基调，补齐 surface container 五层
+   * L%：dim 5.8 → lowest 7.8 → low 10.1 → container 12.4 → high 14.7 → highest 17.0 → bright 19.6 */
+  --md-surface: #0f1419;
+  --md-surface-dim: #0b0f12;
+  --md-surface-bright: #26313e;
+  --md-surface-container-lowest: #0f1419;
+  --md-surface-container-low: #141a20;
+  --md-surface-container: #181f27;
+  --md-surface-container-high: #1c252e;
+  --md-surface-container-highest: #212b36;
+
+  /* 语义面 · 卡片。MD3 五层在亮色是「越抬升越深」，与本站亮色「卡片白、页面
+   * 灰」相反，直接引用 container-* 会让卡片比页面底还深。故用别名固定
+   * 「卡片始终浅于页面」这一层级关系：暗色取 low/high，亮色一律取最白层。 */
+  --md-surface-card: var(--md-surface-container-high); /* 平置卡片：知识卡/Callout/导图 */
+  --md-surface-card-deep: var(--md-surface-container-low); /* 带阴影卡片/抽屉：易错卡/例题卡 */
+
+  --md-on-surface: #e6e9ee;
+  --md-on-surface-variant: #9aa7b4;
+  --md-outline: #556b83; /* 对 surface 3.36:1，达到非文字 3:1 */
+  --md-outline-variant: #2a3543; /* 细分隔线，1.49:1，弱化 */
+
+  /* 语义色 · 错误（MD3 baseline error tonal） */
+  --md-error: #f2b8b5;
+  --md-on-error: #601410;
+  --md-error-container: #8c1d18;
+  --md-on-error-container: #f9dedc;
+
+  /* elevation 阴影：暗色更深更柔 */
+  --elev-1: 0 1px 2px rgba(0, 0, 0, 0.45), 0 1px 3px 1px rgba(0, 0, 0, 0.24);
+  --elev-2: 0 1px 2px rgba(0, 0, 0, 0.45), 0 2px 6px 2px rgba(0, 0, 0, 0.24);
+  --elev-3: 0 1px 3px rgba(0, 0, 0, 0.5), 0 4px 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 1.5 亮色方案 --- */
+[data-theme='light'] {
+  /* primary tonal 角色：亮色 primary = tone 40 */
+  --md-primary: #0560c7;
+  --md-on-primary: #ffffff;
+  --md-primary-container: #d0e4fb;
+  --md-on-primary-container: #0f3157;
+
+  /* 中性面：保持现有 #f6f8fb / #ffffff / #eef2f7 观感，逐级压暗
+   * L%：dim 87.6 → surface 97.5；五层 100 → 97.6 → 94.9 → 92.5 → 90.0 */
+  --md-surface: #f6f8fb;
+  --md-surface-dim: #d6dde9;
+  --md-surface-bright: #ffffff;
+  --md-surface-container-lowest: #ffffff;
+  --md-surface-container-low: #f7f8fb;
+  --md-surface-container: #eef1f6;
+  --md-surface-container-high: #e6ebf2;
+  --md-surface-container-highest: #dee4ed;
+
+  /* 语义面 · 卡片：亮色必须取最白层，否则卡片会深于页面底（倒挂） */
+  --md-surface-card: var(--md-surface-container-lowest);
+  --md-surface-card-deep: var(--md-surface-container-lowest);
+
+  --md-on-surface: #18202a;
+  --md-on-surface-variant: #55606d;
+  --md-outline: #6b7a89; /* 对白底 4.40:1 */
+  --md-outline-variant: #cbd3e0; /* 细分隔线，弱化 */
+
+  /* 语义色 · 错误（MD3 baseline error tonal） */
+  --md-error: #b3261e;
+  --md-on-error: #ffffff;
+  --md-error-container: #f9dedc;
+  --md-on-error-container: #410e0b;
+
+  /* elevation 阴影：亮色更浅 */
+  --elev-1: 0 1px 2px rgba(0, 0, 0, 0.12), 0 1px 3px 1px rgba(0, 0, 0, 0.06);
+  --elev-2: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 6px 2px rgba(0, 0, 0, 0.06);
+  --elev-3: 0 1px 3px rgba(0, 0, 0, 0.14), 0 4px 8px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== 2. 既有兼容令牌（原名原值保留，阶段 2 再迁移） =====
+ * 迁移对照（阶段 2）：
+ *   --bg/--surface-*  → --md-surface* / --md-surface-container*
+ *   --text*           → --md-on-surface / --md-on-surface-variant
+ *   --border*         → --md-outline / --md-outline-variant
+ *   --primary*        → --md-primary / --md-primary-container
+ *   --danger*         → --md-error / --md-error-container
+ *   --radius*         → --shape-md / --shape-sm
+ *   --shadow          → --elev-1 */
+
 :root,
 [data-theme='dark'] {
   --bg: #0f1419;

@@ -6,15 +6,15 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--md-surface);
+  color: var(--md-on-surface);
   font-family: var(--font-sans);
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: var(--primary); text-decoration: none; }
-a:hover { color: var(--primary-strong); text-decoration: underline; }
+a { color: var(--md-primary); text-decoration: none; }
+a:hover { color: var(--md-primary); text-decoration: underline; }
 
 img { max-width: 100%; display: block; }
 
@@ -23,9 +23,9 @@ img { max-width: 100%; display: block; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  background: color-mix(in srgb, var(--md-surface) 86%, transparent);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--md-outline-variant);
 }
 .header-inner {
   max-width: var(--maxw);
@@ -39,19 +39,19 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: var(--text);
+  color: var(--md-on-surface);
   font-weight: 700;
   letter-spacing: 0.02em;
 }
-.brand:hover { text-decoration: none; color: var(--text); }
+.brand:hover { text-decoration: none; color: var(--md-on-surface); }
 .brand-mark {
   display: inline-grid;
   place-items: center;
   width: 34px;
   height: 34px;
   border-radius: 9px;
-  background: linear-gradient(135deg, var(--primary), var(--purple));
-  color: #fff;
+  background: linear-gradient(135deg, var(--md-primary), var(--purple));
+  color: var(--md-on-primary);
   font-size: 0.72rem;
   font-weight: 800;
 }
@@ -59,30 +59,30 @@ img { max-width: 100%; display: block; }
 .nav-link {
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
-  color: var(--text-muted);
+  color: var(--md-on-surface-variant);
   font-size: 0.92rem;
 }
-.nav-link:hover { background: var(--surface-2); color: var(--text); text-decoration: none; }
-.nav-link.active { background: var(--primary-soft); color: var(--primary-strong); }
+.nav-link:hover { background: var(--md-surface-container-highest); color: var(--md-on-surface); text-decoration: none; }
+.nav-link.active { background: color-mix(in srgb, var(--md-primary) 12%, transparent); color: var(--md-primary); }
 .header-actions { display: flex; gap: 0.35rem; }
 .icon-btn {
   display: inline-grid;
   place-items: center;
   width: 36px;
   height: 36px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--md-outline-variant);
   border-radius: 9px;
-  background: var(--surface);
-  color: var(--text);
+  background: var(--md-surface-card);
+  color: var(--md-on-surface);
   font-size: 1rem;
   cursor: pointer;
 }
-.icon-btn:hover { border-color: var(--primary); color: var(--primary-strong); text-decoration: none; }
+.icon-btn:hover { border-color: var(--md-primary); color: var(--md-primary); text-decoration: none; }
 
 /* ---------- 主区域与页脚 ---------- */
 .site-main { max-width: var(--maxw); margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
 .site-footer {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--md-outline-variant);
   color: var(--text-dim);
   font-size: 0.85rem;
   text-align: center;
@@ -94,12 +94,12 @@ img { max-width: 100%; display: block; }
 .hero h1 {
   margin: 0 0 0.75rem;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
-  background: linear-gradient(135deg, var(--text), var(--primary-strong));
+  background: linear-gradient(135deg, var(--md-on-surface), var(--md-primary));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-.hero p { margin: 0 auto; max-width: 46rem; color: var(--text-muted); }
+.hero p { margin: 0 auto; max-width: 46rem; color: var(--md-on-surface-variant); }
 .section-title { margin: 2.5rem 0 1rem; font-size: 1.25rem; }
 .card-grid {
   display: grid;
@@ -133,8 +133,8 @@ img { max-width: 100%; display: block; }
     bottom: 0;
     width: 280px;
     max-width: 85vw;
-    background: var(--bg-elev);
-    border-right: 1px solid var(--border);
+    background: var(--md-surface-card-deep);
+    border-right: 1px solid var(--md-outline-variant);
     padding: 1.5rem 1.1rem;
     overflow-y: auto;
     z-index: 70;
@@ -156,4 +156,4 @@ img { max-width: 100%; display: block; }
   html { scroll-behavior: auto; }
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
-:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--md-primary); outline-offset: 2px; }
