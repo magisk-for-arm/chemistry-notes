@@ -31,6 +31,25 @@ const label = alt ?? caption ?? '化学结构式';
     return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
   }
 
+  // ACS Document 1996 结构式风格：单色（随站点亮/暗主题自适应）、Helvetica 系字体、略粗的键。
+  // smiles-drawer 本身以骨架式绘制（自动隐碳标签、显杂原子），故不改动氢的显示以免误表示结构。
+  const ACS_ELEMENTS = ['C', 'O', 'N', 'F', 'CL', 'BR', 'I', 'P', 'S', 'B', 'SI', 'H'];
+  function monoTheme(foreground: string): Record<string, string> {
+    const theme: Record<string, string> = { FOREGROUND: foreground, BACKGROUND: 'transparent' };
+    for (const el of ACS_ELEMENTS) theme[el] = foreground;
+    return theme;
+  }
+  const ACS_1996_OPTIONS = {
+    fontFamily: 'ACSCurrent, ACSDocument, "Helvetica Neue", Helvetica, Arial, sans-serif',
+    bondThickness: 1.5,
+    bondLength: 30,
+    fontSizeLarge: 12,
+    themes: {
+      dark: monoTheme('#e6e9ee'),
+      light: monoTheme('#18202a'),
+    },
+  };
+
   function renderFallback(el: HTMLElement, smiles: string): void {
     el.replaceChildren();
     const code = document.createElement('code');
@@ -61,7 +80,12 @@ const label = alt ?? caption ?? '化学结构式';
     const width = Math.max(el.clientWidth, 240);
     const height = Math.max(parseInt(styles.minHeight, 10) || 200, 120);
     try {
-      const drawer = new SmilesDrawer.SvgDrawer({ width, height, padding: 12 }) as unknown as DrawerLike;
+      const drawer = new SmilesDrawer.SvgDrawer({
+        width,
+        height,
+        padding: 12,
+        ...ACS_1996_OPTIONS,
+      }) as unknown as DrawerLike;
       SmilesDrawer.parse(
         smiles,
         (tree: unknown) => {

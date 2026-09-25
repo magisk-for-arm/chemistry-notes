@@ -88,6 +88,7 @@ docs/superpowers/             # 设计文档与实现计划（过程资料，非
 ### 插入化学结构图
 
 - 用 `<ChemStructure smiles="..." caption="..." />` 渲染结构式（组件在 `src/components/ChemStructure.astro`，基于 smiles-drawer 客户端渲染，自动跟随亮暗主题重绘）。
+- **全站默认 ACS Document 1996 风格**：单色（线/字用前景色，随亮/暗主题自适应）、Helvetica 系字体、略粗的键，由 `ChemStructure.astro` 里的 `ACS_1996_OPTIONS` 统一控制；如需微调样式改这一处即可。
 - **SMILES 必须先经外部渲染器验证**（如 PubChem PUG-REST）再入库，禁止凭记忆书写；非常规结构（如 $\ce{N8}$、晶胞）SMILES 无法表达时，改用 `<img>` 引用 `public/images/` 下的静态 SVG。
 
 ## 内容规范
