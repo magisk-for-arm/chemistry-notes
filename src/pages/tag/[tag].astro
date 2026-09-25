@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import TagBadge from '../../components/TagBadge.astro';
 import { sectionMeta, subjectList, sectionHref, type SectionKey } from '../../utils/topics';
+import { withBase } from '@/utils/links';
 
 export async function getStaticPaths() {
   const entries = await getCollection('knowledge');
@@ -21,7 +22,7 @@ const sectionLabel = (key: string) =>
   sectionMeta[key as SectionKey]?.label ?? key;
 ---
 <BaseLayout title={`标签：${tag} · 高中化学要点`}>
-  <Breadcrumb items={[{ label: '首页', href: '/' }, { label: `标签：${tag}` }]} />
+  <Breadcrumb items={[{ label: '首页', href: withBase('/') }, { label: `标签：${tag}` }]} />
   <section class="hero" style="padding:1.5rem 0 1rem;text-align:left;">
     <h1>标签：{tag}</h1>
     <p>共 {entries.length} 篇相关内容</p>

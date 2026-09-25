@@ -5,6 +5,7 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Toc from '../components/Toc.astro';
 import TagBadge from '../components/TagBadge.astro';
+import { withBase } from '@/utils/links';
 import {
   sectionMeta,
   getTopic,
@@ -70,9 +71,9 @@ const navSections = sectionKeys
   }));
 
 const crumbs = [
-  { label: '首页', href: '/' },
-  { label: subjectMeta?.title ?? subject, href: `/${subject}` },
-  { label: topicMeta?.title ?? topic, href: `/${subject}/${topic}` },
+  { label: '首页', href: withBase('/') },
+  { label: subjectMeta?.title ?? subject, href: withBase(`/${subject}`) },
+  { label: topicMeta?.title ?? topic, href: withBase(`/${subject}/${topic}`) },
   { label: sectionMeta[section].label },
 ];
 
@@ -109,7 +110,7 @@ const hasToc = section !== 'mindmap' && headings.length > 0;
                 />
               )
             }
-            {tags.map((t) => <TagBadge label={t} href={`/tag/${t}`} variant="tag" />)}
+            {tags.map((t) => <TagBadge label={t} href={withBase(`/tag/${t}`)} variant="tag" />)}
           </div>
         </div>
         <div class="prose"><slot /></div>

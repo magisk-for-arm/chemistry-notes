@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import KnowledgeCard from '../../components/KnowledgeCard.astro';
 import { subjectList, getTopicsBySubject } from '../../utils/topics';
+import { withBase } from '@/utils/links';
 
 export async function getStaticPaths() {
   return subjectList.map((s) => ({
@@ -20,7 +21,7 @@ const overviews = await getCollection(
 );
 ---
 <BaseLayout title={`${subject.title} · 高中化学要点`} description={subject.description}>
-  <Breadcrumb items={[{ label: '首页', href: '/' }, { label: subject.title }]} />
+  <Breadcrumb items={[{ label: '首页', href: withBase('/') }, { label: subject.title }]} />
   <section class="hero" style="padding:1.5rem 0 1rem;text-align:left;">
     <h1>{subject.title}</h1>
     <p>{subject.description}</p>
@@ -31,7 +32,7 @@ const overviews = await getCollection(
         const ov = overviews.find((e) => e.id === `${t.subject}/${t.slug}/index`);
         return (
           <KnowledgeCard
-            href={`/${t.subject}/${t.slug}`}
+            href={withBase(`/${t.subject}/${t.slug}`)}
             icon={t.icon}
             title={t.title}
             summary={ov?.data.summary || t.summary}

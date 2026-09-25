@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import KnowledgeCard from '../components/KnowledgeCard.astro';
 import { subjectList, topics } from '../utils/topics';
+import { withBase } from '@/utils/links';
 
 const overviews = await getCollection('knowledge', ({ data }) => data.category === 'overview');
 const totalEntries = await getCollection('knowledge');
@@ -18,7 +19,7 @@ const totalEntries = await getCollection('knowledge');
     {
       subjectList.map((s) => (
         <KnowledgeCard
-          href={`/${s.slug}`}
+          href={withBase(`/${s.slug}`)}
           icon={s.icon}
           title={s.title}
           summary={s.description}
@@ -35,7 +36,7 @@ const totalEntries = await getCollection('knowledge');
         const ov = overviews.find((e) => e.id === `${t.subject}/${t.slug}/index`);
         return (
           <KnowledgeCard
-            href={`/${t.subject}/${t.slug}`}
+            href={withBase(`/${t.subject}/${t.slug}`)}
             icon={t.icon}
             title={t.title}
             summary={ov?.data.summary || t.summary}

@@ -126,6 +126,7 @@ Frontmatter schema 定义在 `src/content.config.ts`，字段如下：
 - `@` 是 `src` 的路径别名（`astro.config.mjs` + `tsconfig.json`），导入组件用 `@/components/...`。
 - 站点默认暗色；新增/调整样式时同时确认暗色与亮色两种主题下的可读性。
 - mhchem 由 `src/plugins/rehype-katex-mhchem.mjs` 统一注册，不要再单独 `import 'katex/contrib/mhchem'`，以免出现两个 KaTeX 实例。
+- **站内链接必须经 `src/utils/links.ts` 的 `withBase()`，不得写死根绝对路径 `/xxx`**：`href="/foo"`、`` href={`/foo`} `` 一律不合法，要写 `href={withBase('/foo')}`；Markdown 正文里的 `[xx](/foo)` 由 `src/plugins/rehype-base-links.mjs` 统一补前缀，无需手动改。理由见「部署」章节——本项目要同时跑在根路径（Vercel）与子路径（GitHub Pages）下。
 - `docs/superpowers/` 是设计与计划文档，`.superpowers/` 是代理过程状态；一般无需改动。
 
 ## 完工前自检
@@ -137,5 +138,7 @@ Frontmatter schema 定义在 `src/content.config.ts`，字段如下：
 
 ## 部署
 
-- 目标平台 Vercel，配置见 `vercel.json`（`framework: astro`、`buildCommand: npm run build`、`outputDirectory: dist`）。
+- **GitHub Pages（主）**：推送 `main` 触发 `.github/workflows/deploy.yml`，构建时注入 `BASE_PATH=/<仓库名>` 与 `SITE_URL=https://<owner>.github.io`，产物 `dist/` 上传 Pages。仓库 Settings → Pages → Source 必须选 **GitHub Actions**。`BASE_PATH` 用 `github.event.repository.name` 动态拼接，不写死仓库名，改名也照常工作。
+- **Vercel（并存）**：配置见 `vercel.json`（`framework: astro`、`buildCommand: npm run build`、`outputDirectory: dist`）。**不设** `BASE_PATH`，走根路径，行为与历史版本一致。
+- **base 规则**：`astro.config.mjs` 读 `BASE_PATH`（未设回落 `'/'`）作为 `base`；站内链接一律经 `src/utils/links.ts` 的 `withBase()` 加前缀，**新增链接必须走它，禁止手拼 `/xxx`**（这是本站能同时在两种路径下工作的前提）。导航高亮等需要反推站内相对路径的场景用 `stripBase()` 剥离 base。Markdown 正文里的站内绝对链接由 `src/plugins/rehype-base-links.mjs` 在渲染管线中统一补前缀（内容文件保持纯 MDX，不手改）。
 - 站点域名取 `SITE_URL`，未设置时回退到 Vercel 的 `VERCEL_URL`，本地回退 `http://localhost:4321`。

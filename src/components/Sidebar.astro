@@ -1,6 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import type { IconName } from '@/utils/icons';
+import { withBase } from '@/utils/links';
 
 interface NavItem {
   key: string;
@@ -29,7 +30,7 @@ const { subject, topic, topicList, navSections, current } = Astro.props;
       {
         topicList.map((t) => (
           <li>
-            <a href={`/${subject}/${t.slug}`} class:list={[{ active: t.slug === topic }]}>
+            <a href={withBase(`/${subject}/${t.slug}`)} class:list={[{ active: t.slug === topic }]}>
               <span><Icon name={t.icon} size={16} /></span>
               <span>{t.title}</span>
             </a>
