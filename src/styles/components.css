@@ -6,8 +6,9 @@
   border: 1px solid var(--md-outline-variant);
   background: var(--md-surface-container-highest);
   color: var(--md-on-surface-variant);
-  font-size: 0.78rem;
-  line-height: 1.6;
+  font-size: var(--type-label-medium-size);
+  line-height: var(--type-label-medium-lh);
+  font-weight: var(--type-label-medium-weight);
 }
 a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); text-decoration: none; }
 .tag-badge.diff-easy, .tag-badge.freq-low { color: var(--success); border-color: var(--success); background: var(--success-soft); }
@@ -23,10 +24,10 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
 /* ---------- 侧栏与目录 ---------- */
 .sidebar { position: sticky; top: 5rem; font-size: 0.9rem; }
 .sidebar-block + .sidebar-block { margin-top: 1.5rem; }
-.sidebar-title { margin: 0 0 0.6rem; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
+.sidebar-title { margin: 0 0 0.6rem; font-size: var(--type-label-medium-size); line-height: var(--type-label-medium-lh); font-weight: var(--type-label-medium-weight); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
 .sidebar-list { list-style: none; margin: 0; padding: 0; }
 /* padding-left 由 0.55rem 放宽到 0.8rem，给 .active 的 MD3 指示条让位 */
-.sidebar-list a { position: relative; display: flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.55rem 0.35rem 0.8rem; border-radius: var(--radius-sm); color: var(--md-on-surface-variant); }
+.sidebar-list a { position: relative; display: flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.55rem 0.35rem 0.8rem; border-radius: var(--radius-sm); color: var(--md-on-surface-variant); font-size: var(--type-body-medium-size); line-height: var(--type-body-medium-lh); font-weight: var(--type-body-medium-weight); }
 .sidebar-list a:hover { background: var(--md-surface-container-highest); color: var(--md-on-surface); text-decoration: none; }
 /* 选中态 = MD3 指示条 + state layer（12% primary 底色），两者叠加 */
 .sidebar-list a.active { background: color-mix(in srgb, var(--md-primary) 12%, transparent); color: var(--md-primary); font-weight: 600; }
@@ -72,8 +73,8 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
   color: var(--md-on-primary-container);
   font-weight: 800;
 }
-.knowledge-card h3 { margin: 0.2rem 0 0; font-size: 1.05rem; }
-.knowledge-card p { margin: 0; color: var(--md-on-surface-variant); font-size: 0.88rem; }
+.knowledge-card h3 { margin: 0.2rem 0 0; font-size: var(--type-title-medium-size); line-height: var(--type-title-medium-lh); font-weight: var(--type-title-medium-weight); }
+.knowledge-card p { margin: 0; color: var(--md-on-surface-variant); font-size: var(--type-body-medium-size); line-height: var(--type-body-medium-lh); font-weight: var(--type-body-medium-weight); }
 
 /* ---------- 文章头 ---------- */
 .article-head { margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--md-outline-variant); }
@@ -91,7 +92,7 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
   overflow: hidden;
 }
 /* 图标与文字同行居中（规格 P3：emoji 时代基线不齐，改内联 SVG 后用 flex 对齐） */
-.callout-head { display: flex; align-items: center; gap: 0.4rem; padding: var(--space-2) var(--space-4); font-weight: 700; font-size: 0.9rem; }
+.callout-head { display: flex; align-items: center; gap: 0.4rem; padding: var(--space-2) var(--space-4); font-size: var(--type-label-large-size); line-height: var(--type-label-large-lh); font-weight: var(--type-label-large-weight); }
 /* 只动 .callout-body 自身的 padding；其内部（带 prose）排版一律不碰 */
 .callout-body { padding: 0.15rem var(--space-4) 0.7rem; overflow-x: auto; }
 .callout-body > :first-child { margin-top: 0.35rem; }
@@ -136,12 +137,12 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
   font-weight: 800;
   font-size: 0.9rem;
 }
-.freq { font-size: 0.75rem; padding: 0.1rem 0.5rem; border-radius: var(--shape-full); border: 1px solid var(--md-outline-variant); }
+.freq { font-size: var(--type-label-medium-size); line-height: var(--type-label-medium-lh); font-weight: var(--type-label-medium-weight); padding: 0.1rem 0.5rem; border-radius: var(--shape-full); border: 1px solid var(--md-outline-variant); }
 .freq-high { color: var(--danger); border-color: var(--danger); background: var(--danger-soft); }
 .freq-medium { color: var(--warning); border-color: var(--warning); background: var(--warning-soft); }
 .freq-low { color: var(--success); border-color: var(--success); background: var(--success-soft); }
 .mistake-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.6rem 0 0.2rem; }
-.mistake-tags .tag { font-size: 0.74rem; color: var(--text-dim); border: 1px dashed var(--md-outline-variant); border-radius: var(--shape-full); padding: 0.05rem 0.5rem; }
+.mistake-tags .tag { font-size: var(--type-label-medium-size); line-height: var(--type-label-medium-lh); font-weight: var(--type-label-medium-weight); color: var(--text-dim); border: 1px dashed var(--md-outline-variant); border-radius: var(--shape-full); padding: 0.05rem 0.5rem; }
 
 /* ---------- 解题步骤 ---------- */
 .solution-steps {
@@ -183,7 +184,7 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
 }
 .ex-head { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
 .ex-head h3 { margin: 0; font-size: 1.05rem; flex: 1; }
-.diff { font-size: 0.75rem; padding: 0.1rem 0.5rem; border-radius: var(--shape-full); border: 1px solid var(--md-outline-variant); }
+.diff { font-size: var(--type-label-medium-size); line-height: var(--type-label-medium-lh); font-weight: var(--type-label-medium-weight); padding: 0.1rem 0.5rem; border-radius: var(--shape-full); border: 1px solid var(--md-outline-variant); }
 .diff-easy { color: var(--success); border-color: var(--success); background: var(--success-soft); }
 .diff-medium { color: var(--warning); border-color: var(--warning); background: var(--warning-soft); }
 .diff-hard { color: var(--danger); border-color: var(--danger); background: var(--danger-soft); }

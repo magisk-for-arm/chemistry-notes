@@ -40,6 +40,8 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 0.6rem;
   color: var(--md-on-surface);
+  font-size: var(--type-title-medium-size);
+  line-height: var(--type-title-medium-lh);
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -60,7 +62,9 @@ img { max-width: 100%; display: block; }
   padding: 0.35rem 0.8rem;
   border-radius: var(--shape-full);
   color: var(--md-on-surface-variant);
-  font-size: 0.92rem;
+  font-size: var(--type-label-large-size);
+  line-height: var(--type-label-large-lh);
+  font-weight: var(--type-label-large-weight);
 }
 .nav-link:hover { background: var(--md-surface-container-highest); color: var(--md-on-surface); text-decoration: none; }
 .nav-link.active { background: color-mix(in srgb, var(--md-primary) 12%, transparent); color: var(--md-primary); }
