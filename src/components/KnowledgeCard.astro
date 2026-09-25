@@ -1,7 +1,10 @@
 ---
+import Icon from './Icon.astro';
+import type { IconName } from '@/utils/icons';
+
 interface Props {
   href: string;
-  icon: string;
+  icon: IconName;
   title: string;
   summary?: string;
   /** 通栏横排卡（首页「学科」区用），配合 .card-grid--wide */
@@ -10,7 +13,7 @@ interface Props {
 const { href, icon, title, summary = '', wide = false } = Astro.props;
 ---
 <a class:list={['knowledge-card', { 'knowledge-card--wide': wide }]} href={href}>
-  <span class="kc-icon">{icon}</span>
+  <span class="kc-icon"><Icon name={icon} size={22} /></span>
   <h3>{title}</h3>
   {summary && <p>{summary}</p>}
 </a>

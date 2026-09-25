@@ -1,4 +1,7 @@
 ---
+import Icon from './Icon.astro';
+import type { IconName } from '@/utils/icons';
+
 type CalloutType =
   | 'wrong'
   | 'why'
@@ -14,15 +17,15 @@ interface Props {
   title?: string;
 }
 const { type = 'note', title } = Astro.props;
-const icons: Record<CalloutType, string> = {
-  wrong: '❌',
-  why: '🔍',
-  right: '✅',
-  skill: '🎯',
-  tip: '💡',
-  note: '📌',
-  memory: '🧠',
-  formula: '🧮',
+const icons: Record<CalloutType, IconName> = {
+  wrong: 'circle-x',
+  why: 'search',
+  right: 'circle-check',
+  skill: 'target',
+  tip: 'lightbulb',
+  note: 'pin',
+  memory: 'brain',
+  formula: 'calculator',
 };
 const labels: Record<CalloutType, string> = {
   wrong: '错误示例',
@@ -36,6 +39,6 @@ const labels: Record<CalloutType, string> = {
 };
 ---
 <div class:list={['callout', `callout-${type}`]}>
-  <div class="callout-head">{icons[type]} <span>{title ?? labels[type]}</span></div>
+  <div class="callout-head"><Icon name={icons[type]} size={16} /><span>{title ?? labels[type]}</span></div>
   <div class="callout-body prose"><slot /></div>
 </div>

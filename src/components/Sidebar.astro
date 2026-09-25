@@ -1,14 +1,17 @@
 ---
+import Icon from './Icon.astro';
+import type { IconName } from '@/utils/icons';
+
 interface NavItem {
   key: string;
   label: string;
-  icon: string;
+  icon: IconName;
   href: string;
 }
 interface TopicItem {
   slug: string;
   title: string;
-  icon: string;
+  icon: IconName;
 }
 interface Props {
   subject: string;
@@ -27,7 +30,7 @@ const { subject, topic, topicList, navSections, current } = Astro.props;
         topicList.map((t) => (
           <li>
             <a href={`/${subject}/${t.slug}`} class:list={[{ active: t.slug === topic }]}>
-              <span>{t.icon}</span>
+              <span><Icon name={t.icon} size={16} /></span>
               <span>{t.title}</span>
             </a>
           </li>
@@ -42,7 +45,7 @@ const { subject, topic, topicList, navSections, current } = Astro.props;
         navSections.map((s) => (
           <li>
             <a href={s.href} class:list={[{ active: s.key === current }]}>
-              <span>{s.icon}</span>
+              <span><Icon name={s.icon} size={16} /></span>
               <span>{s.label}</span>
             </a>
           </li>

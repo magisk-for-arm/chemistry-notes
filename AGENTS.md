@@ -118,6 +118,7 @@ Frontmatter schema 定义在 `src/content.config.ts`，字段如下：
 
 ## 硬性约束与陷阱
 
+- **UI 层禁用 emoji**：控件、Callout、分节、知识点图标一律用 `<Icon name="..." />`（组件 `src/components/Icon.astro`，图标名与图形见 `src/utils/icons.ts`），`.astro` / `.ts` / `.css` 里不许出现 emoji；图标名变更需同步 `topics.ts` 的 `icon` 字段。
 - **不要手改 `dist/`、`.astro/`**——都是生成物；同时被 gitignore。
 - **不要为单个知识点新增页面/路由**，扩展靠加内容 + 登记 `topics.ts`。
 - **不要把模板放进 `src/content/`**：`glob` loader 会把它们当正式内容采集（`templates/` 在 `src/content` 之外是刻意的）。

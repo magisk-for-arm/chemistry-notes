@@ -90,7 +90,8 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
   background: var(--md-surface-card);
   overflow: hidden;
 }
-.callout-head { padding: var(--space-2) var(--space-4); font-weight: 700; font-size: 0.9rem; }
+/* 图标与文字同行居中（规格 P3：emoji 时代基线不齐，改内联 SVG 后用 flex 对齐） */
+.callout-head { display: flex; align-items: center; gap: 0.4rem; padding: var(--space-2) var(--space-4); font-weight: 700; font-size: 0.9rem; }
 /* 只动 .callout-body 自身的 padding；其内部（带 prose）排版一律不碰 */
 .callout-body { padding: 0.15rem var(--space-4) 0.7rem; overflow-x: auto; }
 .callout-body > :first-child { margin-top: 0.35rem; }
@@ -150,7 +151,7 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
   border-radius: var(--shape-md);
   background: var(--md-surface-card);
 }
-.ss-title { margin: 0 0 0.7rem; font-size: 1.05rem; color: var(--md-primary); }
+.ss-title { display: flex; align-items: center; gap: 0.4rem; margin: 0 0 0.7rem; font-size: 1.05rem; color: var(--md-primary); }
 .ss-list { counter-reset: ss; list-style: none; margin: 0; padding: 0; }
 .ss-list li { position: relative; padding: 0.4rem 0 0.4rem 2.2rem; border-bottom: 1px dashed var(--border-soft); }
 .ss-list li:last-child { border-bottom: none; }
@@ -170,7 +171,7 @@ a.tag-badge:hover { border-color: var(--md-primary); color: var(--md-primary); t
   font-size: 0.8rem;
   font-weight: 700;
 }
-.ss-tip { margin: 0.8rem 0 0; color: var(--warning); font-size: 0.9rem; }
+.ss-tip { display: flex; align-items: center; gap: 0.4rem; margin: 0.8rem 0 0; color: var(--warning); font-size: 0.9rem; }
 
 /* ---------- 例题卡片 ---------- */
 .example-card {
