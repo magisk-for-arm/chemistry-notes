@@ -138,7 +138,9 @@ Frontmatter schema 定义在 `src/content.config.ts`，字段如下：
 
 ## 部署
 
-- **GitHub Pages（主）**：推送 `main` 触发 `.github/workflows/deploy.yml`，构建时注入 `BASE_PATH=/<仓库名>` 与 `SITE_URL=https://<owner>.github.io`，产物 `dist/` 上传 Pages。仓库 Settings → Pages → Source 必须选 **GitHub Actions**。`BASE_PATH` 用 `github.event.repository.name` 动态拼接，不写死仓库名，改名也照常工作。
+- **线上地址**：`https://magisk-for-arm.github.io/chemistry-notes/`
+- **GitHub Pages（主）**：推送 `main` 触发 `.github/workflows/deploy.yml`，构建时注入 `BASE_PATH=/<仓库名>` 与 `SITE_URL=https://<owner>.github.io`，产物 `dist/` 上传 Pages。仓库 Settings → Pages → Source 必须选 **GitHub Actions**（仓库已设为 `build_type: workflow`）。`BASE_PATH` 用 `github.event.repository.name` 动态拼接，不写死仓库名，改名也照常工作。
+- **子路径实测**：站内链接与资源全部带 `/chemistry-notes/` 前缀；无尾斜杠的页面路径（如 `/chemistry-notes/chemistry`）由 Pages **301 补斜杠**后返回 200，属正常行为。验证方式：`curl -sI <线上地址>/chemistry` 看状态码。
 - **Vercel（并存）**：配置见 `vercel.json`（`framework: astro`、`buildCommand: npm run build`、`outputDirectory: dist`）。**不设** `BASE_PATH`，走根路径，行为与历史版本一致。
 - **base 规则**：`astro.config.mjs` 读 `BASE_PATH`（未设回落 `'/'`）作为 `base`；站内链接一律经 `src/utils/links.ts` 的 `withBase()` 加前缀，**新增链接必须走它，禁止手拼 `/xxx`**（这是本站能同时在两种路径下工作的前提）。导航高亮等需要反推站内相对路径的场景用 `stripBase()` 剥离 base。Markdown 正文里的站内绝对链接由 `src/plugins/rehype-base-links.mjs` 在渲染管线中统一补前缀（内容文件保持纯 MDX，不手改）。
 - 站点域名取 `SITE_URL`，未设置时回退到 Vercel 的 `VERCEL_URL`，本地回退 `http://localhost:4321`。
