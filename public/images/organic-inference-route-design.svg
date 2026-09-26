@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 366" width="960" height="366" role="img" aria-label="有机合成路线设计三段式：先修碳架判断需要增长、缩短还是成环，再装官能团完成引入、搬移或倍增，最后上保护基先藏后改再还，路线需通过数碳数、查官能团、看保护基三项验算。">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 366" width="787" height="300" role="img" aria-label="有机合成路线设计三段式：先修碳架判断需要增长、缩短还是成环，再装官能团完成引入、搬移或倍增，最后上保护基先藏后改再还，路线需通过数碳数、查官能团、看保护基三项验算。">
   <style>
     .bg { fill: #fbfaf7; }
     .frame { fill: none; stroke: #d9d3c5; stroke-width: 1.5; }
@@ -23,8 +23,8 @@
     </marker>
   </defs>
 
-  <rect class="bg" x="0" y="0" width="960" height="500" />
-  <rect class="frame" x="0.75" y="0.75" width="958.5" height="498.5" rx="8" />
+  <rect class="bg" x="0" y="0" width="960" height="366" />
+  <rect class="frame" x="0.75" y="0.75" width="958.5" height="364.5" rx="8" />
 
   <text class="t-title" x="36" y="42">合成路线三段式：修碳架 → 装官能团 → 上保护基</text>
   <text class="t-sub" x="36" y="63">先回答「碳架差在哪」，再回答「缺哪个官能团」，最后回答「谁会挨打」——顺序反了就会写出多余或缺漏的步骤</text>

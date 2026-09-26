@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 502" width="960" height="502" role="img" aria-label="由链节倒推单体的拉链法示意图：左栏加聚物在链节的两端剪断、把两个碳之间的单键改回双键，得到乙烯型单体氯乙烯；右栏缩聚物在酯基的碳氧单键处剪断，羰基侧补羟基、氧侧补氢，得到乳酸。">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 502" width="787" height="412" role="img" aria-label="由链节倒推单体的拉链法示意图：左栏加聚物在链节的两端剪断、把两个碳之间的单键改回双键，得到乙烯型单体氯乙烯；右栏缩聚物在酯基的碳氧单键处剪断，羰基侧补羟基、氧侧补氢，得到乳酸。">
   <style>
     .bg { fill: #fbfaf7; }
     .frame { fill: none; stroke: #d9d3c5; stroke-width: 1.5; }
@@ -25,8 +25,8 @@
     </marker>
   </defs>
 
-  <rect class="bg" x="0" y="0" width="960" height="540" />
-  <rect class="frame" x="0.75" y="0.75" width="958.5" height="538.5" rx="8" />
+  <rect class="bg" x="0" y="0" width="960" height="502" />
+  <rect class="frame" x="0.75" y="0.75" width="958.5" height="500.5" rx="8" />
 
   <text class="t-title" x="36" y="42">链节倒推单体：一条拉链走两遍</text>
   <text class="t-sub" x="36" y="63">先判型（链节组成 = 单体 → 加聚；链节「变瘦」且含酯基或肽键 → 缩聚），再按各自的规则拉开；倒推完把单体正向再聚合一遍，链节能复原才算对</text>
