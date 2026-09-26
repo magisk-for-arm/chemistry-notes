@@ -5,8 +5,10 @@
 ## 项目速览
 
 - **是什么**：高中化学知识点复习站点（内容以「学科 / 知识点 / 分节」组织），默认暗色主题，可切换亮色。
+- **规模**：1 学科、21 个知识点、158 个页面；每个知识点 6 个分节（概览 / 易错点 / 考点 / 方法 / 思维导图 / 例题）。
 - **技术栈**：Astro 7（静态输出）、MDX 内容集合（Content Layer + `glob` loader）、KaTeX + mhchem、markmap、Pagefind。
 - **内容驱动**：新增知识点只需加 MDX 文件夹 + 在 `src/utils/topics.ts` 登记，**不需要新增页面文件**。
+- **配图**：结构式走 `<ChemStructure>`（smiles-drawer 客户端渲染），装置图与流程图是手写 SVG 放在 `public/images/`。
 - **语言**：站点文案、注释、提交信息均为中文。新增内容与改动的文案请保持中文。
 
 ## 常用命令
@@ -49,10 +51,11 @@ src/
 ├─ components/                # Header/Sidebar/Toc/Callout/MistakeCard/ExampleCard/MarkmapView...
 ├─ styles/                    # tokens / global / prose / components 四个全局 CSS
 ├─ plugins/rehype-katex-mhchem.mjs  # 包装 rehype-katex，注册 mhchem（\ce{} / \pu{}）
-└─ utils/                     # topics.ts 等
+└─ utils/                     # topics.ts、links.ts（withBase/stripBase）、icons.ts 等
+public/images/                # 手写 SVG：实验装置图、推断流程图（Markdown 语法引用）
 templates/knowledge-point/    # 新增知识点用的模板（刻意放在 src/content 之外）
 docs/superpowers/             # 设计文档与实现计划（过程资料，非运行时）
-.superpowers/                 # 代理工作状态，已被 gitignore
+.superpowers/、.openchamber/  # 代理工作状态与浏览器截图，均已 gitignore
 ```
 
 路由：`overview` 对应 `/{subject}/{topic}`，其余分节为 `/{subject}/{topic}/{section}`（用 `sectionHref()` 生成，勿手拼）。
@@ -90,6 +93,28 @@ docs/superpowers/             # 设计文档与实现计划（过程资料，非
 - 用 `<ChemStructure smiles="..." caption="..." />` 渲染结构式（组件在 `src/components/ChemStructure.astro`，基于 smiles-drawer 客户端渲染，自动跟随亮暗主题重绘）。
 - **全站默认 ACS Document 1996 风格**：单色（线/字用前景色，随亮/暗主题自适应）、Helvetica 系字体、略粗的键，由 `ChemStructure.astro` 里的 `ACS_1996_OPTIONS` 统一控制；如需微调样式改这一处即可。
 - **SMILES 必须先经外部渲染器验证**（如 PubChem PUG-REST）再入库，禁止凭记忆书写；非常规结构（如 $\ce{N8}$、晶胞）SMILES 无法表达时，改用 `<img>` 引用 `public/images/` 下的静态 SVG。
+- **必须把组件包在限宽容器里**，否则桌面端结构式会缩成一小团、四周大片留白：
+
+  ```mdx
+  <div style="max-width:360px;margin:0 auto">
+  <ChemStructure smiles="OCc1ccccc1" caption="苯甲醇" height="120px" />
+  </div>
+  ```
+
+  原因是组件按 `el.clientWidth` 建画布，而 `src/styles/components.css` 里 `.chem-canvas svg` 有 `max-width: 360px`。桌面正文栏约 705px 宽，两者错配就会把整幅从 705 压到 360，分子被缩掉近一半。限宽到 360 后画布宽与渲染宽相等，分子恢复原尺寸。移动端容器本就约 300px、与上限吻合，所以**只有桌面端会出问题**——别因为移动端看着正常就以为没事。
+- `height` 建议一律 `120px`（组件内部下限）。容器变窄后分子不再被压缩，给更高的高度只会在上下留白；线型小分子（如甘氨酸）尤其明显。
+
+### 插入装置图与流程图
+
+实验装置图、推断流程图一律**手写 SVG** 存到 `public/images/`，在 MDX 里用 **Markdown 图片语法**引用（见下方硬性约束，`<img src>` 在子路径部署下会 404）。
+
+- **只画主体，不画图例**：图里不要写正文已经讲过的长段解释。图例、注意事项、结论表归正文，SVG 只留示意图与极简标注。判断标准——如果一句话删掉图里的文字、MDX 正文里仍能学到，那句就该删。
+- **尺寸口径**：装置图统一 `viewBox` 宽 700；流程图内容是文字卡片，画布较宽，用 `viewBox` 宽 960 左右即可。
+- **缩放整幅靠 `width`/`height` 属性，不改 `viewBox`**：`viewBox` 是坐标系，`width`/`height` 才是渲染尺寸。要让图变小（如流程图从铺满整栏收到 787px），只改这两个属性，浏览器会等比缩放整幅（含文字），一处改动即可，不要去动 `viewBox` 和上百个坐标。
+- **SVG 画布是固定浅色底**：`<img>` 里的 SVG 无法响应 `data-theme`，所以图必须自带底色与边框（`.bg` + `.frame` 两个矩形）。全站统一「浅纸面底 + 深墨线条」，在亮暗两种主题下都不刺眼。
+- **alt 文本必须与图的实际内容一致**：图改了就同步改 alt。alt 是读屏与 Pagefind 索引的依据，描述已删除的内容等于输出错误信息。
+- 加 `role="img"` 与 `aria-label`，让独立打开 SVG 时也有无障碍描述。
+- 改完跑一遍越界自检（见「完工前自检」）。
 
 ## 内容规范
 
@@ -127,14 +152,24 @@ Frontmatter schema 定义在 `src/content.config.ts`，字段如下：
 - 站点默认暗色；新增/调整样式时同时确认暗色与亮色两种主题下的可读性。
 - mhchem 由 `src/plugins/rehype-katex-mhchem.mjs` 统一注册，不要再单独 `import 'katex/contrib/mhchem'`，以免出现两个 KaTeX 实例。
 - **站内链接必须经 `src/utils/links.ts` 的 `withBase()`，不得写死根绝对路径 `/xxx`**：`href="/foo"`、`` href={`/foo`} `` 一律不合法，要写 `href={withBase('/foo')}`；Markdown 正文里的 `[xx](/foo)` 由 `src/plugins/rehype-base-links.mjs` 统一补前缀，无需手动改。理由见「部署」章节——本项目要同时跑在根路径（Vercel）与子路径（GitHub Pages）下。
-- `docs/superpowers/` 是设计与计划文档，`.superpowers/` 是代理过程状态；一般无需改动。
+- **图片必须用 Markdown 语法 `![说明](/images/x.svg)`，不要写 MDX 的 `<img src="/images/x.svg">`**：`src/plugins/rehype-base-links.mjs` 只改写 hast 元素的 `href`/`src`，MDX 的 JSX 元素不走这条路径，因此 `<img>` 里的根绝对路径在子路径部署下会 404。
+- **SVG 的 `.bg` / `.frame` 矩形高度必须等于 `viewBox` 高度**（`frame` 再减 1.5 留描边边距）。改 `viewBox` 高度时忘了同步这两个矩形，底边框会被裁掉——画面看起来「图贴着边」，但很难一眼看出是 bug。
+- `docs/superpowers/` 是设计与计划文档，`.superpowers/`、`.openchamber/` 是代理过程状态与浏览器截图（均已 gitignore）；一般无需改动。
 
 ## 完工前自检
 
-1. `npm run check` 通过（0 errors）。
+1. `npm run check` 通过（0 errors）。注意它**不校验 MDX 语法**（漏写 `</Callout>` 仍报 0 errors，只有 build 才失败），所以内容改动以 `npm run build` 为准。
 2. 内容/路由有改动时 `npm run build` 通过（当前生成 158 个页面；页数随内容增长，重点确认新页面在其中）。
-3. 视觉/样式改动：`npm run dev` 或 `npm run build && npm run preview`，在暗色与亮色、桌面与移动宽度下各看一眼；涉及导图时重点看暗色可读性。
-4. 变更保持聚焦，不顺手重排无关文件；提交信息用 Conventional Commits 中文描述，沿用 `feat:` / `fix:` / `content:` 等前缀（如 `content: 补充某某易错点`）。
+3. **本地预览必须带 base**：`BASE_PATH=/chemistry-notes npx astro build`。用 `npm run build`（不带 `BASE_PATH`）会把 `dist` 重建成根路径版本，CSS 链接变成 `/_astro/...`，在 `/chemistry-notes/` 下 404 → 整页无样式。**这是本项目最主要的假故障来源**，页面「没样式」先查这一项，再怀疑别处。
+4. 视觉/样式改动：`npm run dev` 或 `npm run build && npm run preview`，在暗色与亮色、桌面与移动宽度下各看一眼；涉及导图时重点看暗色可读性。
+5. 改过 SVG 就跑越界自检，确认没有元素超出 `viewBox`、没有文字溢出画布（中文按 1 em、拉丁按 0.55 em 估宽即可暴露问题）：
+
+   ```bash
+   # 逐张核对 viewBox / bg / frame / 渲染尺寸四者一致
+   grep -oE 'viewBox="[^"]*"|class="bg"[^/]*|class="frame"[^/]*' public/images/*.svg
+   ```
+
+6. 变更保持聚焦，不顺手重排无关文件；提交信息用 Conventional Commits 中文描述，沿用 `feat:` / `fix:` / `content:` 等前缀（如 `content: 补充某某易错点`）。图文分开的改动拆成两个提交。
 
 ## 部署
 
