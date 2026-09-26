@@ -50,6 +50,26 @@ const label = alt ?? caption ?? '化学结构式';
     },
   };
 
+  // 苯环内圈：smiles-drawer 2.4.1 的 drawRing 把半径硬算成 apothem(bondLength) − bondSpacing
+  // （bondLength=30 时约 20.9，直径占六边形对角距 69.6%，偏大），且该版本已移除 aromaticCircles
+  // 选项，没有官方旋钮，只能在画完后改写。半径按「内切半径的占比」给值，bondLength 变化时比例不变。
+  // AROMATIC_RING_FILL=0.6 → r≈15.6，直径/对角距≈52%，单侧间隙≈10.4。
+  const AROMATIC_RING_FILL = 0.6;
+
+  function tuneAromaticRing(svg: SVGSVGElement): void {
+    const apothem = ACS_1996_OPTIONS.bondLength * Math.cos(Math.PI / 6);
+    // 全库只有 drawRing 给圆设 fill="none"；楔形键与原子标签遮罩的圆都是实心，不会命中。
+    svg.querySelectorAll<SVGCircleElement>('circle[fill="none"]').forEach((circle) => {
+      const current = Number.parseFloat(circle.getAttribute('r') ?? '');
+      // 半径超出六边形范围说明这已经不是芳香环圆圈（升级后语义变化），宁可不动。
+      if (!Number.isFinite(current) || current <= 0 || current > apothem) {
+        console.warn('[ChemStructure] 圆圈半径异常，未改写：', circle.getAttribute('r'));
+        return;
+      }
+      circle.setAttribute('r', (apothem * AROMATIC_RING_FILL).toFixed(2));
+    });
+  }
+
   function renderFallback(el: HTMLElement, smiles: string): void {
     el.replaceChildren();
     const code = document.createElement('code');
@@ -99,6 +119,8 @@ const label = alt ?? caption ?? '化学结构式';
           if (!target.getAttribute('viewBox')) {
             target.setAttribute('viewBox', `0 0 ${width} ${height}`);
           }
+          // 每次重绘（含切换主题）都要重新改写，否则内圈会弹回 drawRing 的默认值
+          tuneAromaticRing(target);
         },
         (e: unknown) => {
           console.error('[ChemStructure] SMILES 解析失败:', smiles, e);
