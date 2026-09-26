@@ -72,11 +72,17 @@ import ChemStructure from '@/components/ChemStructure.astro';
 
 **陷阱二 · 数量不必成对**：手性碳**不是偶数个**也完全正常。含 1 个手性碳的分子有两种对映体；含 $n$ 个手性碳时常是 $2^n$ 量级（不考虑内消旋与 meso 型）。常见物质：乳酸 1 个、丙氨酸 1 个、2-丁醇 1 个、2,3-丁二醇 2 个、**葡萄糖（开链式）4 个**、甘氨酸 **0 个**（连 2 个氢）。
 
-<ChemStructure smiles="C[C@@H](O)C(=O)O" caption="乳酸：中心碳连 —CH₃、—OH、—COOH、—H 四个两两不同的基团，1 个手性碳" alt="乳酸的结构式，中间碳原子连有甲基、羟基、羧基和氢，其中一个碳为手性碳" height="140px" />
+<div style="max-width:360px;margin:0 auto">
+<ChemStructure smiles="C[C@@H](O)C(=O)O" caption="乳酸：中心碳连 —CH₃、—OH、—COOH、—H 四个两两不同的基团，1 个手性碳" alt="乳酸的结构式，中间碳原子连有甲基、羟基、羧基和氢，其中一个碳为手性碳" height="120px" />
+</div>
 
-<ChemStructure smiles="C[C@H](O)[C@@H](C)O" caption="2,3-丁二醇：两个碳各连 2 个不同基团，共 2 个手性碳" alt="2,3-丁二醇的结构式，中间两个碳原子各连有甲基、羟基和氢" height="140px" />
+<div style="max-width:360px;margin:0 auto">
+<ChemStructure smiles="C[C@H](O)[C@@H](C)O" caption="2,3-丁二醇：两个碳各连 2 个不同基团，共 2 个手性碳" alt="2,3-丁二醇的结构式，中间两个碳原子各连有甲基、羟基和氢" height="120px" />
+</div>
 
-<ChemStructure smiles="NCC(=O)O" caption="甘氨酸：中心碳连 2 个相同的氢，不构成手性碳（0 个）" alt="甘氨酸的结构式，中心碳原子连有两个氢原子，不含手性碳" height="140px" />
+<div style="max-width:360px;margin:0 auto">
+<ChemStructure smiles="NCC(=O)O" caption="甘氨酸：中心碳连 2 个相同的氢，不构成手性碳（0 个）" alt="甘氨酸的结构式，中心碳原子连有两个氢原子，不含手性碳" height="120px" />
+</div>
 
 **陷阱三 · 顺反与手性分家**：双键碳、环上的取代碳因构型受限产生**顺反异构**，那是环或双键的资格审问题，不要与手性碳混为一谈。
 
