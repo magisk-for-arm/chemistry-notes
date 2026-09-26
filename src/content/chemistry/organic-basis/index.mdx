@@ -11,6 +11,7 @@ updated: "2026-09-26"
 ---
 
 import Callout from '@/components/Callout.astro';
+import ChemStructure from '@/components/ChemStructure.astro';
 
 ## 一、分离提纯三法
 
@@ -21,6 +22,8 @@ import Callout from '@/components/Callout.astro';
 乙酸乙酯（乙醇、乙酸）：饱和 $\ce{Na2CO3}$ 溶液振荡分液（中和乙酸、溶解乙醇、降低酯溶解度）；苯（苯酚）：$\ce{NaOH}$ 溶液分液（苯酚成钠盐入水层）；乙醇（水）：加 $\ce{CaO}$ 蒸馏；$\ce{CH4}$（$\ce{C2H4}$）：溴水洗气（**不用酸性 $\ce{KMnO4}$**——会把乙烯氧化成 $\ce{CO2}$ 引入新杂质）；苯（$\ce{Br2}$）：$\ce{NaOH}$ 溶液分液（$\ce{Br2 + 2NaOH = NaBr + NaBrO + H2O}$）；乙炔（$\ce{H2S}$、$\ce{PH3}$）：$\ce{CuSO4}$ 溶液洗气；乙烯（$\ce{SO2}$）：$\ce{NaOH}$ 溶液洗气。原则：**除杂不引杂、气体杂质不用气体除**。
 
 </Callout>
+
+![蒸馏装置图：左侧圆底烧瓶内置沸石、液体占容积三分之一到三分之二，瓶口温度计水银球与支管口平齐，中部为直形冷凝管、冷凝水由右端低处进左端高处出，末端经接液管插入锥形瓶接收，底部列出管球水石序五字排查与开关顺序](/images/organic-distillation-apparatus.svg)
 
 ## 二、定结构四大波谱
 
@@ -69,6 +72,12 @@ import Callout from '@/components/Callout.astro';
 
 **陷阱二 · 数量不必成对**：手性碳**不是偶数个**也完全正常。含 1 个手性碳的分子有两种对映体；含 $n$ 个手性碳时常是 $2^n$ 量级（不考虑内消旋与 meso 型）。常见物质：乳酸 1 个、丙氨酸 1 个、2-丁醇 1 个、2,3-丁二醇 2 个、**葡萄糖（开链式）4 个**、甘氨酸 **0 个**（连 2 个氢）。
 
+<ChemStructure smiles="C[C@@H](O)C(=O)O" caption="乳酸：中心碳连 —CH₃、—OH、—COOH、—H 四个两两不同的基团，1 个手性碳" alt="乳酸的结构式，中间碳原子连有甲基、羟基、羧基和氢，其中一个碳为手性碳" height="140px" />
+
+<ChemStructure smiles="C[C@H](O)[C@@H](C)O" caption="2,3-丁二醇：两个碳各连 2 个不同基团，共 2 个手性碳" alt="2,3-丁二醇的结构式，中间两个碳原子各连有甲基、羟基和氢" height="140px" />
+
+<ChemStructure smiles="NCC(=O)O" caption="甘氨酸：中心碳连 2 个相同的氢，不构成手性碳（0 个）" alt="甘氨酸的结构式，中心碳原子连有两个氢原子，不含手性碳" height="140px" />
+
 **陷阱三 · 顺反与手性分家**：双键碳、环上的取代碳因构型受限产生**顺反异构**，那是环或双键的资格审问题，不要与手性碳混为一谈。
 
 </Callout>
@@ -104,5 +113,7 @@ import Callout from '@/components/Callout.astro';
 <Callout type="note" title="参考来源与勘误">
 
 内容改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并逐条勘误，主要包括：①苯同系物通式原文误作 $\ce{C_nH_{3n-6}}$，订正为 $\ce{C_nH_{2n-6}}$；②酯类除杂「饱和碳酸氢钠」改回教材口径**饱和碳酸钠**；③$\ce{CH4}$ 除 $\ce{C2H4}$ 原文用酸性高锰酸钾后接碱石灰，改推溴水（$\ce{KMnO4}$ 氧化乙烯生 $\ce{CO2}$，路线虽可通但绕）；④除溴方程原文写 $\ce{NaBrO3}$（热浓条件产物），洗涤常温条件订正为 $\ce{NaBrO}$；⑤「分夜漏斗」「烧怀」「其同特性」「碳碳双里」错字订正；⑥「正戊烷的主链是丁烷」费解句删除；⑦乙醇核磁「3:1:2」按书写序规范为 $3:2:1$；⑧多官能团排序解释段原文逻辑倒置（「氧序数小则氯排前」），改按先简后繁口径呈现。
+结构式说明：手性碳一节的三张结构图（乳酸、2,3-丁二醇、甘氨酸）走 `<ChemStructure>` 组件按 ACS Document 1996 风格渲染，SMILES 已用 PubChem PUG-REST 校验（CID 61503 / 220010 / 750）。
+本知识点图片：蒸馏装置图已手绘 SVG 存入 `public/images/`，见第一节插图；核磁与红外分工的对比表见第二节，波谱拼图的完整四步流程见[解题方法](/chemistry/organic-basis/methods/)页。
 
 </Callout>

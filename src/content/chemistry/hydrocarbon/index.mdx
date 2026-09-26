@@ -7,10 +7,11 @@ summary: "烷烯炔苯的结构与性质主线：取代/加成/加聚/氧化四�
 tags: ["有机化学"]
 difficulty: "medium"
 examFrequency: "high"
-updated: "2026-09-24"
+updated: "2026-09-26"
 ---
 
 import Callout from '@/components/Callout.astro';
+import ChemStructure from '@/components/ChemStructure.astro';
 
 ## 一、烃的家族树
 
@@ -46,6 +47,8 @@ import Callout from '@/components/Callout.astro';
 
 - **溴代**：液溴（不能用溴水）+ Fe 粉（实际催化剂为 $\ce{FeBr3}$）→ 溴苯；纯净溴苯无色液体、密度大于水，溶溴而显褐色。验证生成 HBr 前须先经 $\ce{CCl4}$ 洗气除去溴蒸气再通 $\ce{AgNO3}$ 溶液。
 - **硝化**：浓 $\ce{HNO3}$ + 浓 $\ce{H2SO4}$（催化、吸水），$50\sim60^{\circ}\mathrm{C}$ **水浴加热**；先量浓硝酸再缓缓加入浓硫酸。硝基苯：无色油状、密度大于水、苦杏仁味，溶 $\ce{NO2}$ 而显黄色。
+
+<ChemStructure smiles="O=[N+]([O-])c1ccccc1" caption="硝基苯：苯环上直接连硝基，是苯环取代的典型产物" alt="硝基苯的结构式，一个苯环上连着一个硝基" height="140px" />
 - **磺化**：浓硫酸 $70\sim80^{\circ}\mathrm{C}$ 生成苯磺酸（强酸、易溶水）。
 - **加成**：$\ce{H2}$、Ni 催化加热加压 → 环己烷。氢化实验放热远低于假想「环己三烯」的三倍，佐证无三个孤立双键。
 - 燃烧：$\ce{2C6H6 + 15O2 ->[点燃] 12CO2 + 6H2O}$，浓重黑烟。
@@ -53,6 +56,8 @@ import Callout from '@/components/Callout.astro';
 ## 七、甲苯：环与侧链互相「捎话」
 
 苯的同系物通式 $\ce{C_nH_{2n-6}}$（$n\ge6$），燃烧通式耗氧 $\frac{3n-3}{2}$。**侧链被环活化**：凡**与苯环直接相连的碳上有 H**，该侧链即可被酸性 $\ce{KMnO4}$ 氧化成 $\ce{-COOH}$（无论碳链多长，整条侧链折断只留羧基）——乙苯得苯甲酸，叔丁基苯（α 位无 H）**不能**被氧化。**环被侧链活化**：甲苯硝化比苯容易，主产物邻/对位——2,4,6-三硝基甲苯即 TNT；卤代则看条件：**光照取代甲基上的 H**（得苄基氯），**FeX₃ 催化取代环上 H**（得邻、对氯甲苯）。苯乙烯全部原子可共面、加聚得聚苯乙烯。
+
+<ChemStructure smiles="C=Cc1ccccc1" caption="苯乙烯：苯环与乙烯基两平面可绕单键转到共面，最多 16 个原子共面" alt="苯乙烯的结构式，一个苯环通过单键连着一个乙烯基" height="140px" />
 
 ## 八、稠环芳香烃
 
@@ -63,6 +68,7 @@ import Callout from '@/components/Callout.astro';
 <Callout type="note" title="参考来源与勘误">
 
 内容改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并逐条勘误，主要包括：①烯烃加溴注释「工业制二氯代烃」订正为**二溴代烃**；②马氏规则示例把 $\ce{H2}$ 列入「含氢化合物」，订正为仅极性试剂（$\ce{H2}$、$\ce{Br2}$ 对称加成无马氏问题）；③乙炔水化「醇的催化氧化」订正为**酮式互变**（乙烯醇→乙醛）；④「丙烯晴」错字订正为丙烯腈；⑤苯加氢催化剂「Pt、N」订正为「Pt、Ni」；⑥「放热小于环己二烯说明不存在三个双键」逻辑残缺，改按「氢化热远低于环己烯三倍」规范表述；⑦「与阿伏伽德罗常数」按本站译名统一为阿伏加德罗；⑧「处对乙炔点燃」「生和氢气」「为常压主的」等错字病句修复。
-本知识点图片未迁移：装置与结构均改文字/ChemStructure 重绘。
+结构式说明：苯乙烯与硝基苯两张结构图走 `<ChemStructure>` 组件按 ACS Document 1996 风格渲染，SMILES 已用 PubChem PUG-REST 校验（CID 7501 / 7416）。原先拟用的 1,3-丁二烯因四个碳全是隐式、ACS 风格下只画一条细小折线、辨识价值低而改用硝基苯。
+本知识点图片：乙烯与乙炔制备装置对照图、溴苯制备流水线图已手绘 SVG 存入 `public/images/`，分别插在[考点解析](/chemistry/hydrocarbon/exam-points/)考点一与[典型例题](/chemistry/hydrocarbon/examples/)例题三。
 
 </Callout>

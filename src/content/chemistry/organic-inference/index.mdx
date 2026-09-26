@@ -11,6 +11,7 @@ updated: "2026-09-26"
 ---
 
 import Callout from '@/components/Callout.astro';
+import ChemStructure from '@/components/ChemStructure.astro';
 
 ## 一、推断三要素：条件、现象、量
 
@@ -130,6 +131,12 @@ $$
 
 ### 2. 碱性排序：酰胺基为什么几乎不显碱性
 
+<ChemStructure smiles="CN(C)C" caption="三甲胺：氮上三个给电子烷基，孤对电子最「裸露」" alt="氮原子连着三个甲基的三甲胺结构式" height="130px" />
+
+<ChemStructure smiles="Nc1ccccc1" caption="苯胺：氮的孤对电子与苯环共轭，碱性被拉低" alt="苯环上连一个氨基的苯胺结构式" height="130px" />
+
+<ChemStructure smiles="CC(N)=O" caption="乙酰胺：孤对电子与羰基共轭离域，几乎不显碱性" alt="甲基与氨基构成羰基的乙酰胺结构式" height="130px" />
+
 碱性从强到弱：**脂肪胺（$\ce{RNH2}$）＞ 苯胺（$\ce{C6H5NH2}$）＞ 酰胺（$\ce{RCONH2}$）**。三档差别的唯一原因都是氮上那对孤对电子的「处境」：
 
 <Callout type="skill" title="三档碱性的电子账">
@@ -210,6 +217,7 @@ $$
 
 内容改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata）第 09 节及「有机反应类型梳理」「有机推断」两考点，已按本站规范重写并逐条勘误，主要包括：①「丙炔」标签误（式子实为乙炔制丙烯腈路线）；② $\ce{CH3(OH)CN}$ 类漏写次甲基 → 订正为 $\ce{CH3CH(OH)CN}$、加氢产物补全为氨基醇；③烷基化机理式中 $\ce{AlCl4-}$ 误作「AlCl⁻」→ 改文字叙述；④「条电试剂」「将均可」「与与」「本溴乙烷」「苯与溴苯生成溴苯」等错字逐一订正；⑤ $\ce{R-CH=CH-R'}$ 氧化产物漏写 $\ce{R'COOH}$ → 补全；⑥「硼氢化钠将羧基还原为醛基」不确 → 按「选择性还原醛酮羰基」口径改写；⑦「α-H 氢离子」→ 氢原子；⑧羧基保护段残句补全（成酯保护、水解复原）；⑨类型总表「稀、炔」→「烯、炔」，单糖「缩聚√」不妥已并入糖类行删去；⑩「丙烯晴」→丙烯腈、$\ce{CH2Cl}$ 与氯气一步 → $\ce{CH2Cl2}$；⑪磺化段整句重复 → 删重；⑫马氏规则把 $\ce{H2}$ 列为例子（对称加成物无区域选择问题）→ 删；⑬「$\ce{Ag(NH)2OH}$」→ $\ce{[Ag(NH3)2]OH}$；⑭**定量账第 4-6 条连错**：醇/酚与 $\ce{Na2CO3}$ 不放 $\ce{H2}$、酚与 $\ce{Na2CO3}$ 不放 $\ce{CO2}$、酚不与 $\ce{NaHCO3}$ 反应 → 按「酚只到 $\ce{NaHCO3}$ 止、$\ce{CO2}$ 唯羧酸」重账；⑮「水解：1 mol —CHO 耗 2 mol $\ce{Cu(OH)2}$」中「水解」应为「氧化」；⑯「$\ce{RCHOOH}$」→ $\ce{RCOOH}$；⑰页尾缩聚残句「缩聚反小分子」修通；⑱条目序号跳号（1,2,3,5 与 1-7,12）整理。
 本轮增补：新增第九节「与物质结构的接口」，填补本知识点对杂化、电子效应、共面三组关键词此前零覆盖的空白；新增「课外拓展（超出高考考纲）」小节，把格氏试剂、$\ce{NaBH4}$、$\ce{LiAlH4}$、狄尔斯-阿尔德、傅-克烷基化、酰氯化 6 项移出主流程，正文相应处改为指向该小节（增长碳链由「五把刀」改为「四把刀」，成环只留酯化闭环，还原家族只留 $\ce{H2/Ni}$ 催化加氢）。核磁共振氢谱、同分异构体书写、质谱与元素分析、红外光谱等考纲内内容一律保留原样，未作删减或压缩。
-结构式说明：本页结构图一律走 `<ChemStructure>` 组件按 ACS Document 1996 风格渲染，SMILES 全部先用 PubChem PUG-REST 校验再入库。
+结构式说明：本页结构图一律走 `<ChemStructure>` 组件按 ACS Document 1996 风格渲染，SMILES 全部先用 PubChem PUG-REST 校验再入库——三甲胺 CID 1146、苯胺 CID 6115、乙酰胺 CID 178。
+本知识点图片：推断六步流水框图与合成路线三段式已手绘 SVG 存入 `public/images/`，分别插在[解题方法](/chemistry/organic-inference/methods/)页两处；实验装置图见[烃](/chemistry/hydrocarbon/)与[烃的衍生物](/chemistry/hydrocarbon-derivatives/)两页。
 
 </Callout>
