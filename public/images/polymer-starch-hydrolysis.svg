@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="淀粉水解程度检验流程图：淀粉浆加稀硫酸水浴加热，水解液分两路取样，一路直接加碘水查剩余淀粉，另一路先加氢氧化钠中和再水浴加银氨溶液查生成的葡萄糖，三种现象组合对应完全水解、部分水解与尚未水解。">
+  <style>
+    .bg { fill: #fbfaf7; }
+    .frame { fill: none; stroke: #d9d3c5; stroke-width: 1.5; }
+    .t-title { font: 700 21px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-sub { font: 400 12.5px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #6b7280; }
+    .t-box { font: 600 12.5px/1.3 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-hint { font: 400 11.5px/1.3 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #5a6472; }
+    .warnred { fill: #b0413e; }
+    .t-leg { font: 400 13px/1.45 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #333d4a; }
+    .t-legb { font: 700 13px/1.45 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-mk { font: 700 12px/1 "Helvetica Neue", Helvetica, Arial, sans-serif; fill: #ffffff; }
+    .t-badge { font: 700 12px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
+    .badge-a { fill: #2c6b3a; }
+    .badge-b { fill: #8a6318; }
+    .badge-c { fill: #8c2f2c; }
+    .box { fill: #ffffff; stroke: #c6d0dc; stroke-width: 1.5; }
+    .boxa { fill: #ffffff; stroke: #a8c1da; stroke-width: 1.5; }
+    .boxb { fill: #ffffff; stroke: #d3a49f; stroke-width: 1.5; }
+    .row { fill: #f7f5ef; stroke: #d9d3c5; stroke-width: 1.2; }
+    .arrow { fill: none; stroke: #4a6b8a; stroke-width: 2.2; }
+    .no { fill: none; stroke: #b0413e; stroke-width: 2.2; }
+  </style>
+  <defs>
+    <marker id="a6" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a6b8a" />
+    </marker>
+    <marker id="a6r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b0413e" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="960" height="560" />
+  <rect class="frame" x="0.75" y="0.75" width="958.5" height="558.5" rx="8" />
+
+  <text class="t-title" x="36" y="42">淀粉水解程度检验：双线取样</text>
+  <text class="t-sub" x="36" y="63">一份查「存粮」（剩余淀粉），一份查「新粮」（生成的葡萄糖）——两路分开取样，绝不在同一支试管里混加</text>
+
+  <rect class="box" x="36" y="86" width="240" height="76" rx="7" />
+  <text class="t-box" x="56" y="114">淀粉浆 + 稀硫酸</text>
+  <text class="t-hint" x="56" y="134">稀硫酸只作催化剂，水解后仍在液中</text>
+  <text class="t-hint" x="56" y="152">取少量水解液分装两支试管</text>
+
+  <path class="arrow" d="M282 124 L322 124" marker-end="url(#a6)" />
+
+  <rect class="box" x="330" y="86" width="180" height="76" rx="7" />
+  <text class="t-box" x="350" y="114">水浴加热</text>
+  <text class="t-hint" x="350" y="134">淀粉 → 糊精 → 麦芽糖</text>
+  <text class="t-hint" x="350" y="152">→ 葡萄糖（最终产物）</text>
+
+  <path class="arrow" d="M420 168 L420 196 L156 196 L156 224" marker-end="url(#a6)" />
+  <path class="arrow" d="M420 168 L420 196 L700 196 L700 224" marker-end="url(#a6)" />
+  <text class="t-hint" x="430" y="190">分路取样</text>
+
+  <rect class="boxa" x="36" y="228" width="240" height="96" rx="7" />
+  <rect x="36" y="228" width="5" height="96" rx="2" fill="#3f6ea5" />
+  <text class="t-box" x="60" y="254">甲管 · 直接加碘水</text>
+  <text class="t-hint" x="60" y="276">变蓝 → 淀粉还有（未完全水解）</text>
+  <text class="t-hint" x="60" y="296">不变蓝 → 淀粉已耗尽</text>
+  <text class="t-hint warnred" x="60" y="314">切勿先加碱：I₂ 被 NaOH 消耗，蓝色假阴性</text>
+
+  <rect class="boxa" x="580" y="228" width="300" height="96" rx="7" />
+  <rect x="580" y="228" width="5" height="96" rx="2" fill="#3f6ea5" />
+  <text class="t-box" x="604" y="254">乙管 · 先加 NaOH 中和，再水浴加银氨溶液</text>
+  <text class="t-hint" x="604" y="276">出银镜 → 生成了葡萄糖</text>
+  <text class="t-hint" x="604" y="296">无银镜 → 尚未生成葡萄糖</text>
+  <text class="t-hint warnred" x="604" y="314">不中和则酸毁掉银氨配离子，满瓶葡萄糖也不出银镜</text>
+
+  <path class="arrow" d="M156 330 L156 356" marker-end="url(#a6)" />
+  <path class="arrow" d="M700 330 L700 356" marker-end="url(#a6)" />
+
+  <text class="t-box" x="36" y="382" font-size="13.5">三对现象对号入座</text>
+
+  <rect class="row" x="36" y="394" width="888" height="34" rx="5" />
+  <rect x="36" y="394" width="190" height="34" rx="5" fill="#e6efe6" />
+  <text class="t-badge badge-a" x="46" y="416">碘水不变蓝 ＋ 出银镜</text>
+  <text class="t-box" x="246" y="416">→ 完全水解</text>
+  <text class="t-hint" x="420" y="416">淀粉耗尽且葡萄糖充足</text>
+
+  <rect class="row" x="36" y="434" width="888" height="34" rx="5" />
+  <rect x="36" y="434" width="190" height="34" rx="5" fill="#fbf0d8" />
+  <text class="t-badge badge-b" x="46" y="456">碘水变蓝 ＋ 出银镜</text>
+  <text class="t-box" x="246" y="456">→ 部分水解</text>
+  <text class="t-hint" x="420" y="456">两样都有：既有剩余淀粉，也有葡萄糖</text>
+
+  <rect class="row" x="36" y="474" width="888" height="34" rx="5" />
+  <rect x="36" y="474" width="190" height="34" rx="5" fill="#fbeceb" />
+  <text class="t-badge badge-c" x="46" y="496">碘水变蓝 ＋ 无银镜</text>
+  <text class="t-box" x="246" y="496">→ 尚未水解</text>
+  <text class="t-hint" x="420" y="496">淀粉还在、没有葡萄糖</text>
+
+  <path d="M36 524 L924 524" stroke="#d9d3c5" stroke-width="1.2" stroke-dasharray="4 4" />
+  <text class="t-leg" x="36" y="546"><tspan class="t-legb">底层逻辑：</tspan>银镜与斐林活在<tspan class="t-legb">碱性</tspan>环境（所以要先加碱），AgNO₃ 查卤素活在<tspan class="t-legb">酸性</tspan>环境（所以要先加硝酸酸化）——检验试剂的酸碱口味必须背牢。</text>
+</svg>

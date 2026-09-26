@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 540" width="896" height="540" role="img" aria-label="有机推断六步流水框图：输入条件、现象、量三要素，经抄条件、找题眼、定官能团、算碳数、写结构、正走回验六步，最后闭环回验。">
+  <style>
+    .bg { fill: #fbfaf7; }
+    .frame { fill: none; stroke: #d9d3c5; stroke-width: 1.5; }
+    .t-title { font: 700 21px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-cap { font: 600 12px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #7c8698; letter-spacing: 0.08em; }
+    .t-sub { font: 400 12.5px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #6b7280; }
+    .t-chip { font: 600 13px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1e3a52; }
+    .t-box { font: 600 15px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-hint { font: 400 12px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #59616f; }
+    .t-num { font: 700 13px/1 "Helvetica Neue", Helvetica, Arial, sans-serif; fill: #ffffff; }
+    .t-note { font: 400 12.5px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #4b5563; }
+    .box { fill: #ffffff; stroke: #c6d0dc; stroke-width: 1.5; }
+    .boxaccent { fill: #3f6ea5; }
+    .chip { fill: #eaf1f8; stroke: #a8c1da; stroke-width: 1.3; }
+    .arrow { fill: none; stroke: #4a6b8a; stroke-width: 2.2; marker-end: url(#ah); }
+    .feedback { fill: none; stroke: #9aa5b4; stroke-width: 1.6; stroke-dasharray: 6 5; marker-end: url(#ahg); }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a6b8a" />
+    </marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9aa5b4" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="896" height="540" />
+  <rect class="frame" x="0.75" y="0.75" width="894.5" height="538.5" rx="8" />
+
+  <text class="t-title" x="36" y="44">有机推断六步流水</text>
+  <text class="t-sub" x="36" y="66">条件、现象、量三线交叉才落锤；六步走完仍要把全程箭头正做一遍</text>
+
+  <text class="t-cap" x="36" y="100">输入 · 三要素</text>
+  <rect class="chip" x="36" y="110" width="248" height="38" rx="6" />
+  <text class="t-chip" x="56" y="134">条件：箭头上的试剂温压</text>
+  <rect class="chip" x="324" y="110" width="248" height="38" rx="6" />
+  <text class="t-chip" x="344" y="134">现象：褪色沉淀显色放气</text>
+  <rect class="chip" x="612" y="110" width="248" height="38" rx="6" />
+  <text class="t-chip" x="632" y="134">量：耗碱几摩尔放气几摩尔</text>
+
+  <path class="arrow" d="M160 152 L160 172" />
+  <path class="arrow" d="M448 152 L448 172" />
+  <path class="arrow" d="M736 152 L736 172" />
+
+  <rect class="box" x="36" y="176" width="248" height="104" rx="7" />
+  <rect class="boxaccent" x="36" y="176" width="4.5" height="104" rx="2" />
+  <circle cx="66" cy="202" r="13" fill="#3f6ea5" />
+  <text class="t-num" x="66" y="206" text-anchor="middle">1</text>
+  <text class="t-box" x="88" y="207">抄条件</text>
+  <text class="t-hint" x="56" y="238">把每条箭头上的试剂</text>
+  <text class="t-hint" x="56" y="258">与条件誊成一列</text>
+
+  <path class="arrow" d="M290 228 L318 228" />
+
+  <rect class="box" x="324" y="176" width="248" height="104" rx="7" />
+  <rect class="boxaccent" x="324" y="176" width="4.5" height="104" rx="2" />
+  <circle cx="354" cy="202" r="13" fill="#3f6ea5" />
+  <text class="t-num" x="354" y="206" text-anchor="middle">2</text>
+  <text class="t-box" x="376" y="207">找题眼</text>
+  <text class="t-hint" x="344" y="238">从唯一解线索下手：</text>
+  <text class="t-hint" x="344" y="258">现象、特征量、连续转化</text>
+
+  <path class="arrow" d="M578 228 L606 228" />
+
+  <rect class="box" x="612" y="176" width="248" height="104" rx="7" />
+  <rect class="boxaccent" x="612" y="176" width="4.5" height="104" rx="2" />
+  <circle cx="642" cy="202" r="13" fill="#3f6ea5" />
+  <text class="t-num" x="642" y="206" text-anchor="middle">3</text>
+  <text class="t-box" x="664" y="207">定官能团</text>
+  <text class="t-hint" x="632" y="238">每步写成「A→B」转化对</text>
+  <text class="t-hint" x="632" y="258">双键三键醛基逐个挂号</text>
+
+  <path class="arrow" d="M736 284 L736 300 L160 300 L160 312" />
+  <text class="t-hint" x="466" y="294" text-anchor="middle">线索用尽后进入碳骨架账</text>
+
+  <rect class="box" x="36" y="316" width="248" height="104" rx="7" />
+  <rect class="boxaccent" x="36" y="316" width="4.5" height="104" rx="2" />
+  <circle cx="66" cy="342" r="13" fill="#3f6ea5" />
+  <text class="t-num" x="66" y="346" text-anchor="middle">4</text>
+  <text class="t-box" x="88" y="347">算碳数</text>
+  <text class="t-hint" x="56" y="378">分子式与骨架账并查</text>
+  <text class="t-hint" x="56" y="398">氧数氢数随官能团进出结清</text>
+
+  <path class="arrow" d="M290 368 L318 368" />
+
+  <rect class="box" x="324" y="316" width="248" height="104" rx="7" />
+  <rect class="boxaccent" x="324" y="316" width="4.5" height="104" rx="2" />
+  <circle cx="354" cy="342" r="13" fill="#3f6ea5" />
+  <text class="t-num" x="354" y="346" text-anchor="middle">5</text>
+  <text class="t-box" x="376" y="347">写结构</text>
+  <text class="t-hint" x="344" y="378">先碳链后官能团</text>
+  <text class="t-hint" x="344" y="398">位置异构拿对称性排查</text>
+
+  <path class="arrow" d="M578 368 L606 368" />
+
+  <rect class="box" x="612" y="316" width="248" height="104" rx="7" />
+  <rect class="boxaccent" x="612" y="316" width="4.5" height="104" rx="2" />
+  <circle cx="642" cy="342" r="13" fill="#3f6ea5" />
+  <text class="t-num" x="642" y="346" text-anchor="middle">6</text>
+  <text class="t-box" x="664" y="347">正走回验</text>
+  <text class="t-hint" x="632" y="378">推出的结构正做一遍全程</text>
+  <text class="t-hint" x="632" y="398">条件产物系数全对才交卷</text>
+
+  <path class="feedback" d="M736 424 L736 448 L160 448 L160 428" />
+  <text class="t-hint" x="448" y="466" text-anchor="middle">回验不通过 → 退回出错的那一步重做（图示退回第 4 步），不要从头硬推</text>
+
+  <rect x="36" y="482" width="824" height="40" rx="6" fill="#f4f1e8" stroke="#d9d3c5" stroke-width="1.3" stroke-dasharray="5 4" />
+  <text class="t-note" x="56" y="507">卡壳换序：从产物倒着推（逆合成）；或先算不饱和度 Ω＝(2C+2−H)÷2 圈定环与双键的预算红线</text>
+</svg>

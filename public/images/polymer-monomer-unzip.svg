@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="由链节倒推单体的拉链法示意图：左栏加聚物在链节的两端剪断、把两个碳之间的单键改回双键，得到乙烯型单体氯乙烯；右栏缩聚物在酯基的碳氧单键处剪断，羰基侧补羟基、氧侧补氢，得到乳酸。">
+  <style>
+    .bg { fill: #fbfaf7; }
+    .frame { fill: none; stroke: #d9d3c5; stroke-width: 1.5; }
+    .t-title { font: 700 21px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-sub { font: 400 12.5px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #6b7280; }
+    .t-col { font: 700 15px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-box { font: 600 12.5px/1.35 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-hint { font: 400 11.5px/1.35 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #5a6472; }
+    .t-mono { font: 600 15px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-n { font: 600 13px/1 "Helvetica Neue", Helvetica, Arial, sans-serif; fill: #5a6472; }
+    .t-mark { font: 700 12px/1 "Helvetica Neue", Helvetica, Arial, sans-serif; fill: #ffffff; }
+    .t-leg { font: 400 13px/1.45 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #333d4a; }
+    .t-legb { font: 700 13px/1.45 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .panel { fill: #ffffff; stroke: #c6d0dc; stroke-width: 1.5; }
+    .panelA { fill: #f4f8fc; stroke: #a8c1da; stroke-width: 1.5; }
+    .panelB { fill: #fdf6f5; stroke: #d3a49f; stroke-width: 1.5; }
+    .cut { stroke: #b0413e; stroke-width: 2.2; stroke-dasharray: 5 4; }
+    .dbl { stroke: #1f4f7a; stroke-width: 2.6; stroke-linecap: round; }
+    .bond { stroke: #2b3742; stroke-width: 2.2; stroke-linecap: round; }
+  </style>
+  <defs>
+    <marker id="a7" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a6b8a" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="960" height="540" />
+  <rect class="frame" x="0.75" y="0.75" width="958.5" height="538.5" rx="8" />
+
+  <text class="t-title" x="36" y="42">链节倒推单体：一条拉链走两遍</text>
+  <text class="t-sub" x="36" y="63">先判型（链节组成 = 单体 → 加聚；链节「变瘦」且含酯基或肽键 → 缩聚），再按各自的规则拉开；倒推完把单体正向再聚合一遍，链节能复原才算对</text>
+
+  <rect class="panelA" x="36" y="86" width="420" height="404" rx="8" />
+  <text class="t-col" x="60" y="118">加聚：剪链节两端，两碳间补回双键</text>
+
+  <text class="t-hint" x="60" y="146">链节（重复单元）</text>
+  <rect class="panel" x="60" y="156" width="372" height="56" rx="6" />
+  <path class="cut" d="M96 166 L96 202" />
+  <path class="cut" d="M232 166 L232 202" />
+  <text class="t-mono" x="118" y="190">—CH₂—CHCl—</text>
+  <circle cx="96" cy="222" r="9" fill="#b0413e" />
+  <text class="t-mark" x="96" y="226" text-anchor="middle">1</text>
+  <circle cx="232" cy="222" r="9" fill="#b0413e" />
+  <text class="t-mark" x="232" y="226" text-anchor="middle">2</text>
+  <text class="t-hint" x="256" y="226">两处是与相邻链节的连接键</text>
+
+  <path d="M246 244 L246 262" fill="none" stroke="#4a6b8a" stroke-width="2.2" marker-end="url(#a7)" />
+  <text class="t-hint" x="60" y="282">断开后把两个碳之间的单键改回双键，即得单体</text>
+
+  <text class="t-hint" x="60" y="308">单体</text>
+  <rect class="panel" x="60" y="318" width="372" height="56" rx="6" />
+  <text class="t-mono" x="86" y="352">CH₂ = CHCl</text>
+  <text class="t-n" x="212" y="352">× n</text>
+  <text class="t-hint" x="256" y="352">氯乙烯</text>
+
+  <path d="M60 394 L432 394" stroke="#c6d0dc" stroke-width="1.2" />
+  <text class="t-box" x="60" y="418">两碳链节 → 乙烯型单体</text>
+  <text class="t-hint" x="60" y="438">X = Cl 氯乙烯 ｜ X = 苯基 苯乙烯 ｜ X = CH₃ 丙烯</text>
+  <text class="t-box" x="60" y="464">四碳链节带一枚内双键 → 共轭二烯</text>
+  <text class="t-hint" x="60" y="482">—CH₂—CH=CH—CH₂— ⇢ 1,3-丁二烯（1,4-加聚，顺丁橡胶）</text>
+
+  <rect class="panelB" x="504" y="86" width="420" height="404" rx="8" />
+  <text class="t-col" x="528" y="118">缩聚：在酯基或肽键处剪断</text>
+
+  <text class="t-hint" x="528" y="146">链节（重复单元）</text>
+  <rect class="panel" x="528" y="156" width="372" height="56" rx="6" />
+  <text class="t-mono" x="552" y="190">—O—CH(CH₃)—C(=O)—</text>
+  <path class="cut" d="M742 166 L742 202" />
+  <circle cx="742" cy="222" r="9" fill="#b0413e" />
+  <text class="t-mark" x="742" y="226" text-anchor="middle">1</text>
+  <text class="t-hint" x="764" y="226">C—O 酯键</text>
+
+  <path d="M714 244 L714 262" fill="none" stroke="#4a6b8a" stroke-width="2.2" marker-end="url(#a7)" />
+  <text class="t-hint" x="528" y="282">剪断处两侧分别补上原子</text>
+
+  <text class="t-hint" x="528" y="308">补回后的单体</text>
+  <rect class="panel" x="528" y="318" width="372" height="56" rx="6" />
+  <text class="t-mono" x="552" y="352">HO—CH(CH₃)—COOH</text>
+  <text class="t-hint" x="782" y="352">乳酸</text>
+
+  <path d="M528 394 L900 394" stroke="#c6d0dc" stroke-width="1.2" />
+  <text class="t-box" x="528" y="418">补法：羰基侧补 —OH，氧侧或氮侧补 —H</text>
+  <text class="t-hint" x="528" y="438">—CONH— 处剪断 → 二元羧酸 ＋ 二元胺（尼龙类）</text>
+  <text class="t-box" x="528" y="464">链节比单体「瘦」——少了小分子的组成</text>
+  <text class="t-hint" x="528" y="482">乳酸自聚脱 (n−1) 个水；PET 脱 (2n−1) 个水</text>
+
+  <path d="M36 506 L924 506" stroke="#d9d3c5" stroke-width="1.2" stroke-dasharray="4 4" />
+  <text class="t-leg" x="36" y="528">红色虚线即<tspan class="t-legb">剪刀落点</tspan>：加聚剪在「链节与相邻链节之间」，缩聚剪在「官能团之间」；两处都别数错碳，差一个碳答案全错。</text>
+</svg>

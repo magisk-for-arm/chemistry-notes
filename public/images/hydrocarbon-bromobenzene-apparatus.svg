@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="溴苯制备实验流水线：苯与液溴在铁粉催化下反应，长直导管冷凝回流导出气体，四氯化碳洗气除去溴蒸气后通入硝酸银溶液检验溴化氢，产物依次经水洗、碱洗、干燥、蒸馏。">
+  <style>
+    .bg { fill: #fbfaf7; }
+    .frame { fill: none; stroke: #d9d3c5; stroke-width: 1.5; }
+    .t-title { font: 700 21px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-sub { font: 400 12.5px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #6b7280; }
+    .t-stg { font: 700 13px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1e3a52; }
+    .t-box { font: 600 12px/1.3 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1e3a52; }
+    .t-cap { font: 400 12.5px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #59616f; }
+    .t-mark { font: 700 12px/1 "Helvetica Neue", Helvetica, Arial, sans-serif; fill: #ffffff; }
+    .t-leg { font: 400 13px/1.45 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #333d4a; }
+    .t-legb { font: 700 13px/1.45 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .glass { fill: #ffffff; stroke: #2b3742; stroke-width: 2.3; stroke-linejoin: round; }
+    .glassout { fill: none; stroke: #2b3742; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+    .gastube { fill: none; stroke: #4a6b8a; stroke-width: 2.6; stroke-linecap: round; }
+    .step { fill: #ffffff; stroke: #a8c1da; stroke-width: 1.4; }
+    .lead { fill: none; stroke: #97a1af; stroke-width: 1.2; }
+    .liq { fill: #cfe3f2; }
+    .br2 { fill: #d98b2b; }
+    .sed { fill: #e8d9a0; }
+  </style>
+  <defs>
+    <marker id="ag4" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a6b8a" />
+    </marker>
+    <clipPath id="clipF1"><circle cx="130" cy="330" r="48" /></clipPath>
+    <clipPath id="clipF2"><rect x="330" y="230" width="70" height="90" /></clipPath>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="960" height="540" />
+  <rect class="frame" x="0.75" y="0.75" width="958.5" height="538.5" rx="8" />
+
+  <text class="t-title" x="36" y="42">溴苯制备：发生 → 除溴 → 验 HBr → 后处理</text>
+  <text class="t-sub" x="36" y="63">苯 + 液溴在铁粉（实际催化剂 FeBr₃）催化下取代；验证 HBr 前必须先用 CCl₄ 洗掉混出的溴蒸气</text>
+
+  <text class="t-stg" x="40" y="106">① 发生：苯 + 液溴 + 铁粉</text>
+
+  <circle class="glass" cx="130" cy="330" r="48" />
+  <g clip-path="url(#clipF1)">
+    <rect class="liq" x="82" y="316" width="96" height="62" />
+    <rect class="br2" x="82" y="360" width="96" height="18" />
+  </g>
+  <circle class="glassout" cx="130" cy="330" r="48" />
+  <path class="glassout" d="M122 288 L122 232" />
+  <path class="glassout" d="M138 288 L138 232" />
+  <path class="glassout" d="M116 232 L144 232" />
+  <circle cx="112" cy="308" r="3.4" fill="#4a4a42" />
+  <circle cx="128" cy="304" r="3.4" fill="#4a4a42" />
+  <circle cx="146" cy="309" r="3.4" fill="#4a4a42" />
+  <path class="gastube" d="M122 232 L122 150 L262 150 L262 196" />
+  <path class="lead" d="M186 158 L186 150" />
+  <circle cx="196" cy="150" r="10" fill="#3f6ea5" />
+  <text class="t-mark" x="196" y="154" text-anchor="middle">1</text>
+
+  <path class="gastube" d="M262 196 L342 196" />
+
+  <text class="t-stg" x="330" y="106">② 除溴：CCl₄ 洗气</text>
+  <rect class="glass" x="330" y="230" width="70" height="90" rx="4" />
+  <g clip-path="url(#clipF2)"><rect class="sed" x="330" y="278" width="70" height="42" /></g>
+  <rect class="glassout" x="330" y="230" width="70" height="90" rx="4" />
+  <path class="glassout" d="M342 196 L342 304" />
+  <path class="glassout" d="M386 230 L386 208" />
+  <path class="glassout" d="M334 208 L394 208" />
+  <path class="gastube" d="M386 208 L386 186 L470 186" />
+
+  <text class="t-stg" x="470" y="106">③ 验 HBr：AgNO₃ 溶液</text>
+  <path class="gastube" d="M470 186 L500 186 L500 296" />
+  <rect class="glass" x="470" y="230" width="60" height="90" rx="4" />
+  <rect class="liq" x="474" y="272" width="52" height="44" />
+  <rect class="glassout" x="470" y="230" width="60" height="90" rx="4" />
+  <circle cx="488" cy="310" r="3" fill="#e8cf6a" />
+  <circle cx="500" cy="305" r="3" fill="#e8cf6a" />
+  <circle cx="512" cy="311" r="3" fill="#e8cf6a" />
+  <path class="lead" d="M470 244 L452 244" />
+  <circle cx="440" cy="244" r="10" fill="#b0413e" />
+  <text class="t-mark" x="440" y="248" text-anchor="middle">2</text>
+  <path class="gastube" d="M530 250 L572 250 L572 212" />
+  <text class="t-hint" x="556" y="206" fill="#5a6472">气体逸出</text>
+
+  <text class="t-stg" x="620" y="106">④ 后处理：得到纯净溴苯</text>
+  <rect class="step" x="620" y="126" width="304" height="196" rx="7" />
+  <text class="t-box" x="640" y="156">1 · 水洗 — 除 FeBr₃ 与 HBr</text>
+  <text class="t-box" x="640" y="186">2 · 稀 NaOH 溶液洗 — 除溶存的 Br₂</text>
+  <text class="t-box" x="640" y="216">3 · 再水洗 — 洗去碱液</text>
+  <text class="t-box" x="640" y="246">4 · 干燥 → 蒸馏 — 蒸出苯，得无色溴苯</text>
+  <path d="M640 268 L904 268" stroke="#d9d3c5" stroke-width="1.2" />
+  <text class="t-box" x="640" y="294">溴苯密度大于水，洗涤分液时在<tspan font-weight="700" fill="#b0413e">下层</tspan></text>
+
+  <path d="M36 366 L924 366" stroke="#d9d3c5" stroke-width="1.2" stroke-dasharray="4 4" />
+
+  <circle cx="52" cy="396" r="10" fill="#3f6ea5" />
+  <text class="t-mark" x="52" y="400" text-anchor="middle">1</text>
+  <text class="t-leg" x="72" y="392">长直导管兼做<tspan class="t-legb">冷凝回流</tspan>：苯与液溴都易挥发，蒸气沿管上升被冷凝</text>
+  <text class="t-leg" x="72" y="412">后流回瓶内，同时把生成的 HBr 导出；管口常见白雾。</text>
+
+  <circle cx="52" cy="452" r="10" fill="#b0413e" />
+  <text class="t-mark" x="52" y="456" text-anchor="middle">2</text>
+  <text class="t-leg" x="72" y="448">这里是最经典的<tspan class="t-legb">假阳性陷阱</tspan>：挥发出的 Br₂ 随气流进入水中也会生成 Br⁻，</text>
+  <text class="t-leg" x="72" y="468">同样析出淡黄色 AgBr——不先洗掉溴蒸气，HBr 的结论不成立。</text>
+
+  <text class="t-leg" x="500" y="448"><tspan class="t-legb">为什么必须用液溴而不是溴水：</tspan>溴水中 Br₂ 浓度低且含水，</text>
+  <text class="t-leg" x="500" y="468">苯与溴水只发生<tspan class="t-legb">萃取</tspan>（分层）而不发生取代。</text>
+  <text class="t-leg" x="500" y="492">检验苯中混有甲苯应改用<tspan class="t-legb">酸性 KMnO₄</tspan>（侧链氧化褪色），溴水查不出。</text>
+
+  <rect x="36" y="506" width="888" height="26" rx="6" fill="#f4f1e8" stroke="#d9d3c5" stroke-width="1.2" stroke-dasharray="5 4" />
+  <text class="t-leg" x="52" y="524" fill="#4b5563">方程式：<tspan class="t-legb" font-family="Helvetica, Arial, sans-serif">C₆H₆ + Br₂ —(FeBr₃)→ C₆H₅Br + HBr</tspan>；注意催化剂是 FeBr₃（由铁粉与溴原位生成），不是铁粉本身。</text>
+</svg>

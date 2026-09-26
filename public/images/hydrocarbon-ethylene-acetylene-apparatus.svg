@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 740" width="960" height="740" role="img" aria-label="乙烯与乙炔制备装置对照图：乙烯由乙醇与浓硫酸加热制得，温度计水银球插入液面以下；乙炔由电石与饱和食盐水制得，不加热不需温度计，启普发生器三禁。">
+  <style>
+    .bg { fill: #fbfaf7; }
+    .frame { fill: none; stroke: #d9d3c5; stroke-width: 1.5; }
+    .t-title { font: 700 21px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-sub { font: 400 12.5px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #6b7280; }
+    .t-row { font: 700 14.5px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-box { font: 600 12px/1.25 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1e3a52; }
+    .t-cap { font: 400 12.5px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #59616f; }
+    .t-mark { font: 700 12px/1 "Helvetica Neue", Helvetica, Arial, sans-serif; fill: #ffffff; }
+    .t-leg { font: 400 13px/1.4 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #333d4a; }
+    .t-legb { font: 700 13px/1.4 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .glass { fill: #ffffff; stroke: #2b3742; stroke-width: 2.3; stroke-linejoin: round; }
+    .glassout { fill: none; stroke: #2b3742; stroke-width: 2.3; stroke-linejoin: round; }
+    .glassline { fill: none; stroke: #2b3742; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+    .gastube { fill: none; stroke: #4a6b8a; stroke-width: 2.6; stroke-linecap: round; }
+    .step { fill: #ffffff; stroke: #a8c1da; stroke-width: 1.4; }
+    .lead { fill: none; stroke: #97a1af; stroke-width: 1.2; }
+    .liq { fill: #cfe3f2; }
+    .solid { fill: #d8d3c4; stroke: #6b6a5f; stroke-width: 1.4; }
+  </style>
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a6b8a" />
+    </marker>
+    <clipPath id="clipA"><circle cx="215" cy="255" r="44" /></clipPath>
+    <clipPath id="clipB"><circle cx="216" cy="595" r="44" /></clipPath>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="960" height="740" />
+  <rect class="frame" x="0.75" y="0.75" width="958.5" height="738.5" rx="8" />
+
+  <text class="t-title" x="36" y="42">三套气体制备：温度计入不入液面</text>
+  <text class="t-sub" x="36" y="63">同为「加热液体取气体」，制乙烯要测反应液温、石油蒸馏要测蒸气温度——一个插液面、一个平齐支管口</text>
+
+  <!-- ============ A 乙烯 ============ -->
+  <text class="t-row" x="36" y="100">A · 乙烯：乙醇 + 浓硫酸，170 ℃</text>
+
+  <path class="gastube" d="M215 118 L215 266" />
+  <circle cx="215" cy="266" r="4.5" fill="#2b3742" />
+  <circle cx="215" cy="266" r="9.5" fill="none" stroke="#b0413e" stroke-width="1.5" stroke-dasharray="3 2.5" />
+  <path class="lead" d="M190 118 L209 118" />
+  <circle cx="178" cy="118" r="10" fill="#b0413e" />
+  <text class="t-mark" x="178" y="122" text-anchor="middle">1</text>
+
+  <circle class="glass" cx="215" cy="255" r="44" />
+  <g clip-path="url(#clipA)"><rect class="liq" x="171" y="240" width="88" height="59" /></g>
+  <circle class="glassout" cx="215" cy="255" r="44" />
+  <path class="glassline" d="M208 215 L208 152" />
+  <path class="glassline" d="M222 215 L222 152" />
+  <path class="glassline" d="M203 152 L227 152" />
+  <path class="glassline" d="M190 288 l8 -5 l6 7 z" />
+  <path class="glassline" d="M212 293 l8 -5 l6 7 z" />
+  <path class="glassline" d="M234 287 l8 -5 l5 7 z" />
+  <path class="gastube" d="M222 162 L268 168" marker-end="url(#ag)" />
+  <path class="gastube" d="M268 168 L362 168" />
+
+  <rect class="step" x="374" y="136" width="176" height="64" rx="7" />
+  <text class="t-box" x="390" y="162">NaOH 溶液洗气</text>
+  <text class="t-box" x="390" y="183">除 SO₂、CO₂、乙醇蒸气</text>
+  <path class="gastube" d="M550 168 L564 168" marker-end="url(#ag)" />
+
+  <rect class="step" x="572" y="136" width="176" height="64" rx="7" />
+  <text class="t-box" x="588" y="162">溴的 CCl₄ 溶液</text>
+  <text class="t-box" x="588" y="183">检验褪色（加成反应）</text>
+  <path class="gastube" d="M748 168 L762 168" marker-end="url(#ag)" />
+
+  <rect class="step" x="770" y="136" width="176" height="64" rx="7" />
+  <text class="t-box" x="786" y="162">排水法收集</text>
+  <text class="t-box" x="786" y="183">乙烯难溶于水</text>
+
+  <text class="t-cap" x="36" y="330">① 温度计水银球<tspan font-weight="700" fill="#1b2530">插入液面以下</tspan>：此处要量的是反应液的 170 ℃，插进液里才控得住温度。</text>
+  <text class="t-cap" x="36" y="352">碎瓷片防暴沸；浓硫酸与乙醇按体积 3∶1 混合，酸加入醇；140 ℃ 时副产乙醚，故须迅速升温到 170 ℃。</text>
+
+  <path d="M36 372 L924 372" stroke="#d9d3c5" stroke-width="1.2" stroke-dasharray="4 4" />
+
+  <!-- ============ B 乙炔 ============ -->
+  <text class="t-row" x="36" y="412">B · 乙炔：电石 + 饱和食盐水，不加热</text>
+
+  <path class="glassline" d="M200 430 L232 430 L232 442 C232 460 227 470 221 478 L211 478 C205 470 200 460 200 442 Z" />
+  <path class="glassline" d="M205 430 L205 420 L227 420 L227 430" />
+  <path class="glassline" d="M216 478 L216 520" />
+  <path class="glassline" d="M206 478 L226 478" />
+  <path class="glassline" d="M226 474 L238 470" />
+  <path class="lead" d="M186 440 L198 444" />
+  <circle cx="174" cy="438" r="10" fill="#3f6ea5" />
+  <text class="t-mark" x="174" y="442" text-anchor="middle">2</text>
+  <path class="glassline" d="M205 514 L227 514" />
+
+  <circle class="glass" cx="216" cy="595" r="44" />
+  <g clip-path="url(#clipB)"><rect class="liq" x="172" y="575" width="88" height="64" /></g>
+  <circle class="glassout" cx="216" cy="595" r="44" />
+  <path class="glassline" d="M209 556 L209 516" />
+  <path class="glassline" d="M223 556 L223 516" />
+  <rect class="solid" x="188" y="622" width="24" height="13" rx="2" />
+  <rect class="solid" x="214" y="627" width="22" height="13" rx="2" />
+  <rect class="solid" x="238" y="620" width="22" height="13" rx="2" />
+  <path class="gastube" d="M223 526 L268 534" marker-end="url(#ag)" />
+  <path class="gastube" d="M268 534 L362 534" />
+
+  <rect class="step" x="374" y="502" width="176" height="64" rx="7" />
+  <text class="t-box" x="390" y="528">CuSO₄ 溶液洗气</text>
+  <text class="t-box" x="390" y="549">除 H₂S、PH₃</text>
+  <path class="gastube" d="M550 534 L564 534" marker-end="url(#ag)" />
+
+  <rect class="step" x="572" y="502" width="176" height="64" rx="7" />
+  <text class="t-box" x="588" y="528">溴水或酸性 KMnO₄</text>
+  <text class="t-box" x="588" y="549">检验褪色</text>
+  <path class="gastube" d="M748 534 L762 534" marker-end="url(#ag)" />
+
+  <rect class="step" x="770" y="502" width="176" height="64" rx="7" />
+  <text class="t-box" x="786" y="528">排水法收集</text>
+  <text class="t-box" x="786" y="549">尾气可燃，须点燃</text>
+
+  <text class="t-cap" x="36" y="676">② <tspan font-weight="700" fill="#1b2530">无温度计、不需加热</tspan>：用饱和食盐水代替水减缓反应速率（若用启普发生器则三禁——反应剧烈不可停、</text>
+  <text class="t-cap" x="36" y="698">放热易炸裂、生成的 Ca(OH)₂ 呈糊状堵塞球体），故改用分液漏斗控制滴加的简易装置。</text>
+
+  <circle cx="52" cy="726" r="0" fill="none" />
+  <text class="t-leg" x="36" y="726"><tspan class="t-legb">对照石油蒸馏：</tspan>温度计水银球<tspan class="t-legb">平齐支管口</tspan>，测蒸气温度；两处口径互换即为命题人最常用的干扰项。</text>
+</svg>

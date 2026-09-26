@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-label="有机合成路线设计三段式：先修碳架判断需要增长、缩短还是成环，再装官能团完成引入、搬移或倍增，最后上保护基先藏后改再还，路线需通过数碳数、查官能团、看保护基三项验算。">
+  <style>
+    .bg { fill: #fbfaf7; }
+    .frame { fill: none; stroke: #d9d3c5; stroke-width: 1.5; }
+    .t-title { font: 700 21px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-sub { font: 400 12.5px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #6b7280; }
+    .t-step { font: 700 15px/1 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #ffffff; }
+    .t-box { font: 600 12.5px/1.35 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .t-hint { font: 400 11.5px/1.35 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #5a6472; }
+    .t-q { font: 600 12.5px/1.3 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #8c2f2c; }
+    .t-leg { font: 400 13px/1.45 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #333d4a; }
+    .t-legb { font: 700 13px/1.45 "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1b2530; }
+    .card { fill: #ffffff; stroke: #c6d0dc; stroke-width: 1.5; }
+    .head1 { fill: #3f6ea5; }
+    .head2 { fill: #4a8a6f; }
+    .head3 { fill: #a3663f; }
+    .arrow { fill: none; stroke: #4a6b8a; stroke-width: 2.4; }
+    .tick { fill: none; stroke: #4a8a6f; stroke-width: 2.2; }
+  </style>
+  <defs>
+    <marker id="a8" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a6b8a" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="960" height="500" />
+  <rect class="frame" x="0.75" y="0.75" width="958.5" height="498.5" rx="8" />
+
+  <text class="t-title" x="36" y="42">合成路线三段式：修碳架 → 装官能团 → 上保护基</text>
+  <text class="t-sub" x="36" y="63">先回答「碳架差在哪」，再回答「缺哪个官能团」，最后回答「谁会挨打」——顺序反了就会写出多余或缺漏的步骤</text>
+
+  <!-- 第一段 -->
+  <rect class="card" x="36" y="86" width="280" height="268" rx="8" />
+  <rect class="head1" x="36" y="86" width="280" height="40" rx="8" />
+  <rect class="head1" x="36" y="110" width="280" height="16" />
+  <text class="t-step" x="56" y="112">第一段 · 修碳架</text>
+  <text class="t-q" x="56" y="152">Q：原料与目标的碳数差几？骨架差在哪？</text>
+  <text class="t-box" x="56" y="182">增长 · 考纲内两把刀</text>
+  <text class="t-hint" x="56" y="202">HCN 加成 — 加一碳，水解得羧酸</text>
+  <text class="t-hint" x="56" y="220">NaCN 取代 — 加一碳，水解得酸</text>
+  <text class="t-hint" x="56" y="238">羟醛缩合 — 碳链翻倍，醛基保留</text>
+  <text class="t-box" x="56" y="264">缩短</text>
+  <text class="t-hint" x="56" y="284">酸性 KMnO₄ 断烯断炔（有氢成酸、</text>
+  <text class="t-hint" x="56" y="302">无氢成酮、端碳成气）· 侧链整条氧化</text>
+  <text class="t-hint" x="56" y="320">· 羧酸盐碱石灰脱羧</text>
+  <text class="t-box" x="56" y="344">成环 · 二元酸与二元醇、羟基酸或氨基酸酯化闭环</text>
+
+  <path class="arrow" d="M322 220 L346 220" marker-end="url(#a8)" />
+
+  <!-- 第二段 -->
+  <rect class="card" x="356" y="86" width="280" height="268" rx="8" />
+  <rect class="head2" x="356" y="86" width="280" height="40" rx="8" />
+  <rect class="head2" x="356" y="110" width="280" height="16" />
+  <text class="t-step" x="376" y="112">第二段 · 装官能团</text>
+  <text class="t-q" x="376" y="152">Q：目标产物缺哪个官能团？</text>
+  <text class="t-box" x="376" y="182">引入</text>
+  <text class="t-hint" x="376" y="202">双键靠消去 · 卤素靠取代或加成</text>
+  <text class="t-hint" x="376" y="220">羟基靠加水、加氢、水解</text>
+  <text class="t-hint" x="376" y="238">醛基靠催化氧化或乙炔水化</text>
+  <text class="t-hint" x="376" y="256">羧基靠氧化或酯、酰胺水解</text>
+  <text class="t-box" x="376" y="282">搬位 · 消去再加成</text>
+  <text class="t-hint" x="376" y="302">消出去、按马氏加回来，官能团就挪了家</text>
+  <text class="t-box" x="376" y="328">倍增 · 三步组合拳</text>
+  <text class="t-hint" x="376" y="348">消去 → 加 X₂ → 双水解，得二元醇</text>
+
+  <path class="arrow" d="M642 220 L666 220" marker-end="url(#a8)" />
+
+  <!-- 第三段 -->
+  <rect class="card" x="676" y="86" width="248" height="268" rx="8" />
+  <rect class="head3" x="676" y="86" width="248" height="40" rx="8" />
+  <rect class="head3" x="676" y="110" width="248" height="16" />
+  <text class="t-step" x="696" y="112">第三段 · 上保护基</text>
+  <text class="t-q" x="696" y="152">Q：这一步谁会「挨打」？</text>
+  <text class="t-box" x="696" y="182">羟基怕氧化</text>
+  <text class="t-hint" x="696" y="202">先酯化（或成醚）保护，事后水解复原</text>
+  <text class="t-box" x="696" y="228">双键怕氧化</text>
+  <text class="t-hint" x="696" y="248">先加 Br₂ 暂存成二卤代物，氧化完再消去</text>
+  <text class="t-box" x="696" y="274">羧基怕高温</text>
+  <text class="t-hint" x="696" y="294">先转成酯保护，需要时再水解还原</text>
+  <text class="t-hint" x="696" y="322">氨基怕强酸强碱</text>
+  <text class="t-hint" x="696" y="340">酰化成酰胺藏起来，之后水解脱保护</text>
+
+  <!-- 验算 -->
+  <rect x="36" y="374" width="888" height="52" rx="7" fill="#f4f1e8" stroke="#d9d3c5" stroke-width="1.3" stroke-dasharray="5 4" />
+  <text class="t-leg" x="56" y="398"><tspan class="t-legb">写完路线必做三项验算：</tspan>数碳数（增长与缩短账是否闭合）· 查官能团（每步底物都有资格吗）· 看保护基（有藏必有还，成对出现）</text>
+  <text class="t-hint" x="56" y="418">只藏不还等于改了结构，终产物的官能团数目会与题目要求对不上——这是最常被扣分的一处。</text>
+
+  <path d="M36 442 L924 442" stroke="#d9d3c5" stroke-width="1.2" stroke-dasharray="4 4" />
+  <text class="t-leg" x="36" y="464">考纲内四把刀排不出路线时，再去<tspan class="t-legb">超纲的格氏试剂等手段</tspan>，但只在题目给了信息式时才用；</text>
+  <text class="t-leg" x="36" y="486">信息题的四步处置是：圈断连 · 搬机理 · 配尾巴 · 查守恒。</text>
+</svg>
