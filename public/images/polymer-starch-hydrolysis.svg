@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="淀粉水解程度检验流程图：淀粉浆加稀硫酸水浴加热，水解液分两路取样，一路直接加碘水查剩余淀粉，另一路先加氢氧化钠中和再水浴加银氨溶液查生成的葡萄糖，三种现象组合对应完全水解、部分水解与尚未水解。">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 522" width="960" height="522" role="img" aria-label="淀粉水解程度检验流程图：淀粉浆加稀硫酸水浴加热，水解液分两路取样，一路直接加碘水查剩余淀粉，另一路先加氢氧化钠中和再水浴加银氨溶液查生成的葡萄糖，三种现象组合对应完全水解、部分水解与尚未水解。">
   <style>
     .bg { fill: #fbfaf7; }
     .frame { fill: none; stroke: #d9d3c5; stroke-width: 1.5; }
@@ -89,6 +89,4 @@
   <text class="t-box" x="246" y="496">→ 尚未水解</text>
   <text class="t-hint" x="420" y="496">淀粉还在、没有葡萄糖</text>
 
-  <path d="M36 524 L924 524" stroke="#d9d3c5" stroke-width="1.2" stroke-dasharray="4 4" />
-  <text class="t-leg" x="36" y="546"><tspan class="t-legb">底层逻辑：</tspan>银镜与斐林活在<tspan class="t-legb">碱性</tspan>环境（所以要先加碱），AgNO₃ 查卤素活在<tspan class="t-legb">酸性</tspan>环境（所以要先加硝酸酸化）——检验试剂的酸碱口味必须背牢。</text>
 </svg>
