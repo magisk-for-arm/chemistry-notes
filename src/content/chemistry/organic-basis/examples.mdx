@@ -13,6 +13,7 @@ updated: "2026-09-26"
 import ExampleCard from '@/components/ExampleCard.astro';
 import Reveal from '@/components/Reveal.astro';
 import Callout from '@/components/Callout.astro';
+import ChemStructure from '@/components/ChemStructure.astro';
 
 <Callout type="note" title="使用指南">
 
@@ -96,6 +97,18 @@ $\ce{C4H8O2}$ 的同分异构体中：能与 $\ce{NaHCO3}$ 反应放出气体的
 <Callout type="right" title="答案：共 5 种；①3 ②4 ③3 ④1">
 
 $\Omega=\dfrac{2\times7+2-8}{2}=4$ 恰一个苯环，剩 1 个碳 1 个氧按类别三路拆分：**芳香醇**苯甲醇 $\ce{C6H5CH2OH}$ 1 种、**芳香醚**苯甲醚 $\ce{C6H5OCH3}$ 1 种、**甲基苯酚**邻/间/对 3 种，共 5 种。①只有酚羟基耗 $\ce{NaOH}$ → 3；②醇、酚的 O—H 都能被 Na 夺氢 → 3+1=4；③酚的标志反应 → 3；④只剩苯甲醚（醚键两头都不活泼）→ 1。**「遇苯环先分醇酚醚」**：苯甲醇的 $\ce{-OH}$ 连在侧链饱和碳上是醇，苯酚类的 $\ce{-OH}$ 直连苯环才是酚——一字之差，①③两问全变。
+
+下面把 5 个异构体按结构画出对照：前两个是**醇 / 醚**，后三个是苯环上两个取代基位置不同的**酚**。
+
+<ChemStructure smiles="OCc1ccccc1" caption="苯甲醇（芳香醇）：羟基连在侧链饱和碳上，不显酚性" alt="苯甲醇的结构式，苯环通过一个亚甲基连着一个羟基" height="150px" />
+
+<ChemStructure smiles="COc1ccccc1" caption="苯甲醚（芳香醚）：只有醚键，无 O—H，④ 问的答案" alt="苯甲醚的结构式，苯环上直接连着一个氧甲基" height="150px" />
+
+<ChemStructure smiles="Cc1ccccc1O" caption="邻甲酚（2-甲基苯酚）：两取代基相邻" alt="邻甲酚的结构式，苯环上相邻两个位置分别是甲基和羟基" height="150px" />
+
+<ChemStructure smiles="Cc1cccc(O)c1" caption="间甲酚（3-甲基苯酚）：两取代基间隔一个碳" alt="间甲酚的结构式，苯环上间位分别是甲基和羟基" height="150px" />
+
+<ChemStructure smiles="Cc1ccc(O)cc1" caption="对甲酚（4-甲基苯酚）：两取代基相对" alt="对甲酚的结构式，苯环上对位分别是甲基和羟基" height="150px" />
 
 </Callout>
 
@@ -237,6 +250,6 @@ $\Omega=\dfrac{2\times7+2-8}{2}=4$ 恰一个苯环，剩 1 个碳 1 个氧按类
 
 <Callout type="note" title="参考来源">
 
-题目与解析改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并逐条勘误（口径以本知识点[概览](/chemistry/organic-basis/)页末勘误清单为准）。
+题目与解析改编自 [Chemistry-Note-Refine](https://github.com/MeowCata/Chemistry-Note-Refine)（MeowCata），已按本站规范重写并逐条勘误（口径以本知识点[概览](/chemistry/organic-basis/)页末勘误清单为准）。例题三的五种同分异构体按「异构体一律走结构式组件」的口径补出结构图，SMILES 已用 PubChem PUG-REST 校验（苯甲醇 CID 244、苯甲醚 CID 7519、邻/间/对甲酚 CID 335 / 342 / 2879；五者分子式均为 $\ce{C7H8O}$、式量 108.14，与题干自洽）。
 
 </Callout>
