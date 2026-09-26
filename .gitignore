@@ -2,8 +2,22 @@ node_modules/
 dist/
 .astro/
 .vercel/
-.superpowers/
 *.log
 .DS_Store
 
+# 代理过程状态与浏览器截图
+.superpowers/
 .openchamber/
+screenshots/
+verify-*/
+
+# 位图一律不入库：本项目的示意图统一手写 SVG 放 public/images/
+# （public/ 例外，若将来确需位图内容可显式加入）
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.bmp
+*.tiff
+!public/**
