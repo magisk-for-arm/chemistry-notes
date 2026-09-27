@@ -742,7 +742,7 @@ $$
 
 <Callout type="note" title="本节说明">
 
-下面四题取自公开的高考真题原文，题面与官方答案已逐条核对（其中第 4 题的答案我用两种方法独立复算过）。三角函数是高考**每年必考**的前 5 道选择题之一，90 分档考生必须全拿。选入的四题分别对应：和差与积的转换、图像单调性、正弦定理与余弦定理联用、以及解三角形解答题——正好是这一模块的三种主流考法。
+下面七题取自公开的高考真题原文，题面与官方答案已逐条核对（其中第 4 题的答案我用两种方法独立复算过）。三角函数是高考**每年必考**的前 5 道选择题之一，90 分档考生必须全拿。选入的四题分别对应：和差与积的转换、图像单调性、正弦定理与余弦定理联用、以及解三角形解答题——正好是这一模块的三种主流考法。
 
 </Callout>
 
@@ -1123,6 +1123,253 @@ $$
 **变式** 设 $\triangle ABC$ 的内角 $A$，$B$，$C$ 的对边分别为 $a$，$b$，$c$，已知 $\cos A=\dfrac{1}{3}$，$b^2+c^2=2a^2+2bc\cos A$，求 $\cos B$。
 
 **答案**：由余弦定理 $a^2=b^2+c^2-2bc\cos A$，与已知式 $b^2+c^2=2a^2+2bc\cos A$ 联立：把后者代入前者得 $a^2=(2a^2+2bc\cos A)-2bc\cos A=2a^2$，故 $a^2=0$，矛盾——**说明本题条件需重新审视**。改用正确形式：设 $b^2+c^2=ka^2+2bc\cos A$，则 $a^2=b^2+c^2-2bc\cos A=ka^2$，恒有 $k=1$ 平凡。**这道改编题的条件设置不当，不能作为练习**；正确的对照练法是直接用真题 4 的结论：已知 $\cos C=\dfrac{\sqrt2}{2}$、$B=\dfrac{\pi}{3}$、$S=3+\sqrt3$ 时 $c=2\sqrt2$，**把「$S$」换成「$a$」或「$b$」** 再求另一条边，路径完全相同。
+
+</Reveal>
+</ExampleCard>
+
+### 真题 5：2021 全国乙卷（理） 第 15 题
+
+<ExampleCard title="解三角形：面积与余弦定理联用，直接锁定 b" difficulty="medium" source="2021 全国乙卷（理） 第 15 题">
+
+记 $\triangle ABC$ 的内角 $A$，$B$，$C$ 的对边分别为 $a$，$b$，$c$，面积为 $\sqrt{3}$，$B=60^\circ$，$a^2+c^2=3ac$，则 $b=$　　。
+
+<Reveal summary="查看逐项解析">
+
+**第一步：用面积公式把 $ac$ 求出来。**
+$$
+S=\frac{1}{2}ac\sin B=\frac{1}{2}ac\times\frac{\sqrt{3}}{2}=\frac{\sqrt{3}}{4}ac=\sqrt{3}
+$$
+故 $ac=4$。
+
+**第二步：把已知条件 $a^2+c^2=3ac$ 改写成余弦定理的形式。** 余弦定理是 $b^2=a^2+c^2-2ac\cos B$，而 $\cos 60^\circ=\dfrac12$，所以
+$$
+b^2=a^2+c^2-2ac\times\frac{1}{2}=a^2+c^2-ac
+$$
+**这正好能用上已知条件**：$a^2+c^2=3ac$，代入得
+$$
+b^2=3ac-ac=2ac=2\times 4=8
+$$
+故 $b=2\sqrt{2}$。
+
+<Callout type="right" title="答案：2√2">
+
+**关键在于看出 $a^2+c^2=3ac$ 恰好能替换余弦定理里的 $a^2+c^2$**，而 $\cos 60^\circ=\dfrac12$ 让交叉项变成 $-ac$。三条件各司其职，一步到位。
+
+</Callout>
+
+<Callout type="tip" title="通性：看到 a² + c² = k·ac 就该想到余弦定理">
+
+余弦定理 $b^2=a^2+c^2-2ac\cos B$ 里，$a^2+c^2$ 是**原样出现**的。所以**题目一旦给出 $a^2+c^2$ 与 $ac$ 的关系，就应该直接整体代入**，不必先求出 $a$、$c$ 各是多少。**本题若先去解 $a$、$c$ 的方程，会陷入二次方程的泥潭。**
+
+</Callout>
+
+<Callout type="wrong" title="常见错误：交叉项写成 −2ac">
+
+若把 $b^2$ 算成 $a^2+c^2-2ac=3ac-2ac=ac=4$，得 $b=2$——这是**忘了 $\cos B=\dfrac12$ 这个系数**。**检查方法：$B=60^\circ$ 时 $b^2$ 应满足 $b^2=a^2+c^2-ac$，代入等边三角形（$a=b=c$）检验得 $b^2=a^2$，正确；若用错公式则得 $b^2=a^2$ 也碰巧对，但本题 $a\neq c$ 就会露馅。**
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="方法复盘">
+
+**「面积定积 → 余弦定理代入 → 开方」三步**：
+
+1. **面积公式 $S=\dfrac12 ac\sin B$ 求出 $ac$**（已知 $B$ 时这是最快的入口）；
+2. **余弦定理 $b^2=a^2+c^2-2ac\cos B$**，把已知的 $a^2+c^2$ 与第 1 步的 $ac$ 整体代入；
+3. 开方得边长，**注意 $b>0$ 取正根**。
+
+**必须记牢的两个公式**：
+$$
+S=\frac{1}{2}ac\sin B=\frac{1}{2}ab\sin C=\frac{1}{2}bc\sin A,\qquad
+a^2=b^2+c^2-2bc\cos A
+$$
+**解三角形题的核心策略是「不求具体边，只求目标量」**——本题目标就是 $b$，而三个已知条件恰好把 $b^2$ 完整拼出。
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** $\triangle ABC$ 中，$B=60^\circ$，面积 $S=2\sqrt{3}$，$a^2+c^2=4ac$，求 $b$。
+
+**答案**：$S=\dfrac12 ac\sin 60^\circ=\dfrac{\sqrt{3}}{4}ac=2\sqrt{3}$，故 $ac=8$。
+$$
+b^2=a^2+c^2-2ac\cos B=4ac-ac=3ac=24\ \Longrightarrow\ b=2\sqrt{6}
+$$
+
+**关键理由**：与原题对比，**变的只是系数（$3ac\to 4ac$）与面积，整体结构完全一样**。**关键提醒：这类题的正确做法是「先写 $b^2=a^2+c^2-2ac\cos B$，再把两个已知替换进去」，而不是先解方程求 $a$、$c$。**代入后 $b^2=(k-1)ac$（当 $a^2+c^2=kac$），本题 $k=4$ 故 $b^2=3ac$。
+
+</Reveal>
+</ExampleCard>
+
+### 真题 6：2022 全国乙卷（理） 第 15 题
+
+<ExampleCard title="由 f(T) 与零点反求 ω：相位要先定下来" difficulty="medium" source="2022 全国乙卷（理） 第 15 题">
+
+记函数 $f(x)=\cos\left(\omega x+\varphi\right)$（$\omega>0$，$0<\varphi<\pi$）的最小正周期为 $T$，若 $f(T)=\dfrac{\sqrt{3}}{2}$，$x=\dfrac{\pi}{9}$ 为 $f(x)$ 的零点，则 $\omega$ 的最小值为　　。
+
+<Reveal summary="查看逐项解析">
+
+**第一步：把 $f(T)$ 化简——这是全题的钥匙。** 最小正周期 $T=\dfrac{2\pi}{\omega}$，所以 $\omega T=2\pi$：
+$$
+f(T)=\cos(\omega T+\varphi)=\cos(2\pi+\varphi)=\cos\varphi=\frac{\sqrt{3}}{2}
+$$
+由 $0<\varphi<\pi$ 得 $\varphi=\dfrac{\pi}{6}$。
+
+<Callout type="tip" title="为什么 f(T) 一定等于 cos φ">
+
+因为 $T$ 恰好是**一个完整周期**，代入后 $\omega T=2\pi$，而余弦的周期是 $2\pi$，所以 $\cos(2\pi+\varphi)=\cos\varphi$。**这个「周期的定义就是让相位增加 $2\pi$」的性质必须会用**——它能把一个含 $\omega$ 的复杂条件瞬间变成不含 $\omega$ 的简单条件。**若题目给的是 $f\left(\dfrac{T}{2}\right)$，则 $\omega\cdot\dfrac{T}{2}=\pi$，得到的是 $\cos(\pi+\varphi)=-\cos\varphi$，符号相反，要小心。**
+
+</Callout>
+
+**第二步：用零点条件列方程。** $x=\dfrac{\pi}{9}$ 是零点，即
+$$
+\cos\left(\frac{\omega\pi}{9}+\frac{\pi}{6}\right)=0
+\ \Longrightarrow\ \frac{\omega\pi}{9}+\frac{\pi}{6}=\frac{\pi}{2}+k\pi,\qquad k\in\mathbb{Z}
+$$
+
+**第三步：解出 $\omega$ 并取最小正值。**
+$$
+\frac{\omega}{9}=\frac13+k\ \Longrightarrow\ \omega=3+9k
+$$
+$\omega>0$，故 $k\geqslant 0$（$k=-1$ 时 $\omega=-6<0$），最小值在 $k=0$ 时取得：
+$$
+\omega_{\min}=3
+$$
+
+<Callout type="right" title="答案：3">
+
+**关键是先由 $f(T)$ 把 $\varphi$ 定死**，再用零点条件解 $\omega$。
+
+</Callout>
+
+<Callout type="wrong" title="易错一：把 φ 定成 11π/6">
+
+$\cos\varphi=\dfrac{\sqrt{3}}{2}$ 的通解是 $\varphi=2k\pi\pm\dfrac{\pi}{6}$。若不检查 $0<\varphi<\pi$ 而取 $\varphi=\dfrac{11\pi}{6}$，则 $\dfrac{\omega}{9}=\dfrac{\pi/2-\frac{11\pi}{6}}{\pi}+k=\dfrac{-4}{3}+k$，$\omega=-12+9k$，最小正值 $k=2$ 时 $\omega=6$——**与标准答案 3 不符**。**范围条件 $0<\varphi<\pi$ 就是用来筛掉多余解的，务必使用。**
+
+</Callout>
+
+<Callout type="wrong" title="易错二：忘记 ω>0 而取到负值">
+
+若不检查 $\omega>0$，$k=-1$ 给出 $\omega=-6$ 也会被算作「更小的解」。**题目给 $\omega>0$ 的目的就是在最后一步筛解**，这与 $0<\varphi<\pi$ 是同一种作用。**两道范围条件各筛掉一族解，漏掉任何一道都会得到错误的「最小值」。**
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="方法复盘">
+
+**「用周期定相位 → 用零点定 $\omega$ → 用范围筛最小」三步**：
+
+1. **$T=\dfrac{2\pi}{\omega}$，代入 $f(T)$ 后 $\omega T=2\pi$**，相位里的 $\omega$ 自动消失，直接解出 $\varphi$；
+2. **零点条件**：$\cos\theta=0\iff\theta=\dfrac{\pi}{2}+k\pi$，**注意是 $\pi/2$ 不是 $0$**；
+3. 解出 $\omega$ 后**必须用 $\omega>0$ 筛**，取最小正值。
+
+**通性**：
+$$
+\begin{aligned}
+&\text{最小正周期 }T=\frac{2\pi}{\omega}\text{（或 }\frac{\pi}{\omega}\text{，看最高次谐波）}\\
+&\cos\theta=0\iff\theta=\frac{\pi}{2}+k\pi;\qquad \cos\theta=\pm1\iff\theta=k\pi\\
+&\sin\theta=0\iff\theta=k\pi
+\end{aligned}
+$$
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** $f(x)=\sin\left(\omega x+\varphi\right)$（$\omega>0$，$0<\varphi<2\pi$）的最小正周期为 $T$，$f(T)=-\dfrac12$，且 $x=\dfrac{\pi}{6}$ 是 $f(x)$ 的最大值点，求 $\omega$ 的最小值。
+
+**答案**：$f(T)=\sin(2\pi+\varphi)=\sin\varphi=-\dfrac12$。由 $0<\varphi<2\pi$ 得 $\varphi=\dfrac{11\pi}{6}$。
+$x=\dfrac{\pi}{6}$ 为最大值点：$\dfrac{\omega\pi}{6}+\dfrac{11\pi}{6}=\dfrac{\pi}{2}+2k\pi$，得 $\dfrac{\omega}{6}=-\dfrac43+2k$，即 $\omega=-8+12k$。$\omega>0$ 需 $k\geqslant 1$，最小值 $\omega=4$。
+
+**关键理由**：**与原题的关键差别是「零点」变成了「最大值点」**——零点给的是 $\theta=k\pi$（本题的正弦情形），最大值点给的是 $\theta=\dfrac{\pi}{2}+2k\pi$（注意是 $2k\pi$，因为正弦的周期是 $2\pi$）。**关键提醒：$\sin$ 的最大值点处相位是 $\pi/2+2k\pi$ 而非 $\pi/2+k\pi$**，若误用后者会得到 $\omega=-8+6k$，最小正值 $k=2$ 时 $\omega=4$——**本题恰好也得到 4，属巧合；换个数就会露馅。**
+
+</Reveal>
+</ExampleCard>
+
+### 真题 7：2025 全国Ⅱ卷 第 5 题
+
+<ExampleCard title="解三角形求角：余弦定理凑出 √2/2" difficulty="easy" source="2025 全国Ⅱ卷 第 5 题">
+
+在 $\triangle ABC$ 中，$BC=2$，$AC=1+\sqrt{3}$，$AB=\sqrt{6}$，则 $A=$（　　）
+
+- A．$45^\circ$
+- B．$60^\circ$
+- C．$120^\circ$
+- D．$135^\circ$
+
+<Reveal summary="查看逐项解析">
+
+**对应关系不能错**：$A$ 的对边是 $BC$，所以 $a=2$；$b=AC=1+\sqrt{3}$；$c=AB=\sqrt{6}$。
+
+余弦定理求 $\cos A$：
+$$
+\cos A=\frac{b^2+c^2-a^2}{2bc}
+=\frac{(1+\sqrt{3})^2+6-4}{2(1+\sqrt{3})\sqrt{6}}
+=\frac{1+2\sqrt{3}+3+6-4}{2(1+\sqrt{3})\sqrt{6}}
+=\frac{6+2\sqrt{3}}{2(1+\sqrt{3})\sqrt{6}}
+$$
+**分子提公因式**：$6+2\sqrt{3}=2\sqrt{3}(\sqrt{3}+1)$，约去 $2(1+\sqrt{3})$：
+$$
+\cos A=\frac{2\sqrt{3}(\sqrt{3}+1)}{2(\sqrt{3}+1)\sqrt{6}}=\frac{\sqrt{3}}{\sqrt{6}}=\frac{1}{\sqrt{2}}=\frac{\sqrt{2}}{2}
+$$
+故 $A=45^\circ$。
+
+<Callout type="right" title="A ✅ 正确">
+
+$\cos A=\dfrac{\sqrt{2}}{2}$，选 **A**。**关键动作是把分子 $6+2\sqrt{3}$ 因式分解成 $2\sqrt{3}(\sqrt{3}+1)$**，才能与分母的 $2(1+\sqrt{3})$ 约掉——**这一步不做就会卡在根式堆上。**
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 与 C ❌ 边与角对应错">
+
+选 $60^\circ$ 或 $120^\circ$ 通常是把 $b$、$c$ 认错了：$A$ 的对边是 $BC=2$，而 $AC$ 对的是 $B$、$AB$ 对的是 $C$。**如果误把 $a=AC=1+\sqrt{3}$、$b=BC=2$ 代入，会得到 $\cos A=\dfrac{4+6-(4+2\sqrt3)}{2\cdot 2\cdot\sqrt6}=\dfrac{6-2\sqrt3}{4\sqrt6}$，算出来约 $0.259$，不对应任何特殊角。**
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 开平方时没化简到底">
+
+$\dfrac{1}{\sqrt{2}}$ 必须**有理化成 $\dfrac{\sqrt{2}}{2}$** 才能和特殊角对应。若停在 $\dfrac{1}{\sqrt{2}}$ 而去比 $\cos 135^\circ=-\dfrac{\sqrt{2}}{2}$，会因符号不同而误选。**通性提醒：$\cos 45^\circ=+\dfrac{\sqrt{2}}{2}$，$\cos 135^\circ=-\dfrac{\sqrt{2}}{2}$，符号是区分这两个角的关键，务必先看 $\cos A$ 的正负。**
+
+</Callout>
+
+<Callout type="tip" title="先判三角形是否存在">
+
+三边 $2$、$1+\sqrt{3}\approx 2.73$、$\sqrt{6}\approx 2.45$。最大边是 $1+\sqrt{3}$，检验 $2.73<2+2.45=4.45$，三角形存在。**开头的三边检验能避免在根本无解的选项上浪费时间**（如 $120^\circ$ 对应的边长关系会与已知矛盾）。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="方法复盘">
+
+**「对号入座 → 余弦定理 → 因式分解约分 → 查特殊角」四步**：
+
+1. **先把边与角对应好**：$a=BC$、$b=CA$、$c=AB$，**$A$ 对 $a$、$B$ 对 $b$、$C$ 对 $c$，且都是「对边」**；
+2. 求 $\cos A=\dfrac{b^2+c^2-a^2}{2bc}$；
+3. **遇到根式先看能否因式分解约分**——本题分子分母都含 $(\sqrt{3}+1)$；
+4. 化到 $\pm\dfrac{\sqrt{2}}{2}$、$\pm\dfrac12$ 等特殊值即得特殊角。
+
+**必背的特殊角值**：
+$$
+\cos 30^\circ=\frac{\sqrt{3}}{2},\quad \cos 45^\circ=\frac{\sqrt{2}}{2},\quad
+\cos 60^\circ=\frac12,\quad \cos 120^\circ=-\frac12,\quad \cos 135^\circ=-\frac{\sqrt{2}}{2}
+$$
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** $\triangle ABC$ 中，$b=2$，$c=3$，$A=60^\circ$，求 $a$。
+
+**答案**：已知两边与它们的夹角，直接用余弦定理
+$$
+a^2=b^2+c^2-2bc\cos A=4+9-2\times 2\times 3\times\frac{1}{2}=13-6=7
+\Longrightarrow\ a=\sqrt{7}
+$$
+
+**关键理由**：原题是「三边求角」，变式是「两边夹角求第三边」——**同一公式的两个方向，务必都能用**。**关键提醒两点**：① 夹角 $A$ 夹的是 $b$ 与 $c$（$A$ 的邻边），**不要把 $a$ 当成夹角对应的边**；② 结果 $\sqrt{7}$ 不必再化简，但**若算出的 $a$ 满足 $a\geqslant b+c$ 或 $a\leqslant|b-c|$，说明三角形不存在、算错了**——本题 $1<2.65<5$，成立。
 
 </Reveal>
 </ExampleCard>
