@@ -1,0 +1,201 @@
+---
+title: "三角函数与解三角形 · 考点解析"
+topic: "trigonometry"
+category: "exam-points"
+order: 2
+summary: "按定义与符号、诱导公式、图像性质、恒等变换、解三角形、实际应用六类题型梳理考法与陷阱。"
+tags: ["考点", "解答题", "选择题"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import Callout from '@/components/Callout.astro';
+
+## 题型一：定义、值域、符号与大小比较（选择题）
+
+- **考频**：高频（几乎每套卷必有一题，常与角平分线、三角恒等式结合）
+- **典型设问**：
+  - 「$\cos\theta = -\frac35$，$\theta$ 是第二象限角，则 $\sin\theta + \cos\theta$ 的值为（　　）」；
+  - 「已知 $f(x) = 2\sin\left(x + \frac{\pi}{3}\right)$，则 $f\left(\frac{\pi}{4}\right)$ 等于（　　）」；
+  - 「$\sin\alpha > \cos\alpha$ 成立的条件是 $\alpha$ 属于哪个区间」；
+  - 「函数 $y = \tan\left(\omega x + \frac{\pi}{4}\right)$ 的定义域」。
+- **核心考法**：把「象限符号」与「同角关系」两条叠加使用——先用关系式算绝对值，再用象限定符号；或者把角化到第一象限后直接查特殊角的函数值。
+
+<Callout type="tip" title="得分要点">
+
+**「两步走」写死在草稿上**：第一步用 $\lvert\sin\alpha\rvert = \sqrt{1-\cos^2\alpha}$ 这类关系式算**数值**，全过程不碰符号；第二步查象限表贴符号。选择题里请**把两步都写出来再选答案**，跳掉第一步的错项占比超过一半。比较大小时改用 $\bigl(\sin\alpha-\cos\alpha\bigr)^2 = 1-\sin 2\alpha$，比硬算稳。
+
+</Callout>
+
+<Callout type="formula" title="三个必须张口就来的结论">
+
+$$
+\begin{aligned}
+\sin^2\alpha + \cos^2\alpha &= 1 \\
+\bigl(\sin\alpha - \cos\alpha\bigr)^2 &= 1 - \sin 2\alpha \\
+\sin\alpha \pm \cos\alpha &= \sqrt2\sin\left(\alpha \pm \frac{\pi}{4}\right)
+\end{aligned}
+$$
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 1、2、3 条。
+
+</Callout>
+
+## 题型二：诱导公式与化归（选择题 / 填空题）
+
+- **考频**：高频
+- **典型设问**：
+  - 「化简 $\sin\left(\frac{5\pi}{3} + \alpha\right)$，$\alpha$ 为锐角」；
+  - 「已知 $\cos\left(x + \frac{\pi}{4}\right) = \frac{1}{3}$，$x \in \left(0, \frac{\pi}{2}\right)$，求 $\sin x + \cos x$」；
+  - 「把 $\cos\left(\frac{\pi}{3} - \alpha\right)$ 化成 $f(\sin\alpha)$ 的形式」。
+- **核心考法**：「奇变偶不变，符号看象限」两步走完之后，再把 $\alpha$ 用**已知范围**化到 $0 < \alpha < \frac{\pi}{2}$，此时符号由范围唯一确定。
+
+<Callout type="tip" title="得分要点">
+
+化简的标准终点是**只含 $\sin\alpha$、$\cos\alpha$、$\tan\alpha$ 且带范围**的形式。判断化简是否到位的标准：式子里**不能再出现** $\alpha \pm k\pi$、$2\alpha$、$k\frac{\pi}{2} - \alpha$ 这类「未展开的角」。特别是「已知 $\cos(x + \frac{\pi}{4})$ 求 $\cos x - \sin x$」这类题，务必先由 $\cos(x+\frac{\pi}{4}) = \frac{\cos x - \sin x}{\sqrt2}$ 建立联系再展开。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 1、4 条。
+
+</Callout>
+
+## 题型三：正弦型函数的图像与性质（选择题 / 填空题）
+
+- **考频**：高频
+- **典型设问**：
+  - 「$f(x) = A\sin(\omega x + \varphi) + B$ 的最小正周期、单调递增区间」；
+  - 「$y = 2\cos\left(2x - \frac{\pi}{3}\right)$ 的对称轴方程与对称中心坐标」；
+  - 「把 $y = \sin 2x$ 的图像向右平移 $\frac{\pi}{6}$ 个单位，所得图像的解析式」；
+  - 「$f(x) = \sin\left(\omega x + \frac{\pi}{3}\right)$ 在区间上的最小正整数周期个数」。
+- **核心考法**：三条结论反复用——**周期只由 $\lvert\omega\rvert$ 决定**、**对称轴在极值点处**、**对称中心的纵坐标恒为 $B$**。单调区间用「$\sin$ 的增区间代入 $\omega x + \varphi$」机械求解。
+
+<Callout type="tip" title="得分要点">
+
+**「五点法 + 判据」两句诀**：① 令 $\omega x + \varphi$ 从 $0$ 取到 $2\pi$，把五个 $x$ 一次算完，图像的升降、极值、零点一目了然；② 对称轴用 $\omega x+\varphi = \frac{\pi}{2}+k\pi$，对称中心用 $\omega x+\varphi = k\pi$（纵坐标必为 $B$）。**「$k$ 的步长是 $\frac{k\pi}{2}$」这一点最容易错**，写完务必把 $k=0,1$ 各代一个点回原式验一次。
+
+</Callout>
+
+<Callout type="formula" title="图像性质对照表">
+
+| 性质 | 条件 | 结论 |
+|------|------|------|
+| 最小正周期 | — | $T = \frac{2\pi}{\lvert\omega\rvert}$ |
+| 值域 | — | $[B-\lvert A\rvert,\ B+\lvert A\rvert]$ |
+| 对称轴 | $\omega x + \varphi = \frac{\pi}{2} + k\pi$ | 竖直线 $x = \frac{\frac{\pi}{2}-\varphi+k\pi}{\omega}$ |
+| 对称中心 | $\omega x + \varphi = k\pi$ | 点 $\left(\frac{k\pi-\varphi}{\omega},\ B\right)$ |
+| 单调递增 | $\omega x+\varphi \in \left[-\frac{\pi}{2}+2k\pi, \frac{\pi}{2}+2k\pi\right]$ | 代入解出闭区间 |
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 6、7、8 条。
+
+</Callout>
+
+## 题型四：三角恒等变换与最值（填空题 / 解答题）
+
+- **考频**：中频（填空为主，常与数列、向量结合成解答题）
+- **典型设问**：
+  - 「已知 $\sin\alpha = \frac35$，$\alpha$ 是第二象限角，求 $\sin 2\alpha$、$\cos 2\alpha$、$\tan 2\alpha$」；
+  - 「求 $2\sin x + 2\sqrt3\cos x$ 的最大值与取得最大值时 $x$ 的集合」；
+  - 「化简 $\dfrac{\sin^3\alpha\cos\alpha - \sin\alpha\cos^3\alpha}{\cos^4\alpha - \sin^4\alpha}$」。
+- **核心考法**：升幂降幂配套使用——出现 $\sin^2$、$\cos^2$ 就**降幂**成一次角；出现 $\sin\alpha\cos\alpha$ 就**升幂**成 $\sin 2\alpha$；出现 $a\sin x + b\cos x$ 就走**辅助角公式**。
+
+<Callout type="formula" title="升降幂三板斧">
+
+$$
+\sin 2\alpha = 2\sin\alpha\cos\alpha,\qquad
+\cos 2\alpha = 2\cos^2\alpha - 1 = 1 - 2\sin^2\alpha
+$$
+
+$$
+\sin^2\alpha = \frac{1-\cos 2\alpha}{2},\qquad
+\cos^2\alpha = \frac{1+\cos 2\alpha}{2}
+$$
+
+$$
+a\sin x + b\cos x = \sqrt{a^2+b^2}\sin(x+\varphi)
+$$
+
+</Callout>
+
+<Callout type="tip" title="得分要点">
+
+**「见平方就降幂，见乘积就升幂」**：化简题的标准动作是**先把所有二次幂降到一次**，再用第一式 $\sin^2+\cos^2=1$ 约分。求最值题则先把系数凑成辅助角，注意 $\varphi$ 的象限与系数 $(a,b)$ 的象限**相同**，别把 $\varphi$ 的象限定反导致 $\sin(x+\varphi)$ 的最值取不到。答案必须写全「**最大值 + 取得时 $x$ 的集合**」两部分，只写最大值扣一半分。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 2、5 条。
+
+</Callout>
+
+## 题型五：解三角形（解答题）
+
+- **考频**：高频（几乎每套卷一道，12 分左右，常与实际情境或其他模块拼接）
+- **典型设问**：
+  - 「在 $\triangle ABC$ 中，$A = 60^\circ$，$b = 4$，$c = 5$，求 $a$ 与面积 $S$」；
+  - 「在 $\triangle ABC$ 中，$a = \sqrt3$，$A = 30^\circ$，$b = 2$，求 $B$ 与 $c$」；
+  - 「在 $\triangle ABC$ 中，$a = 3$，$b = 4$，$c = 5$，判断三角形形状并求外接圆半径 $R$」。
+- **核心考法**：**先判题型，再选定理**。两角一边用正弦定理；两边及夹角先用余弦定理；两边及一对边（SSA）**必须写出两个候选角并逐一验 $A+B<\pi$**；三边用余弦定理反求角。
+
+<Callout type="tip" title="得分要点">
+
+**「一判二列三验四答」四步**：① 判题型（数一数已知的角与边各有几个、是不是夹角）；② 写出所用定理的**完整形式**（正弦定理写 $\frac{a}{\sin A} = \frac{b}{\sin B}$，余弦定理写 $c^2 = a^2+b^2-2ab\cos C$，阅卷按步给分）；③ SSA 题**列出两候选并逐个验 $A+B<180^\circ$**；④ 结果里的根号、三角形、正负号都写规范，$\arccos$ 的值精确到度或用「$\approx$」注明。
+
+</Callout>
+
+<Callout type="formula" title="三件套与两个判据">
+
+$$
+\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = 2R, \qquad
+c^2 = a^2 + b^2 - 2ab\cos C, \qquad
+S = \frac12 ab\sin C = \frac{abc}{4R}
+$$
+
+$$
+\cos C = \frac{a^2+b^2-c^2}{2ab} \quad\Rightarrow\quad
+a^2+b^2 \begin{cases} > c^2 & C \text{ 为锐角} \\ = c^2 & C = 90^\circ \\ < c^2 & C \text{ 为钝角} \end{cases}
+$$
+
+判断整体形状时**必须先找最长边**。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 9、10 条。
+
+</Callout>
+
+## 题型六：解三角形在实际问题中的应用（解答题）
+
+- **考频**：中频（与「解三角形 + 实际情境」结合，全国卷与新高考卷的压轴位置）
+- **典型设问**：
+  - 「为测量河宽，在岸上两点测仰角，已知两点间距，求河宽」；
+  - 「某船以 $\dots$ 的航向行驶一段时间后转向，求两段航程与夹角」；
+  - 「某山顶部对山脚的水平距离与仰角，求山高」；
+  - 「四边形中已知三条边与两个角，求第四条边」。
+- **核心考法**：**画图 + 标角**是唯一门槛。把现实场景翻译成「三角形 + 已知三元素」，然后调用题型五的模型。若图形不是三角形（如四边形、圆），先作辅助线把它拆成三角形。
+
+<Callout type="tip" title="得分要点">
+
+**「设未知量 + 落三角形 + 写定理」三行法**：① 把要求的量设为 $x$（角则写成「$\tan x = \dots$」或「$\sin x = \dots$」）；② 指出 $x$ 属于哪个三角形、它是哪条边或哪个角；③ 写定理并计算。**仰角俯角的处理**是最大坑：在同侧两点测同一目标时，**靠近目标那点的内角是 $180^\circ$ - 仰角**，务必在图上把这条补角关系标出来，再落进三角形。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 9、10 条。
+
+</Callout>

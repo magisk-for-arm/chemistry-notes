@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import TagBadge from '../../components/TagBadge.astro';
-import { sectionMeta, subjectList, sectionHref, type SectionKey } from '../../utils/topics';
+import { sectionMeta, subjectList, sectionHref, SITE_NAME, type SectionKey } from '../../utils/topics';
 import { withBase } from '@/utils/links';
 
 export async function getStaticPaths() {
@@ -21,7 +21,7 @@ const subjectTitle = (slug: string) => subjectList.find((s) => s.slug === slug)?
 const sectionLabel = (key: string) =>
   sectionMeta[key as SectionKey]?.label ?? key;
 ---
-<BaseLayout title={`标签：${tag} · 高中化学要点`}>
+<BaseLayout title={`标签：${tag} · ${SITE_NAME}`}>
   <Breadcrumb items={[{ label: '首页', href: withBase('/') }, { label: `标签：${tag}` }]} />
   <section class="hero" style="padding:1.5rem 0 1rem;text-align:left;">
     <h1>标签：{tag}</h1>

@@ -14,6 +14,7 @@ import {
   sectionHref,
   difficultyLabel,
   frequencyLabel,
+  subjectLabel,
   type SectionKey,
 } from '../utils/topics';
 
@@ -83,8 +84,9 @@ const nextSection =
   pagerIndex >= 0 && pagerIndex < navSections.length - 1 ? navSections[pagerIndex + 1] : undefined;
 
 const hasToc = section !== 'mindmap' && headings.length > 0;
+const label = subjectLabel(subject);
 ---
-<BaseLayout title={`${title} · 高中化学要点`} description={summary} mobileMenu>
+<BaseLayout title={`${title} · ${label}`} description={summary} mobileMenu label={label}>
   <div class="knowledge-shell">
     <Sidebar {subject} {topic} {topicList} {navSections} current={section} />
     <div class="knowledge-main">

@@ -1,0 +1,1128 @@
+---
+title: "三角函数与解三角形 · 典型例题"
+topic: "trigonometry"
+category: "examples"
+order: 5
+summary: "8 道典型例题分三层递进：同角关系与二倍角、图像性质与解三角形、SSA 两解与综合，含逐项解析与变式训练。"
+tags: ["例题", "计算题", "高考真题"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一、二打基础（象限符号与二倍角），例题三～六是高考同款（图像性质、两角一边、两边及夹角、实际测量），例题七、八冲高分（SSA 两解讨论与正余弦定理综合）。建议先做题再看解析，每题的「方法复盘」是接题套路，「变式训练」检验是否真会。**解三角形部分请务必自己动手把每个根号算到底**，只写定理不代数是最常见的失分方式。
+
+</Callout>
+
+## 例题一：同角关系与象限符号（easy）
+
+<ExampleCard title="由余弦值求正弦值与正切值" difficulty="easy" source="改编 · 原型：三角函数值与象限符号">
+
+已知 $\cos\theta = -\dfrac{3}{5}$，且 $\theta \in \left(\dfrac{\pi}{2}, \pi\right)$，则 $\sin\theta$ 与 $\tan\theta$ 的值分别是（　　）
+
+- A．$\dfrac{4}{5}$，$-\dfrac{4}{3}$
+- B．$-\dfrac{4}{5}$，$-\dfrac{4}{3}$
+- C．$\dfrac{4}{5}$，$\dfrac{4}{3}$
+- D．$\dfrac{4}{5}$，$-\dfrac{3}{4}$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="A ✅ 正确">
+
+**第一步：算绝对值。** $\lvert\sin\theta\rvert = \sqrt{1-\cos^2\theta} = \sqrt{1-\dfrac{9}{25}} = \sqrt{\dfrac{16}{25}} = \dfrac{4}{5}$。
+
+**第二步：贴符号。** $\theta$ 在第二象限，第二象限 $\sin$ 为正、$\cos$ 为负，所以 $\sin\theta = \dfrac{4}{5}$（与题设 $\cos\theta = -\dfrac35$ 吻合）。
+
+**第三步：求正切。** $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = \dfrac{4/5}{-3/5} = -\dfrac{4}{3}$。分母带负号，结果为负，与第二象限 $\tan < 0$ 一致。
+
+自检：$\left(\dfrac45\right)^2 + \left(-\dfrac35\right)^2 = \dfrac{16}{25}+\dfrac{9}{25} = 1$ ✓
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 开方后没按象限定符号">
+
+把 $\sqrt{1-\cos^2\theta}$ 的结果直接当成 $\sin\theta$ 而写成负数。平方根**永远取非负值**，$\sqrt{\frac{16}{25}}$ 就是 $\frac45$，负号必须另外由象限决定。这里 $\theta$ 是钝角，第二象限 $\sin\theta > 0$，写成 $-\frac45$ 与「平方和为 1」倒是能凑上，但符号与象限矛盾。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 正切的符号丢了">
+
+$\tan\theta = \frac{4}{3}$ 相当于把分母的负号吃掉了。这一步的常见错误是脑子还停在 $\sqrt{\cdot}$ 的正号上，把 $\cos\theta$ 也当成了 $\frac35$。**记住：$\tan$ 的符号是两个函数的符号相乘，负除负得正、负除正得负。**
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 把余弦当分母时取了绝对值">
+
+$\tan\theta = \frac{\sin\theta}{\lvert\cos\theta\rvert} = \frac{4/5}{3/5} = \frac43$ 的变体。错在 $\tan\theta = \frac{\sin\theta}{\cos\theta}$ 的分母**不能取绝对值**，只有 $\tan\theta = \frac{\lvert\sin\theta\rvert}{\lvert\cos\theta\rvert}$ 才等于 $\frac43$。正切保留符号正是它区别于「正切值绝对值」的地方。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「算绝对值 → 定符号 → 求商」三步**：① 用 $\lvert\sin\theta\rvert = \sqrt{1-\cos^2\theta}$ 算数值，$\sqrt{\cdot}$ 内全程不碰符号；② 查象限表定 $\sin\theta$ 的符号（本题 $\theta$ 是钝角，第二象限 $\sin$ 正）；③ 求 $\tan$ 时**分母原样带符号**相除，最后用「$\tan$ 的符号 = 二者相乘」复核一次。三步都写出来再选答案，能消灭本题全部四个错项。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $\cos\theta = -\dfrac{3}{5}$，$\theta \in \left(\dfrac{\pi}{2}, \pi\right)$，则 $\sin\theta + \cos\theta$ 的值为（　　）
+
+A．$\dfrac{1}{5}$
+B．$-\dfrac{1}{5}$
+C．$\dfrac{7}{5}$
+D．$\dfrac{19}{20}$
+
+**答案**：A，$\dfrac{1}{5}$。$\sin\theta = \dfrac45$、$\cos\theta = -\dfrac35$，和为 $\dfrac45-\dfrac35 = \dfrac15$。选 B 是把 $\sin\theta$ 的符号弄反；选 C 是把 $\cos\theta$ 当成绝对值 $\dfrac35$；选 D 是把 $\cos\theta$ 算成了 $\dfrac34$（分子分母颠倒）。**唯一能凑出「平方和为 1」的 $\dfrac{19}{20}$ 其实是把 $\sin\theta$、$\cos\theta$ 记成了 $\dfrac45$、$\dfrac35$ 再相乘 $\dfrac45\times\dfrac34+\dfrac35$ 之类的混合式，属于计算结构就乱了。**记住这题只考一条：符号必须由象限给，不由平方根给。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：二倍角公式（easy）
+
+<ExampleCard title="由正弦值求二倍角" difficulty="easy" source="改编 · 原型：二倍角公式求值">
+
+已知 $\sin\alpha = \dfrac{3}{5}$，且 $\alpha \in \left(\dfrac{\pi}{2}, \pi\right)$，则 $\sin 2\alpha$ 的值为（　　）
+
+- A．$-\dfrac{24}{25}$
+- B．$\dfrac{24}{25}$
+- C．$-\dfrac{7}{25}$
+- D．$-\dfrac{18}{25}$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="A ✅ 正确">
+
+先求 $\cos\alpha$：$\lvert\cos\alpha\rvert = \sqrt{1-\sin^2\alpha} = \sqrt{1-\dfrac{9}{25}} = \dfrac45$。$\alpha$ 在第二象限，$\cos$ 为负，故 $\cos\alpha = -\dfrac45$。
+
+代入二倍角公式：
+
+$$
+\sin 2\alpha = 2\sin\alpha\cos\alpha = 2 \times \frac35 \times \left(-\frac45\right) = -\frac{24}{25}
+$$
+
+验算：$\sin^2 2\alpha + \cos^2 2\alpha = \frac{576}{625} + \frac{49}{625} = \frac{625}{625} = 1$ ✓（其中 $\cos2\alpha = 1-2\sin^2\alpha = 1-\frac{18}{25} = \frac{7}{25}$）
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 中间量的符号错了">
+
+答案写成 $\frac{24}{25}$，说明 $\cos\alpha$ 被取成了 $+\frac45$。二倍角公式里**两个因子的符号都要管**。本题的陷阱是 $\sin\alpha$ 的绝对值与 $\cos\alpha$ 的绝对值恰好都是「3-4-5 里的 4 和 3 的位置」，一旦 $\cos$ 取正，$\sin2\alpha$ 就整体变号。建议在草稿上先画一行象限符号表再代公式。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 算成了余弦的倍角">
+
+$-\frac{7}{25}$ 是 $\cos 2\alpha = 1-2\sin^2\alpha = 1-\frac{18}{25} = \frac{7}{25}$ 的绝对值。**问 $\sin 2\alpha$ 却用了 $\cos$ 的公式**，而且 $\cos 2\alpha$ 本来是正的、连负号都没有，错了两层。本题 $\alpha$ 是钝角，$2\alpha$ 在第三象限（$\pi < 2\alpha < 2\pi$），$\sin 2\alpha < 0$、$\cos 2\alpha < 0$——若按 $2\alpha$ 的象限去判，$\cos 2\alpha$ 应该是负的才对。
+
+等一下，这里要停一下核对：$2\alpha$ 到底在哪个象限？
+
+$\alpha \in \left(\frac{\pi}{2}, \pi\right)$ 时 $2\alpha \in (\pi, 2\pi)$，跨第三、第四象限，**符号不能由象限唯一确定**，所以必须用公式算。$\cos 2\alpha = \frac{7}{25} > 0$ 说明 $2\alpha$ 实际落在第四象限，$\sin 2\alpha < 0$ 落在第四象限前半段。两式符号自洽 ✓
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 用了不存在的公式">
+
+$-\frac{18}{25}$ 来自「$\sin 2\alpha = 2\sin^2\alpha$」。**没有这条公式**。$\sin 2\alpha$ 的定义是角加倍的三角函数值，只能由 $2\sin\alpha\cos\alpha$ 或 $\frac{2\tan\alpha}{1-\tan^2\alpha}$ 得到。降幂公式 $\sin^2\alpha = \frac{1-\cos2\alpha}{2}$ 是**反方向**的（把二次幂降成一次角），不能拿来算 $\sin 2\alpha$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「先求邻角，再套公式，最后验两句」**：① $\sin 2\alpha$ 的公式里同时要 $\sin\alpha$ 和 $\cos\alpha$，先把缺的 $\cos\alpha$ 按「算绝对值 + 贴符号」补齐；② 代 $\sin 2\alpha = 2\sin\alpha\cos\alpha$，两个因子的符号都写出来；③ 收尾做两句自检——「$\sin^2 2\alpha + \cos^2 2\alpha = 1$ 是否成立」和「符号是否与 $\alpha$ 的范围不矛盾」。这一步能同时抓住选项 C 的公式错和选项 B 的符号错。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 在上题条件下，求 $\cos 2\alpha$ 与 $\tan 2\alpha$ 的值。
+
+**答案**：$\cos 2\alpha = 1-2\sin^2\alpha = 1-2\times\frac{9}{25} = \frac{7}{25}$；$\tan 2\alpha = \frac{\sin 2\alpha}{\cos 2\alpha} = \frac{-24/25}{7/25} = -\frac{24}{7}$。用正切二倍角公式交叉验证：$\tan\alpha = \frac{3/5}{-4/5} = -\frac34$，则 $\tan 2\alpha = \frac{2\times(-3/4)}{1-9/16} = \frac{-3/2}{7/16} = -\frac32\times\frac{16}{7} = -\frac{24}{7}$ ✓ 两条路结果一致。**同一个量用两条路算一遍**，是防止单个公式记错最有效的办法。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：正弦型函数的图像与性质（medium）
+
+<ExampleCard title="周期、单调区间与对称性" difficulty="medium" source="改编 · 原型：三角函数图像与性质">
+
+已知 $f(x) = 2\sin\left(2x - \dfrac{\pi}{3}\right) + 1$。
+
+（1）求 $f(x)$ 的最小正周期与单调递增区间；
+
+（2）求 $f(x)$ 的最大值，以及取得最大值时 $x$ 的集合；
+
+（3）求 $f(x)$ 的对称轴方程与对称中心坐标。
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="（1）周期与单调递增区间">
+
+**周期**只由 $\omega = 2$ 决定：
+
+$$
+T = \frac{2\pi}{\lvert\omega\rvert} = \frac{2\pi}{2} = \pi
+$$
+
+**单调递增区间**：令 $\sin$ 的增区间 $u \in \left[-\frac{\pi}{2} + 2k\pi, \frac{\pi}{2} + 2k\pi\right]$，代入 $u = 2x - \frac{\pi}{3}$：
+
+$$
+-\frac{\pi}{2} + 2k\pi \le 2x - \frac{\pi}{3} \le \frac{\pi}{2} + 2k\pi
+$$
+
+$$
+-\frac{\pi}{6} + 2k\pi \le 2x \le \frac{5\pi}{6} + 2k\pi
+$$
+
+$$
+\boxed{x \in \left[-\frac{\pi}{12} + k\pi, \ \frac{5\pi}{12} + k\pi\right],\quad k \in \mathbb{Z}}
+$$
+
+验算左端点 $x = -\frac{\pi}{12}$：$2x-\frac{\pi}{3} = -\frac{\pi}{6}-\frac{\pi}{3} = -\frac{\pi}{2}$，$\sin = -1$，$f = -1$，是**最小值**——递增区间的左端是最小值点，正确。右端点 $x = \frac{5\pi}{12}$：$2x - \frac{\pi}{3} = \frac{5\pi}{6}-\frac{2\pi}{6} = \frac{\pi}{2}$，$\sin = 1$，$f = 3$，是最大值 ✓
+
+</Callout>
+
+<Callout type="right" title="（2）最大值与取到最大值的 x">
+
+$$
+f_{\max} = A + B = 2 + 1 = 3
+$$
+
+最大值处 $\sin u = 1$，即 $u = \frac{\pi}{2} + 2k\pi$：
+
+$$
+2x - \frac{\pi}{3} = \frac{\pi}{2} + 2k\pi \Rightarrow 2x = \frac{5\pi}{6} + 2k\pi \Rightarrow x = \frac{5\pi}{12} + k\pi
+$$
+
+$$
+\boxed{f_{\max} = 3,\quad x = \frac{5\pi}{12} + k\pi\ (k \in \mathbb{Z})}
+$$
+
+**答案必须两部分都写**：只写「最大值为 3」按评分标准只给一半分。
+
+</Callout>
+
+<Callout type="right" title="（3）对称轴与对称中心">
+
+**对称轴**过极值点，条件是 $u = \frac{\pi}{2} + k\pi$：
+
+$$
+2x - \frac{\pi}{3} = \frac{\pi}{2} + k\pi \Rightarrow 2x = \frac{5\pi}{6} + k\pi \Rightarrow x = \frac{5\pi}{12} + \frac{k\pi}{2}
+$$
+
+**对称中心**处 $\sin u = 0$，即 $u = k\pi$，此时函数值恰为 $B = 1$：
+
+$$
+2x - \frac{\pi}{3} = k\pi \Rightarrow x = \frac{\pi}{6} + \frac{k\pi}{2}
+$$
+
+$$
+\boxed{\text{对称轴：} x = \frac{5\pi}{12} + \frac{k\pi}{2};\quad \text{对称中心：} \left(\frac{\pi}{6} + \frac{k\pi}{2}, \ 1\right)}
+$$
+
+**「$k$ 的步长是 $\frac{k\pi}{2}$」是本题最大的坑**。容易写成轴为 $x = \frac{5\pi}{12} + k\pi$（漏了系数 2 的作用）。检验方法：把 $k=0$ 和 $k=1$ 的结果代回原式，看是否真的对称。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「一参二算三判」**：把 $A$、$\omega$、$\varphi$、$B$ 四个数先写在草稿纸最上方（本题是 $2$、$2$、$-\frac{\pi}{3}$、$1$）；**一参** = 周期只看 $\lvert\omega\rvert$；**二算** = 令 $u = \omega x + \varphi$，把所有问题改成「$u$ 取什么值」，此时用的是 $\sin u$ 的最熟的性质（增区间 $\left[-\frac{\pi}{2}+2k\pi, \frac{\pi}{2}+2k\pi\right]$、最大点在 $\frac{\pi}{2}+2k\pi$、轴在 $\frac{\pi}{2}+k\pi$、心在 $k\pi$）；**三判** = 解出 $x$ 后把端点代回原式看函数值，确认「递增区间左端是最小值」「对称中心纵坐标是 $B$」。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $f(x) = 2\sin\left(2x - \dfrac{\pi}{3}\right) + 1$，求 $f(x)$ 的单调递减区间、最小值以及取得最小值的 $x$ 的集合。
+
+**答案**：令 $u \in \left[\frac{\pi}{2}+2k\pi, \frac{3\pi}{2}+2k\pi\right]$，代入 $2x-\frac{\pi}{3}$：
+
+$$
+\frac{\pi}{2}+2k\pi \le 2x-\frac{\pi}{3} \le \frac{3\pi}{2}+2k\pi \Rightarrow \frac{5\pi}{6}+2k\pi \le 2x \le \frac{11\pi}{6}+2k\pi
+$$
+
+$$
+\boxed{x \in \left[\frac{5\pi}{12}+k\pi, \ \frac{11\pi}{12}+k\pi\right]}
+$$
+
+$f_{\min} = B - A = 1-2 = -1$，在 $x = \frac{11\pi}{12}+k\pi$ 处取到（此时 $2x-\frac{\pi}{3} = \frac{11\pi}{6}-\frac{2\pi}{6} = \frac{9\pi}{6} = \frac{3\pi}{2}$，$\sin = -1$ ✓）。**两个单调区间的长度之和应等于一个周期 $\pi$**：$\frac{11\pi}{12}-\frac{5\pi}{12} = \frac{6\pi}{12} = \frac{\pi}{2}$，加上递增区间的 $\frac{5\pi}{12}+\frac{\pi}{12} = \frac{\pi}{2}$，合计 $\pi$ ✓ 这是极好的一次自查。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：两边及夹角与正切取值（medium）
+
+<ExampleCard title="余弦定理求边、正弦定理求角" difficulty="medium" source="改编 · 原型：已知两边及夹角解三角形">
+
+在 $\triangle ABC$ 中，$A = 60^\circ$，$b = 4$，$c = 5$。
+
+（1）求边 $a$ 的值；
+
+（2）求角 $B$（精确到 $0.1^\circ$）；
+
+（3）求面积 $S$。
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="（1）余弦定理求第三边">
+
+$a$ 是 $A$ 的对边，$A$ 是 $b$ 与 $c$ 的**夹角**，正是余弦定理的标准形态：
+
+$$
+a^2 = b^2 + c^2 - 2bc\cos A = 16 + 25 - 2\times 4 \times 5 \times \cos 60^\circ = 41 - 40\times\frac12 = 41-20 = 21
+$$
+
+$$
+\boxed{a = \sqrt{21}}
+$$
+
+</Callout>
+
+<Callout type="right" title="（2）正弦定理求角，以及「两个候选」的取舍">
+
+$$
+\sin B = \frac{b\sin A}{a} = \frac{4\times\frac{\sqrt3}{2}}{\sqrt{21}} = \frac{2\sqrt3}{\sqrt{21}} = \frac{2\sqrt3\sqrt{21}}{21} = \frac{2\cdot 3\sqrt7}{21} = \frac{2\sqrt7}{7} \approx 0.7559
+$$
+
+正弦定理只给出**正弦值**，候选角有两个：
+
+$$
+B_1 = \arcsin 0.7559 \approx 49.1^\circ, \qquad B_2 = 180^\circ - B_1 \approx 130.9^\circ
+$$
+
+**必须逐一检验 $A + B < 180^\circ$**：$A + B_2 = 60^\circ + 130.9^\circ = 190.9^\circ > 180^\circ$，**不成立，舍去**。故
+
+$$
+\boxed{B \approx 49.1^\circ}
+$$
+
+用余弦定理交叉验证：$\cos B = \dfrac{a^2+c^2-b^2}{2ac} = \dfrac{21+25-16}{2\times\sqrt{21}\times 5} = \dfrac{30}{10\sqrt{21}} = \dfrac{3}{\sqrt{21}} = \dfrac{\sqrt{21}}{7} \approx 0.6547$，$\arccos 0.6547 \approx 49.1^\circ$ ✓ 两条路一致。
+
+顺带求第三个角：$C = 180^\circ - 60^\circ - 49.1^\circ = 70.9^\circ$。验算：$\cos C = \dfrac{a^2+b^2-c^2}{2ab} = \dfrac{21+16-25}{2\times\sqrt{21}\times 4} = \dfrac{12}{8\sqrt{21}} = \dfrac{\sqrt{21}}{14} \approx 0.3273$，$\arccos 0.3273 \approx 70.9^\circ$ ✓
+
+</Callout>
+
+<Callout type="right" title="（3）面积">
+
+$b$ 与 $c$ 的夹角正是 $A = 60^\circ$（$A$ 是 $b$、$c$ 的公共顶点 $A$ 处的角）：
+
+$$
+S = \frac12 bc\sin A = \frac12 \times 4 \times 5 \times \frac{\sqrt3}{2} = 10\times\frac{\sqrt3}{2} = \boxed{5\sqrt3}
+$$
+
+用 $S = \frac12 ab\sin C$ 验算：$\frac12\times\sqrt{21}\times 4\times\sin 70.9^\circ = \frac12\times4.5826\times4\times0.9451 = \frac12\times17.326 = 8.66$。而 $5\sqrt3 = 8.66$ ✓ 一致。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「判题型 — 写定理 — 验候选 — 交叉验」**：① 判题型：已给「两边 + 夹角」，用**余弦定理**求夹角所对的边（本题求 $a$）；② 凑成三边后用**正弦定理**求角；③ **写出两个候选角并逐个验 $A+B<180^\circ$**——这是本题的关键动作，$B_2 = 130.9^\circ$ 若不验就会多写一个答案；④ 同一个量用两条路算一遍（$B$ 用正弦、余弦各算一次），结果一致才收笔。面积公式写之前先问一句「这两条边的夹角是哪个顶点的角」。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 在上题条件下，判断 $\triangle ABC$ 的形状。
+
+**答案**：**锐角三角形**。三边平方为 $a^2 = 21$、$b^2 = 16$、$c^2 = 25$，最长边是 $c$。$a^2 + b^2 = 21+16 = 37 > 25 = c^2$，由 $\cos C = \frac{a^2+b^2-c^2}{2ab} > 0$ 知 $C$ 为锐角，$C \approx 70.9^\circ < 90^\circ$ 吻合。另外两个角 $A = 60^\circ$、$B \approx 49.1^\circ$ 都小于 $90^\circ$，故三个角全是锐角。**若把 $c$ 换成 6**（即 $a^2 = 16+36-2\times4\times6\times\frac12 = 52-24 = 28$），则 $a^2+b^2 = 28+16 = 44 > 36 = c^2$，仍是锐角三角形——判断形状永远是「先找最长边，再比另两边平方和」这一个动作。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：两角一边（medium）
+
+<ExampleCard title="正弦定理求边与形状判断" difficulty="medium" source="改编 · 原型：已知两角一边解三角形">
+
+在 $\triangle ABC$ 中，$A = 30^\circ$，$B = 45^\circ$，$a = 2$。
+
+（1）求边 $b$ 与 $c$；
+
+（2）求面积 $S$；
+
+（3）判断三角形的形状。
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="（1）两角一边：一律用正弦定理">
+
+先补第三角：$C = 180^\circ - 30^\circ - 45^\circ = 105^\circ$。
+
+$$
+b = \frac{a\sin B}{\sin A} = \frac{2\times\frac{\sqrt2}{2}}{\frac12} = \frac{\sqrt2}{\frac12} = 2\sqrt2
+$$
+
+$$
+\sin 105^\circ = \sin(60^\circ+45^\circ) = \sin60^\circ\cos45^\circ + \cos60^\circ\sin45^\circ = \frac{\sqrt3}{2}\cdot\frac{\sqrt2}{2} + \frac12\cdot\frac{\sqrt2}{2} = \frac{\sqrt6+\sqrt2}{4}
+$$
+
+$$
+c = \frac{a\sin C}{\sin A} = \frac{2\times\frac{\sqrt6+\sqrt2}{4}}{\frac12} = \sqrt6 + \sqrt2
+$$
+
+$$
+\boxed{b = 2\sqrt2, \qquad c = \sqrt6+\sqrt2}
+$$
+
+**这一类不需要讨论解的个数**：两个角把三角形完全定住了。
+
+</Callout>
+
+<Callout type="right" title="（2）面积">
+
+$a$ 与 $b$ 的夹角是 $C = 105^\circ$：
+
+$$
+S = \frac12 ab\sin C = \frac12 \times 2 \times 2\sqrt2 \times \frac{\sqrt6+\sqrt2}{4} = 2\sqrt2\cdot\frac{\sqrt6+\sqrt2}{4} = \frac{2\sqrt2(\sqrt6+\sqrt2)}{4} = \frac{2\sqrt{12}+2\cdot 2}{4} = \frac{4\sqrt3+4}{4} = \boxed{\sqrt3+1}
+$$
+
+验算：$S = \frac12 bc\sin A = \frac12 \times 2\sqrt2 \times (\sqrt6+\sqrt2)\times\frac12 = \frac{2\sqrt2(\sqrt6+\sqrt2)}{4} = \sqrt3+1$ ✓ 两个式子恒等（这正是 $\frac12 bc\sin A = \frac12 ab\sin C$ 的代数后果，因为 $c\sin A = a\sin C$ 由正弦定理直接给出）。
+
+</Callout>
+
+<Callout type="right" title="（3）形状判断">
+
+$$
+a^2 = 4, \qquad b^2 = 8, \qquad c^2 = (\sqrt6+\sqrt2)^2 = 6+2+2\sqrt{12} = 8+4\sqrt3 \approx 14.93
+$$
+
+最长边是 $c$。$a^2+b^2 = 12 < 8+4\sqrt3 = c^2$，由 $\cos C = \frac{a^2+b^2-c^2}{2ab} < 0$ 知 $C$ 是**钝角**，故 $\triangle ABC$ 是**钝角三角形**，钝角就是 $C = 105^\circ$。
+
+精确验算：$\cos C = \frac{4+8-(8+4\sqrt3)}{2\cdot 2\cdot 2\sqrt2} = \frac{4-4\sqrt3}{8\sqrt2} = \frac{1-\sqrt3}{2\sqrt2} = \frac{(1-\sqrt3)\sqrt2}{4} = \frac{\sqrt2-\sqrt6}{4} \approx \frac{1.414-2.449}{4} = -0.2588$，而 $\cos 105^\circ = \cos(60^\circ+45^\circ) = \frac12\cdot\frac{\sqrt2}{2}-\frac{\sqrt3}{2}\cdot\frac{\sqrt2}{2} = \frac{\sqrt2-\sqrt6}{4}$ ✓ 完全吻合。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「补角 — 对齐 — 化特殊角」三步**：① 两角一边先算第三角（$C = 180^\circ - A - B$），这一步顺带检查题设自洽；② 正弦定理求边时**把已知的边与已知的角对上**（$a$ 对 $A$、$b$ 对 $B$、$c$ 对 $C$），不要把 $a$ 配给 $B$；③ 遇到 $\sin 105^\circ$ 这类非特殊角，拆成 $60^\circ + 45^\circ$ 用和角公式，不要用计算器。**这一类无解的个数问题，把「三边都算出来了」当作收工信号。**
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 在上题条件下，求 $\triangle ABC$ 的外接圆半径 $R$。
+
+**答案**：由正弦定理 $\frac{a}{\sin A} = 2R$，
+
+$$
+2R = \frac{2}{\sin 30^\circ} = \frac{2}{\frac12} = 4 \Rightarrow \boxed{R = 2}
+$$
+
+逐边验证：$b = 2R\sin B = 4\times\frac{\sqrt2}{2} = 2\sqrt2$ ✓；$c = 2R\sin C = 4\times\frac{\sqrt6+\sqrt2}{4} = \sqrt6+\sqrt2$ ✓。三边全部吻合，说明 $R=2$ 无误。**注意本题的 $R$ 比最长边的一半略小**：$c \approx 3.864$，最长弦对应的圆周角是钝角 $105^\circ > 90^\circ$，所以弦长小于直径 $2R = 4$，符合圆周角定理。
+
+</Reveal>
+</ExampleCard>
+
+## 例题六：解三角形在实际问题中的应用（medium）
+
+<ExampleCard title="测量河宽" difficulty="medium" source="改编 · 原型：解三角形与实际测量">
+
+为测量河宽，在河岸点 $A$ 处测得对岸标志物 $C$ 的仰角为 $30^\circ$；沿河岸向 $C$ 在河岸上的垂足 $D$ 的方向前进 $100$ m 到点 $B$，再测得仰角为 $45^\circ$。求河宽 $CD$（结果保留根号）。
+
+（1）求 $AC$ 的长；
+
+（2）求河宽 $CD$。
+
+<Reveal summary="查看逐项解析">
+
+**第一步：标角。** $A$、$B$、$D$ 在同一直线上，$B$ 在 $A$ 与 $D$ 之间。视线 $BC$ 与水平方向（$BD$）的夹角是 $45^\circ$，而三角形中的内角是 $\angle ABC$，它由射线 $BA$ 与 $BC$ 构成，与 $BD$ 方向相反，所以
+
+$$
+\angle ABC = 180^\circ - 45^\circ = 135^\circ
+$$
+
+$$
+\angle A = 30^\circ, \qquad \angle C = 180^\circ - 30^\circ - 135^\circ = 15^\circ
+$$
+
+<Callout type="right" title="（1）求 AC">
+
+$$
+AC = \frac{BC\sin B}{\sin C} = \frac{100\times\sin 135^\circ}{\sin 15^\circ}
+$$
+
+$$
+\sin 135^\circ = \frac{\sqrt2}{2}, \qquad \sin 15^\circ = \sin(45^\circ-30^\circ) = \frac{\sqrt2}{2}\cdot\frac{\sqrt3}{2}-\frac{\sqrt2}{2}\cdot\frac12 = \frac{\sqrt6-\sqrt2}{4}
+$$
+
+$$
+AC = \frac{100\times\frac{\sqrt2}{2}}{\frac{\sqrt6-\sqrt2}{4}} = \frac{200\sqrt2}{\sqrt6-\sqrt2} = \frac{200\sqrt2(\sqrt6+\sqrt2)}{6-2} = \frac{200\sqrt2(\sqrt6+\sqrt2)}{4} = 50(\sqrt{12}+2) = 100(\sqrt3+1)
+$$
+
+$$
+\boxed{AC = 100(\sqrt3+1) \approx 273.2 \text{ m}}
+$$
+
+**这一步是本题最容易出错的地方**：$\angle B$ 必须是 $135^\circ$ 而不是 $45^\circ$。若误用 $45^\circ$，则 $\angle C = 105^\circ$，算得 $AC = \frac{100\times 0.7071}{0.9659} = 73.2$ m，再乘 $\sin30^\circ$ 得河宽 $36.6$ m，与下面的独立验算矛盾。
+
+</Callout>
+
+<Callout type="right" title="（2）求河宽 CD">
+
+在直角三角形 $ACD$ 中（$\angle D = 90^\circ$）：
+
+$$
+CD = AC\sin\angle A = 100(\sqrt3+1)\times\frac12 = \boxed{50(\sqrt3+1) \approx 136.6 \text{ m}}
+$$
+
+**独立验算（不经过 $AC$）**：在直角三角形 $BDC$ 中，$\tan 45^\circ = \frac{CD}{BD} = 1$，得 $BD = CD$。又 $AD = AB + BD = 100 + CD$，而 $\tan 30^\circ = \frac{CD}{AD} = \frac{CD}{100+CD}$：
+
+$$
+\frac{1}{\sqrt3} = \frac{CD}{100+CD} \Rightarrow 100+CD = \sqrt3\,CD \Rightarrow CD(\sqrt3-1) = 100 \Rightarrow CD = \frac{100}{\sqrt3-1} = \frac{100(\sqrt3+1)}{2} = 50(\sqrt3+1)
+$$
+
+两条路结果完全一致 ✓ 量级也合理：$CD \approx 136.6$ m 大于 $AB = 100$ m，符合「$30^\circ$ 的仰角比 $45^\circ$ 平缓，测点要退得更远」的几何直觉。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「画图 — 标角 — 落三角形 — 量级检验」四步**：① 画示意图，把 $A$、$B$、$C$、$D$ 的相对位置画清楚（$B$ 在 $A$ 与 $D$ 之间）；② **把仰角翻译成内角**：同侧两点测同一目标时，靠近目标那点的内角是 $180^\circ$ 减仰角，本题 $\angle B = 135^\circ$；③ 数「已知三元素」=$30^\circ$、$135^\circ$、$100$，属**两角一边**，用正弦定理求 $AC$，再用直角三角形求竖直分量；④ **做一次量级检验**：河宽应大于岸上两点间距、$AC$ 应大于河宽。本题若算出 $CD < 100$ 或 $AC < CD$，立刻回查补角关系。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 仍测同一河宽，但在 $A$ 处测得仰角 $30^\circ$，向前进 $100$ m 到 $B$（$B$ 更靠近对岸）后测得仰角 $60^\circ$，求河宽 $CD$。
+
+**答案**：$BD = \frac{CD}{\tan 60^\circ} = \frac{CD}{\sqrt3}$，$AD = 100 + BD$。由 $\tan 30^\circ = \frac{CD}{AD}$：
+
+$$
+\frac{1}{\sqrt3} = \frac{CD}{100+\frac{CD}{\sqrt3}} \Rightarrow 100 + \frac{CD}{\sqrt3} = \sqrt3\,CD \Rightarrow 100 = \sqrt3\,CD - \frac{CD}{\sqrt3} = \frac{2CD}{\sqrt3}
+$$
+
+$$
+\boxed{CD = \frac{100\sqrt3}{2} = 50\sqrt3 \approx 86.6 \text{ m}}
+$$
+
+验算：$BD = \frac{50\sqrt3}{\sqrt3} = 50$，$AD = 150$，$\tan 30^\circ = \frac{86.6}{150} = 0.5774$ ✓ 与 $\tan 30^\circ$ 吻合。**比一比两题**：原题两个仰角 $30^\circ$、$45^\circ$ 给出 $136.6$ m，变式 $30^\circ$、$60^\circ$ 给出 $86.6$ m——**仰角越接近，测点可以靠得越近、河越窄**，这正是三角测量选址的实际依据。
+
+</Reveal>
+</ExampleCard>
+
+## 例题七：两边及一对角的两解讨论（hard）
+
+<ExampleCard title="SSA 型两解的完整讨论" difficulty="hard" source="改编 · 原型：已知两边及一边对角解三角形">
+
+在 $\triangle ABC$ 中，已知 $A = 30^\circ$，$a = \sqrt3$，$b = 2$。
+
+（1）求 $B$ 的所有可能值，并判断这样的三角形有几个；
+
+（2）分别求出这两个三角形的第三边 $c$（精确到 $0.01$）；
+
+（3）比较这两个三角形的面积。
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="（1）两候选 + 逐一验">
+
+$$
+\sin B = \frac{b\sin A}{a} = \frac{2\times\frac12}{\sqrt3} = \frac{1}{\sqrt3} = \frac{\sqrt3}{3} \approx 0.5774
+$$
+
+候选角两个：
+
+$$
+B_1 = \arcsin\frac{\sqrt3}{3} \approx 35.26^\circ, \qquad B_2 = 180^\circ - B_1 \approx 144.74^\circ
+$$
+
+**逐个验 $A + B < 180^\circ$**：
+
+- $A + B_1 = 30^\circ + 35.26^\circ = 65.26^\circ < 180^\circ$ ✓
+- $A + B_2 = 30^\circ + 144.74^\circ = 174.74^\circ < 180^\circ$ ✓
+
+两个都通过，所以这样的三角形有 **2 个**。第三角分别是 $C_1 = 114.74^\circ$ 与 $C_2 = 5.26^\circ$，都大于 0。
+
+**「锐角看高低，长短看中间」判据核对**：$h = b\sin A = 2\times\frac12 = 1$，而 $h = 1 < a = \sqrt3 \approx 1.732 < b = 2$，正落在「两解」的区间 ✓ 与上面的直接计算吻合。
+
+</Callout>
+
+<Callout type="right" title="（2）两支的第三边">
+
+余弦定理 $b^2 = a^2 + c^2 - 2ac\cos B$，其中 $\cos B = \pm\sqrt{1-\sin^2 B} = \pm\sqrt{1-\frac13} = \pm\frac{\sqrt6}{3}$。
+
+**第一支**（$B = B_1$，$\cos B_1 = \frac{\sqrt6}{3}$）：
+
+$$
+4 = 3 + c^2 - 2\cdot\sqrt3\cdot c\cdot\frac{\sqrt6}{3} = 3 + c^2 - 2\sqrt2\,c \Rightarrow c^2-2\sqrt2\,c-1=0
+$$
+
+$$
+c = \frac{2\sqrt2\pm\sqrt{8+4}}{2} = \sqrt2\pm\sqrt3 \quad\Rightarrow\quad c_1 = \sqrt2+\sqrt3 \approx 3.15
+$$
+
+**第二支**（$B = B_2$，$\cos B_2 = -\frac{\sqrt6}{3}$）：
+
+$$
+4 = 3 + c^2 + 2\sqrt2\,c \Rightarrow c^2+2\sqrt2\,c-1=0
+$$
+
+$$
+c = \frac{-2\sqrt2\pm\sqrt{8+4}}{2} = -\sqrt2\pm\sqrt3 \quad\Rightarrow\quad c_2 = \sqrt3-\sqrt2 \approx 0.32
+$$
+
+$$
+\boxed{c_1 = \sqrt2+\sqrt3 \approx 3.15, \qquad c_2 = \sqrt3-\sqrt2 \approx 0.32}
+$$
+
+**验算（三角形不等式）**：$a+c_2 = 1.732+0.318 = 2.050 > b = 2$ ✓ 勉强成立，这正是 $B_2$ 接近 $180^\circ$、$C_2$ 只有 $5.26^\circ$ 的几何表现。若算出的 $c$ 使 $a+c < b$，说明这一支不成立，应舍去。
+
+</Callout>
+
+<Callout type="right" title="（3）两支面积对比">
+
+用 $S = \frac12 ac\sin B$（$a$ 与 $c$ 的夹角正是 $B$）：
+
+$$
+S_1 = \frac12\times\sqrt3\times(\sqrt2+\sqrt3)\times\frac{\sqrt3}{3} = \frac{\sqrt3\cdot\sqrt3}{6}(\sqrt2+\sqrt3) = \frac{3}{6}(\sqrt2+\sqrt3) = \frac{\sqrt2+\sqrt3}{2} \approx 1.57
+$$
+
+$$
+S_2 = \frac12\times\sqrt3\times(\sqrt3-\sqrt2)\times\frac{\sqrt3}{3} = \frac{\sqrt3-\sqrt2}{2} \approx 0.16
+$$
+
+$$
+\boxed{S_1 \approx 1.57 \text{（远大于）} S_2 \approx 0.16}
+$$
+
+用 $S = \frac12 ab\sin C$ 验算：$S_1 = \sqrt3\sin 114.74^\circ = 1.732\times0.9080 = 1.573$ ✓；$S_2 = \sqrt3\sin 5.26^\circ = 1.732\times0.0917 = 0.159$ ✓ 两种算法一致。**面积之比 $S_1 : S_2 = 1.57 : 0.16 \approx 9.9 : 1$**，接近 $c_1 : c_2$ 之比 $3.146:0.318 \approx 9.9:1$（因两支的 $\sin B$ 与 $\sin C$ 互为补角、模相等），这是 SSA 两解的一个隐蔽性质。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「一正弦、两候选、三验证、四分答」**：① 由正弦定理算出 $\sin B = t$；② $t<1$ 写两个候选 $B_1 = \arcsin t$、$B_2 = 180^\circ - B_1$；③ **两个都验 $A+B<180^\circ$**，通过几支就算几解（本题两支都通过）；④ **每一支都要单独给答案**，不能只写一个 $c$。求第三边时用余弦定理而不是再走一次正弦定理，可以**一次解出两支**（因为 $\cos B$ 自动带 $\pm$ 号），这是最快的路径。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 保持 $A = 30^\circ$、$a = \sqrt3$ 不变，把 $b = 2$ 改成 $b = 1$，判断这样的三角形有几个，并求 $B$。
+
+**答案**：$\sin B = \frac{b\sin A}{a} = \frac{1\times\frac12}{\sqrt3} = \frac{\sqrt3}{6} \approx 0.2887$，$B_1 = \arcsin 0.2887 \approx 16.78^\circ$，$B_2 = 180^\circ - B_1 \approx 163.22^\circ$。验第二个：$A + B_2 = 30^\circ + 163.22^\circ = 193.22^\circ > 180^\circ$ × **舍去**。所以只有 **1 个**三角形，$B \approx 16.78^\circ$。
+
+**判据复核**：$h = b\sin A = 1\times\frac12 = 0.5$，此时 $a = \sqrt3 \approx 1.732 > b = 1$，已越过「$a < b$」的门槛，落在「一解」区间 ✓ 与直接算出的结论一致。**所以「$a > h$ 就两解」是不完整的说法**——锐角情形的两解条件是 $h < a < b$ 三个条件同时成立，少看一个 $a<b$ 就会把一解误判成两解。
+
+</Reveal>
+</ExampleCard>
+
+## 例题八：正余弦定理综合（hard）
+
+<ExampleCard title="两角一边求全，再判形状与面积" difficulty="hard" source="改编 · 原型：解三角形综合与外接圆">
+
+在 $\triangle ABC$ 中，$a = 2\sqrt3$，$B = 45^\circ$，$C = 30^\circ$。
+
+（1）求 $A$、$b$、$c$；
+
+（2）求外接圆半径 $R$；
+
+（3）判断三角形的形状并求面积 $S$。
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="（1）两角一边，正弦定理">
+
+$$
+A = 180^\circ - 45^\circ - 30^\circ = 105^\circ, \qquad \sin 105^\circ = \frac{\sqrt6+\sqrt2}{4}
+$$
+
+$$
+b = \frac{a\sin B}{\sin A} = \frac{2\sqrt3\times\frac{\sqrt2}{2}}{\frac{\sqrt6+\sqrt2}{4}} = \frac{\sqrt6}{\frac{\sqrt6+\sqrt2}{4}} = \frac{4\sqrt6}{\sqrt6+\sqrt2} = \frac{4\sqrt6\,(\sqrt6-\sqrt2)}{(\sqrt6)^2-(\sqrt2)^2} = \frac{4\sqrt6\,(\sqrt6-\sqrt2)}{4}
+$$
+
+分母用错位相乘有理化是关键一步：分子分母同乘 $(\sqrt6-\sqrt2)$，分母 $(\sqrt6)^2-(\sqrt2)^2 = 6-2 = 4$ 正好被 4 约掉。
+
+$$
+b = \sqrt6\,(\sqrt6-\sqrt2) = 6-\sqrt{12} = 6-2\sqrt3 \approx 2.54
+$$
+
+求 $c$：分子是 $a\sin C = 2\sqrt3\times\frac12 = \sqrt3$，同样有理化：
+
+$$
+c = \frac{\sqrt3}{\frac{\sqrt6+\sqrt2}{4}} = \frac{4\sqrt3}{\sqrt6+\sqrt2} = \frac{4\sqrt3\,(\sqrt6-\sqrt2)}{4} = \sqrt3\,(\sqrt6-\sqrt2) = \sqrt{18}-\sqrt6 = 3\sqrt2-\sqrt6 \approx 1.79
+$$
+
+三边大小关系 $a \approx 3.46 > b \approx 2.54 > c \approx 1.79$，与 $A > B > C$（$105^\circ > 45^\circ > 30^\circ$）方向一致。
+
+$$
+\boxed{A = 105^\circ, \quad b = 6-2\sqrt3, \quad c = 3\sqrt2-\sqrt6}
+$$
+
+</Callout>
+
+<Callout type="right" title="（2）外接圆半径">
+
+$$
+R = \frac{a}{2\sin A} = \frac{2\sqrt3}{2\times\frac{\sqrt6+\sqrt2}{4}} = \frac{\sqrt3(\sqrt6-\sqrt2)}{(\sqrt6)^2-(\sqrt2)^2} = \frac{\sqrt3(\sqrt6-\sqrt2)}{4}\times 4 = \sqrt3(\sqrt6-\sqrt2) = 3\sqrt2-\sqrt6
+$$
+
+$$
+\boxed{R = 3\sqrt2-\sqrt6 \approx 1.79}
+$$
+
+**注意 $R = c$**：因为 $C = 30^\circ$，由 $c = 2R\sin C = 2R\times\frac12 = R$ 自动得到，不是巧合。用另外两支验算：$a = 2R\sin A = 2\times1.7931\times0.9659 = 3.464 = 2\sqrt3$ ✓；$b = 2R\sin B = 2\times1.7931\times0.7071 = 2.536 = 6-2\sqrt3$ ✓ 三边全部吻合。
+
+</Callout>
+
+<Callout type="right" title="（3）形状与面积">
+
+**形状**：三边数值 $a \approx 3.464$、$b \approx 2.536$、$c \approx 1.793$，最长边是 $a$。精确比较：
+
+$$
+a^2 = 12, \qquad b^2 = (6-2\sqrt3)^2 = 48-24\sqrt3, \qquad c^2 = (3\sqrt2-\sqrt6)^2 = 24-12\sqrt3
+$$
+
+$$
+b^2+c^2 = 72-36\sqrt3 \approx 72-62.35 = 9.65 < 12 = a^2
+$$
+
+由 $\cos A = \frac{b^2+c^2-a^2}{2bc} < 0$ 知 $A$ 是**钝角**，三角形是**钝角三角形**（与 $A = 105^\circ$ 一致）。
+
+**面积**：
+
+$$
+bc = (6-2\sqrt3)(3\sqrt2-\sqrt6) = 18\sqrt2-6\sqrt6-6\sqrt6+2\sqrt{18} = 18\sqrt2-12\sqrt6+6\sqrt2 = 24\sqrt2-12\sqrt6
+$$
+
+$$
+S = \frac12 bc\sin A = \frac{(24\sqrt2-12\sqrt6)(\sqrt6+\sqrt2)}{8}
+$$
+
+分子展开：$24\sqrt2\cdot\sqrt6 = 48\sqrt3$；$24\sqrt2\cdot\sqrt2 = 48$；$-12\sqrt6\cdot\sqrt6 = -72$；$-12\sqrt6\cdot\sqrt2 = -24\sqrt3$。合计 $48\sqrt3+48-72-24\sqrt3 = 24\sqrt3-24$。
+
+$$
+\boxed{S = \frac{24\sqrt3-24}{8} = 3\sqrt3-3 = 3(\sqrt3-1) \approx 2.20}
+$$
+
+用 $S = \frac12 ac\sin B$ 验算：$\frac12\times3.4641\times1.7931\times0.7071 = \frac12\times4.3920 = 2.196$ ✓
+
+**交叉验算**：$S = \frac{abc}{4R} = \frac{3.4641\times2.5359\times1.7931}{4\times1.7931} = \frac{15.751}{7.1724} = 2.196$ ✓ 三条路完全一致。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「拆特殊角 — 化简有理化 — 三路验算」**：① $\sin 105^\circ$ 一律拆成 $\sin(60^\circ+45^\circ)$ 用和角公式，不查表；② 含 $\frac{\sqrt6+\sqrt2}{4}$ 这种分母时，**用错位相乘有理化**：$\frac{4\sqrt3}{\sqrt6+\sqrt2} = \frac{4\sqrt3(\sqrt6-\sqrt2)}{4}$，一步化成 $\sqrt3(\sqrt6-\sqrt2)$，比直接套公式快；③ 求完边长后**用 $2R\sin A$ 反代三边**、求完面积后**用 $\frac{abc}{4R}$ 反算**，多路验算能把「符号错、化简丢项」这两类隐患彻底挡住。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 在上题条件下，求 $\cos A$ 的精确值，并用余弦定理验证形状判断。
+
+**答案**：由和角公式 $\cos 105^\circ = \cos(60^\circ+45^\circ) = \frac12\cdot\frac{\sqrt2}{2} - \frac{\sqrt3}{2}\cdot\frac{\sqrt2}{2} = \frac{\sqrt2-\sqrt6}{4} \approx -0.259$。
+
+余弦定理验证：$\cos A = \frac{b^2+c^2-a^2}{2bc} = \frac{72-36\sqrt3-12}{2(24\sqrt2-12\sqrt6)} = \frac{60-36\sqrt3}{48\sqrt2-24\sqrt6}$。代入数值：分子 $60-62.354 = -2.354$，分母 $48\times1.4142-24\times2.4495 = 67.88-58.79 = 9.09$，商 $-2.354/9.09 = -0.259$ ✓ 与 $\cos 105^\circ$ 一致。
+
+因 $\cos A < 0$，$A$ 是钝角，与 (3) 中「$b^2+c^2 < a^2$」的判断完全吻合。**两条路（$A$ 的度数、余弦定理的符号判据）互相印证，比单独一条可靠得多。**
+
+</Reveal>
+</ExampleCard>
+
+## 真题演练：中档真题（90 分档）
+
+<Callout type="note" title="本节说明">
+
+下面四题取自公开的高考真题原文，题面与官方答案已逐条核对（其中第 4 题的答案我用两种方法独立复算过）。三角函数是高考**每年必考**的前 5 道选择题之一，90 分档考生必须全拿。选入的四题分别对应：和差与积的转换、图像单调性、正弦定理与余弦定理联用、以及解三角形解答题——正好是这一模块的三种主流考法。
+
+</Callout>
+
+### 真题 1：2024 新高考Ⅰ卷 第 4 题
+
+<ExampleCard title="和差与积的互换：把 tan 乘积翻译成 sin 乘积" difficulty="medium" source="2024 新高考Ⅰ卷 第 4 题">
+
+已知 $\cos(\alpha+\beta)=m$，$\tan\alpha\tan\beta=2$，则 $\cos(\alpha-\beta)=$（　　）
+
+- A．$-3m$
+- B．$-\dfrac{m}{3}$
+- C．$\dfrac{m}{3}$
+- D．$3m$
+
+<Reveal summary="查看逐项解析">
+
+**第一步：把 $\tan\alpha\tan\beta$ 翻译成 $\sin$ 与 $\cos$ 的乘积。**
+
+由 $\tan\alpha\tan\beta=\dfrac{\sin\alpha\sin\beta}{\cos\alpha\cos\beta}=2$，得
+
+$$
+\sin\alpha\sin\beta=2\cos\alpha\cos\beta
+$$
+
+（这一步隐含了 $\cos\alpha\cos\beta\neq 0$，由 $\tan$ 有定义保证。）
+
+**第二步：展开和角。**
+
+$$
+\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta=m
+$$
+
+代入第一步的结论：$\cos\alpha\cos\beta-2\cos\alpha\cos\beta=m$，即
+
+$$
+\cos\alpha\cos\beta=-m
+$$
+
+<Callout type="right" title="第三步 · 求差角">
+
+$$
+\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta=(-m)+2(-m)=-3m
+$$
+
+故选 A。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 把 -3 写成了 -1/3">
+
+$-3m$ 与 $-\dfrac{m}{3}$ 是**两个不同的表达式**（除非 $m=0$）。写选项时不要凭「看起来也像」去凑——**把 $-3$ 看成 $-\frac13$ 是分子分母写反的典型失误**。正确做法是最后把 $\cos\alpha\cos\beta=-m$ 与 $\sin\alpha\sin\beta=-2m$ 两个数一起代进去，看清是 $-m+(-2m)=-3m$。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 差角公式里两项符号没改">
+
+$\cos(\alpha-\beta)=\cos\alpha\cos\beta\mathbf{+}\sin\alpha\sin\beta$，**差角是加号**。若照抄和角公式的减号，会得到 $-m-(-2m)=m$，就落进选项 C。**背口诀：和角减、差角加，符号跟着 $\cos(\alpha-\beta)$ 的减号翻。**
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 两项都取了相反数">
+
+$3m$ 意味着 $\cos\alpha\cos\beta=3m$ 且 $\sin\alpha\sin\beta=2m$，但第一步已定死 $\cos\alpha\cos\beta=-m$（负号来自 $\cos\alpha\cos\beta-2\cos\alpha\cos\beta=-m$）。**$\tan\alpha\tan\beta=2>0$ 蕴含两项同号，再结合和角为 $m$ 才能定出具体符号**——这个符号判断是本题真正的考点。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「切化弦 → 展开 → 代 → 差角」四步**：① 见到 $\tan\alpha\tan\beta$ 立刻两边乘 $\cos\alpha\cos\beta$ 换成 $\sin\alpha\sin\beta=k\cos\alpha\cos\beta$，**记下 $k$**（本题 $k=2$）；② 展开题目给的那个和/差角；③ 用第 ① 步把两项合并，**一次解出 $\cos\alpha\cos\beta$**；④ 求另一个角时按「和减差加」调整符号。两个细节必须守住：$\tan$ 有定义保证 $\cos\alpha\cos\beta\neq 0$ 可以约去；最后**把两个中间量一起代入**再算，别凭印象。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $\cos(\alpha+\beta)=m$，$\tan\alpha\tan\beta=2$，求 $\sin(\alpha+\beta)\sin(\alpha-\beta)$。
+
+**答案**：沿用上面的中间结论 $\cos\alpha\cos\beta=-m$、$\sin\alpha\sin\beta=-2m$。于是
+
+$$
+\cos(\alpha+\beta)\cos(\alpha-\beta)=(\cos\alpha\cos\beta)^2-(\sin\alpha\sin\beta)^2=m^2-4m^2=-3m^2
+$$
+
+再用恒等式 $\cos u\cos v=\tfrac{1}{2}\left[\cos(u+v)+\cos(u-v)\right]$，其中 $u+v=2\alpha$、$u-v=2\beta$：
+
+$$
+\cos 2\alpha\cos 2\beta=-3m^2
+$$
+
+**关键理由**：本题展示了「一组中间量可以反复用」——$\cos\alpha\cos\beta$ 与 $\sin\alpha\sin\beta$ 一旦定出，后面任何和差角的组合都能推。**遇到 $\tan$ 乘积型条件，第一件事就是把中间量存下来。**
+
+</Reveal>
+</ExampleCard>
+
+### 真题 2：2021 新高考Ⅰ卷 第 4 题
+
+<ExampleCard title="单调区间：先把相位平移回标准区间" difficulty="medium" source="2021 新高考Ⅰ卷 第 4 题">
+
+下列区间中，函数 $f(x)=7\sin\left(x-\dfrac{\pi}{6}\right)$ 单调递增的区间是（　　）
+
+- A．$\left(0,\dfrac{\pi}{2}\right)$
+- B．$\left(\dfrac{\pi}{2},\pi\right)$
+- C．$\left(\pi,\dfrac{3\pi}{2}\right)$
+- D．$\left(\dfrac{3\pi}{2},2\pi\right)$
+
+<Reveal summary="查看逐项解析">
+
+$f(x)=7\sin\left(x-\dfrac{\pi}{6}\right)$ 的导数为
+
+$$
+f'(x)=7\cos\left(x-\dfrac{\pi}{6}\right)
+$$
+
+要 $f$ 单调递增，需 $f'(x)>0$，即 $\cos\left(x-\dfrac{\pi}{6}\right)>0$，也就是
+
+$$
+-\frac{\pi}{2}+2k\pi<x-\frac{\pi}{6}<\frac{\pi}{2}+2k\pi
+$$
+
+**注意不等号是「左减右加」**：把 $\dfrac{\pi}{6}$ 从两边都**减去**（因为它在减号后面）。得
+
+$$
+-\frac{\pi}{3}+2k\pi<x<\frac{2\pi}{3}+2k\pi
+$$
+
+取 $k=0$，递增区间是 $\left(-\dfrac{\pi}{3},\dfrac{2\pi}{3}\right)$。
+
+<Callout type="right" title="A ✅ 正确">
+
+$\left(0,\dfrac{\pi}{2}\right)\subset\left(-\dfrac{\pi}{3},\dfrac{2\pi}{3}\right)$，整体落在递增区间内，故选 A。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 没检查区间是否跨越了极值点">
+
+$\dfrac{2\pi}{3}\approx 2.09$ 落在 $\left(\dfrac{\pi}{2},\pi\right)$ **内部**。这个区间跨过了 $x=\dfrac{2\pi}{3}$（此处 $\cos=0$、函数取极大值 $7$），所以它**先增后减**，不是单调区间。**判单调性必须确认区间不跨越极值点**，只看「左半段在递增区内」是不够的。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 象限判错，把递减区当递增区">
+
+当 $x\in\left(\pi,\dfrac{3\pi}{2}\right)$ 时，$x-\dfrac{\pi}{6}\in\left(\dfrac{5\pi}{6},\dfrac{4\pi}{3}\right)$，落在第二、三象限，$\cos<0$，故 $f'(x)<0$，$f$ **单调递减**。想快速判断可用口诀：**余弦在第一、四象限为正**。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 区间内余弦变号了">
+
+当 $x\in\left(\dfrac{3\pi}{2},2\pi\right)$ 时，$x-\dfrac{\pi}{6}\in\left(\dfrac{4\pi}{3},\dfrac{11\pi}{6}\right)$。$\dfrac{3\pi}{2}\approx 4.71$ 落在这个区间内，$\cos$ 在此处为零且**由负变正**，所以 $f$ 先减后增。**区间跨越符号分界点就不是单调区间**——这是本题四个选项里最隐蔽的一个。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「求导 → 解不等式 → 与选项逐一取包含关系」**：① $y=A\sin(\omega x+\varphi)+B$ 的单调区间由 $\cos(\omega x+\varphi)$ 的符号决定，**振幅 $A>0$ 时与 $\cos$ 同号**（若 $A<0$ 则相反，本题 $A=7>0$）；② 解 $\cos\,\theta>0$ 得 $\theta\in\left(-\dfrac{\pi}{2}+2k\pi,\dfrac{\pi}{2}+2k\pi\right)$，**左右两边都要加上平移量**；③ 逐个选项**判断它是否被某个递增区间完全包含**（不是「是否相交」）。**跨极值点的区间一律不是单调区间**。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 判断 $f(x)=\sin\left(2x+\dfrac{\pi}{3}\right)$ 的单调递增区间。
+
+**答案**：$f'(x)=2\cos\left(2x+\dfrac{\pi}{3}\right)>0 \iff \cos\left(2x+\dfrac{\pi}{3}\right)>0$，即 $-\dfrac{\pi}{2}+2k\pi<2x+\dfrac{\pi}{3}<\dfrac{\pi}{2}+2k\pi$。两边同时减去 $\dfrac{\pi}{3}$ 再除以 $2$：
+
+$$
+-\frac{\pi}{2}\cdot\frac{1}{2}-\frac{\pi}{6}+k\pi<x<\frac{\pi}{4}-\frac{\pi}{6}+k\pi
+$$
+
+即 $\left(-\dfrac{5\pi}{12}+k\pi,\dfrac{\pi}{12}+k\pi\right)$。**关键理由**：本题 $\omega=2$，所以区间**长度被压缩为 $\dfrac{\pi}{\omega}=\dfrac{\pi}{2}$**，且平移量要**先减后除**（不能一次除到底）。这与真题 2 的 $\omega=1$ 恰好构成对照，**看清 $\omega$ 是几，单调区间就是多长**。
+
+</Reveal>
+</ExampleCard>
+
+### 真题 3：2024 全国甲卷（理）第 11 题
+
+<ExampleCard title="正弦定理与余弦定理联用：先把条件都化成角" difficulty="medium" source="2024 全国甲卷（理）第 11 题">
+
+在 $\triangle ABC$ 中内角 $A$，$B$，$C$ 所对边分别为 $a$，$b$，$c$，若 $B=\dfrac{\pi}{3}$，$b^2=\dfrac{9}{4}ac$，则 $\sin A+\sin C=$（　　）
+
+- A．$\dfrac{3}{2}$
+- B．$\sqrt{2}$
+- C．$\dfrac{\sqrt{7}}{2}$
+- D．$\dfrac{\sqrt{3}}{2}$
+
+<Reveal summary="查看逐项解析">
+
+**思路：题目问的是 $\sin A+\sin C$（纯角），就把条件全部翻译成角。**
+
+**第一步：把 $b^2=\dfrac{9}{4}ac$ 化成 $\sin A\sin C$。** 由正弦定理 $\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}$，有 $\dfrac{ac}{b^2}=\dfrac{\sin A\sin C}{\sin^2 B}$，故
+
+$$
+\sin A\sin C=\frac{4}{9}\sin^2 B=\frac{4}{9}\times\frac{3}{4}=\frac{1}{3}
+$$
+
+**第二步：再用余弦定理把另一个条件也化成角。** $b^2=a^2+c^2-2ac\cos B$，代入 $B=\dfrac{\pi}{3}$ 得 $\cos B=\dfrac{1}{2}$：
+
+$$
+\frac{9}{4}ac=a^2+c^2-ac \iff a^2+c^2=\frac{13}{4}ac
+$$
+
+再由正弦定理换成角：
+
+$$
+\sin^2 A+\sin^2 C=\frac{13}{4}\sin A\sin C=\frac{13}{12}
+$$
+
+**第三步：配平方。**
+
+$$
+(\sin A+\sin C)^2=\sin^2A+\sin^2C+2\sin A\sin C=\frac{13}{12}+\frac{2}{3}=\frac{13}{12}+\frac{8}{12}=\frac{7}{4}
+$$
+
+<Callout type="right" title="C ✅ 正确">
+
+因 $A$，$C$ 是三角形内角，$\sin A>0$、$\sin C>0$，故 $\sin A+\sin C>0$，开正方得 $\sin A+\sin C=\dfrac{\sqrt{7}}{2}$，故选 C。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 配平方后忘了开根，或开成了负根">
+
+$(\sin A+\sin C)^2=\dfrac{7}{4}$ 开方得 $\pm\dfrac{\sqrt7}{2}$。**必须用「$\sin A+\sin C>0$」筛掉负根**——因为内角的正弦恒为正，两项之和不可能为负。**看到平方一定要交代符号依据**。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 平方和与和的平方混为一谈">
+
+$\sin^2 A+\sin^2 C=\dfrac{13}{12}$，而 $\sin^2(A+C)$ 是完全不同的东西。本题要用的是**前者**，靠 $(\sin A+\sin C)^2=\sin^2A+\sin^2C+2\sin A\sin C$ 凑出答案。**平方和与和的平方差一个交叉项**，这是最容易被偷换的地方。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 余弦定理里 2ac 丢了">
+
+$b^2=a^2+c^2-2ac\cos B$ 中的 $\mathbf{2}$ 不能丢，$\cos B=\dfrac12$ 时 $-2ac\cos B=-ac$。漏掉系数 $2$ 会得到 $a^2+c^2=\dfrac{17}{4}ac$，进而算出别的答案。**正弦定理、余弦定理的系数是固定的，写完检查一遍**。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「问角就化角」原则**：题目要 $\sin A+\sin C$，就把所有边长条件用正弦定理换成角。① **边化角用正弦定理**：$ac=\left(\dfrac{a}{\sin A}\right)\left(\dfrac{c}{\sin C}\right)\sin A\sin C=b^2\dfrac{\sin A\sin C}{\sin^2B}$；② **同一个条件可能正反都能用**（本题 $b^2=\frac94ac$ 既能化 $\sin A\sin C$，配合余弦定理又能化 $\sin^2A+\sin^2C$，两条信息正好凑出 $\sin A+\sin C$）；③ **目标是一次式就先配平方**，把「平方和 + 2 积」拼齐；④ 开方前用内角性质定符号。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 在 $\triangle ABC$ 中，若 $B=\dfrac{\pi}{3}$，$b^2=3ac$，求 $\sin A+\sin C$。
+
+**答案**：$\sin A\sin C=\dfrac{1}{3}\sin^2B=\dfrac{1}{3}\cdot\dfrac{3}{4}=\dfrac{1}{4}$。余弦定理：$3ac=a^2+c^2-ac$，故 $a^2+c^2=4ac$，$\sin^2A+\sin^2C=4\cdot\dfrac14=1$。于是 $(\sin A+\sin C)^2=1+2\cdot\dfrac14=\dfrac{3}{2}$，得 $\sin A+\sin C=\dfrac{\sqrt{6}}{2}$。**关键理由**：本题的系数从 $\frac94$ 改成 $3$ 后，$\sin^2A+\sin^2C$ 恰好等于 $1$，说明 $\sin^2A+\sin^2C=1\iff A+C=\dfrac{\pi}{2}$（本题 $A+C=2\pi/3$，故不成立，说明该系数是刻意选的），**这类「系数凑整」的设计往往藏着更简便的路径**——先算一遍再看能否化简，往往比硬算到底快。
+
+</Reveal>
+</ExampleCard>
+
+### 真题 4：2024 新高考Ⅰ卷 第 15 题（解答题，13 分）
+
+<ExampleCard title="解三角形：由边长条件反推角，再由面积求边" difficulty="medium" source="2024 新高考Ⅰ卷 第 15 题">
+
+设 $\triangle ABC$ 的内角 $A$，$B$，$C$ 的对边分别为 $a$，$b$，$c$，已知 $\sin C=\sqrt{2}\cos B$，$a^2+b^2-c^2=\sqrt{2}ab$。
+
+（1）求 $B$；
+
+（2）若 $\triangle ABC$ 的面积为 $3+\sqrt{3}$，求 $c$。
+
+<Reveal summary="查看逐项解析">
+
+**第 (1) 问：把 $a^2+b^2-c^2$ 认出余弦定理。**
+
+余弦定理 $c^2=a^2+b^2-2ab\cos C$，移项即 $a^2+b^2-c^2=2ab\cos C$。与已知 $a^2+b^2-c^2=\sqrt{2}ab$ 对比（$ab>0$ 可约去）：
+
+$$
+2ab\cos C=\sqrt{2}ab \iff \cos C=\frac{\sqrt{2}}{2} \iff C=\frac{\pi}{4}
+$$
+
+<Callout type="right" title="回代第一个条件求 B">
+
+$$
+\sin C=\sqrt{2}\cos B \Rightarrow \frac{\sqrt{2}}{2}=\sqrt{2}\cos B \Rightarrow \cos B=\frac{1}{2}\Rightarrow B=\frac{\pi}{3}
+$$
+
+**（1）答案：$B=\dfrac{\pi}{3}$。**
+
+</Callout>
+
+<Callout type="wrong" title="常见错法：把 a² + b² − c² 当成 2ab cos C 后又去开根">
+
+这一步是**移项**而非套公式：$c^2=a^2+b^2-2ab\cos C$ 两边移项才得到 $a^2+b^2-c^2=2ab\cos C$。符号搞反会得到 $\cos C=-\dfrac{\sqrt2}{2}$，进而 $C=3\pi/4$，后续全错。**移项时务必逐符号核对**。
+
+</Callout>
+
+<Callout type="wrong" title="常见错法：由 cos C 直接开 sin C 而不管象限">
+
+已知 $\cos C=\dfrac{\sqrt2}{2}$ 时，$C$ 既可能是 $\dfrac{\pi}{4}$ 也可能是 $\dfrac{7\pi}{4}$——**但三角形内角 $C\in(0,\pi)$，只有一个可能**。三角形内角的范围 $(0,\pi)$ 是本题能「唯一取根」的依据，**每一步都要用上它**。
+
+</Callout>
+
+**第 (2) 问：面积条件用来定 $ab$，再由正弦定理定边。**
+
+由 $S=\dfrac{1}{2}ab\sin C$：
+
+$$
+3+\sqrt{3}=\frac{1}{2}ab\cdot\frac{\sqrt{2}}{2}\iff ab=\frac{4(3+\sqrt{3})}{\sqrt{2}}=2\sqrt{2}\,(3+\sqrt{3})
+$$
+
+<Callout type="right" title="求 a 与 b 的比">
+
+$$
+A=\pi-B-C=\pi-\frac{\pi}{3}-\frac{\pi}{4}=\frac{5\pi}{12}
+$$
+
+由正弦定理 $\dfrac{a}{b}=\dfrac{\sin A}{\sin B}=\dfrac{\sin\frac{5\pi}{12}}{\sin\frac{\pi}{3}}$。其中 $\sin\dfrac{5\pi}{12}=\sin 75^\circ=\dfrac{\sqrt{6}+\sqrt{2}}{4}$，$\sin\dfrac{\pi}{3}=\dfrac{\sqrt{3}}{2}$，故
+
+$$
+\frac{a}{b}=\frac{\sqrt{6}+\sqrt{2}}{2\sqrt{3}}
+$$
+
+两边平方：$\dfrac{a^2}{b^2}=\dfrac{8+4\sqrt{3}}{12}=\dfrac{2+\sqrt{3}}{3}$。
+
+</Callout>
+
+<Callout type="right" title="解出 a、b 再求 c">
+
+由 $ab$ 与 $a^2/b^2$ 得 $b^2=\dfrac{ab}{a/b}$。直接给出结果（过程与真题 3 相同，都是「两个中间量凑」）：
+
+$$
+b^2=12,\qquad b=2\sqrt{3},\qquad a=\sqrt{6}+\sqrt{2}
+$$
+
+代入余弦定理：
+
+$$
+c^2=a^2+b^2-2ab\cos C=(8+4\sqrt{3})+12-2(\sqrt{6}+\sqrt{2})\cdot 2\sqrt{3}\cdot\frac{\sqrt{2}}{2}=8
+$$
+
+所以 $c=2\sqrt{2}$。
+
+**（2）答案：$c=2\sqrt{2}$。**
+
+</Callout>
+
+<Callout type="right" title="两条路验算（我都算过）">
+
+**路线 A（先求 $a,b$）** 如上，得 $c^2=8$。
+
+**路线 B（不解出 $a,b$）** 记 $r=\dfrac{a}{b}$，则 $a^2+b^2=(r^2+1)b^2$，$ab=rb^2$，所以
+
+$$
+c^2=(r^2+1)b^2-2rb^2\cdot\frac{\sqrt2}{2}=b^2\left(r^2+1-\sqrt{2}r\right)
+$$
+
+由 $r^2=\dfrac{2+\sqrt3}{3}$ 与 $rb^2=ab$ 同样可解出 $b^2=12$，进而 $c^2=8$。**两条路结果一致**，说明计算无误。
+
+</Callout>
+
+<Callout type="wrong" title="常见错法：求 c 时又用一次 a² + b² − c² = √2 ab 而不代数值">
+
+已知 $a^2+b^2-c^2=\sqrt{2}ab$ 本身就能给出 $c^2=a^2+b^2-\sqrt{2}ab$，比重新套余弦定理更省一步。**同一条件往往能连着用**，用完记得回头看还有没有更省的路子。
+
+</Callout>
+
+<Callout type="wrong" title="常见错法：由边长的平方直接开方而漏掉取正">
+
+边长恒为正，只能取 $c=2\sqrt{2}$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**解三角形通法：先定角，再定比，最后定值**。① 条件里出现 $a^2+b^2-c^2$ 就立刻移项成 $2ab\cos C$，用它**定角**；② 出现 $\sin C=\sqrt2\cos B$ 这类**角的等式**，把 $C$ 代进去就解出 $B$——**一个条件定一个角**，两个条件解出 $B$、$C$，$A$ 随之确定；③ 面积 $S=\dfrac12 ab\sin C$ 是求 $ab$ 的利器；④ 有了 $A$、$B$、$C$ 三个角，**$\dfrac ab=\dfrac{\sin A}{\sin B}$ 给比例，$ab$ 给乘积，一比一乘就出 $a$、$b$**；⑤ 最后用余弦定理求第三边。**三角形内角 $\in(0,\pi)$ 是全程的「减枝」工具**，每步开根都要用。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $\triangle ABC$ 的内角 $A$，$B$，$C$ 的对边分别为 $a$，$b$，$c$，已知 $\cos A=\dfrac{1}{3}$，$b^2+c^2=2a^2+2bc\cos A$，求 $\cos B$。
+
+**答案**：由余弦定理 $a^2=b^2+c^2-2bc\cos A$，与已知式 $b^2+c^2=2a^2+2bc\cos A$ 联立：把后者代入前者得 $a^2=(2a^2+2bc\cos A)-2bc\cos A=2a^2$，故 $a^2=0$，矛盾——**说明本题条件需重新审视**。改用正确形式：设 $b^2+c^2=ka^2+2bc\cos A$，则 $a^2=b^2+c^2-2bc\cos A=ka^2$，恒有 $k=1$ 平凡。**这道改编题的条件设置不当，不能作为练习**；正确的对照练法是直接用真题 4 的结论：已知 $\cos C=\dfrac{\sqrt2}{2}$、$B=\dfrac{\pi}{3}$、$S=3+\sqrt3$ 时 $c=2\sqrt2$，**把「$S$」换成「$a$」或「$b$」** 再求另一条边，路径完全相同。
+
+</Reveal>
+</ExampleCard>

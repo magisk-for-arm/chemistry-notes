@@ -1,0 +1,214 @@
+---
+title: "平面向量与复数 · 考点解析"
+topic: "vector-complex"
+category: "exam-points"
+order: 2
+summary: "按线性运算、数量积、向量证明、解三角形、复数运算、复平面几何六类题型梳理考法与陷阱。"
+tags: ["考点", "选择题"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import Callout from '@/components/Callout.astro';
+
+## 题型一：向量的概念与线性运算（选择题）
+
+- **考频**：高频（几乎每次考试必考，常与复数同题出现）
+- **典型设问**：
+  - 「$\vec a = (1, -2)$，$\vec b = (3, 1)$，则 $\vec a + 2\vec b$ 等于（　　）」；
+  - 「已知 $\vec a = (1, 2)$，$\vec b = (2, k)$，若 $\vec a = \lambda \vec b$，求 $\lambda$ 或 $k$」；
+  - 「下列各组向量中相等向量是（　　）」；
+  - 「若 $\vec a = (2, -1)$，$\vec b = (1, 3)$，则 $\vec a \perp \vec b$ 吗」。
+- **核心考法**：坐标加减乘、以及「$\vec a = \lambda \vec b$ 意味着两向量**共线**」的转译。
+
+<Callout type="tip" title="得分要点">
+
+一律用**坐标法**兜底：$\vec a \pm \lambda \vec b = (x_1 \pm \lambda x_2,\ y_1 \pm \lambda y_2)$，两个分量分别算。看到 $\vec a = \lambda\vec b$ 先把它改写成「共线」，用行列式 $x_1y_2 - x_2y_1 = 0$ 解参数。取模时永远带**绝对值**，算完检查结果非负。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 1、2、3 条。
+
+</Callout>
+
+## 题型二：数量积、夹角、平行与垂直的判定（选择题 / 填空题）
+
+- **考频**：高频
+- **典型设问**：
+  - 「$\vec a = (1, 1)$，$\vec b = (1, -1)$，则 $\vec a$ 与 $\vec b$ 的夹角为（　　）」；
+  - 「已知 $\vec a = (m, 2)$，$\vec b = (1, n)$，若 $\vec a \perp \vec b$，则 $m + n$ 等于（　　）」；
+  - 「若 $\vec a \parallel \vec b$，则 $\lvert \vec a \rvert \lvert \vec b \rvert$ 与 $\vec a \cdot \vec b$ 的关系是（　　）」；
+  - 「在 $\triangle ABC$ 中，若 $\vec{AB} \cdot \vec{AC} = 0$，则三角形是（　　）」。
+- **核心考法**：给出坐标（或给出边长与夹角）求点积、模长、夹角，再用判据定平行垂直。
+
+<Callout type="formula" title="三个判据与一个公式">
+
+$$
+\begin{aligned}
+\vec a \cdot \vec b &= x_1x_2 + y_1y_2 = \lvert\vec a\rvert\lvert\vec b\rvert\cos\theta \\
+\cos\theta &= \frac{\vec a\cdot\vec b}{\lvert\vec a\rvert \lvert \vec b\rvert} \\
+\vec a \perp \vec b &\iff \vec a\cdot\vec b = 0 \iff x_1x_2 + y_1y_2 = 0 \\
+\vec a \parallel \vec b &\iff x_1y_2 - x_2y_1 = 0
+\end{aligned}
+$$
+
+**方向性结论**：$\vec a\parallel\vec b$ 且非零向量时 $\vec a\cdot\vec b = \pm\lvert\vec a\rvert\lvert\vec b\rvert$（同向为正、反向为负）；$\vec a\perp\vec b$ 时为 $0$。
+
+</Callout>
+
+<Callout type="tip" title="得分要点">
+
+① 题目问「夹角」时分子**不能加绝对值**，结果必须落在 $[-1, 1]$ 内；② 题目问「平行」用**减号**、问「垂直」用**加号**；③ 只给点积符号就能直接定性：正 → 锐角、零 → 直角、负 → 钝角，这一步能省大量计算；④ 「$\vec{AB}\cdot\vec{AC} = 0$」这类几何语言要先翻成「角 $A$ 是直角」，再看选项是不是「直角三角形」。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 3、4、5 条。
+
+</Callout>
+
+## 题型三：平面向量在三角形中的应用（解答题）
+
+- **考频**：高频（解答题第一问，常与第二问的解三角形连发）
+- **典型设问**：
+  - 「$D$、$E$ 分别是 $AB$、$AC$ 的中点，用向量证明 $DE \parallel BC$」；
+  - 「$M$ 是 $AB$ 的中点，$N$ 是 $BC$ 的中点，求 $\vec{ON}$ 关于 $\vec{OA}, \vec{OB}, \vec{OC}$ 的表示」；
+  - 「求 $\triangle ABC$ 重心的坐标（已知三个顶点坐标）」；
+  - 「已知 $\lvert\vec a\rvert = 2$，$\lvert\vec b\rvert = 3$，$\vec a$ 与 $\vec b$ 的夹角为 $120^\circ$，求 $\lvert \vec a + \vec b \rvert$」。
+- **核心考法**：把几何关系翻译成向量等式，再用加减运算与数量积把结论算出来。
+
+<Callout type="formula" title="三角形里的四个位置向量公式">
+
+$$
+\begin{aligned}
+\text{中点：}\quad \vec{OM} &= \frac{\vec{OA} + \vec{OB}}{2} \\
+\text{重心：}\quad \vec{OG} &= \frac{\vec{OA} + \vec{OB} + \vec{OC}}{3} \\
+\text{内心：}\quad \vec{OI} &= \frac{a\vec{OA} + b\vec{OB} + c\vec{OC}}{a+b+c} \quad (a,b,c \text{ 是对边长}) \\
+\text{面积：}\quad S &= \frac{1}{2}\left|x_1y_2 - x_2y_1\right|
+\end{aligned}
+$$
+
+</Callout>
+
+<Callout type="tip" title="得分要点">
+
+**「先写位置向量，再做运算」**：把题目里所有点都用 $\vec{OA}, \vec{OB}, \vec{OC}$ 表示（坐标法直接给坐标），再把待证的结论翻译成向量等式，最后用加减与点积完成推导。证平行时把结论化成「存在实数 $\lambda$ 使两向量成倍数」，或直接用行列式为零；证垂直时化成点积为零。注意 $\vec a = \vec b$ 型问题要先判方向（反向也是共线）。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 1、4、6 条。
+
+</Callout>
+
+## 题型四：解三角形与余弦定理的向量证明（解答题）
+
+- **考频**：高频
+- **典型设问**：
+  - 「在 $\triangle ABC$ 中，$a = 3$，$b = 4$，$\angle C = 60^\circ$，求 $c$」；
+  - 「用向量运算证明余弦定理 $c^2 = a^2 + b^2 - 2ab\cos C$」；
+  - 「已知 $\vec a \cdot\vec b = -3$，$\lvert\vec a\rvert = 2$，$\lvert\vec b\rvert = 3$，求夹角」。
+- **核心考法**：从 $\vec a + \vec b + \vec c = \vec 0$ 出发，两边取模平方得到余弦定理。
+
+<Callout type="formula" title="向量法推导余弦定理的三行">
+
+$$
+\vec c = -\vec a - \vec b
+\quad\Longrightarrow\quad
+c^2 = \left|\vec a + \vec b\right|^2 = a^2 + b^2 + 2\vec a\cdot\vec b
+$$
+
+$$
+\vec a = \overrightarrow{BC} \text{ 与 } \vec b = \overrightarrow{CA} \text{ 的夹角为 } \pi - C
+\quad\Longrightarrow\quad
+\vec a\cdot\vec b = ab\cos(\pi - C) = -ab\cos C
+$$
+
+$$
+\Rightarrow\quad c^2 = a^2 + b^2 - 2ab\cos C
+$$
+
+</Callout>
+
+<Callout type="tip" title="得分要点">
+
+写证明前先在草稿上**标出三个向量的方向**，这一步决定了点积的正负号。算完用「三角形不等式」自检：必须有 $\lvert a - b\rvert \le c \le a + b$，若算出的 $c$ 越界，一定是符号错了。求具体边长时优先用 $\cos C = \frac{a^2 + b^2 - c^2}{2ab}$ 变出 $\cos C$ 再代特殊角，比硬算 $c$ 更省。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 5、7 条。
+
+</Callout>
+
+## 题型五：复数的运算与分类（选择题）
+
+- **考频**：高频（与向量同题，常出现在卷子的中后段）
+- **典型设问**：
+  - 「$\dfrac{1 + i}{1 - i}$ 等于（　　）」；
+  - 「$i^{2027}$ 等于（　　）」；
+  - 「下列各数中为纯虚数的是（　　）」；
+  - 「已知 $z = 1 + 2i$，$\overline z$ 等于（　　）」；
+  - 「设 $z = \frac{1 - i}{1 + i}$，则 $z + \overline z$ 等于（　　）」；
+  - 「若 $z$ 是纯虚数，则 $z^2$ 一定是（　　）」。
+- **核心考法**：考 $i$ 的幂（周期 4）、四则运算、共轭、分类边界四件事。
+
+<Callout type="formula" title="四个必背式子">
+
+$$
+i^{4k} = 1, \quad i^{4k+1} = i, \quad i^{4k+2} = -1, \quad i^{4k+3} = -i
+$$
+
+$$
+(a+bi)(c+di) = (ac - bd) + (ad + bc) i
+$$
+
+$$
+\frac{a+bi}{c+di} = \frac{(a+bi)(c-di)}{c^2+d^2} = \frac{ac+bd + (bc-ad) i}{c^2+d^2}
+$$
+
+$$
+z + \overline z = 2a, \qquad z - \overline z = 2bi, \qquad z \cdot \overline z = |z|^2 = a^2 + b^2
+$$
+
+</Callout>
+
+<Callout type="tip" title="得分要点">
+
+① $i$ 的幂**只看指数除以 4 的余数**（$2027 = 4 \times 506 + 3$，故 $i^{2027} = -i$）；② 除法固定两步：同乘共轭、分母变 $c^2 + d^2$；③ 算完把结果**乘回原分母**验算，能拦下九成符号错；④ 看到「纯虚数」立刻补条件「$b \ne 0$」。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 8、9 条。
+
+</Callout>
+
+## 题型六：复平面的几何意义（填空题 / 解答题）
+
+- **考频**：中频（小题为主，偶考轨迹方程）
+- **典型设问**：
+  - 「复数 $z$ 在复平面内对应的点为 $Z$，则 $z$ 与 $\overline z$ 的对应点关于（　　）对称」；
+  - 「设复数 $z$ 满足 $\lvert z - 1\rvert = \lvert z + i\rvert$，则 $z$ 对应点的轨迹是（　　）」；
+  - 「已知 $\lvert z_1 \rvert = 2$，$\lvert z_2 \rvert = 3$，求 $\lvert z_1 + z_2\rvert$ 的取值范围」；
+  - 「若 $z$ 满足 $\lvert z \rvert = 2$ 且 $z + \frac{1}{z}$ 为实数，求 $z$」。
+- **核心考法**：设 $z = x + yi$，把模长条件翻译成 $x, y$ 的方程，再用直线 / 圆的标准形式识别轨迹。
+
+<Callout type="tip" title="得分要点">
+
+**「设元翻译」三步**：① 设 $z = x + yi$（或 $z = a + bi$）；② 把 $\lvert z - 1\rvert = \lvert z + i\rvert$ 这类条件两边**平方**去掉根号（模长非负，平方不丢信息），整理成 $x, y$ 的一次方程；③ 识别成直线 / 圆 / 椭圆的标准形式并作答。模长条件 $\lvert z \rvert = 2$ 直接对应 $x^2 + y^2 = 4$，是圆。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 9、10 条。
+
+</Callout>

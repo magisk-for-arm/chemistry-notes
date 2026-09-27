@@ -1,0 +1,726 @@
+---
+title: "平面向量与复数 · 典型例题"
+topic: "vector-complex"
+category: "examples"
+order: 5
+summary: "8 道典型例题分三层递进：基础巩固、高考同款、较难突破，含逐项解析与变式训练。"
+tags: ["例题", "计算题", "高考真题"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一～三打基础（数量积与夹角、基底分解、平行垂直判定），例题四～六是高考同款（三角形中的位置向量、余弦定理的向量证明、复数四则运算），例题七～八冲高分（复平面的模与轨迹方程、复数综合条件）。建议先做题再看解析，每题的「方法复盘」是接题套路，「变式训练」检验是否真会。
+
+</Callout>
+
+## 例题一：数量积与夹角（easy）
+
+<ExampleCard title="两向量的夹角余弦值" difficulty="easy" source="改编 · 原型：数量积求夹角">
+
+已知 $\vec a = (2, 1)$，$\vec b = (1, -1)$，则 $\vec a$ 与 $\vec b$ 的夹角 $\theta$ 的余弦值是（　　）
+
+- A．$\dfrac{\sqrt{2}}{2}$
+- B．$\dfrac{\sqrt{10}}{10}$
+- C．$\dfrac{\sqrt{5}}{5}$
+- D．$\dfrac{1}{3}$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="B ✅ 正确：完整计算">
+
+**第一步，求点积。** 坐标式 $\vec a \cdot \vec b = 2 \times 1 + 1 \times (-1) = 2 - 1 = 1$。
+
+**第二步，求两个模长。** $\lvert \vec a \rvert = \sqrt{2^2 + 1^2} = \sqrt{5}$，$\lvert \vec b \rvert = \sqrt{1^2 + (-1)^2} = \sqrt{2}$。
+
+**第三步，代夹角公式。**
+
+$$
+\cos\theta = \frac{\vec a \cdot \vec b}{\lvert \vec a \rvert \lvert \vec b \rvert} = \frac{1}{\sqrt{5} \times \sqrt{2}} = \frac{1}{\sqrt{10}} = \frac{\sqrt{10}}{10}
+$$
+
+**第四步，验算。** $\frac{\sqrt{10}}{10} \approx 0.316$ 落在 $(-1, 1)$ 内，且点积为正、对应**锐角**，与结果一致。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 分母写成了模长之和">
+
+若分母误写成 $\lvert \vec a \rvert + \lvert \vec b \rvert$，得 $\frac{1}{\sqrt5 + \sqrt2} \approx \frac{1}{3.65} \approx 0.274$；更常见的错法是直接算 $\frac{1}{\sqrt{5} + \sqrt{2}}$ 后约成 $\frac{\sqrt2}{2}$ 之类。夹角公式的定义是 $\cos\theta = \frac{\lvert \vec a\rvert\lvert\vec b\rvert\cos\theta}{\lvert\vec a\rvert\lvert\vec b\rvert}$，分母是两个模长的**乘积**，不是和。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 漏算了一个分量的平方">
+
+若 $\lvert \vec b \rvert$ 算成 $\sqrt{1^2 + 1^2}$ 是对的，但点积算成 $2 \times 1 + 1 \times 1 = 3$（把 $b$ 的第二分量当成 $+1$），得 $\frac{3}{\sqrt{10}} = \frac{3\sqrt{10}}{10} \approx 0.949$；若再把分母算成 $\sqrt{5} + \sqrt{2}$ 的形式就更容易凑到 $\frac{\sqrt5}{5}$。本题的坑在于 $\vec b$ 的第二分量是 **$-1$**，点积里是「$1 \times (-1)$」。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 用到了错误的平行垂直判据">
+
+$\frac{1}{3} \approx 0.333$ 与把分母当成 $3$（即 $\lvert \vec a\rvert \cdot \lvert \vec b\rvert$ 误算成 $2 \times 1$ 或 $1 \times 3$）有关。模长要用**平方和开根**：$\lvert \vec a\rvert^2 = 5$，不能拆成 $2 + 1$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「积、不带号、验范围」三查**：① 分母是 $\lvert \vec a\rvert\lvert \vec b\rvert$ 的**积**，写完确认中间是乘号；② 分子**保留符号**——点积为负就说明是钝角，乱加绝对值会把锐钝颠倒；③ 结果必须落在 $[-1, 1]$ 内。本题分母 $\sqrt{10}$ 要**有理化**成 $\frac{\sqrt{10}}{10}$ 再对照选项，直接写 $\frac{1}{\sqrt{10}}$ 会找不到对应项。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $\vec a = (1, 0)$，$\vec b = (-1, 1)$，则 $\vec a$ 与 $\vec b$ 的夹角 $\theta$ 等于（　　）
+
+A．$30^\circ$　　B．$45^\circ$　　C．$90^\circ$　　D．$135^\circ$
+
+**答案**：D。$\vec a \cdot \vec b = 1 \times (-1) + 0 \times 1 = -1 < 0$，所以夹角是钝角。$\lvert \vec a \rvert = 1$，$\lvert \vec b \rvert = \sqrt{2}$，$\cos\theta = \frac{-1}{1 \times \sqrt{2}} = -\frac{\sqrt{2}}{2}$，即 $\theta = 135^\circ$。**关键理由**：分子若误加绝对值会得 $\frac{\sqrt2}{2}$ 而答成 $45^\circ$，锐钝完全颠倒。只要点积符号已知，就可以不计算直接定性：正为锐角、零为直角、负为钝角。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：向量的线性组合与基底分解（easy）
+
+<ExampleCard title="把向量分解为另两个向量的线性组合" difficulty="easy" source="改编 · 原型：平面向量基本定理">
+
+已知 $\vec u = (1, 2)$，$\vec v = (3, -1)$，$\vec w = (0, 4)$。
+
+（1）求 $\vec u \cdot \vec v$ 与 $\lvert \vec u \rvert$；
+（2）设 $\vec w = x\vec u + y\vec v$，求实数 $x, y$ 的值。
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="（1）点积与模长">
+
+$$
+\vec u \cdot \vec v = 1 \times 3 + 2 \times (-1) = 3 - 2 = 1
+$$
+
+$$
+\lvert \vec u \rvert = \sqrt{1^2 + 2^2} = \sqrt{5}
+$$
+
+顺带一提 $\lvert \vec v \rvert = \sqrt{3^2 + (-1)^2} = \sqrt{10}$，两者的点积为 $1 \ne 0$，所以 $\vec u$ 与 $\vec v$ 既不共线也不垂直。
+
+</Callout>
+
+<Callout type="right" title="（2）基底分解化为方程组">
+
+把 $\vec w = x\vec u + y\vec v$ 按分量写出：
+
+$$
+(0, 4) = x(1, 2) + y(3, -1) = (x + 3y,\ 2x - y)
+$$
+
+得到二元一次方程组
+
+$$
+\begin{cases} x + 3y = 0 \\ 2x - y = 4 \end{cases}
+$$
+
+由第一式得 $x = -3y$，代入第二式：$-6y - y = 4$，解得 $y = -\frac{4}{7}$，再得 $x = \frac{12}{7}$。
+
+$$
+\vec w = \frac{12}{7}\vec u - \frac{4}{7}\vec v
+$$
+
+</Callout>
+
+<Callout type="right" title="唯一性检验与回代">
+
+**唯一性**：基底 $\lvert\vec u\rvert$ 与 $\lvert\vec v\rvert$ 不共线，等价于行列式不为零。这里
+
+$$
+\Delta = 1 \times (-1) - 2 \times 3 = -1 - 6 = -7 \ne 0
+$$
+
+故分解**唯一存在**。
+
+**回代验算**：$\frac{12}{7}(1,2) - \frac{4}{7}(3,-1) = \left(\frac{12}{7} - \frac{12}{7},\ \frac{24}{7} + \frac{4}{7}\right) = (0, \frac{28}{7}) = (0, 4) = \vec w$，两个分量都对上了。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「分解即解方程组」**：平面向量基本定理保证「不共线的两个向量作基底时，任意向量的表示唯一」。所以第 (2) 问的标准动作是：① 把等式按**分量**写成方程组（不要去凑几何图形）；② 解方程组；③ **算行列式** $\Delta = x_1y_2 - x_2y_1$ 确认基底不共线，否则分解不唯一；④ 回代验算两个分量。分子分母为无理数时，最后记得**有理化**（如 $\frac{1}{\sqrt{10}} = \frac{\sqrt{10}}{10}$）。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $\vec u = (1, 2)$，$\vec w = (0, 4)$，求 $\vec w$ 在 $\vec u$ 方向上的投影向量。
+
+**答案**：投影向量公式为 $\mathrm{proj}_{\vec u}\vec w = \dfrac{\vec w \cdot \vec u}{\lvert \vec u \rvert^2}\vec u$。其中
+
+$$
+\vec w \cdot \vec u = 0 \times 1 + 4 \times 2 = 8, \qquad \lvert \vec u \rvert^2 = 1^2 + 2^2 = 5
+$$
+
+$$
+\mathrm{proj}_{\vec u}\vec w = \frac{8}{5}(1, 2) = \left(\frac{8}{5}, \frac{16}{5}\right)
+$$
+
+验算：投影向量应与 $\vec u$ 平行，$\frac{8/5}{1} = \frac{16/5}{2} = \frac{8}{5}$；且 $\frac{8}{5}(1,2) \cdot (1,2) = \frac{8}{5} \times 5 = 8 = \vec w \cdot \vec u$。**关键理由**：分母是**模长的平方**（即 $5$），不是模长（$\sqrt{5}$）——这是投影公式最常见的失分点。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：平行与垂直的判定（easy）
+
+<ExampleCard title="由共线条件求参数" difficulty="easy" source="改编 · 原型：向量平行的坐标判定">
+
+已知 $\vec a = (1, -2)$，$\vec b = (3, k)$，若 $\vec a \parallel \vec b$，则 $k = $（　　）
+
+- A．$6$
+- B．$-6$
+- C．$-\dfrac{2}{3}$
+- D．$\dfrac{1}{3}$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="B ✅ 正确：完整推理">
+
+平面向量平行的坐标判定式是**行列式为零**：
+
+$$
+x_1 y_2 - x_2 y_1 = 0
+$$
+
+代入 $\vec a = (1, -2)$、$\vec b = (3, k)$：
+
+$$
+1 \times k - 3 \times (-2) = k + 6 = 0 \quad \Rightarrow \quad k = -6
+$$
+
+**验算**：$k = -6$ 时 $\vec b = (3, -6) = 3(1, -2) = 3\vec a$，确实是 $\vec a$ 的**正**倍数，故同向平行，成立。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 符号错，漏了第二分量的负号">
+
+$k = 6$ 的来源是把行列式写成 $x_1y_2 + x_2y_1 = k - 6 = 0$。注意 $\vec a$ 的第二分量是 $-2$，所以 $-x_2y_1 = -3 \times (-2) = +6$，判据里是「**减**」号，第二项变成正数，才得到 $k + 6$。判据是 $x_1y_2 - x_2y_1$，写成加号就整体错位。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 用了垂直判据与「求比值」混搭">
+
+$k = -\frac{2}{3}$ 的来源是解 $1 \times 3 + (-2)k = 0$ 得 $k = \frac{3}{2}$ 后再取倒数或交叉相除。$3 - 2k = 0$ 是**垂直**判据（点积为零），解出 $k = \frac{3}{2}$；而 $-\frac{2}{3}$ 来自把 $\frac{y_1}{x_1} = \frac{y_2}{x_2}$ 交叉相乘时符号搞反，即 $-2k = 3$。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 把平行当成「坐标成比例」而漏了符号">
+
+$k = \frac{1}{3}$ 对应 $\vec b = \left(3, \frac{1}{3}\right)$，此时 $\frac{3}{1} = 3$ 而 $\frac{1/3}{-2} = -\frac{1}{6}$，两个比值不等，并不平行。它是 $\frac{x_2}{x_1} = \frac{3}{1}$ 与 $\frac{y_2}{y_1} = \frac{k}{-2}$ 混算的产物。**注意**：判据必须用「**交叉**相乘」，不能直接拿同一个分量的比值。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「一叉一点，各管一头」**：写判定式之前先圈出题目里的符号——看到 $\parallel$ 写**减号** $x_1y_2 - x_2y_1 = 0$，看到 $\perp$ 写**加号** $x_1x_2 + y_1y_2 = 0$；两个式子都是「交叉相乘」。写完立刻做**代回检验**：求出 $k$ 后，找一个 $\lambda$ 满足 $\vec a = \lambda\vec b$（本题 $\lambda = 3$）来确认平行；或算一遍点积看是否为 $0$ 来确认垂直。另外**平行包含反向**，$\vec a = -2\vec b$ 也算平行，只有垂直才是等于零。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $\vec a = (1, -2)$，$\vec b = (3, k)$。
+
+（1）若 $\vec a \perp \vec b$，求 $k$；（2）若 $\vec a \parallel \vec b$，求 $\lvert \vec a \rvert \lvert \vec b \rvert$ 与 $\vec a \cdot \vec b$ 的关系。
+
+**答案**：（1）垂直用点积：$1 \times 3 + (-2) \times k = 0$，即 $3 - 2k = 0$，得 $k = \frac{3}{2}$。（2）平行时 $\vec b = 3\vec a$（同向），故 $\lvert \vec b \rvert = 3\lvert \vec a \rvert$，点积 $\vec a \cdot \vec b = 3\lvert \vec a \rvert^2 = \lvert \vec a \rvert \lvert \vec b \rvert$，即**同向平行时点积等于两模长之积**。若两向量反向平行（本例中若取 $k$ 使 $\vec b = -3\vec a$，则 $k = 6$），点积为 $-\lvert \vec a \rvert \lvert \vec b \rvert$。**关键理由**：由定义式 $\vec a\cdot\vec b = \lvert\vec a\rvert\lvert\vec b\rvert\cos\theta$，平行时 $\cos\theta$ 只能取 $\pm 1$，正号对应同向、负号对应反向。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：三角形中的位置向量（medium）
+
+<ExampleCard title="中点、重心与内心的向量表示" difficulty="medium" source="改编 · 原型：向量在三角形中的应用">
+
+设 $\triangle ABC$ 中，$D, E$ 分别是 $AB, AC$ 的中点，$G$ 是三角形的重心，$I$ 是内心。取 $A$ 为原点，记 $\vec{AB} = \vec a$，$\vec{AC} = \vec b$，$a = \lvert BC\rvert$，$b = \lvert CA\rvert$，$c = \lvert AB\rvert$。
+
+（1）用 $\vec a, \vec b$ 表示 $\vec{DE}$，并由此说明 $DE$ 与 $BC$ 的关系；
+（2）用 $\vec a, \vec b$ 表示 $\vec{AG}$；
+（3）用 $\vec a, \vec b, a, b, c$ 表示 $\vec{AI}$。
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="（1）中位线：同起点两向量相减等于终点之差">
+
+中点公式给出 $\vec{AD} = \frac{1}{2}\vec a$，$\vec{AE} = \frac{1}{2}\vec b$。于是
+
+$$
+\vec{DE} = \vec{AE} - \vec{AD} = \frac{1}{2}\vec b - \frac{1}{2}\vec a = \frac{1}{2}\left(\vec b - \vec a\right) = \frac{1}{2}\vec{BC}
+$$
+
+最后一步用了「同起点的两向量相减等于终点之差」：$\vec{BC} = \vec{AC} - \vec{AB} = \vec b - \vec a$。
+
+所以 $DE \parallel BC$，且 $DE = \frac{1}{2}BC$，即 **$DE$ 是 $\triangle ABC$ 的中位线**。
+
+</Callout>
+
+<Callout type="right" title="（2）重心：分母是 3">
+
+设 $M$ 是 $BC$ 的中点，则 $\vec{AM} = \frac{1}{2}(\vec a + \vec b)$。重心在 $AM$ 上且 $AG:GM = 2:1$，故
+
+$$
+\vec{AG} = \frac{2}{3}\vec{AM} = \frac{2}{3} \times \frac{1}{2}\left(\vec a + \vec b\right) = \frac{1}{3}\left(\vec a + \vec b\right)
+$$
+
+**注意分母是 3 而不是 2**。若题目直接给三个顶点的位置向量，公式是 $\vec{OG} = \frac{\vec{OA} + \vec{OB} + \vec{OC}}{3}$。
+
+</Callout>
+
+<Callout type="right" title="（3）内心：分子乘对边长，分母是周长">
+
+设 $AD'$ 是角 $A$ 的平分线交 $BC$ 于 $D'$。由**角平分线定理** $BD':D'C = c:b$，故
+
+$$
+\vec{AD'} = \frac{b\vec a + c\vec b}{b + c}
+$$
+
+内心 $I$ 在 $AD'$ 上，且 $\frac{AI}{AD'} = \frac{b + c}{a + b + c}$（这是内切圆半径与角平分线长度的标准关系），所以
+
+$$
+\vec{AI} = \frac{b\vec a + c\vec b}{a + b + c}
+$$
+
+**用具体数字验证**（这是最快的自检法）：取直角三角形 $A(0,0)$、$B(3,0)$、$C(0,4)$，则 $a = \lvert BC\rvert = 5$，$b = \lvert CA\rvert = 4$，$c = \lvert AB\rvert = 3$，$\vec a = (3,0)$，$\vec b = (0,4)$：
+
+$$
+\vec{AI} = \frac{4 \times (3,0) + 3 \times (0,4)}{5 + 4 + 3} = \frac{(12, 12)}{12} = (1, 1)
+$$
+
+而这个直角三角形的内切圆半径 $r = \frac{3 + 4 - 5}{2} = 1$，内心坐标恰为 $(r, r) = (1, 1)$，公式正确。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「先写位置向量、再做线性运算」**：① 记住三个公式的「关键词」——**中点两点分母 2、重心三点分母 3、内心分子乘对边长分母是周长**；② 中位线问题的核心动作是「**同起点的两向量相减等于终点之差**」，即 $\vec{DE} = \vec{AE} - \vec{AD}$，两步就得到 $\frac{1}{2}\vec{BC}$；③ 重心与角平分线上的点都用「**同一条线上的比例**」把系数算出来，不要凭空记；④ 有具体坐标时，**用坐标验算一遍**（本例用内切圆半径）比任何口诀都可靠。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 在 $\triangle ABC$ 中，$D$ 是 $AB$ 的中点，$E$ 是 $AC$ 的中点，$M$ 是 $BC$ 的中点。若 $\vec{AB} = (2, 0)$，$\vec{AC} = (1, 3)$，求 $D, E, M, G$ 四点的坐标（以 $A$ 为原点）。
+
+**答案**：$A(0,0)$、$B(2,0)$、$C(1,3)$。
+
+- $D\left(\frac{2}{2}, \frac{0}{2}\right) = (1, 0)$；
+- $E\left(\frac{1}{2}, \frac{3}{2}\right)$；
+- $M\left(\frac{2+1}{2}, \frac{0+3}{2}\right) = \left(\frac{3}{2}, \frac{3}{2}\right)$；
+- $G = \frac{A + B + C}{3} = \left(\frac{0+2+1}{3}, \frac{0+0+3}{3}\right) = \left(1, 1\right)$。
+
+顺带验证中位线：$\vec{DE} = \left(\frac{1}{2}, \frac{3}{2}\right) - (1,0) = \left(-\frac{1}{2}, \frac{3}{2}\right)$，而 $\vec{BC} = (1,3) - (2,0) = (-1, 3) = 2\vec{DE}$，中位线结论成立。重心自检：$G$ 在 $AM$ 上（$G = \frac{2}{3}\vec{AM} = \frac{2}{3}\left(\frac{3}{2}, \frac{3}{2}\right) = (1,1)$），且 $BG:GC = 2:1$。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：余弦定理的向量证明与解三角形（medium）
+
+<ExampleCard title="用向量推导余弦定理并解三角形" difficulty="medium" source="改编 · 原型：解三角形的向量方法">
+
+在 $\triangle ABC$ 中，记 $\vec a = \overrightarrow{BC}$，$\vec b = \overrightarrow{CA}$，$\vec c = \overrightarrow{AB}$，$a = \lvert\vec a\rvert$，$b = \lvert\vec b\rvert$，$c = \lvert\vec c\rvert$（即 $a, b, c$ 分别是角 $A, B, C$ 的对边）。
+
+（1）用向量运算证明 $c^2 = a^2 + b^2 - 2ab\cos C$；
+（2）已知 $a = 3$，$b = 4$，$\angle C = 60^\circ$，求 $c$；
+（3）已知 $\vec a \cdot \vec b = -6$，$\lvert \vec a \rvert = 3$，$\lvert \vec b \rvert = 4$，求 $\vec a$ 与 $\vec b$ 的夹角。
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="（1）证明：闭合式 + 模平方">
+
+**第一步，取闭合关系。** 三角形首尾相接，有
+
+$$
+\vec a + \vec b + \vec c = \vec 0 \quad \Rightarrow \quad \vec c = -\vec a - \vec b
+$$
+
+**第二步，两边取模平方。** 注意 $\lvert-\vec a - \vec b\rvert = \lvert \vec a + \vec b\rvert$，再展开：
+
+$$
+c^2 = \left|\vec a + \vec b\right|^2 = \lvert \vec a\rvert^2 + \lvert \vec b\rvert^2 + 2\vec a\cdot\vec b = a^2 + b^2 + 2\vec a\cdot\vec b
+$$
+
+**第三步，算点积——这一步决定正负号。** $\vec a = \overrightarrow{BC}$ 的方向是 $B \to C$，与顶点 $C$ 处的射线 $C \to B$ 方向相反，所以 $\vec a$ 与 $\vec b = \overrightarrow{CA}$ 的夹角是 $\pi - C$ 而不是 $C$：
+
+$$
+\vec a\cdot\vec b = ab\cos(\pi - C) = -ab\cos C
+$$
+
+**第四步，代回收式。**
+
+$$
+c^2 = a^2 + b^2 - 2ab\cos C
+$$
+
+证毕。
+
+</Callout>
+
+<Callout type="wrong" title="本题唯一的坑：点积漏掉负号">
+
+若把 $\vec a\cdot\vec b$ 误写成 $ab\cos C$（夹角当成 $C$），则得 $c^2 = a^2 + b^2 + 2ab\cos C$，公式从「减」变成「加」。代入第 (2) 问的数据会算出 $c^2 = 37$ 而不是 $13$，$c$ 被算大。**交卷前用三角形不等式自检**：正确的 $c = \sqrt{13} \approx 3.61$ 满足 $\lvert 4 - 3\rvert < 3.61 < 7$；错误的 $\sqrt{37} \approx 6.08$ 也勉强在范围内，但已接近 $a + b$，明显可疑。
+
+</Callout>
+
+<Callout type="right" title="（2）解三角形">
+
+$$
+c^2 = 3^2 + 4^2 - 2 \times 3 \times 4 \times \cos 60^\circ = 9 + 16 - 24 \times \frac{1}{2} = 25 - 12 = 13
+$$
+
+$$
+c = \sqrt{13} \approx 3.606
+$$
+
+**三角形不等式自检**：$\lvert 4 - 3\rvert = 1 < 3.606 < 4 + 3 = 7$。
+
+</Callout>
+
+<Callout type="right" title="（3）由点积求夹角">
+
+直接用夹角公式（**分子保留符号**）：
+
+$$
+\cos\theta = \frac{\vec a\cdot\vec b}{\lvert\vec a\rvert \lvert\vec b\rvert} = \frac{-6}{3 \times 4} = \frac{-6}{12} = -\frac{1}{2}
+$$
+
+$$
+\theta = 120^\circ
+$$
+
+点积为负已提示是钝角，结果落在 $(-1, 0)$ 内，与之一致。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「标方向、取模平方、定点积符号」三关**：① 动笔前在草稿上把 $\vec a = \overrightarrow{BC}$、$\vec b = \overrightarrow{CA}$、$\vec c = \overrightarrow{AB}$ 三个箭头**都标出来**，这一步直接决定点积的符号；② 从闭合式 $\vec c = -\vec a - \vec b$ 出发两边取模平方（这一步与标量完全一样）；③ 判断 $\vec a$ 与 $\vec b$ 的夹角是 $C$ 还是 $\pi - C$——**指向角内部的射线取 $\pi - C$，点积带负号**。算完用三角形不等式做量级自检，比反复重算快。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 在第 (2) 问的条件下（$a = 3$，$b = 4$，$\angle C = 60^\circ$，$c = \sqrt{13}$），求三角形的面积。
+
+**答案**：$S = \frac{1}{2}ab\sin C = \frac{1}{2} \times 3 \times 4 \times \sin 60^\circ = 6 \times \frac{\sqrt{3}}{2} = 3\sqrt{3}$。
+
+用海伦公式验算：$a = 3$，$b = 4$，$c = \sqrt{13} \approx 3.6056$，半周长 $s = \frac{3 + 4 + 3.6056}{2} \approx 5.3028$，
+
+$$
+S = \sqrt{s(s-a)(s-b)(s-c)} = \sqrt{5.3028 \times 2.3028 \times 1.3028 \times 1.6972} \approx \sqrt{27.00} \approx 5.196
+$$
+
+而 $3\sqrt{3} \approx 5.196$，两者一致。**关键理由**：角 $C$ 夹在边 $a$（即 $BC$）与边 $b$（即 $CA$）之间，所以面积公式里是 $\frac{1}{2}ab\sin C$，字母 $C$ 与夹角对应，不要写成 $\frac{1}{2}bc\sin C$。
+
+</Reveal>
+</ExampleCard>
+
+## 例题六：复数的四则运算（medium）
+
+<ExampleCard title="判断结果为实数的选项" difficulty="medium" source="改编 · 原型：复数的四则运算与 i 的幂">
+
+下列各式中，结果为实数的是（　　）
+
+- A．$i^{2027}$
+- B．$(1 + i)^2$
+- C．$\dfrac{1 + i}{1 - i}$
+- D．$i^{2026} + (1 + i)(1 - i)$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 是纯虚数，不是实数">
+
+$i$ 的幂以 4 为周期。$2027 = 4 \times 506 + 3$，余数为 $3$，故
+
+$$
+i^{2027} = i^3 = -i
+$$
+
+$-i$ 的实部为零、虚部为 $-1$，是**纯虚数**，不是实数。常见错法是只看「$i$ 的偶次幂是实数」而忘了 $2027$ 是**奇数**；更常见的错法是余数算成 $1$ 或 $2$。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 虚部没有消掉">
+
+$$
+(1 + i)^2 = 1 \times 1 + 1 \times i + i \times 1 + i^2 = 1 + 2i - 1 = 2i
+$$
+
+结果是 $2i$，纯虚数。这里最容易错在 $i^2 = -1$ 代入位置——最后一项 $i \cdot i = i^2 = -1$，与第一项的 $+1$ 抵消，**实部恰好为 $0$，虚部是 $2$**。不能看到「有平方」就以为是实数。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 忘记乘共轭，或乘错共轭">
+
+$$
+\frac{1 + i}{1 - i} = \frac{(1 + i)(1 + i)}{(1 - i)(1 + i)} = \frac{1 + 2i + i^2}{1 - i^2} = \frac{2i}{2} = i
+$$
+
+分母的共轭是 $1 + i$（即把 $-i$ 的符号反过来），分子分母同乘后分母变成 $1^2 + (-1)^2 = 2$，分子展开为 $2i$。结果 $i$ 是纯虚数。**常见错法**：同乘 $1 - i$ 自己（等于没乘）；或同乘 $1 + i$ 却把分母算成 $(1+i)^2 = 2i$。
+
+</Callout>
+
+<Callout type="right" title="D ✅ 正确">
+
+**第一项**：$2026 = 4 \times 506 + 2$，余数为 $2$，故 $i^{2026} = i^2 = -1$。
+
+**第二项**：$(1 + i)(1 - i) = 1 - i^2 = 1 + 1 = 2$（这是平方差公式，$i^2 = -1$）。
+
+**求和**：
+
+$$
+-1 + 2 = 1
+$$
+
+结果是实数 $1$，所以选 D。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「$i$ 的幂看余数、除法乘共轭、算完乘回验」**：① 指数**只除以 4 取余数**（余 0 得 1、余 1 得 $i$、余 2 得 $-1$、余 3 得 $-i$），不展开也不硬乘；② 除法固定两步——分母 $c - di$ 的共轭是 $c + di$，同乘后分母变 $c^2 + d^2$（正实数）；③ 算完**把结果乘回原分母**做验算，本题可验 $\frac{2i}{2} = i$ 与 $i \times (1 - i) = i - i^2 = 1 + i$；④ 看到「结果为实数」就检查**虚部是否恰好为 0**，不要凭「有 $i$ 就是虚数」的直觉判断。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $z = \dfrac{1 - i}{1 + i}$，求 $z + \overline z$、$z - \overline z$ 与 $z \cdot \overline z$。
+
+**答案**：分子分母同乘分母的共轭 $1 - i$：
+
+$$
+z = \frac{(1 - i)(1 - i)}{(1 + i)(1 - i)} = \frac{1 - 2i + i^2}{1 - i^2} = \frac{-2i}{2} = -i
+$$
+
+于是 $\overline z = i$。
+
+$$
+z + \overline z = -i + i = 0, \qquad z - \overline z = -i - i = -2i, \qquad z\cdot\overline z = (-i)(i) = -i^2 = 1
+$$
+
+验算第三条：$z\cdot\overline z = \lvert z\rvert^2 = (-1)^2 + 0^2 = 1$。**关键理由**：$z = -i$ 是纯虚数，$z + \overline z$ 必为实数（此处恰为 $0$），$z - \overline z$ 必为纯虚数（此处为 $-2i$），两条结论与直接计算完全吻合。
+
+</Reveal>
+</ExampleCard>
+
+## 例题七：复平面的模、距离与轨迹（hard）
+
+<ExampleCard title="复数的模、商与轨迹方程" difficulty="hard" source="改编 · 原型：复数的几何意义">
+
+设 $z_1 = 1 + 2i$，$z_2 = 3 - i$。
+
+（1）求 $\lvert z_1 \rvert$，$\lvert z_2 \rvert$，$\lvert z_1 - z_2 \rvert$，并说明 $\lvert z_1 - z_2 \rvert$ 的几何意义；
+（2）求 $\dfrac{z_1}{z_2}$，并验证 $\left\lvert \dfrac{z_1}{z_2}\right\rvert = \dfrac{\lvert z_1\rvert}{\lvert z_2\rvert}$；
+（3）若复数 $w = x + yi$ 满足 $\lvert w - 1 \rvert = \lvert w + i \rvert$，求 $x, y$ 满足的关系式与轨迹。
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="（1）三个模与距离的几何意义">
+
+$$
+\lvert z_1 \rvert = \sqrt{1^2 + 2^2} = \sqrt{5}, \qquad
+\lvert z_2 \rvert = \sqrt{3^2 + (-1)^2} = \sqrt{10}
+$$
+
+$$
+z_1 - z_2 = (1 + 2i) - (3 - i) = -2 + 3i
+\quad \Rightarrow \quad
+\lvert z_1 - z_2 \rvert = \sqrt{(-2)^2 + 3^2} = \sqrt{13}
+$$
+
+**几何意义**：复数 $z_1 - z_2$ 的模 $\lvert z_1 - z_2\rvert$ 表示复平面上两点 $Z_1(1, 2)$ 与 $Z_2(3, -1)$ 之间的**距离**。用坐标距离公式核对：$\sqrt{(3-1)^2 + (-1-2)^2} = \sqrt{4 + 9} = \sqrt{13}$。
+
+</Callout>
+
+<Callout type="right" title="（2）复数的商与模的商">
+
+分母的共轭是 $3 + i$，分子分母同乘：
+
+$$
+\frac{z_1}{z_2} = \frac{(1 + 2i)(3 + i)}{(3 - i)(3 + i)} = \frac{3 + i + 6i + 2i^2}{3^2 + (-1)^2} = \frac{3 + 7i - 2}{10} = \frac{1 + 7i}{10}
+$$
+
+**验算（乘回原分母）**：
+
+$$
+\frac{1 + 7i}{10} \times (3 - i) = \frac{3 - i + 21i - 7i^2}{10} = \frac{3 + 20i + 7}{10} = \frac{10 + 20i}{10} = 1 + 2i = z_1
+$$
+
+**验证模的商**：
+
+$$
+\left\lvert \frac{z_1}{z_2}\right\rvert = \frac{\sqrt{1^2 + 7^2}}{10} = \frac{\sqrt{50}}{10} = \frac{5\sqrt{2}}{10} = \frac{\sqrt{2}}{2}
+$$
+
+$$
+\frac{\lvert z_1\rvert}{\lvert z_2\rvert} = \frac{\sqrt{5}}{\sqrt{10}} = \sqrt{\frac{5}{10}} = \sqrt{\frac{1}{2}} = \frac{\sqrt{2}}{2}
+$$
+
+两者相等。**结论**：复数乘法与除法都保持模的乘除关系，即 $\lvert z_1 z_2\rvert = \lvert z_1\rvert\lvert z_2\rvert$，$\lvert z_1 / z_2\rvert = \lvert z_1\rvert / \lvert z_2\rvert$。
+
+</Callout>
+
+<Callout type="right" title="（3）模长条件翻译成轨迹方程">
+
+设 $w = x + yi$，则 $w - 1 = (x - 1) + yi$，$w + i = x + (y + 1)i$。两边平方去根号（模长非负，平方不丢信息）：
+
+$$
+\lvert w - 1\rvert = \lvert w + i\rvert
+\iff (x - 1)^2 + y^2 = x^2 + (y + 1)^2
+$$
+
+展开化简：
+
+$$
+x^2 - 2x + 1 + y^2 = x^2 + y^2 + 2y + 1
+$$
+
+$$
+-2x = 2y \iff \boxed{y = -x}
+$$
+
+**轨迹**：直线 $y = -x$，即直线 $x + y = 0$。几何解释：条件「到点 $1$（横轴上 $(1,0)$）的距离等于到点 $-i$（虚轴上 $(0,-1)$）的距离」正是**线段垂直平分线**。两点 $(1,0)$ 与 $(0,-1)$ 的中点是 $\left(\frac{1}{2}, -\frac{1}{2}\right)$，该点的连线斜率为 $\frac{0-(-1)}{1-0} = 1$，垂直平分线斜率为 $-1$ 且过中点，方程 $y - \left(-\frac{1}{2}\right) = -1\left(x - \frac{1}{2}\right)$，即 $y = -x$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「设元 — 平方 — 识别标准形」三步**：① 见到 $w = x + yi$ 与 $\lvert \cdot \rvert$ 的条件，立刻设元并写出两个模的平方表达式；② 两边**平方**去根号（模长非负所以不丢信息，这一步最关键，不要在含根号的式子上硬算）；③ 化简后与直线 / 圆的标准形式对照，并**用几何意义复核一次**（本例用垂直平分线验证）。本题还顺带练了「模的商」这条性质：$\lvert z_1/z_2\rvert = \lvert z_1\rvert/\lvert z_2\rvert$，可在算完商后用它做快速验算。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $z_1 = 1 + 2i$，$z_2 = 3 - i$，求 $z_1 \cdot z_2$，并说明它与 $z_1$、$z_2$ 的辐角关系。
+
+**答案**：
+
+$$
+z_1 z_2 = (1 + 2i)(3 - i) = 3 - i + 6i - 2i^2 = 3 + 5i + 2 = 5 + 5i
+$$
+
+**模的关系**：$\lvert z_1 z_2\rvert = \sqrt{5^2 + 5^2} = 5\sqrt{2}$，而 $\lvert z_1\rvert \lvert z_2\rvert = \sqrt{5} \times \sqrt{10} = \sqrt{50} = 5\sqrt{2}$，符合「乘积的模等于模的乘积」。
+
+**辐角的关系**：$z_1$ 在第一象限，辐角为 $\arctan 2$；$z_2$ 在第四象限，辐角为 $-\arctan\frac{1}{3}$。$z_1 z_2 = 5 + 5i$ 在第一象限，辐角为 $45^\circ = \frac{\pi}{4}$，正好等于两个辐角之和 $\arctan 2 - \arctan\frac{1}{3} = \arctan\frac{2 - \frac{1}{3}}{1 + 2\cdot\frac{1}{3}} = \arctan\frac{\frac{5}{3}}{\frac{5}{3}} = \arctan 1 = \frac{\pi}{4}$。**结论**：复数乘法把两个辐角**相加**，模相乘；除法则辐角相减、模相除。
+
+</Reveal>
+</ExampleCard>
+
+## 例题八：复数条件的综合求解（hard）
+
+<ExampleCard title="由模长与实数条件定复数" difficulty="hard" source="改编 · 原型：复数综合问题">
+
+已知复数 $z$ 满足 $\lvert z \rvert = 2$ 且 $z + \dfrac{1}{z}$ 为实数。
+
+（1）求 $z$；
+（2）求 $z + \dfrac{1}{z}$ 的值。
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="第一步：设元并把模长条件翻译成方程">
+
+设 $z = a + bi$（$a, b \in \mathbb{R}$，$z \ne 0$）。由 $\lvert z \rvert = 2$ 得
+
+$$
+\lvert z \rvert^2 = a^2 + b^2 = 4
+$$
+
+同时 $\lvert z \rvert^2 = z \cdot \overline z = (a + bi)(a - bi) = a^2 + b^2$，所以
+
+$$
+\frac{1}{z} = \frac{\overline z}{z \cdot \overline z} = \frac{a - bi}{a^2 + b^2} = \frac{a - bi}{4}
+$$
+
+**这一步是全题的枢纽**：$\dfrac{1}{z}$ 的分母变成了**实数** 4，虚部不再含分式。
+
+</Callout>
+
+<Callout type="right" title="第二步：把「为实数」翻译成虚部为零">
+
+$$
+z + \frac{1}{z} = (a + bi) + \frac{a - bi}{4} = \left(a + \frac{a}{4}\right) + \left(b - \frac{b}{4}\right)i = \frac{5a}{4} + \frac{3b}{4}i
+$$
+
+复数 $A + Bi$（$A, B$ 为实数）是实数当且仅当 $B = 0$，故
+
+$$
+\frac{3b}{4} = 0 \iff b = 0
+$$
+
+代回 $a^2 + b^2 = 4$ 得 $a^2 = 4$，即 $a = 2$ 或 $a = -2$。
+
+</Callout>
+
+<Callout type="right" title="（1）答案与（2）求值">
+
+（1）由上得
+
+$$
+\boxed{z = 2 \ \text{或}\ z = -2}
+$$
+
+（2）$b = 0$ 时 $\frac{1}{z} = \frac{1}{a}$，故
+
+$$
+z + \frac{1}{z} = a + \frac{1}{a} = \begin{cases} 2 + \frac{1}{2} = \frac{5}{2} & (z = 2) \\[4pt] -2 - \frac{1}{2} = -\frac{5}{2} & (z = -2) \end{cases}
+$$
+
+$$
+\boxed{z + \frac{1}{z} = \pm\frac{5}{2}}
+$$
+
+**验算**：$z = 2$ 时 $2 + \frac{1}{2} = \frac{5}{2} \in \mathbb{R}$；$z = -2$ 时 $-2 - \frac{1}{2} = -\frac{5}{2} \in \mathbb{R}$。另外 $\lvert 2\rvert = 2$、$\lvert -2\rvert = 2$ 都满足第一个条件，且**没有第三个解**（虚部方程 $b = 0$ 已把 $b$ 唯一确定）。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「设元 — 用模长把分母变实 — 令虚部为零」三步**：① 设 $z = a + bi$，把 $\lvert z \rvert = 2$ 平方成 $a^2 + b^2 = 4$；② 求 $\dfrac{1}{z}$ 时**不要硬乘共轭展开**，直接用 $\dfrac{1}{z} = \dfrac{\overline z}{\lvert z\rvert^2} = \dfrac{\overline z}{4}$，一步把分母变成实数，后续运算量减半；③ 「为实数」翻译成「虚部为零」，与「纯虚数」不同——纯虚数还要**实部为零**，本题给的是「为实数」，所以只需虚部为零（本题恰好逼出 $b = 0$，即 $z$ 是实数）。这类题的答案个数由「虚部方程 + 模长方程」唯一确定，写完要检查有没有漏解。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知复数 $z$ 满足 $\lvert z \rvert = 2$ 且 $z^2$ 为实数，求 $z$。
+
+**答案**：设 $z = a + bi$，则 $a^2 + b^2 = 4$；又
+
+$$
+z^2 = (a + bi)^2 = a^2 - b^2 + 2abi
+$$
+
+$z^2$ 为实数当且仅当虚部 $2ab = 0$，即 $a = 0$ 或 $b = 0$。分两种情况：
+
+- $a = 0$：由 $b^2 = 4$ 得 $b = \pm 2$，故 $z = 2i$ 或 $z = -2i$；
+- $b = 0$：由 $a^2 = 4$ 得 $a = \pm 2$，故 $z = 2$ 或 $z = -2$。
+
+$$
+\boxed{z \in \{2,\ -2,\ 2i,\ -2i\}}
+$$
+
+**关键理由**：本题与原题的区别在于——原题的条件逼出 $b = 0$（**唯一**一支），本题的条件 $ab = 0$ 允许**两支**，所以解有四个。答题时不要在 $ab = 0$ 处就把 $a = 0$ 或 $b = 0$ 直接代入，必须**每一支都代回 $a^2 + b^2 = 4$ 求解**，否则会漏掉 $z = \pm 2i$。验算：$z = 2i$ 时 $z^2 = -4$ 确为实数，且 $\lvert 2i \rvert = 2$。
+
+</Reveal>
+</ExampleCard>

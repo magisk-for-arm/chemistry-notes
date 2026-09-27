@@ -1,0 +1,120 @@
+---
+title: "集合与常用逻辑用语 · 考点解析"
+topic: "set-logic"
+category: "exam-points"
+order: 2
+summary: "按集合运算、逻辑关系、命题否定、含参集合四类题型梳理考法与陷阱。"
+tags: ["考点", "选择题"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import Callout from '@/components/Callout.astro';
+
+## 题型一：集合的基本关系与运算（选择题）
+
+- **考频**：高频（几乎每次考试必考，常为第 1 题或第 2 题）
+- **典型设问**：
+  - 「已知集合 $A$，$B$，则 $A \cap B = \varnothing$」判断正误；
+  - 「$A \subseteq B$ 的充要条件是……」；
+  - 「$\complement_U A \cap B = \complement_U (A \cup B)$」化简。
+- **核心考法**：把集合运算律、德摩根定律与三性（尤其互异性、确定性）藏进短句。
+
+<Callout type="tip" title="得分要点">
+
+逐项落实「三查」：一查**全集**（补集是否有 $U$）；二查**端点**（括号开闭，含不含分界点）；三查**元素个数**（去重后是否变个数）。选择题里 90% 的错项栽在「端点」上。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 1、2、3、4、5、9、10 条。
+
+</Callout>
+
+## 题型二：充分条件与必要条件（选择题）
+
+- **考频**：高频
+- **典型设问**：
+  - 「$p$：$x < 3$，$q$：$x^2 < 9$，则 $p$ 是 $q$ 的（　　）」；
+  - 「若 $p \Rightarrow q$、$q \Rightarrow r$，则 $p \Rightarrow r$」的真假判断；
+  - 「$p$ 是 $q$ 的充分不必要条件」的四选项判断。
+- **核心考法**：给出两个命题，先判**必要性**（$q \Rightarrow p$ 是否成立），再判**充分性**（$p \Rightarrow q$ 是否成立），四选一落位。
+
+<Callout type="formula" title="四个结论的判据">
+
+| 关系 | 必要 $q \Rightarrow p$ | 充分 $p \Rightarrow q$ | 名称 |
+|------|---------------------|---------------------|------|
+| 都成立 | $\checkmark$ | $\checkmark$ | 充要条件 |
+| 只必要成立 | $\checkmark$ | $\times$ | 必要不充分条件 |
+| 只充分成立 | $\times$ | $\checkmark$ | 充分不必要条件 |
+| 都不成立 | $\times$ | $\times$ | 既不充分也不必要 |
+
+</Callout>
+
+<Callout type="tip" title="得分要点">
+
+**举例法**破「只成立一个方向」：要证 $p \Rightarrow q$ 不成立，只需举**一个**满足 $p$ 而不满足 $q$ 的反例。$p: x < 3$、$q: x^2 < 9$ 的反例取 $x = -4$（$-4 < 3$ 成立，$16 < 9$ 不成立），立刻断定 $p \not\Rightarrow q$。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 6、8 条。
+
+</Callout>
+
+## 题型三：命题的真假与否定（选择题）
+
+- **考频**：高频
+- **典型设问**：
+  - 「写出命题「$\forall x \in \mathbb{R},\ x^2 + x + 1 > 0$」的否定」；
+  - 「「$\exists x \in \mathbb{R}, x^2 - 3x + 5 = 0$」为真命题吗」；
+  - 判断复合命题 $p \wedge q$、$p \vee q$、$\neg p$ 的真假。
+- **核心考法**：量词互换 + 结论取反；复合命题直接用真值表，只有「同假才假」这一个判据。
+
+<Callout type="tip" title="得分要点">
+
+否定题按**四步**走：① 圈出量词（$\forall$ 还是 $\exists$）；② 对调成 $\exists$ 或 $\forall$；③ 结论取反号（$\le \leftrightarrow >$，**绝不写等号**）；④ 通读一遍确认量词确实换了。若否定式里仍出现「所有」，必错。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 7、9 条。
+
+</Callout>
+
+## 题型四：含参集合问题（填空 / 选择）
+
+- **考频**：中频（难度大，多为选择压轴或填空）
+- **典型设问**：
+  - 「已知 $A = \{x \mid x^2 - ax + 1 \le 0\}$，$B = \{1, a\}$，且 $A \cap B = \varnothing$，求 $a$ 的范围」；
+  - 「若 $A \subseteq B$，求参数 $a$ 的取值范围」；
+  - 「$A \cup B = \mathbb{R}$，求 $a$ 的取值范围」。
+- **核心考法**：把集合关系**翻译成数集上的不等式组恒成立问题**，再用二次不等式或分离常数法求参数范围。
+
+<Callout type="formula" title="三个翻译模板">
+
+$$
+\begin{aligned}
+A \cap B = \varnothing &\iff A \subseteq \complement_U B \\
+A \cup B = U &\iff \complement_U A \subseteq \complement_U B \\
+A \subseteq B &\iff \forall x \in A,\ x \in B \text{（恒成立问题）}
+\end{aligned}
+$$
+
+</Callout>
+
+<Callout type="tip" title="得分要点">
+
+这类题的关键是**先判集合非空**。若 $A = \{x \mid x^2 - ax + 1 \le 0\}$ 本身可能就是 $\varnothing$（要求 $\Delta < 0$，即 $a^2 - 4 < 0$），那么「$A \cap B = \varnothing$」自动成立，必须把这一支**单独讨论**，否则会漏解。端点是否取到取决于不等号是「$\le$」还是「$<$」。
+
+</Callout>
+
+<Callout type="note" title="关联易错点">
+
+第 2、5、10 条。
+
+</Callout>

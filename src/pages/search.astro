@@ -2,8 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import { withBase } from '@/utils/links';
+import { SITE_NAME } from '../utils/topics';
 ---
-<BaseLayout title="搜索 · 高中化学要点">
+<BaseLayout title={`搜索 · ${SITE_NAME}`}>
   <Breadcrumb items={[{ label: '首页', href: withBase('/') }, { label: '搜索' }]} />
   <section class="hero" style="padding:1.5rem 0 1rem;text-align:left;">
     <h1>站内搜索</h1>

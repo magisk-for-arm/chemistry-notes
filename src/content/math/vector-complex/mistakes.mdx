@@ -1,0 +1,385 @@
+---
+title: "平面向量与复数 · 易错点"
+topic: "vector-complex"
+category: "mistakes"
+order: 1
+summary: "10 条高频易错点，每条都配「错因剖析」与「接题方法」。"
+tags: ["易错点", "平面向量", "复数"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+下面 10 条按高频程度排列。平面向量与复数的失分几乎全部来自**符号**与**判据**两处：向量的加减方向、平行与垂直的判据、夹角的锐钝；复数的共轭变号、除法乘共轭、实轴与原点对称。建议逐条对照文末《接题方法总表》自查。
+
+## 1. 向量加减法不先让起点重合
+
+<MistakeCard index={1} title="把首尾不相接的两个向量直接相减" frequency="high" tags={['向量加减', '运算律']}>
+<Callout type="wrong" title="错误示例">
+
+在正方形 $ABCD$ 中，$\overrightarrow{AB} - \overrightarrow{CD} = \overrightarrow{AD}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+平行四边形法则与三角形法则都要求**先让两个向量的起点重合**（或首尾相接成折线）。$\overrightarrow{CD}$ 的起点是 $C$、终点是 $D$，与 $\overrightarrow{AB}$ 既不共起点也不共终点，直接相减没有几何意义。另外减法是「加相反向量」，必须先把 $\overrightarrow{CD}$ 反向成 $\overrightarrow{DC}$ 才能加。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+在正方形 $ABCD$ 中，$\overrightarrow{CD} = -\overrightarrow{AB}$，所以
+
+$$
+\overrightarrow{AB} - \overrightarrow{CD} = \overrightarrow{AB} + \overrightarrow{AB} = 2\overrightarrow{AB}
+$$
+
+而 $\overrightarrow{AD} = (0, 2) \ne 2\overrightarrow{AB} = (4, 0)$，原命题为假。正确的对应关系是 $\overrightarrow{AB} - \overrightarrow{AD} = \overrightarrow{DB}$：设 $A(0,0)$、$B(2,0)$、$D(0,2)$，则 $(2,0) - (0,2) = (2,-2) = \overrightarrow{DB}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「先归位、再运算」**：① 把所有向量按「同一起点」或「首尾相接」两种方式归位，几何法要画图；② 用坐标法时**一律按「终点坐标减起点坐标」**取每个向量的坐标，不受图形影响；③ 拿到 $\overrightarrow{AB}$、$\overrightarrow{CD}$ 这类**不同线段**上的向量，先各求坐标再运算，别套图形想当然。可靠的等式是 $\overrightarrow{AB} - \overrightarrow{AC} = \overrightarrow{CB}$（同起点，指向 $C$）。
+
+</Callout>
+</MistakeCard>
+
+## 2. 数乘后取模时漏掉绝对值
+
+<MistakeCard index={2} title="把模长算出负数" frequency="high" tags={['数乘', '模长']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $\lvert \vec a \rvert = 2$，则 $\lvert -3 \vec a \rvert = 3 \times 2 = -6$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+模是**非负**实数，$\lvert \vec a \rvert \ge 0$ 是定义层面的要求。$\lvert \lambda \vec a \rvert = \lvert \lambda \rvert \lvert \vec a \rvert$ 中的 $\lvert \lambda \rvert$ 是 $\lambda$ 的**绝对值**，不是 $\lambda$ 本身。$\lambda < 0$ 时长度照样是正的，只是方向反向。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+\lvert -3 \vec a \rvert = \lvert -3 \rvert \cdot \lvert \vec a \rvert = 3 \times 2 = 6
+$$
+
+一般地：$\lambda > 0$ 时 $\lambda \vec a$ 与 $\vec a$ 同向；$\lambda < 0$ 时**反向**但长度仍为 $\lvert \lambda \rvert \lvert \vec a \rvert$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「模长非负，方向由符号定」**：写出模长后先扫一眼有没有负号，若有，检查是不是该写 $\lvert \lambda \rvert$。$(-1) \cdot \vec a = -\vec a$ 表示反向，$\lvert -\vec a \rvert = \lvert \vec a \rvert$。数量积的结果可以是负数（表示钝角），**但模长永远不小于零**，两者别混。
+
+</Callout>
+</MistakeCard>
+
+## 3. 平行判定与垂直判定的条件互换
+
+<MistakeCard index={3} title="平行用点积、垂直用行列式" frequency="high" tags={['平行判定', '垂直判定']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $\vec a = (2, 1)$，$\vec b = (1, k)$，若 $\vec a \parallel \vec b$，则由 $2 \times 1 + 1 \times k = 0$ 得 $k = -2$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+两个判据的结构不同：**点积 $x_1x_2 + y_1y_2 = 0$ 判垂直**，**行列式 $x_1y_2 - x_2y_1 = 0$ 判平行**。用点积去判平行，求出的 $k$ 实际给出的是**垂直**关系：本题 $k = -2$ 时 $\vec b = (1, -2)$，$\vec a \cdot \vec b = 2 - 2 = 0$，两者垂直，与 $\parallel$ 矛盾。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+平行用行列式：
+
+$$
+x_1 y_2 - x_2 y_1 = 2k - 1 \times 1 = 0 \quad \Rightarrow \quad k = \frac{1}{2}
+$$
+
+验算：$k = \frac{1}{2}$ 时 $\vec b = \left(1, \frac{1}{2}\right) = \frac{1}{2}(2, 1) = \frac{1}{2}\vec a$，确实平行。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「一叉一点，各管一头」**：看到「$\parallel$」立刻写**减号**（$x_1y_2 - x_2y_1$），看到「$\perp$」立刻写**加号**（$x_1x_2 + y_1y_2$）。两个式子都是「交叉相乘」，区别只在中间是减是加。算完**代回验一次**：把求出的 $k$ 代进去，算一遍点积看是不是 0（判垂直）或找一个 $\lambda$ 满足 $\vec a = \lambda \vec b$（判平行）。另注意 $\parallel$ **包含反向**（$\vec a = -2\vec b$ 也是平行），只有 $\perp$ 才是等于零。
+
+</Callout>
+</MistakeCard>
+
+## 4. 把向量的「平方」当成坐标的加减
+
+<MistakeCard index={4} title="写出向量的平方时套用了复数的公式" frequency="high" tags={['数量积', '模长']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $\vec a = (3, 4)$，则 $\vec a^2 = 3^2 - 4^2 = -7$；又 $\vec a \cdot \vec a = \lvert \vec a \rvert = 5$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$x^2 - y^2$ 是**复数** $z^2 = (x^2 - y^2) + 2xyi$ 的实部，与向量毫无关系；向量只有数量积，没有「平方」这种运算，要写平方也必须写成 $\vec a \cdot \vec a$。而 $\vec a\cdot\vec a$ 的结果是**模长的平方**，不是模长本身，指数上的 2 丢了。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+\vec a \cdot \vec a = 3 \times 3 + 4 \times 4 = 9 + 16 = 25, \qquad \lvert \vec a \rvert = \sqrt{25} = 5
+$$
+
+即 $\vec a\cdot\vec a = \lvert\vec a\rvert^2$（$25 = 5^2$）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「平方必带模」**：要写向量的平方，一律写成 $\lvert \vec a \rvert^2 = x^2 + y^2$，绝不写 $\vec a^2$。分清两个层次：**模长** $\lvert \vec a \rvert = \sqrt{x^2+y^2}$（含根号，非负）、**模的平方** $\lvert \vec a \rvert^2 = x^2 + y^2$（不含根号）。在 $|\vec a| + |\vec b| = 3$ 这类条件下求 $(\vec a + \vec b)^2$ 之类，关键永远是先算 $\vec a\cdot\vec b$。
+
+</Callout>
+</MistakeCard>
+
+## 5. 夹角公式的分母写成模长之和
+
+<MistakeCard index={5} title="把模长之积写成模长之和，并在分子乱加绝对值" frequency="high" tags={['夹角', '数量积']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $\vec a = (1, 2)$，$\vec b = (2, 1)$，则 $\cos\theta = \dfrac{\vec a \cdot \vec b}{\lvert \vec a \rvert + \lvert \vec b \rvert} = \dfrac{4}{2\sqrt{5}}$；又因 $\vec a \cdot \vec b > 0$，所以取绝对值写成 $\dfrac{\left|\vec a\cdot\vec b\right|}{\lvert\vec a\rvert\lvert\vec b\rvert}$ 即可。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+两个错误。① 夹角公式的定义是 $\cos\theta = \frac{\lvert \vec a\rvert\lvert\vec b\rvert\cos\theta}{\lvert \vec a\rvert\lvert\vec b\rvert}$，分母是两个**模长的乘积**不是和，$4 \div (2\sqrt5)$ 与 $4 \div 5$ 完全不同。② 夹角范围是 $[0, \pi]$，$\vec a\cdot\vec b$ 的**正负号本身就携带锐钝信息**（负号对应钝角），分子必须保留符号。乱加绝对值会把钝角算成锐角。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+\cos\theta = \frac{\vec a \cdot \vec b}{\lvert \vec a\rvert \lvert \vec b\rvert} = \frac{2 + 2}{\sqrt{5} \times \sqrt{5}} = \frac{4}{5}
+$$
+
+（这里 $\theta$ 是锐角，与点积为正一致。）
+
+**反例说明第二点**：取 $\vec a = (1, 0)$，$\vec b = (-1, 1)$，则 $\vec a\cdot\vec b = -1 < 0$，正确结果是 $\cos\theta = \frac{-1}{1 \times \sqrt{2}} = -\frac{\sqrt{2}}{2}$，即 $\theta = 135^\circ$。若分子加绝对值会得 $\frac{\sqrt2}{2}$，答成 $45^\circ$，锐钝完全颠倒。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「积、不带号、验范围」**：① 分母是**乘**积 $\lvert \vec a\rvert \lvert\vec b\rvert$，写完扫一眼确认中间是乘号；② 分子**保留符号**（只有题目只问「两向量夹角的锐角」时才可以放心带绝对值）；③ 结果必须落在 $[-1, 1]$ 内，落在 $[0, 1]$ 说明大概率丢了负号；④ 只知道 $\vec a\cdot\vec b$ 的**符号**时，直接对应结论：正得锐角、零得直角、负得钝角，不必真去算值。
+
+</Callout>
+</MistakeCard>
+
+## 6. 中点与重心的向量表示混用
+
+<MistakeCard index={6} title="分母该是 2 的地方写成了 3" frequency="high" tags={['中点', '重心', '三角形']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $M$ 是 $\triangle ABC$ 边 $AB$ 上的中点，$G$ 是 $\triangle ABC$ 的重心，则
+
+$$
+\vec{OM} = \frac{\vec{OA} + \vec{OB} + \vec{OC}}{3}, \qquad
+\vec{OG} = \frac{\vec{OA} + \vec{OB}}{2}
+$$
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+中点与重心的**分子不同、分母也不同**：中点只用**两个**端点、分母是 2；重心要用**三个**顶点、分母是 3。两式被完全记反。根源是「中点公式」与「重心公式」长得像、又在同一类题里前后出现。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+\vec{OM} = \frac{\vec{OA} + \vec{OB}}{2} \quad (\text{中点}), \qquad
+\vec{OG} = \frac{\vec{OA} + \vec{OB} + \vec{OC}}{3} \quad (\text{重心})
+$$
+
+坐标形式同理：$A(x_1, y_1)$、$B(x_2, y_2)$ 的中点是 $\left(\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}\right)$；$A, B, C$ 的重心是 $\left(\frac{x_1+x_2+x_3}{3}, \frac{y_1+y_2+y_3}{3}\right)$。内心的公式带**边长**权重：$\vec{OI} = \frac{a\vec{OA} + b\vec{OB} + c\vec{OC}}{a+b+c}$（$a, b, c$ 是 $A, B, C$ 的对边长）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「两点看二、三点看三」**：看到「中点」就默写 $\frac{\vec a + \vec b}{2}$ 并在草稿上画个 2；看到「重心」默写 $\frac{\vec a+\vec b+\vec c}{3}$ 并画个 3；看到「内心」记住分子要**乘对边长**、分母是**周长**。自检方法：算完把重心坐标代进 $G$ 在中线上的性质（$BG:GC = 2:1$）验证一次。
+
+</Callout>
+</MistakeCard>
+
+## 7. 余弦定理的向量证明漏掉负号
+
+<MistakeCard index={7} title="把点积当成 ab cos C 而不是 -ab cos C" frequency="high" tags={['解三角形', '余弦定理']}>
+<Callout type="wrong" title="错误示例">
+
+在 $\triangle ABC$ 中，$a = 3$，$b = 4$，$\angle C = 60^\circ$。用向量法：由 $\vec c = -\vec a - \vec b$ 得 $c^2 = a^2 + b^2 + 2ab\cos C = 9 + 16 + 12 = 37$，故 $c = \sqrt{37}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\vec a = \overrightarrow{BC}$ 的方向是 $B \to C$，与顶点 $C$ 处的射线 $C \to B$ 方向**相反**，所以 $\vec a$ 与 $\vec b = \overrightarrow{CA}$ 的夹角是 $\pi - C$ 而不是 $C$，点积应为 $-ab\cos C$。少了这个负号，公式从「减」变成「加」，结果偏大。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+c^2 = a^2 + b^2 - 2ab\cos C = 9 + 16 - 2 \times 3 \times 4 \times \frac{1}{2} = 25 - 12 = 13
+$$
+
+$$
+c = \sqrt{13}
+$$
+
+验算：用余弦定理反解 $\cos C = \frac{a^2 + b^2 - c^2}{2ab} = \frac{9 + 16 - 13}{24} = \frac{12}{24} = \frac{1}{2} = \cos 60^\circ$，与题设一致。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「先定方向、再定符号」**：动笔前先在草稿上画三角形，把 $\vec a = \overrightarrow{BC}$、$\vec b = \overrightarrow{CA}$、$\vec c = \overrightarrow{AB}$ 三个箭头**方向都标出来**，然后问「$\vec a$ 与 $\vec b$ 的夹角是 $C$ 还是 $\pi - C$」。标准结论记成一句话：**「有向线段指向角内部时取 $\pi - C$，取负号」**。最快的自检：用三角形的三条边长代进去，看 $c^2$ 是否落在 $(\lvert a - b\rvert)^2$ 与 $(a+b)^2$ 之间（本题 $1 < \sqrt{13} < 7$，若得 $\sqrt{37} \approx 6.08$ 虽也在范围内但已越界接近 $a+b$，可疑）。
+
+</Callout>
+</MistakeCard>
+
+## 8. 纯虚数与实数的分类边界
+
+<MistakeCard index={8} title="把 0 算成纯虚数" frequency="high" tags={['复数分类', '纯虚数']}>
+<Callout type="wrong" title="错误示例">
+
+$z = 0$ 既没有实部也没有虚部，所以 $z = 0$ 是纯虚数；又 $z = 0 + 0i$ 的实部为零，所以一切实部为零的复数都是纯虚数。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+分类的两个条件不对称：**实数只要求虚部为零**，**纯虚数要求实部为零「且」虚部不为零**。$z = 0$ 虚部也为零，它落在「实数」这一类里，被「纯虚数」的条件「$b \ne 0$」排除在外。零向量、零复数都是同一类边界陷阱：零向量与任意向量共线，零复数是实数。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+| 类别 | 充要条件 |
+|------|----------|
+| 实数 | $b = 0$（此时 $z = a$） |
+| 纯虚数 | $a = 0$ **且** $b \ne 0$ |
+| 虚数（非实） | $b \ne 0$ |
+
+所以 $0$ 是实数、**不是**纯虚数。题目问「$z$ 是纯虚数」的充要条件时，答案必须写成「$a = 0$ 且 $b \ne 0$」或「$z = bi$ 且 $b \in \mathbb{R}$ 且 $b \ne 0$」，不能只写 $a = 0$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「实数宽、纯虚窄」**：判断题里凡出现「纯虚数」，先在草稿上写 $a = 0$，再**必须补一句「且 $b \ne 0$」**，两道关都要过。反过来「$z$ 是实数」只需 $b = 0$，不需要任何额外条件。类似地，「$z$ 不是实数」等价于 $b \ne 0$，等价于「$z$ 是虚数」。
+
+</Callout>
+</MistakeCard>
+
+## 9. 复数除法没有乘共轭
+
+<MistakeCard index={9} title="把复数除法当普通代数运算硬算" frequency="high" tags={['复数运算', '共轭']}>
+<Callout type="wrong" title="错误示例">
+
+$$
+\frac{1 + 2i}{3 - i} = \frac{1}{3} + \frac{2}{-1}i
+$$
+
+（另一常见错法：分子分母同乘 $(3 + i)$ 却把结果写成 $5 + 7i$。）
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+复数没有「除以一个数」就等于「分别除」的规则：$\frac{a + bi}{c + di} \ne \frac{a}{c} + \frac{b}{d}i$。**代数和为零的条件是 $z_1 + z_2 = 0$，不是「和为零」**，所以只有把分母变成实数才能消掉 $i$ 项。分子分母同乘的必须是分母的**共轭** $c - di$，而且乘出来是 $(c-di)(c+di) = c^2 + d^2$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+\frac{1 + 2i}{3 - i} = \frac{(1 + 2i)(3 + i)}{(3 - i)(3 + i)} = \frac{3 + i + 6i + 2i^2}{9 + 1} = \frac{3 + 7i - 2}{10} = \frac{1 + 7i}{10}
+$$
+
+**验算**：把结果乘回分母，$\frac{1+7i}{10} \times (3 - i) = \frac{3 - i + 21i - 7i^2}{10} = \frac{3 + 20i + 7}{10} = \frac{10 + 20i}{10} = 1 + 2i$，与原分子一致。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「同乘共轭、实虚分开」四步**：① 分母写成 $c + di$ 的标准形式，认出它的共轭是 $c - di$；② 分子分母**同乘** $c - di$；③ 分母化为 $c^2 + d^2$（正实数）；④ 分子按「**实乘实减虚乘虚，虚乘实加实乘虚**」拆成实部与虚部。写完**把结果乘回分母验算一次**，这是防符号错最有效的一招。
+
+</Callout>
+</MistakeCard>
+
+## 10. 复平面的三个「对称」配错式子
+
+<MistakeCard index={10} title="把关于实轴对称与关于原点对称弄反" frequency="high" tags={['共轭复数', '复平面', '几何意义']}>
+<Callout type="wrong" title="错误示例">
+
+$z = 3 + 4i$ 与 $-z = -3 - 4i$ 关于实轴对称；$z$ 与 $\overline z = 3 - 4i$ 关于原点对称。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+三个对称各有各的变换，混淆来自「都只变了一项」看不出方向：
+
+- **关于实轴对称**：实部不变、虚部变号，即 $z \mapsto \overline z$；
+- **关于原点对称**：两项都变号，即 $z \mapsto -z$；
+- **关于虚轴对称**：实部变号、虚部不变，即 $z \mapsto -\overline z$。
+
+把 $z \mapsto \overline z$ 说成「关于原点对称」，等于把「只翻虚部」误解成「整体取负」。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+| 对称关系 | 变换 | 对 $z = 3 + 4i$ 的结果 |
+|----------|------|----------------------|
+| 关于实轴 | $z \mapsto \overline z$ | $3 - 4i$ |
+| 关于原点 | $z \mapsto -z$ | $-3 - 4i$ |
+| 关于虚轴 | $z \mapsto -\overline z$ | $-3 + 4i$ |
+
+配套的两条：$\lvert z \rvert = \sqrt{a^2 + b^2} \ge 0$ 是点 $Z$ 到**原点**的距离；$\lvert z_1 - z_2 \rvert = \sqrt{(a_1-a_2)^2 + (b_1-b_2)^2}$ 是复平面上两点 $Z_1, Z_2$ 的距离。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「实轴留实部、虚轴留虚部、原点全变号」**：画图时先在复平面上标出点 $Z$，然后按「保持横坐标变纵坐标（实轴）／保持纵坐标变横坐标（虚轴）／两个都变（原点）」逐个写出来，别靠记忆配公式。另注意**模长非负**：$\lvert z \rvert = \sqrt{a^2+b^2}$ 恒 $\ge 0$，$\lvert a^2 + b^2 \rvert$ 这种写法说明没化简到底。
+
+</Callout>
+</MistakeCard>
+
+## 接题方法总表
+
+| 看到什么 | 立刻要问 / 要做的 |
+|----------|------------------|
+| $\overrightarrow{AB}$ 与 $\overrightarrow{CD}$ 相减 | 先各自取坐标（终点减起点），再运算 |
+| $\lvert \lambda \vec a \rvert$ | 写成 $\lvert \lambda \rvert \lvert \vec a \rvert$，结果必须非负 |
+| $\vec a \parallel \vec b$ | 写**减号** $x_1y_2 - x_2y_1 = 0$（含反向） |
+| $\vec a \perp \vec b$ | 写**加号** $x_1x_2 + y_1y_2 = 0$ |
+| 向量的「平方」 | 只能写 $\lvert \vec a \rvert^2 = x^2 + y^2$，绝不写 $x^2 - y^2$ |
+| 求夹角 | 分母是 $\lvert \vec a\rvert\lvert\vec b\rvert$ 的**积**；分子**保留符号**；结果落在 $[-1,1]$ |
+| 只给点积的符号 | 正 → 锐角，零 → 直角，负 → 钝角 |
+| 中点 / 重心 / 内心 | 两点分母 2，三点分母 3，内心分子乘对边长、分母是周长 |
+| 解三角形用向量 | $\vec a$ 与 $\vec b$ 夹角是 $\pi - C$，点积取**负号** |
+| 基底分解 | 行列式不为 0 才有唯一解 |
+| 「纯虚数」 | 实部为零**且**虚部不为零；$0$ 是实数 |
+| 复数除法 | 同乘分母的**共轭**，分母变 $c^2+d^2$；算完乘回验算 |
+| 复数的几何意义 | 实轴取共轭、原点取相反数、虚轴取负共轭 |
+| $\lvert z \rvert$、$\lvert z_1 - z_2 \rvert$ | 前者是到原点的距离，后者是两点距离，都非负 |

@@ -1,0 +1,377 @@
+---
+title: "立体几何 · 易错点"
+topic: "solid-geometry"
+category: "mistakes"
+order: 1
+summary: "10 条高频易错点，每条都配「错因剖析」与「接题方法」。"
+tags: ["易错点", "立体几何", "空间向量"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+下面 10 条按高频程度排列。立体几何的失分集中在三处：**图形的度量关系记错**（斜二测、面积体积）、**判定定理的条件抄不全**（平行、垂直）、**向量算完不做验算**（法向量、公垂向量）。建议逐条对照文末《接题方法总表》自查。
+
+## 1. 斜二测画法里「减半」的轴记反
+
+<MistakeCard index={1} title="把平行于 x 轴的线段当成减半的那条" frequency="high" tags={['斜二测画法', '直观图']}>
+<Callout type="wrong" title="错误示例">
+
+用斜二测画法画边长为 4 的正方形 $ABCD$：画成 $A'B'C'D'$ 时，$A'B'$ 长取 2（因为 $AB \parallel x$ 轴，长度减半），$A'D'$ 长取 4（因为 $AD \parallel y$ 轴，长度不变）。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+记反了。斜二测画法规定的「减半」对象是**平行于 $y$ 轴**的线段，原因是 $y$ 轴被压到与 $x'$ 轴成 $45^\circ$ 的斜轴 $y'$ 上，横坐标被压缩。$x$ 轴方向对应 $x'$ 轴，长度**原样保留**。这条规定与「$x$ 记横、$y$ 记纵」的口语习惯相反，是最容易记混的一步。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三条规则记牢：平行于 $x$ 轴的线段**长度不变**；平行于 $y$ 轴的线段**长度减半**；平行于 $z$ 轴的线段**长度不变**、方向与 $x'$ 轴成 $45^\circ$。
+
+本题中 $AB \parallel x$ 轴，故 $A'B' = 4$；$AD \parallel y$ 轴，故 $A'D' = 2$。直观图是**两邻边分别长 4 与 2、夹角 $45^\circ$ 的平行四边形**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「横不变、纵减半、立不变、角度 45」十六字口诀**。看到「斜二测」三个字，先在草稿纸写下这四句再动笔画图。画完立刻用「尺规验证」：量一下 $A'B'$ 是否等于 4、$A'D'$ 是否等于 2，再量 $\angle B'A'D'$ 是否为 $45^\circ$，三个都对才算画完。
+
+</Callout>
+</MistakeCard>
+
+## 2. 直观图面积照抄原图面积
+
+<MistakeCard index={2} title="认为直观图面积等于原图面积，或乘上 cos 45 度" frequency="high" tags={['斜二测画法', '面积']}>
+<Callout type="wrong" title="错误示例">
+
+边长为 4 的正方形 $ABCD$，用斜二测画法画的直观图 $A'B'C'D'$ 的面积是 $16$（或 $16 \times \cos 45^\circ = 8\sqrt{2}$）。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+直观图的两条邻边**不再垂直**。$A'B' = 4$（不变）、$A'D' = 2$（减半）、夹角 $45^\circ$，所以面积既不是 $4 \times 4$，也不是 $4 \times 4 \times \cos 45^\circ$。后者是常见的「想当然」：面积公式里的 $\sin$ 是由**垂直**两邻边推出来的，斜二测后邻边夹角已变成 $45^\circ$，必须改用 $\sin 45^\circ$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+S_{\text{直观图}} = 4 \times 2 \times \sin 45^\circ = 8 \times \frac{\sqrt{2}}{2} = 4\sqrt{2}
+$$
+
+等价地，$S_{\text{直观图}} = S_{\text{原图}} \times \frac{\sqrt{2}}{4} = 16 \times \frac{\sqrt{2}}{4} = 4\sqrt{2}$。两者一致，可互为验算。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「夹角变 45，长度一减半，面积乘 $\sqrt{2}/4$」**。$\frac{\sqrt{2}}{4} \approx 0.354$，所以直观图面积一定**明显小于**原图面积；若算出 $\frac{\sqrt{2}}{2}$（约 0.71）就多算了一倍，算出「等于原图」就是完全没做斜二测。另外看清题干问的是**三视图**还是**直观图**：三视图用实长，面积不变，不套这个比例。
+
+</Callout>
+</MistakeCard>
+
+## 3. 体积与侧面积公式张冠李戴
+
+<MistakeCard index={3} title="棱锥漏掉三分之一，圆锥侧面积少写一个圆周率" frequency="high" tags={['体积', '表面积']}>
+<Callout type="wrong" title="错误示例">
+
+正三棱锥的底面积为 $S$，高为 $h$，则体积 $V = Sh$；圆锥的底面半径为 $r$、高为 $h$，则侧面积 $S_{\text{侧}} = 2\pi r h$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+两个系数记混了。「柱」是等积的（底面平移到任何高度截面积不变），所以 $V = Sh$；「锥」越往上越尖，体积是同底同高柱子的 $\frac{1}{3}$，必须带系数。侧面积方面，圆柱展开是**矩形**，周长方向有两倍周长，故为 $2\pi r h$；圆锥展开是**扇形**，母线只有一条，故为 $\pi r l$（$l$ 为母线）。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+V_{\text{棱柱}} = Sh, \quad V_{\text{棱锥}} = \frac{1}{3}Sh, \quad
+V_{\text{圆柱}} = \pi r^2 h, \quad V_{\text{圆锥}} = \frac{1}{3}\pi r^2 h, \quad
+V_{\text{球}} = \frac{4}{3}\pi R^3
+$$
+
+侧面积：$S_{\text{柱侧}} = 2\pi r h$，$S_{\text{锥侧}} = \pi r l$，且圆锥的 $l^2 = r^2 + h^2$（轴截面是直角三角形，$l$ 是斜边）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「柱整数、锥带三、球带四」**：凡见「锥」「台」先在草稿上写下 $\frac{1}{3}$，写完再往上写公式。算完用**验算**收口：正方体棱长 $a$ 的体积应为 $a^3$，若公式给的是 $\frac{1}{3}a^3$ 说明用错了公式；球半径 $R$ 的体积应为 $\frac{4}{3}\pi R^3$，与 $\frac{1}{3}\pi R^2 h$ 中取 $h = 4R$ 一致。圆锥侧面积要认清题目给的是**母线 $l$** 还是**高 $h$**。
+
+</Callout>
+</MistakeCard>
+
+## 4. 线面平行判定漏掉「平面外」
+
+<MistakeCard index={4} title="只说直线与平面内一条直线平行，就下结论" frequency="high" tags={['线面平行', '判定定理']}>
+<Callout type="wrong" title="错误示例">
+
+已知直线 $a \parallel b$，且 $b \subset \alpha$，所以 $a \parallel \alpha$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+线面平行判定定理的前提是「**平面外**的一条直线与平面内的一条直线平行」。少了 $a \not\subset \alpha$ 这一条，就无法排除 $a$ 本身就在 $\alpha$ 内的情况——此时 $a$ 与 $\alpha$ 是「线在面内」，与 $\alpha$ **既不平行也不相交**。这个前提条件不是废话，它是把「线线平行」升级成「线面平行」的唯一保证。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+完整表述分四步写：$a \not\subset \alpha$；$b \subset \alpha$；$a \parallel b$；由线面平行判定定理得 $a \parallel \alpha$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「四件套」自检**：① 直线 $a$ 在平面 $\alpha$ **外**；② 直线 $b$ 在平面 $\alpha$ **内**；③ $a \parallel b$（**一条**就够，不需要两条）；④ 用定理名称收尾。落笔时把这四条逐一显式写出，阅卷按定理给分，缺一条就扣一条。线面平行的**性质定理**则用来「造交线」：$a \parallel \alpha$，过 $a$ 作平面 $\beta$ 交 $\alpha$ 于 $l$，则 $a \parallel l$——这是把「线面平行」变成「线线平行」的唯一正路。
+
+</Callout>
+</MistakeCard>
+
+## 5. 面面平行判定误用两条平行直线
+
+<MistakeCard index={5} title="两条平行直线都平行于一个平面，就断言两平面平行" frequency="high" tags={['面面平行', '判定定理']}>
+<Callout type="wrong" title="错误示例">
+
+平面 $\alpha$ 内有两条直线 $a, b$ 满足 $a \parallel b$，且 $a \parallel \beta$，$b \parallel \beta$，所以 $\alpha \parallel \beta$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+判定定理要求的是「一个平面内的两条**相交**直线」。两条平行线只锁定了**一个**方向，$\alpha$ 完全可以在这个方向上与 $\beta$ 平行、却在另一个方向上斜穿 $\beta$。反例：取 $\beta$ 为 $z = 0$ 平面，$\alpha$ 为 $y = 0$ 平面，$a$ 为 $\left\{(t, 0, 2)\right\}$，$b$ 为 $\left\{(t, 0, 1)\right\}$。则 $a, b$ 是 $\alpha$ 内的两条平行线，都平行于 $\beta$，但 $\alpha$ 与 $\beta$ 垂直相交。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+必须改成「$\alpha$ 内的两条**相交**直线 $a, b$ 都平行于 $\beta$」，才能推出 $\alpha \parallel \beta$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「相交两线定方向」**：见判定定理时立刻在脑中画图——两条相交直线张成整个平面，两条平行线张不成。看到「两条直线」先查**是否相交**；看到「一个平面过另一个平面的垂线」先查那条垂线**是否在平面内**。另外记住**线面平行不具传递性到第三个平面**：「$a \parallel \alpha$，$\alpha \parallel \beta$」推不出 $a \parallel \beta$，因为 $a$ 所在平面未必与 $\alpha$ 平行。
+
+</Callout>
+</MistakeCard>
+
+## 6. 线面垂直判定只用了一条直线
+
+<MistakeCard index={6} title="直线与平面内一条直线垂直就断言线面垂直" frequency="high" tags={['线面垂直', '判定定理']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $a \perp b$，$b \subset \alpha$，$a \not\subset \alpha$，所以 $a \perp \alpha$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+线面垂直判定定理要求「一条直线与平面内的**两条相交直线**都垂直」。只给一条时，$a$ 完全可以在另一个方向上倾斜。反例：取 $\alpha$ 为 $z = 0$ 平面，$b$ 为 $x$ 轴，$a$ 为过原点、方向为 $(0, 1, 1)$ 的直线。则 $a \perp b$ 且 $a \not\subset \alpha$，但 $a$ 并不垂直于 $\alpha$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+需补上第二条：设 $c \subset \alpha$，$b \cap c = O$，$a \perp b$ 且 $a \perp c$ ⇒ $a \perp \alpha$。两条相交直线的交点 $O$ 最好取成 $a$ 与平面的交点（垂足），写起来最顺。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「垂直不传递」三查**：① $a \perp b$ 且 $b \perp c$ **推不出** $a \parallel c$；② $a \perp \alpha$ 只能推出 $a$ 垂直于 $\alpha$ 内**任意**一条直线，反过来「某条直线垂直」推不出线面垂直；③ 判定时先在平面上找**两条相交**的「帮手」，找不到就换建系用向量算 $\vec u \cdot \vec v = 0$，别硬凑。
+
+</Callout>
+</MistakeCard>
+
+## 7. 面面垂直的性质漏掉「垂直于交线」
+
+<MistakeCard index={7} title="两平面垂直就说其中一个平面内的任意直线垂直于另一个" frequency="high" tags={['面面垂直', '性质定理']}>
+<Callout type="wrong" title="错误示例">
+
+平面 $\alpha \perp \beta$，交线为 $l$，则 $\alpha$ 内的直线 $a$ 垂直于 $\beta$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+面面垂直的性质定理有严格前置条件：必须先证 $a \perp l$（其中 $a \subset \alpha$），才能推出 $a \perp \beta$。漏掉「$a \perp l$」这一步结论就是假的——两个平面垂直时，$\alpha$ 内绝大多数直线都与 $\beta$ 不垂直，只有垂直于交线的那**一族**直线才垂直于 $\beta$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+书写时把三个条件连成一条链：
+
+$$
+a \subset \alpha, \quad l = \alpha \cap \beta, \quad a \perp l \ \Rightarrow\ a \perp \beta
+$$
+
+配套还有**判定**方向：一个平面**过**另一个平面的垂线 ⇒ 两平面垂直（注意是「过」，垂线必须在这个平面**内**）。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「三连写」模板**：$a \subset \alpha$ → $l = \alpha \cap \beta$ → $a \perp l$ ⇒ $a \perp \beta$。三个环节一个都不能省，尤其不能省中间的「垂直于交线」。做题时若题目要证「线面垂直」又已知「面面垂直」，最省事的路线就是：先取交线 $l$，在面内找（或造）一条 $a \perp l$，立刻得到 $a \perp \beta$。
+
+</Callout>
+</MistakeCard>
+
+## 8. 法向量的夹角直接当二面角
+
+<MistakeCard index={8} title="不判锐钝，把两平面所成的角当成题目指定的二面角" frequency="high" tags={['二面角', '法向量', '空间向量']}>
+<Callout type="wrong" title="错误示例">
+
+在正方体 $ABCD-A_1B_1C_1D_1$ 中求二面角 $A_1-BD-C$：算出平面 $A_1BD$ 的法向量为 $(1, 1, 1)$，平面 $CBD$ 的法向量为 $(0, 0, 1)$，于是二面角为
+
+$$
+\arccos \frac{\left| (1,1,1) \cdot (0,0,1) \right|}{\sqrt{3} \times 1} = \arccos \frac{\sqrt{3}}{3}
+$$
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+法向量的夹角 $\theta_0$ 与题目**指定**的二面角 $\theta$ 只满足 $\cos\theta = \pm \cos\theta_0$。$\frac{\left|\vec n_1 \cdot \vec n_2\right|}{|\vec n_1||\vec n_2|}$ 算出的永远是**两平面所成的角**（按定义取锐角或直角），而「二面角 $A_1-BD-C$」是由半平面 $A_1$ 与半平面 $C$ 围成的，它可以**是钝角**。本题中它恰是钝角，答案应为 $\arccos\left(-\frac{\sqrt{3}}{3}\right)$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+在棱 $BD$ 上取中点 $M$，从 $M$ 向半平面内的 $A_1$、$C$ 分别作**垂直于棱**的射线。验算：
+
+$$
+\overrightarrow{MA_1} = (-1, -1, 2), \qquad \overrightarrow{MA_1} \cdot \overrightarrow{BD} = 2 - 2 + 0 = 0
+$$
+
+$$
+\overrightarrow{MC} = (1, 1, 0), \qquad \overrightarrow{MC} \cdot \overrightarrow{BD} = -2 + 2 + 0 = 0
+$$
+
+两条方向都确实垂直于棱，于是
+
+$$
+\cos\theta = \frac{\overrightarrow{MA_1} \cdot \overrightarrow{MC}}{\left|\overrightarrow{MA_1}\right| \left|\overrightarrow{MC}\right|} = \frac{-1 - 1 + 0}{\sqrt{6} \times \sqrt{2}} = \frac{-2}{2\sqrt{3}} = -\frac{\sqrt{3}}{3}
+$$
+
+余弦为负，说明所求二面角 $A_1-BD-C$ 是**钝角**。若题目改问「平面 $A_1BD$ 与平面 $CBD$ 所成的角」，则答 $\arccos\frac{\sqrt{3}}{3}$（锐角，恰为上式的补角对应角）。
+
+顺带说明本题最容易踩的第二坑：$\overrightarrow{BA_1} \cdot \overrightarrow{BC} = 0$ 确实成立，但它**不垂直于棱 $BD$**（$\overrightarrow{BA_1} \cdot \overrightarrow{BD} = 4 \ne 0$），所以这两条向量的夹角**不是**二面角。度量二面角的射线必须先过「与棱垂直」这一关。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「先定问法，再定正负」**三步：① 看清问的是「**两平面所成的角**」（取锐角，可直接用绝对值公式）还是「**二面角 $P_1-l-P_2$**」（要判锐钝）；② 若判二面角，在棱上取一点 $O$，把 $\overrightarrow{OP_1}$、$\overrightarrow{OP_2}$ 投影到垂直于棱的方向上得 $\vec u_1, \vec u_2$，用 $\cos\theta = \frac{\vec u_1 \cdot \vec u_2}{|\vec u_1||\vec u_2|}$（**不取绝对值**）；③ 结果为负就是钝角，答 $\pi - \theta_0$。若时间紧，可在结论处补一句「由几何位置判断该二面角为钝角，故所求为 $\pi - \arccos\frac{\sqrt3}{3}$」，同样得分。
+
+</Callout>
+</MistakeCard>
+
+## 9. 向量算完不做「双验」
+
+<MistakeCard index={9} title="法向量和公垂向量都只验一个正交条件就往下算" frequency="medium" tags={['法向量', '公垂线法', '空间向量']}>
+<Callout type="wrong" title="错误示例">
+
+求平面 $A_1BD$ 的法向量：因 $\overrightarrow{BA_1} = (-2, 0, 2)$，取 $\vec n = (1, 0, 1)$ 作法向量；求异面直线 $CE$ 与 $BA_1$ 的距离：取 $\vec n = \overrightarrow{CE} = (-1, -2, 0)$ 作「法向量」，得 $d = \frac{\left|\overrightarrow{CB} \cdot \vec n\right|}{|\vec n|} = \frac{4}{\sqrt{5}}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+两个错误同源：**法向量必须同时垂直于平面内两条相交直线**，**公垂向量必须同时垂直于两条异面直线的方向向量**。第一例中 $(1,0,1) \cdot \overrightarrow{BD} = (1,0,1) \cdot (-2,2,0) = -2 \ne 0$，它不垂直于平面内的直线 $BD$。第二例中 $\vec n$ 就是直线 $CE$ 的方向向量，$\vec n \cdot \overrightarrow{BA_1} = (-1,-2,0)\cdot(-2,0,2) = 2 \ne 0$，根本没垂直于另一条直线，点到平面的距离公式被套到了错的对象上。正确公垂向量应取 $\vec u \times \vec v$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+第一例正确法向量取 $(1, 1, 1)$，双验通过：
+
+$$
+(1,1,1) \cdot \overrightarrow{BD} = -2 + 2 + 0 = 0, \qquad
+(1,1,1) \cdot \overrightarrow{BA_1} = -2 + 0 + 2 = 0
+$$
+
+第二例取 $\vec u = \overrightarrow{CE} = (-1, -2, 0)$，$\vec v = \overrightarrow{BA_1} = (-2, 0, 2)$，则
+
+$$
+\vec n = \vec u \times \vec v = (2, -1, 2), \qquad
+d = \frac{\left|\overrightarrow{CB} \cdot \vec n\right|}{|\vec n|} = \frac{\left| 0 \times 2 + (-2)(-1) + 0 \times 2 \right|}{3} = \frac{2}{3}
+$$
+
+（验：$(2,-1,2)\cdot(-1,-2,0) = -2+2+0 = 0$，$(2,-1,2)\cdot(-2,0,2) = -4+0+4 = 0$。）
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「双验三查」**：① 验 $\vec n \cdot \vec u = 0$ 且 $\vec n \cdot \vec v = 0$（两个都要验）；② 查 $\vec n$ 与 $\vec u, \vec v$ 都**不共线**（否则模为 0 或退化成 0 向量）；③ 查分子里的**绝对值**在、且结果是**正数**。另外建系时原点优先取题目给定的顶点或中点，坐标轴取「平行于所求两个平面（或平面内两条相交直线）」的方向，能把法向量的非零分量数从 3 个压到 2 个。
+
+</Callout>
+</MistakeCard>
+
+## 10. 证明题只写结论不写定理名称与条件
+
+<MistakeCard index={10} title="只写「因为 A 平行 B 所以线面平行」，不写依据" frequency="high" tags={['证明规范', '书写']}>
+<Callout type="wrong" title="错误示例">
+
+在三棱锥 $P-ABC$ 中，$D$、$E$ 分别是 $PA$、$PB$ 的中点。求证 $DE \parallel$ 平面 $ABC$。
+
+证明：因为 $DE \parallel AB$，所以 $DE \parallel$ 平面 $ABC$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+空间中的证明题是**逐条对照判定定理给分**的。上面这段话有两处硬伤：一是没写出「在 $\triangle PAB$ 中 $D, E$ 是中点」这个来源，$DE \parallel AB$ 是中位线定理的结论而非显然事实；二是**漏掉 $DE \not\subset$ 平面 $ABC$** 这个关键条件，而它恰恰是线面平行判定定理的前提。缺了它，结论在「$DE$ 就在平面 $ABC$ 内」的情形下不成立。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+在 $\triangle PAB$ 中，$D, E$ 分别为 $PA, PB$ 的中点，由中位线定理得 $DE \parallel AB$。又 $AB \subset$ 平面 $ABC$。因 $P$ 在平面 $ABC$ 外，$DE$ 位于平面 $PAB$ 内而不在平面 $ABC$ 内（否则平面 $PAB$ 与平面 $ABC$ 的交线既有 $AB$ 又有 $DE$，矛盾），即 $DE \not\subset$ 平面 $ABC$。由**线面平行判定定理**，得 $DE \parallel$ 平面 $ABC$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「定理名称 + 每一条条件 + 结论」三段式**书写模板，逐条抄写：
+
+- 面面平行：写「一个平面内的两条**相交**直线都平行于另一个平面」；
+- 面面垂直：写「一个平面**过**另一个平面的垂线」；
+- 线面垂直：写「一条直线垂直于平面内的两条**相交**直线」。
+
+每证明一步，先在心里数一遍定理有几个条件，再一条一条落到纸面上。条件少写一条，阅卷就按缺条件扣分，这与答案算对算错无关。
+
+</Callout>
+</MistakeCard>
+
+## 接题方法总表
+
+| 看到什么 | 立刻要问 / 要做的 |
+|----------|------------------|
+| 「斜二测画法」「直观图」 | 横不变、纵减半、竖不变、角度 45；面积是原来的 $\frac{\sqrt{2}}{4}$ 倍 |
+| 「三视图」 | 用实长，不套斜二测；长对正、高平齐、宽相等 |
+| 体积公式含「锥」「台」 | 先写下 $\frac{1}{3}$，再写公式；球是 $\frac{4}{3}\pi R^3$ |
+| 圆锥侧面积 | 用 $\pi r l$（一个 $\pi$），$l$ 是母线且 $l^2 = r^2 + h^2$ |
+| 判定「线面平行」 | 查 $a \not\subset \alpha$、$b \subset \alpha$、$a \parallel b$ 三条 |
+| 判定「面面平行」 | 查平面内两条直线**是否相交** |
+| 判定「线面垂直」 | 查平面内两条直线**是否相交**、是否都与该直线垂直 |
+| 判定「面面垂直」 | 查那个平面是否**过**另一平面的垂线 |
+| 已知「面面垂直」要证「线面垂直」 | 取交线 $l$，先证 $a \subset \alpha$ 且 $a \perp l$，再写结论 |
+| 题目问「两平面所成的角」 | 取锐角，法向量点积**带绝对值**即可 |
+| 题目问「二面角」 | 不取绝对值；锐钝靠「垂直于棱的射线」定向 |
+| 算完法向量 / 公垂向量 | 双验 $\cdot \vec u = 0$ 且 $\cdot \vec v = 0$，查不共线 |
+| 异面直线距离 | $\vec n = \vec u \times \vec v$，分子**带绝对值**，结果为正 |
+| 写证明题 | 定理名称 + 每条条件 + 结论，一条不落 |

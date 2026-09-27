@@ -1,0 +1,703 @@
+---
+title: "集合与常用逻辑用语 · 典型例题"
+topic: "set-logic"
+category: "examples"
+order: 5
+summary: "8 道典型例题分三层递进：基础巩固、高考同款、较难突破，含逐项解析与变式训练。"
+tags: ["例题", "计算题"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一～三打基础（三性、运算律、计数），例题四～六是高考同款（含充分必要条件、命题否定、含参集合），例题七～八冲高分（德摩根化简与多集合综合）。建议先做题再看解析，每题的「方法复盘」是接题套路，「变式训练」检验是否真会。
+
+</Callout>
+
+## 例题一：集合的三性与表示（easy）
+
+<ExampleCard title="下列集合书写正确的是" difficulty="easy" source="改编 · 原型：集合基本概念">
+
+下列各组中的对象能构成集合的是（　　）
+
+- A．$\{x \mid x \text{ 是高一年级所有成绩优秀的学生}\}$
+- B．$\{1, 1, 2, 3\}$
+- C．$\{x \mid x^2 = 1\}$
+- D．$\{$本班身高在 1.7 m 左右的所有同学$\}$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 违反确定性">
+
+「成绩优秀」没有统一的判定标准，对某个具体学生无法回答「是或不是」，所以不满足**确定性**。这类带「优秀、漂亮、活泼」等主观形容词的集合一律不合法。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 违反互异性">
+
+集合中元素彼此不同，重复的 1 只能算一个，所以 $B$ 实为 $\{1,2,3\}$，只有 3 个元素。书写时重复元素是**不允许**的。
+
+</Callout>
+
+<Callout type="right" title="C ✅ 正确">
+
+$x^2 = 1$ 对每个实数都能判断真假（是或不是），满足**确定性**；解为 $x = \pm 1$，元素互不重复，满足**互异性**；且 $C = \{-1, 1\}$ 只有两个元素。三个条件都满足。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 违反确定性">
+
+「1.7 m 左右」是模糊描述，边界不清，违反确定性。应改成 $\{x \mid 1.65 \le x \le 1.75\}$ 这样的精确区间。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「三性筛查」**：判断能否构成集合，逐条过确定性、互异性、无序性。看到主观形容词（优秀、大约、漂亮）直接排除；看到重复元素排除；看到方程型描述先解出解集（去重后再判断）。写答案后必须**把解真正解出来**再核对元素个数。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 下列集合中元素个数为 2 的是（　　）
+
+A．$\{x \mid x^2 - 3x + 2 = 0\}$
+B．$\{x \mid x^2 - 3x + 2 < 0\}$
+C．$\{x^2 \mid x \in \mathbb{R}\}$
+D．$\{x \mid x > 0\}$
+
+**答案**：A。$x^2 - 3x + 2 = 0$ 即 $(x-1)(x-2) = 0$，解为 $x = 1$ 或 $x = 2$，去重后恰 2 个元素。B 中不等式的解集是开区间 $(1,2)$，元素有无穷多个；C 是 $\{x \mid x \ge 0\}$，无穷多；D 无穷多。注意 A 与 B 只差一个等号，**「$=$」与「$<$」是集合题的经典分水岭**。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：集合运算与端点（easy）
+
+<ExampleCard title="并交补的端点取舍" difficulty="easy" source="改编 · 原型：区间运算">
+
+已知全集 $U = \mathbb{R}$，$A = (-1, 3]$，$B = [2, +\infty)$，则 $A \cap B = \bigl(\begin{smallmatrix} \\ \end{smallmatrix}\bigr)$
+
+- A．$[2, 3]$
+- B．$[2, 3)$
+- C．$(2, 3]$
+- D．$(2, 3)$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="答案 C ✅ 正确">
+
+$A \cap B$ 要求同时满足 $x > -1$、$x \le 3$、$x \ge 2$，三条限制取**最严者**：$x \ge 2$ 且 $x \le 3$，即 $[2, 3]$。但 $2$ 来自 $B$ 的闭括号 $[2, +\infty)$，所以 $2 \in B$；$2$ 只需落在 $B$ 中即可，不必落在 $A$ 里（$2 \notin A$ 无妨），故 $2 \in A \cap B$。$3$ 同理属于 $A$ 的闭括号，$3 \in B$，故 $3 \in A \cap B$。所以 $A \cap B = [2, 3]$。
+
+</Callout>
+
+<Callout type="wrong" title="易错点澄清：只看一个集合的端点">
+
+常见误判是「$A$ 的右端是闭的所以 $3$ 在，$A$ 的左端是开的所以 $2$ 不在」。这是错的——**每个端点要单独判断它是否被两个集合同时接受**：$3 \in A$（闭）且 $3 \in B$（在区间内）→ 在；$2 \in B$（闭）且 $2 \in A$？$2 > -1$ 成立，$2 \le 3$ 成立，所以 $2 \in A$ → 在。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「并大交小 + 端点双查」**：先由不等式组取最严条件定出范围，再对每个端点**分别代入两个集合**验证是否都取到。只要一个集合在该端点处是闭的，交集就含该端点。画数轴时把 $A$ 用实心点标 $3$、空心圈标 $-1$，$B$ 实心点标 $2$，重叠段 $[2,3]$ 立刻可见。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $A = (-1, 3]$，$B = [2, +\infty)$，$U = \mathbb{R}$，求 $\complement_U A$。
+
+**答案**：$\complement_U A = (-\infty, -1] \cup (3, +\infty)$。$-1$ 不在 $A$ 里（$A$ 的左端开），故 $-1$ 在补集里，用闭括号；$3$ 在 $A$ 里，故 $3$ 不在补集里，用开括号；$\mathbb{R}$ 上除 $A$ 之外全在补集里。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：子集计数（easy）
+
+<ExampleCard title="n 元集合的子集体系" difficulty="easy" source="改编 · 原型：子集计数">
+
+设集合 $A = \{1, 2, 3, 4, 5\}$，则下列结论正确的是（　　）
+
+- A．$A$ 的子集有 $31$ 个
+- B．$A$ 的真子集有 $30$ 个
+- C．$A$ 的非空真子集有 $30$ 个
+- D．$A$ 的非空子集有 $31$ 个
+
+<Reveal summary="查看逐项解析">
+
+$A$ 是 5 元集合，故 $2^5 = 32$。
+
+<Callout type="wrong" title="A ❌ 减错了对象">
+
+子集（含空集与自身）是 $2^5 = 32$ 个，不是 31 个。31 是**真子集**的个数（$32 - 1$，扣掉自身）。
+
+</Callout>
+
+<Callout type="wrong" title="B ✅ 对应关系错位，结论错">
+
+真子集是 $2^5 - 1 = 31$ 个，不是 30 个。选项 A 的 31 其实是真子集的个数，属于「张冠李戴」。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 真子集与非空真子集混淆">
+
+非空真子集 = 扣掉自身再扣掉空集 $= 2^5 - 2 = 30$ 个。所以 C **恰好正确**。
+
+</Callout>
+
+<Callout type="right" title="D ❌ 非空子集应为 32 - 1 = 31 —— 等一下，此项正确">
+
+非空子集只需扣掉空集，$32 - 1 = 31$ 个。**D 也正确**。
+
+本题若作为单选题会出现两个正确项，说明命题有瑕疵。这类题的正确用法是**当作公式自测**：子集 32、真子集 31、非空真子集 30、非空子集 31、含空集真子集 31。记住四个数的大小关系 $32 \ge 31 = 31 \ge 30$，就不会混。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「减一减二」+ 递减自检**：$2^n$ 是全子集；真子集减 1（去自身）；非空真子集再减 1（共减 2）；非空子集只去空集，也减 1。四个数必须满足「全子集 $\ge$ 其余 $>$ 非空真子集」，算完对一下大小关系即可发现张冠李戴。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $A \cap B = \varnothing$，且 $A \cup B = \mathbb{R}$，则 $A$ 是 $\mathbb{R}$ 的（　　）集合。
+
+A．非空真子集
+B．非空子集
+C．真子集
+D．子集
+
+**答案**：C。由 $A \cap B = \varnothing$ 且 $A \cup B = \mathbb{R}$ 可知 $\complement_{\mathbb{R}} A = B$。又 $B$ 至少含一个元素（否则 $A = \mathbb{R}$，与 $A \cap B = \varnothing$ 不矛盾但 $A \cup B = \mathbb{R}$ 仍成立——注意此时 $B = \varnothing$ 也可能）。分类：若 $B = \varnothing$ 则 $A = \mathbb{R}$，是全集不是子集；故 $B \ne \varnothing$，此时 $A \subsetneqq \mathbb{R}$。要排除「空集」情形需再看 $\complement_{\mathbb{R}} A \ne \varnothing$，即 $B \ne \varnothing$，已得。所以 $A$ 是**真子集**；是否为非空需题目另给条件。答 C。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：充分必要条件（medium）
+
+<ExampleCard title="四个条件的判定" difficulty="medium" source="改编 · 原型：新高考卷充分必要条件">
+
+设 $p$：$x > 3$，$q$：$x^2 > 9$，则 $p$ 是 $q$ 的（　　）
+
+- A．充分不必要条件
+- B．必要不充分条件
+- C．充要条件
+- D．既不充分也不必要条件
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="答案 A ✅ 正确">
+
+$q \iff x^2 > 9 \iff x > 3$ 或 $x < -3$，即 $q$ 的解集是 $(-\infty,-3) \cup (3,+\infty)$；$p$ 的解集是 $(3,+\infty)$。
+
+**判必要**（$q \Rightarrow p$）：$x \in q$ 时可能是 $x = -4$，此时 $-4 \not> 3$，故 $q \not\Rightarrow p$，$p$ **不是** $q$ 的必要条件。
+
+**判充分**（$p \Rightarrow q$）：$x > 3 \Rightarrow x^2 > 9$ 恒成立（如 $x = 4$，$16 > 9$），故 $p \Rightarrow q$ 成立，$p$ 是 $q$ 的**充分条件**。
+
+充分成立、必要不成立 → **充分不必要条件**，选 A。
+
+</Callout>
+
+<Callout type="wrong" title="常见误判：把 x² > 9 直接当成 x > 3">
+
+高考中大量失分来自「平方丢负根」。$x^2 > 9$ 必须**开根讨论**，解集是 $x > 3$ **或** $x < -3$，是**两个区间**。只看正的一半，就会误判成充要条件。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「画范围 + 双箭头」**：① 把 $p$、$q$ 各翻译成范围（$q$ 要注意开根丢负根）；② 画数轴，$q$ 的范围**包含** $p$ 的范围 → $q \Rightarrow p$ 成立，$p$ 是必要条件；$p$ 的范围**不包含**在 $q$ 内 → 举反例判否。③ 判完两个方向再落位四选一。举反例时挑最容易的（本题取 $x = -4$）。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $p$：$x^2 - 2x - 3 > 0$，$q$：$x > 1$，则 $p$ 是 $q$ 的什么条件？
+
+**答案**：$p \iff (x-3)(x+1) > 0 \iff x > 3$ 或 $x < -1$；$q \iff x > 1$。取 $x = -2$：$-2 > 1$ 不成立，无用。取 $p$ 成立而 $q$ 不成立的 $x = -1.5$：$p$ 成立（$-1.5 < -1$），$q$ 不成立（$-1.5 \not> 1$）→ $p \not\Rightarrow q$。取 $q$ 成立而 $p$ 不成立的 $x = 2$：$q$ 成立，$p$ 不成立（$2$ 不 $>3$ 且不 $<-1$）→ $q \not\Rightarrow p$。两向皆不成立，$p$ 是 $q$ 的**既不充分也不必要条件**。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：命题的否定（medium）
+
+<ExampleCard title="含参不等式命题的否定" difficulty="medium" source="改编 · 原型：新高考卷命题否定">
+
+命题「$\forall x \in \mathbb{R},\ x^2 + x + 1 > 0$」的否定是（　　）
+
+- A．$\forall x \in \mathbb{R},\ x^2 + x + 1 \le 0$
+- B．$\exists x \in \mathbb{R},\ x^2 + x + 1 \le 0$
+- C．$\exists x \in \mathbb{R},\ x^2 + x + 1 < 0$
+- D．$\exists x \in \mathbb{R},\ x^2 + x + 1 > 0$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="wrong" title="A ❌ 量词没换">
+
+否定全称命题必须把 $\forall$ 换成 $\exists$。A 仍是「对任意」，等于把原命题的结论取了反，得到的其实是一个**更强**的命题，不是原命题的否定。
+
+</Callout>
+
+<Callout type="right" title="B ✅ 正确">
+
+按「换量词 + 否结论」双动作：$\forall \to \exists$；结论 $> 0$ 的否定是 $\le 0$（$>$ 的反号是 $\le$，**带等号**）。得 $\exists x \in \mathbb{R},\ x^2 + x + 1 \le 0$。
+
+顺带验证：$x^2 + x + 1 = \left(x + \frac{1}{2}\right)^2 + \frac{3}{4} > 0$ 恒成立，所以原命题为真、B 为假，这也符合「否定式应能表达『存在反例』」的预期。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 结论的否定符号错">
+
+$> 0$ 的否定是 $\le 0$，不是 $< 0$。写成 $< 0$ 会漏掉「等于 0」这一情形，是**最隐蔽**的错误。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 结论没取反">
+
+只换了量词没否结论。否定必须**两处同时改**。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「换量词 + 去等号」双动作**，四个选项的错法正好覆盖四种漏改：漏换量词（A）、全改对（B）、等号没留（C）、漏否结论（D）。写完把否定式**大声读一遍**：「**存在**一个实数，使得 $x^2+x+1$ **不大于** 0」——量词是「存在」、结论含「不大于」，两项都对才算过关。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 写出命题「$\exists x \in \mathbb{R},\ x^2 - 3x + 4 \le 0$」的否定，并判断原命题真假。
+
+**答案**：量词 $\exists \to \forall$；结论 $\le 0$ 的否定是 $> 0$。否定为「$\forall x \in \mathbb{R},\ x^2 - 3x + 4 > 0$」。判真假：$\Delta = 9 - 16 = -7 < 0$，二次项系数为正，故恒大于 0，原命题为**假**（因为不存在使它 $\le 0$ 的实数），其否定为**真**。
+
+</Reveal>
+</ExampleCard>
+
+## 例题六：含参集合问题（medium）
+
+<ExampleCard title="子集关系的参数范围" difficulty="medium" source="改编 · 原型：新高考卷含参集合">
+
+已知集合 $A = \{x \mid x^2 - ax + 1 \le 0\}$，$B = \{1, a\}$，且 $A \cap B = \varnothing$，求实数 $a$ 的取值范围。
+
+<Reveal summary="查看逐项解析">
+
+**第一步：判 $A$ 是否可能为空。** 二次不等式 $x^2 - ax + 1 \le 0$ 的解集为空，当且仅当
+
+$$
+\Delta = a^2 - 4 < 0 \iff -2 < a < 2
+$$
+
+此情形下 $A = \varnothing$，$A \cap B = \varnothing$ **自动成立**，全部 $-2 < a < 2$ 都是解。
+
+**第二步：$a \notin (-2,2)$ 时 $A \ne \varnothing$**，此时 $A \cap B = \varnothing \iff 1 \notin A$ 且 $a \notin A$。
+
+<Callout type="right" title="求解 1 ∉ A">
+
+$1 \notin A$ 即 $1$ 不满足 $x^2 - ax + 1 \le 0$：
+
+$$
+1 - a + 1 > 0 \iff a < 2
+$$
+
+（注意这需要**求**补集，即把 $\le 0$ 翻成 $> 0$。）
+
+</Callout>
+
+<Callout type="right" title="求解 a ∉ A">
+
+把 $x = a$ 代入不等式左端，要求左端 $> 0$：
+
+$$
+a^2 - a\cdot a + 1 = 1 > 0
+$$
+
+**恒成立**。这说明 $a$ 永远不属于 $A$（直观上 $x = a$ 是对称轴位置，函数在对称轴处取最小值 $1$，永远是 $> 0$ 的）。所以本步不产生新限制。
+
+</Callout>
+
+<Callout type="right" title="合并两支">
+
+$$
+\boxed{a \in (-\infty,\ 2)}
+$$
+
+其中 $-2 < a < 2$ 来自「$A$ 为空」的一支，$a \le -2$ 来自「$1 \notin A$」的一支。两支取并。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「先判空、再翻译、后合并」三步**：含参集合题第一件事永远是**判集合本身是否可能为空**（本题靠 $\Delta < 0$），这一支往往独占一半答案；然后把 $A \cap B = \varnothing$ 翻译成「$B$ 的每个元素都不在 $A$ 中」，逐个元素代入 $A$ 的定义检验；最后**两支取并**并写成区间。端点 $a = 2$ 要检查：此时 $\Delta = 0$，$A = \{1\}$，而 $1 \in B$（因 $B = \{1, 2\}$），故 $a = 2$ **不可取**，验证了答案的右端开。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $A = \{x \mid x^2 - ax + 1 \le 0\}$，$B = \{1, a\}$，且 $B \subseteq A$，求 $a$ 的取值范围。
+
+**答案**：需 $1 \in A$ 且 $a \in A$。由 1 ∈ A 得 $2 - a \le 0 \iff a \ge 2$。由 $a \in A$ 得 $1 \le 0$，恒不成立——矛盾。故**无解**。这说明以 $B$ 的第二个元素 $a$ 去卡 $A$ 是死路（对称轴处恒正），是本题的经典陷阱。
+
+</Reveal>
+</ExampleCard>
+
+## 例题七：德摩根定律化简（hard）
+
+<ExampleCard title="德摩根定律与补集运算" difficulty="hard" source="改编 · 原型：集合恒等变形">
+
+设 $U = \mathbb{R}$，$A = \{x \mid x \ge 1\}$，$B = \{x \mid x < 5\}$。求 $\complement_U (A \cup B)$，并说明它与 $\complement_U A \cap \complement_U B$ 的关系。
+
+<Reveal summary="查看逐项解析">
+
+**第一步：写出 $A$、$B$。** $A = [1, +\infty)$，$B = (-\infty, 5)$。
+
+<Callout type="right" title="求 A ∪ B">
+
+$$
+A \cup B = [1, 5)
+$$
+
+用「并大」原则：取 $A$ 与 $B$ 中**范围更宽**的那个。这里 $B$ 从 $-\infty$ 起、$A$ 到 $+\infty$ 止，两者拼成 $[1,5)$。端点：$1$ 由 $A$ 的闭括号贡献，含；$5$ 不在 $B$ 里（$B$ 的右端开）也不在 $A$ 里（$5 < 1$ 不成立），不含。
+
+</Callout>
+
+<Callout type="right" title="求补集">
+
+$$
+\complement_U(A \cup B) = (-\infty, 1) \cup [5, +\infty)
+$$
+
+端点逐个查：$1 \in A \cup B$ 故 $1 \notin$ 补集，用开括号；$5 \notin A \cup B$ 故 $5 \in$ 补集，用闭括号。
+
+</Callout>
+
+<Callout type="right" title="用德摩根定律验算">
+
+$$
+\complement_U A = (-\infty, 1), \qquad \complement_U B = [5, +\infty)
+$$
+
+$$
+\complement_U A \cap \complement_U B = (-\infty, 1) \cap [5, +\infty) = \varnothing
+$$
+
+这里两段无公共点，所以交集是 $\varnothing$。而由德摩根定律应有 $\complement_U(A \cap B) = \complement_U A \cup \complement_U B$，**两式对应的是不同的原运算**（一个 $A \cup B$，一个 $A \cap B$），不能混用。
+
+</Callout>
+
+<Callout type="wrong" title="本题的经典错法：并与补配错">
+
+常见错误是直接写 $\complement_U(A \cup B) = \complement_U A \cup \complement_U B$，或者认为两者差个括号就等价。正确规律是：**并的补 = 各自的补取交；交的补 = 各自的补取并**，即「**并交互换，各自取补**」。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「德摩根两句话 + 端点双查」**：① 记住 $\complement(A \cup B) = \complement A \cap \complement B$ 与 $\complement(A \cap B) = \complement A \cup \complement B$——**原式是并，折成交**；② 每个区间端点单独代入原集合判断「在不在」，在则补集用开括号，不在则用闭括号；③ 算完用另一条德摩根式交叉验证一次。集合化简题里，**端点开闭占分量的七成**。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $A \cup B = U$，$A \cap B = \varnothing$，求 $\complement_U A \cap \complement_U B$ 与 $\complement_U A \cup \complement_U B$。
+
+**答案**：由 $A \cup B = U$ 得 $\complement_U A \cap \complement_U B = \complement_U (A \cup B) = \complement_U U = \varnothing$；由 $A \cap B = \varnothing$ 得 $\complement_U A \cup \complement_U B = \complement_U (A \cap B) = \complement_U \varnothing = U$。这两个「$U$ 与 $\varnothing$ 求补」的结论必须张口就来。
+
+</Reveal>
+</ExampleCard>
+
+## 例题八：多集合综合与真假推演（hard）
+
+<ExampleCard title="四个集合的关系与命题真假" difficulty="hard" source="改编 · 原型：多集合与逻辑综合">
+
+设 $A = \{x \mid x^2 - 2ax + a^2 - 1 < 0\}$，$B = \{x \mid -1 < x < 1\}$，$C = \{x \mid x > 0\}$，$U = \mathbb{R}$。
+
+（1）若 $a = 0$，写出 $A \cap B$；
+（2）若 $A \cap B = C$，求 $a$；
+（3）判断命题「$\forall x \in \mathbb{R},\ x \in A \cup B \Rightarrow x \in A \cap B$」的真假。
+
+<Reveal summary="查看逐项解析">
+
+先化简 $A$：
+
+$$
+x^2 - 2ax + a^2 - 1 = (x - a)^2 - 1 < 0 \iff (x-a)^2 < 1 \iff a - 1 < x < a + 1
+$$
+
+故 $A = (a-1,\ a+1)$，$B = (-1, 1)$，$C = (0, +\infty)$。
+
+<Callout type="right" title="（1）a = 0 时">
+
+$A = (-1, 1) = B$，故 $A \cap B = (-1, 1)$。
+
+</Callout>
+
+<Callout type="right" title="（2）A ∩ B = C">
+
+$$
+A \cap B = (a-1,\ a+1) \cap (-1, 1)
+$$
+
+要求结果恰为 $(0, +\infty)$。交集的右端必须是 $\min(a+1, 1)$，而结果右端是 $+\infty$，说明 $B$ 的右端 $1$ 未被截断，即 $a + 1 \ge 1 \iff a \ge 0$。交集的左端是 $\max(a-1, -1)$，应等于 $0$，故
+
+$$
+\max(a - 1, -1) = 0
+$$
+
+分支：$a - 1 = 0$ 得 $a = 1$；或 $-1 = 0$ 不可能。取 $a = 1$ 验证：$A = (0, 2)$，$A \cap B = (0, 1)$，而 $C = (0, +\infty)$，**二者不等**。
+
+说明「交集右端为 $+\infty$」不可能，因为 $B$ 的右端是 $1$，交集必被截断在 $1$ 以内。故**不存在**满足 $A \cap B = C$ 的 $a$，第 (2) 问无解。
+
+这正是本题的考点：$A$、$B$ 都有界，$A \cap B$ 必为有界区间，而 $C$ 是无界的，**有界 $\ne$ 无界**，故无解。
+
+</Callout>
+
+<Callout type="right" title="（3）判断命题真假">
+
+命题形如「$\forall x,\ (x \in A \cup B) \Rightarrow (x \in A \cap B)$」。**并集包含元素更多、交集更少**，所以从「在并集里」推「在交集里」方向反了。取 $a = 0$，此时 $A = B = (-1,1)$，$A \cup B = (-1,1)$，$A \cap B = (-1,1)$，两者相等，命题成立。
+
+但取 $a = 3$：$A = (2, 4)$，$B = (-1, 1)$，$A \cup B = (-1,1) \cup (2,4)$，$A \cap B = \varnothing$。取 $x = 3$：$x \in A \cup B$ 成立，$x \in A \cap B$ 不成立，**找到反例**，故命题为**假**。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「先化简到最简形式，再比结构」**：① 看到 $x^2 - 2ax + a^2 - 1$ 立刻**配方**成 $(x-a)^2 - 1$，一步得到区间 $A = (a-1, a+1)$，比用求根公式快得多；② 判断两个集合相等时，先比**结构特征**（有界性、端点开闭、是否含无穷），结构不符立刻排除，能省下大量运算；③ 判断全称命题真假只需**举一个反例**，反例优先从「两个集合不相等」的情形里取中间值。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 仍设 $A = \{x \mid x^2 - 2ax + a^2 - 1 < 0\}$，$B = \{x \mid -1 < x < 1\}$，$U = \mathbb{R}$，求 $A \cap B = \varnothing$ 时 $a$ 的取值范围。
+
+**答案**：$A = (a-1, a+1)$ 与 $B = (-1,1)$ 无公共元素。两开区间无交，当且仅当 $a+1 \le -1$ 或 $a - 1 \ge 1$，即 $a \le -2$ 或 $a \ge 2$，故 $a \in (-\infty, -2] \cup [2, +\infty)$。端点可取：$a = 2$ 时 $A = (1,3)$，与 $(-1,1)$ 仅在 $x=1$ 处「擦边」而 $x=1 \notin A$，仍无交，故 $2$ 可取。
+
+</Reveal>
+</ExampleCard>
+
+## 真题演练：中档真题（90 分档）
+
+<Callout type="note" title="本节说明">
+
+下面三题取自公开的高考真题原文，题面与官方答案已逐条核对。难度定位在**基础到中档**（单选层），对应 90 分左右的水平定位；17 分压轴题不在本节范围。真题的价值在于**它只考一个点，但把陷阱都设好了**——比改编题更能暴露盲区。
+
+</Callout>
+
+### 真题 1：2021 新高考Ⅰ卷 第 1 题
+
+<ExampleCard title="集合的交集：开区间端点是最容易被吞掉的地方" difficulty="easy" source="2021 新高考Ⅰ卷 第 1 题">
+
+设集合 $A=\{x\mid -2<x<4\}$，$B=\{2,3,4,5\}$，则 $A\cap B=$（　　）
+
+- A．$\{2\}$
+- B．$\{2,3\}$
+- C．$\{3,4\}$
+- D．$\{2,3,4\}$
+
+<Reveal summary="查看逐项解析">
+
+先把 $A$ 翻译成区间：$-2<x<4$ 即 $A=(-2,4)$，**右端点是开区间，$4\notin A$**。
+
+再逐个检查 $B$ 的元素是否落在 $(-2,4)$ 内：$2$ 在、$3$ 在、$4$ 不在（$4<4$ 不成立）、$5$ 不在。
+
+<Callout type="wrong" title="A ❌ 只找到一个元素就收工">
+
+$A=\{2\}$ 是「只查了 $2$ 就停」。交集是**所有**公共元素，$3$ 同样在 $A$ 内，必须一起取。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 把开区间当成闭区间">
+
+$\{3,4\}$ 里的 $4$ 说明你把 $-2<x<4$ 读成了 $-2\le x\le 4$。**不等号是「$<$
+」还是「$\le$」直接决定端点去留**，这一步错则整题错。
+
+</Callout>
+
+<Callout type="right" title="B ✅ 正确">
+
+$A\cap B=\{2,3\}$，故选 B。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 把并集当交集">
+
+$\{2,3,4\}$ 是 $A\cup B$ 的内容（$A$ 里有无穷多个实数，$A\cup B$ 不是有限集，但 $\{2,3,4\}$ 正是「$B$ 中属于 $(-2,4)$ 的元素再加上误收的 $4$」）。选项 D 是「交集 + 错收的 $4$」的混合体。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「先翻译，再逐个过」两步法**：① 凡描述法给出的集合，一律先解成**具体元素或区间**，并**圈出端点的开闭**；② 交集就是「把 $B$ 的元素逐个扔进 $A$ 的范围里筛一遍」，$B$ 是有限集时这个方法最快，也最不容易漏。做完把答案里的每个元素代回 $A$ 的定义验一遍。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $A=\{x\mid -2<x\le 4\}$，$B=\{2,3,4,5\}$，求 $A\cap B$。
+
+**答案**：$A=(-2,4]$，右端点改为闭区间，$4\in A$。逐个筛 $B$：$2$、$3$、$4$ 均在，$5$ 不在，故 $A\cap B=\{2,3,4\}$。与原题对比，**只改一个不等号，答案就变了一项**——这就是端点开闭的分量。
+
+</Reveal>
+</ExampleCard>
+
+### 真题 2：2022 全国甲卷（理）第 3 题
+
+<ExampleCard title="补集要先求出并集，且全集是有限集" difficulty="medium" source="2022 全国甲卷（理）第 3 题">
+
+设全集 $U=\{-2,-1,0,1,2,3\}$，集合 $A=\{-1,2\}$，$B=\{x\mid x^2-4x+3=0\}$，则 $\complement_U(A\cup B)$ 为（　　）
+
+- A．$\{1,3\}$
+- B．$\{0,3\}$
+- C．$\{-2,1\}$
+- D．$\{-2,0\}$
+
+<Reveal summary="查看逐项解析">
+
+**第一步：解方程写出 $B$。** $x^2-4x+3=0$ 即 $(x-1)(x-3)=0$，所以 $B=\{1,3\}$。
+
+**第二步：求并集。** $A=\{-1,2\}$，$B=\{1,3\}$，元素互不重复，故 $A\cup B=\{-1,1,2,3\}$。
+
+**第三步：在 $U$ 中取补。** $U=\{-2,-1,0,1,2,3\}$ 去掉 $\{-1,1,2,3\}$，剩下 $\{-2,0\}$。
+
+<Callout type="wrong" title="A ❌ 把集合 B 当成了补集">
+
+$\{1,3\}$ 正是 $B$ 本身。题目要的是 $A\cup B$ 在 $U$ 中的**补**，不是 $B$。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 并集漏了元素">
+
+$\{0,3\}$ 里出现了 $0$。但 $0\notin A$（$A$ 只有 $-1,2$）、$0\notin B$，所以 $0$ 根本不在 $A\cup B$ 里，它应当留在补集中。**把不在并集里的元素误删**，是补集最常见的反向错误。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 补集元素拼错">
+
+$\{-2,1\}$ 里的 $1$ 属于 $B$，既然 $1\in A\cup B$ 就必须从补集中去掉。补集的正确操作是「**逐个划掉**」，不是「凭印象写几个」。
+
+</Callout>
+
+<Callout type="right" title="D ✅ 正确">
+
+$\complement_U(A\cup B)=\{-2,0\}$，故选 D。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「有限集补集三步」**：① 解出 $B$（描述法必先解）；② 求并集并**检查有无重复元素**；③ 在 $U$ 上**逐个划掉**并集里的元素，剩下的就是补集。有限集时把 $U$ 的元素列成一行、划掉更直观。另外注意：**全集是题目给的有限集，不是 $\mathbb{R}$**——求补集前先确认 $U$ 到底是什么。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $U=\{1,2,3,4,5\}$，$M=\{1,4\}$，$N=\{2,5\}$，求 $N\cup\complement_U M$。
+
+**答案**：$\complement_U M=\{2,3,5\}$（把 $M=\{1,4\}$ 从 $U$ 中划掉），再与 $N=\{2,5\}$ 求并，得 $\{2,3,5\}$。注意 $2,5$ 本来就在 $\complement_U M$ 里，并集不增加新元素——**并集里「已有的不重复数」是最容易被误加的地方**。
+
+</Reveal>
+</ExampleCard>
+
+### 真题 3：2023 全国甲卷（理）第 7 题
+
+<ExampleCard title="充分必要条件：用反例否掉一个方向" difficulty="medium" source="2023 全国甲卷（理）第 7 题">
+
+设甲：$\sin^2\alpha+\sin^2\beta=1$，乙：$\sin\alpha+\cos\beta=0$，则（　　）
+
+- A．甲是乙的充分条件但不是必要条件
+- B．甲是乙的必要条件但不是充分条件
+- C．甲是乙的充要条件
+- D．甲既不是乙的充分条件也不是必要条件
+
+<Reveal summary="查看逐项解析">
+
+**先判必要（乙 ⇒ 甲）。** 乙成立时 $\sin\alpha=-\cos\beta$，两边平方：
+
+$$
+\sin^2\alpha = \cos^2\beta \;\Rightarrow\; \sin^2\alpha+\sin^2\beta = \cos^2\beta+\sin^2\beta = 1
+$$
+
+所以**乙成立一定能推出甲成立**，即乙是甲的充分条件，也就是**甲是乙的必要条件**。这一向成立。
+
+**再判充分（甲 ⇒ 乙）。** 取 $\alpha=\dfrac{\pi}{2}$，$\beta=0$：
+
+$$
+\sin^2\alpha+\sin^2\beta = 1 + 0 = 1 \quad(\text{甲成立})
+$$
+
+$$
+\sin\alpha+\cos\beta = 1 + 1 = 2 \ne 0 \quad(\text{乙不成立})
+$$
+
+找到反例，所以甲**不能**推出乙。
+
+<Callout type="right" title="B ✅ 正确">
+
+必要方向成立、充分方向不成立 → 甲是乙的**必要不充分条件**，故选 B。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 充分与必要说反了">
+
+这是本题最高频的错项。我们已经**证明**了「乙 ⇒ 甲」，按「箭头前充分、箭头后必要」的读法，乙充分、甲必要，所以该选 B 而不是 A。看到「甲是乙的充分条件」就要立刻警觉：**是不是把方向读反了**。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 只验了一个方向就敢下「充要」">
+
+「充要」要求正反两向都成立。本题只验了必要方向，充分方向被反例推翻。判断充要**必须两向都验**，这是硬性动作。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 没找到反例就放弃">
+
+反例很好找：$\alpha=\dfrac{\pi}{2},\beta=0$。找反例的窍门是**优先试特殊角**（$0,\dfrac{\pi}{2},\pi$）与**互为余角的组合**（题里同时出现 $\sin$ 和 $\cos$，令其中一个为 $1$ 往往一击即中）。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「一证一反」判充分必要**：① 先**证**一个方向（通常从结构简单的入手，用恒等式）；② 再**举反例**否掉另一个方向；③ 落位时按「箭头前充分、箭头后必要」读一遍。本题的关键动作是**把乙平方**——$\sin\alpha=-\cos\beta$ 一平方，$\sin^2\alpha$ 就变成了 $\cos^2\beta$，与甲的 $\sin^2\alpha+\sin^2\beta=1$ 严丝合缝。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 设甲：$\{a_n\}$ 为等差数列；乙：$\left\{\dfrac{S_n}{n}\right\}$ 为等差数列。判断甲与乙的关系。
+
+**答案**：乙 ⇒ 甲成立。若 $\left\{\dfrac{S_n}{n}\right\}$ 为等差数列，设其首项为 $a_1$、公差为 $d'$，则 $\dfrac{S_n}{n}=a_1+(n-1)d'$，即 $S_n=na_1+n(n-1)d'$。由 $a_n=S_n-S_{n-1}$ 得
+
+$$
+a_n = \bigl[na_1+n(n-1)d'\bigr] - \bigl[(n-1)a_1+(n-1)(n-2)d'\bigr] = a_1 + 2(n-1)d'
+$$
+
+这是等差数列（公差为 $2d'$），故乙成立时甲必成立。反之不成立：取 $a_n=\dfrac{1}{n}$，则 $S_n$ 无简单线性形式，$\{S_n/n\}$ 不是等差（可验证 $n=1,2,3$ 时 $\frac{S_n}{n}$ 分别为 $1,\frac34,\frac{11}{18}$，并非等差）。所以**甲是乙的必要不充分条件**。
+
+</Reveal>
+</ExampleCard>

@@ -1,0 +1,317 @@
+---
+title: "三角函数与解三角形 · 概览"
+topic: "trigonometry"
+category: "overview"
+order: 0
+summary: "弧度制与三角函数定义、图像与恒等变换、正弦定理余弦定理与解三角形三类题型的主干内容。"
+tags: ["三角函数", "解三角形"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import Callout from '@/components/Callout.astro';
+
+## 一、弧度制：把「转过的角」变成一个数
+
+弧度的定义：等于**弧长等于半径**的圆心角所对应的角叫 1 弧度，记作 $1$。由此得到换算基准：
+
+$$
+180^\circ = \pi \text{ rad}, \qquad 1^\circ = \frac{\pi}{180} \text{ rad}
+$$
+
+| 角度 | $30^\circ$ | $45^\circ$ | $60^\circ$ | $90^\circ$ | $120^\circ$ | $150^\circ$ | $180^\circ$ | $360^\circ$ |
+|------|-----------|-----------|-----------|-----------|------------|-----------|------------|------------|
+| 弧度 | $\frac{\pi}{6}$ | $\frac{\pi}{4}$ | $\frac{\pi}{3}$ | $\frac{\pi}{2}$ | $\frac{2\pi}{3}$ | $\frac{5\pi}{6}$ | $\pi$ | $2\pi$ |
+
+<Callout type="tip" title="换算三步">
+
+① 把角度写成分数形式（$120^\circ = \frac{2\pi}{3}$ 而不是一个数）；② 乘 $\frac{\pi}{180}$；③ 化到最简。**弧度制的唯一好处**是三角函数的周期变成干净的 $2\pi$，求最小正周期时不用再除以 $36$。
+
+</Callout>
+
+> 单位圆上每 $\frac{\pi}{2}$ 的弧长对应四分之一圆周，四条象限线把整圆均分成 8 份，每份 $\frac{\pi}{4}$。所以 $\frac{\pi}{4}, \frac{\pi}{2}, \frac{3\pi}{4}$ 是化简时最常用的三个「落脚点」。
+
+## 二、三角函数的定义（单位圆定义）
+
+在单位圆上，角 $\alpha$ 的终边与单位圆交于点 $P(x, y)$，则
+
+$$
+\sin\alpha = y, \qquad \cos\alpha = x, \qquad \tan\alpha = \frac{y}{x}\ \bigl(x \ne 0\bigr)
+$$
+
+**定义域与值域**：
+
+| 函数 | 定义域 | 值域 | 备注 |
+|------|--------|------|------|
+| $\sin\alpha$ | $\alpha \in \mathbb{R}$ | $[-1, 1]$ | 离单位圆上点 $P$ 越远，取值越大 |
+| $\cos\alpha$ | $\alpha \in \mathbb{R}$ | $[-1, 1]$ | 离 $P$ 在 $x$ 轴上的射影越远，取值越大 |
+| $\tan\alpha$ | $\alpha \ne \frac{\pi}{2} + k\pi$ | $\mathbb{R}$ | $\cos\alpha = 0$ 时**无定义** |
+
+<Callout type="note" title="正切函数无定义的点">
+
+$\cos\alpha = 0 \iff \alpha = \frac{\pi}{2} + k\pi$（$k \in \mathbb{Z}$），即 $90^\circ$、$270^\circ$ 这两条**余轴**方向。注意这里步长是 $k\pi$ 而不是 $\frac{k\pi}{2}$：$\alpha = \pi$ 时 $\tan\pi = 0$ 仍然有定义。
+
+</Callout>
+
+## 三、符号：四个象限的正负
+
+| 象限 | 终边所在范围 | $\sin\alpha$ | $\cos\alpha$ | $\tan\alpha$ |
+|------|--------------|-------------|-------------|-------------|
+| 一 | $\left(0, \frac{\pi}{2}\right)$ | $+$ | $+$ | $+$ |
+| 二 | $\left(\frac{\pi}{2}, \pi\right)$ | $+$ | $-$ | $-$ |
+| 三 | $\left(\pi, \frac{3\pi}{2}\right)$ | $-$ | $-$ | $+$ |
+| 四 | $\left(\frac{3\pi}{2}, 2\pi\right)$ | $-$ | $+$ | $-$ |
+
+口诀：**一全正，二正弦，三正切，四余弦**。读法是：在第一象限三个都正，其余各象限**只有一个**函数与第一象限**符号相反**，那个函数就是口诀里点名的。
+
+<Callout type="memory" title="符号判断的两步法">
+
+**先化归，再定号**：① 用诱导公式把角化到 $0 < \alpha < \frac{\pi}{2}$（只变函数名与符号）；② 化归后落在哪个象限，就查上表定符号。凡是「$x$ 是第几象限」已经给定的题，**直接查表，不许绕道诱导公式**。
+
+</Callout>
+
+## 四、同角三角函数的基本关系
+
+$$
+\sin^2\alpha + \cos^2\alpha = 1
+$$
+
+$$
+\tan\alpha = \frac{\sin\alpha}{\cos\alpha}\ \bigl(\cos\alpha \ne 0\bigr)
+$$
+
+$$
+\sin\alpha\cos\alpha = \frac{1}{2}\sin 2\alpha
+$$
+
+由第一式开方求值时，**必须先定符号**：
+
+| 已知 | 求 | 做法 |
+|------|-----|------|
+| $\cos\alpha$ | $\sin\alpha$ | $\lvert\sin\alpha\rvert = \sqrt{1 - \cos^2\alpha}$，再按象限贴符号 |
+| $\sin\alpha$ | $\cos\alpha$ | $\lvert\cos\alpha\rvert = \sqrt{1 - \sin^2\alpha}$，再按象限贴符号 |
+| $\sin\alpha$, $\cos\alpha$ | $\tan\alpha$ | 直接相除，符号由二者相乘决定 |
+| $\sin\alpha$ | $\tan\alpha$ | 必须**同时**知道 $\cos\alpha$ 的绝对值，单靠 $\sin\alpha$ 不够 |
+
+> 「**象限符号判断法**」总结成两步：第一步用关系式算出**数值**（用绝对值算），第二步用象限表定**符号**。高考里绝大多数符号错误都出在跳过了第二步。
+
+## 五、正弦与余弦的大小比较
+
+比较大小不要硬算，用平方差最省事：
+
+$$
+\bigl(\sin\alpha - \cos\alpha\bigr)^2 = 1 - 2\sin\alpha\cos\alpha = 1 - \sin 2\alpha
+$$
+
+由此得到两类结论：
+
+- 当 $\sin 2\alpha > 0$ 时，$\lvert\sin\alpha - \cos\alpha\rvert < 1$，即两个函数值之差的绝对值**小于 1**；
+- 当 $\sin 2\alpha = 0$ 时，$\lvert\sin\alpha - \cos\alpha\rvert = 1$，此时只有 $x = k\frac{\pi}{2}$ 的情形（其中一个为 $0$，另一个为 $\pm 1$）；
+- $\lvert\sin\alpha\rvert$ 与 $\lvert\cos\alpha\rvert$ 比较则更简单：两者之差的平方为 $1 - \lvert\sin 2\alpha\rvert \le 1$，故 $\lvert\sin 2\alpha\rvert = 1$ 时相等（$\alpha = \frac{\pi}{4} + \frac{k\pi}{2}$），否则 $\lvert\sin\alpha\rvert \ne \lvert\cos\alpha\rvert$。
+
+<Callout type="formula" title="大小比较的三条常用结论">
+
+$$
+\begin{aligned}
+\bigl(\sin\alpha - \cos\alpha\bigr)^2 &= 1 - \sin 2\alpha \\
+\bigl(\lvert\sin\alpha\rvert - \lvert\cos\alpha\rvert\bigr)^2 &= 1 - \lvert\sin 2\alpha\rvert \\
+\sin\alpha + \cos\alpha &= \sqrt{2}\sin\left(\alpha + \frac{\pi}{4}\right)
+\end{aligned}
+$$
+
+第三条是**辅助角公式**的特例，是处理 $\sin\alpha \pm \cos\alpha$ 一切问题的总钥匙。
+
+</Callout>
+
+## 六、诱导公式
+
+**规律：奇变偶不变，符号看象限。**
+
+- **奇变偶不变**：$k$ 为奇数时，函数名 $\sin \to \cos$、$\cos \to \sin$、$\tan \to \cot$；$k$ 为偶数时函数名不变。
+- **符号看象限**：把 $k\frac{\pi}{2} + \alpha$ 看成**一个新角**，按它的象限定符号。
+
+$$
+\sin\left(k\pi + \alpha\right) = \left(-1\right)^k \sin\alpha, \qquad
+\cos\left(k\pi + \alpha\right) = \left(-1\right)^k \cos\alpha
+$$
+
+$$
+\sin\left(\frac{\pi}{2} + \alpha\right) = \cos\alpha, \qquad
+\cos\left(\frac{\pi}{2} + \alpha\right) = -\sin\alpha
+$$
+
+$$
+\sin\left(\frac{\pi}{2} - \alpha\right) = \cos\alpha, \qquad
+\cos\left(\frac{\pi}{2} - \alpha\right) = \sin\alpha
+$$
+
+<Callout type="note" title="符号看的是「新角」的象限">
+
+化 $\sin\left(\frac{5\pi}{3} + \alpha\right)$ 时，符号要看 $\frac{5\pi}{3} + \alpha$ 落在哪一象限，**不是**看 $\alpha$。而当 $\alpha$ 本身是未知符号时，正确做法是**先把 $\alpha$ 化到 $0 < \alpha < \frac{\pi}{2}$**，此时整式的符号就唯一确定了。
+
+</Callout>
+
+## 七、正弦型函数的图像与性质
+
+| 名称 | 位置 | 求法 |
+|------|------|------|
+| 周期 | $T = \frac{2\pi}{\lvert\omega\rvert}$ | 与 $A$、$B$、$\varphi$ 无关 |
+| 最大值 | $A + B$ | 在 $2k\pi + \frac{\pi}{2}$ 处取到 |
+| 最小值 | $B - A$ | 在 $2k\pi - \frac{\pi}{2}$ 处取到 |
+| 值域 | $[B - \lvert A\rvert,\ B + \lvert A\rvert]$ | $A$ 可负，故取绝对值 |
+| 对称轴 | $\omega x + \varphi = k\pi + \frac{\pi}{2}$ | 过**极值点**的竖直线 |
+| 对称中心 | $\omega x + \varphi = k\pi$ | 坐标为 $\left(x, B\right)$，函数值恰为 $B$ |
+
+### 五点法（一个周期内的五个特征点）
+
+令 $\omega x + \varphi$ 从 $0$ 取到 $2\pi$，解出五个 $x$：
+
+| $\omega x + \varphi$ | $0$ | $\frac{\pi}{2}$ | $\pi$ | $\frac{3\pi}{2}$ | $2\pi$ |
+|----------------------|---|-------------|-------|---------------|-------|
+| $x$ | $-\frac{\varphi}{\omega}$ | $\frac{\frac{\pi}{2} - \varphi}{\omega}$ | $\frac{\pi - \varphi}{\omega}$ | $\frac{\frac{3\pi}{2} - \varphi}{\omega}$ | $\frac{2\pi - \varphi}{\omega}$ |
+| $y$ | $B$ | $B + A$ | $B$ | $B - A$ | $B$ |
+
+<Callout type="tip" title="平移的「左加右减」指的是括号里的量">
+
+由 $y = \sin x$ 得到 $y = \sin\left(x + \varphi\right)$，是**图像向左**平移 $\varphi$；由 $y = \sin x$ 得到 $y = \sin(x - \varphi)$，是**图像向右**平移 $\varphi$。「左加右减」说的是**括号里那个量**，不是自变量 $x$。真要「把 $y = A\sin(\omega x + \varphi)$ 的图像向右平移 $m$ 个单位」，只需把 $\varphi$ 改为 $\varphi - \omega m$。
+
+</Callout>
+
+### 单调区间
+
+先求出 $\sin$ 的增区间 $\left[-\frac{\pi}{2} + 2k\pi, \frac{\pi}{2} + 2k\pi\right]$ 与减区间 $\left[\frac{\pi}{2} + 2k\pi, \frac{3\pi}{2} + 2k\pi\right]$，再令 $\omega x + \varphi$ 落在其中解出 $x$ 的范围。**增区间与减区间都写成闭区间**，端点是极值点。
+
+## 八、二倍角公式与降幂公式
+
+$$
+\sin 2\alpha = 2\sin\alpha\cos\alpha
+$$
+
+$$
+\cos 2\alpha = 2\cos^2\alpha - 1 = 1 - 2\sin^2\alpha = \cos^2\alpha - \sin^2\alpha
+$$
+
+$$
+\tan 2\alpha = \frac{2\tan\alpha}{1 - \tan^2\alpha}\ \bigl(\tan\alpha \ne \pm 1\bigr)
+$$
+
+**降幂公式**（由二倍角反解，用于把奇次降成偶次）：
+
+$$
+\sin^2\alpha = \frac{1 - \cos 2\alpha}{2}, \qquad
+\cos^2\alpha = \frac{1 + \cos 2\alpha}{2}
+$$
+
+| 奇次幂 | 偶次幂 |
+|--------|--------|
+| $\sin\alpha$ | $\sin^2\alpha = \frac{1-\cos2\alpha}{2}$ |
+| $\cos\alpha$ | $\cos^2\alpha = \frac{1+\cos2\alpha}{2}$ |
+| $\sin^3\alpha = \sin\alpha\left(1 - \cos^2\alpha\right) = \frac{3}{4}\sin\alpha - \frac{1}{4}\sin3\alpha$ | — |
+| $\cos^3\alpha = \frac{3}{4}\cos\alpha + \frac{1}{4}\cos3\alpha$ | — |
+
+<Callout type="formula" title="辅助角公式：a sin x + b cos x 的通法">
+
+$$
+a\sin x + b\cos x = \sqrt{a^2 + b^2}\ \sin\left(x + \varphi\right),\quad \text{其中}\ \cos\varphi = \frac{a}{\sqrt{a^2+b^2}},\ \sin\varphi = \frac{b}{\sqrt{a^2+b^2}}
+$$
+
+（$a$、$b$ 不同时为 0。）$\varphi$ 的象限与 $(a, b)$ 所在象限**相同**。于是 $\lvert a\sin x + b\cos x\rvert$ 的最大值为 $\sqrt{a^2+b^2}$，最小值为 $-\sqrt{a^2+b^2}$。
+
+</Callout>
+
+## 九、正弦定理与余弦定理
+
+**正弦定理**（外接圆半径为 $R$）：
+
+$$
+\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = 2R
+$$
+
+**余弦定理**（三个角都成立，$C$ 与边 $c$ 相对）：
+
+$$
+c^2 = a^2 + b^2 - 2ab\cos C
+$$
+
+**三角形面积**：
+
+$$
+S = \frac{1}{2}ab\sin C = \frac{1}{2}bc\sin A = \frac{1}{2}ca\sin B = \frac{abc}{4R}
+$$
+
+| 用途 | 用哪个 |
+|------|--------|
+| 已知两角与任一边，求其余边角 | 正弦定理 |
+| 已知两边与夹角，求第三边 | 余弦定理 |
+| 已知三边，判断形状 / 求角 | 余弦定理 |
+| 已知两边与**一边及其对角** | 正弦定理，**必须讨论两解** |
+| 已知条件含「高」「面积」 | 面积公式 $S = \frac12 ab\sin C$ |
+
+<Callout type="note" title="余弦定理的符号判据">
+
+$\cos C = \dfrac{a^2+b^2-c^2}{2ab}$，分母恒正，故 $a^2+b^2$ 与 $c^2$ 的大小**直接决定 $C$ 的锐钝**：
+
+- $a^2 + b^2 > c^2 \Rightarrow \cos C > 0 \Rightarrow C$ 是**锐角**；
+- $a^2 + b^2 = c^2 \Rightarrow \cos C = 0 \Rightarrow C = 90^\circ$（勾股定理的逆定理）；
+- $a^2 + b^2 < c^2 \Rightarrow \cos C < 0 \Rightarrow C$ 是**钝角**。
+
+判断整体形状时，必须先找出**最长边**，再用「另两边平方和」与「最长边平方」比。
+
+</Callout>
+
+## 十、解三角形的三类题型
+
+解三角形 = 已知三角形的部分元素（边、角），求其余元素。
+
+| 已知条件 | 求什么 | 工具 | 解的个数 |
+|----------|--------|------|----------|
+| 两角一边 | 边、角 | 正弦定理（先用 $A+B+C=\pi$ 求第三角） | **唯一解** |
+| 两边及**夹角** | 边、角 | 余弦定理求第三边，再正弦定理求角 | **唯一解** |
+| 两边及**一边及其对角** | 边、角 | 正弦定理 + 余弦定理验角 | **一解或两解** |
+| 三边 | 角、面积 | 余弦定理 | **唯一解** |
+
+### 两边及一对边的「两解」判据
+
+设已知 $a$、$b$ 与 $A$（$A$ 是 $a$ 的对角），由正弦定理得
+
+$$
+\sin B = \frac{b\sin A}{a}
+$$
+
+- $\dfrac{b\sin A}{a} > 1$：**无解**，不存在这样的三角形；
+- $\dfrac{b\sin A}{a} = 1$：$B = 90^\circ$，**一解**（这时 $b$ 是最长边）；
+- $\dfrac{b\sin A}{a} < 1$：$B_1 = \arcsin\dfrac{b\sin A}{a}$ 与 $B_2 = \pi - B_1$ 两个候选，**逐一检查 $A + B < \pi$**，能通过的即为解。两个都通过就是**两解**，只通过一个就是**一解**。
+
+<Callout type="tip" title="两解的三个等价判据">
+
+记 $h = b\sin A$（$b$ 边上的高）：
+
+1. $A$ 为**锐角**时：$a < h$ 无解，$a = h$ 一解（$B = 90^\circ$），$h < a < b$ **两解**，$a \ge b$ 一解；
+2. $A$ 为**直角**时：$a > b$ 一解（$B$ 为锐角），$a \le b$ 无解；
+3. $A$ 为**钝角**时：$a > b$ 一解（$B$ 必为锐角），$a \le b$ 无解。
+
+> 锐角情形的**两解**要同时满足 $h < a$ 与 $a < b$ 两个不等式，只看 $a > h$ 会把一解误判成两解——因为第二个候选角 $B_2 = \pi - B_1$ 成立的条件是 $B_1 > A$，等价于 $b > a$。这个判据适合做**快速预判**，最终仍以「逐个验 $A + B < \pi$」为准。
+
+</Callout>
+
+## 十一、实际问题中的解三角形
+
+| 情境 | 建模要点 |
+|------|----------|
+| 测量高度、楼高、塔高 | 找到**水平线**与**铅直线**，构造直角三角形，用 $\tan\theta = \dfrac{\text{高}}{\text{水平距离}}$ |
+| 测量河宽、湖宽 | 在岸上取两点，两点连线与河岸**平行**，两个仰角 + 已知间距构成一个三角形 |
+| 航向问题 | 走过的距离与方向的夹角构成三角形，注意「**北偏东 $30^\circ$**」这类表述要拆成方位角与偏角 |
+| 视线受阻 | 作辅助点把「无法到达」的点搬到可达位置，再解三角形 |
+
+> 所有实际问题的**唯一难点是画图并标角**。辅助线的标准做法：过已知点作**已知的边所在直线**的垂线，把「斜边」转成「直角边」，避免直接算锐角的正弦时把角度取错。
+
+## 十二、学习导航
+
+| 分节 | 内容 |
+|------|------|
+| 易错点 | 10 条高频陷阱，从单位换算到 SSA 两解遗漏 |
+| 考点解析 | 按定义与符号、诱导公式、图像性质、恒等变换、解三角形、实际应用六类题型拆解 |
+| 解题方法 | 化归模型、五点法模型、解三角形三个模型与交卷前检查清单 |
+| 思维导图 | 一张图串起定义、公式、图像、变换与正余弦定理 |
+| 典型例题 | 8 道例题，含逐项解析、方法复盘与变式训练 |

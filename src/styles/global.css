@@ -68,6 +68,21 @@ img { max-width: 100%; display: block; }
 }
 .nav-link:hover { background: var(--md-surface-container-highest); color: var(--md-on-surface); text-decoration: none; }
 .nav-link.active { background: color-mix(in srgb, var(--md-primary) 12%, transparent); color: var(--md-primary); }
+/* 学科多于一个后首页导航项变多（知识点页 .has-drawer 会隐藏 site-nav，首页不会），
+   窄屏会横向溢出。下面按断点逐级收紧，只做「变小」不做「换设计」：
+   1) ≥561px 完全不命中，桌面端观感逐像素不变；
+   2) 品牌文字与导航内边距只作用于无抽屉的页面（首页/学科页/标签页/搜索页），
+      知识点页（含化学）头部在窄屏保持原样。 */
+@media (max-width: 560px) {
+  .header-inner { gap: 0.5rem; padding: 0.55rem 0.75rem; }
+  body:not(.has-drawer) .brand { gap: 0.4rem; }
+  body:not(.has-drawer) .brand-text { font-size: 0.875rem; }
+  body:not(.has-drawer) .nav-link { padding: 0.3rem 0.5rem; }
+}
+@media (max-width: 390px) {
+  /* 只留品牌标记，保住导航与操作按钮不溢出；icon-btn 的 40px 触控区不动 */
+  body:not(.has-drawer) .brand-text { display: none; }
+}
 .header-actions { display: flex; gap: 0.35rem; }
 /* MD3 icon button：无边框、透明底、40×40 触控区，hover 用 primary 12% state layer */
 .icon-btn {
@@ -114,6 +129,26 @@ img { max-width: 100%; display: block; }
 }
 .hero p { margin: 0 auto; max-width: 46rem; color: var(--md-on-surface-variant); }
 .section-title { margin: 1.75rem 0 0.875rem; font-size: 1.25rem; }
+/* 多学科分组：首页「知识点」区按学科分段，学科名 + 图标 + 数量作为小标题 */
+.topic-group { margin-bottom: 0.5rem; }
+.group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0.875rem;
+  font-size: 1.05rem;
+  color: var(--md-on-surface);
+}
+.group-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--shape-sm);
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+}
+.group-count { margin-left: auto; font-size: 0.8rem; font-weight: 400; color: var(--md-on-surface-variant); }
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

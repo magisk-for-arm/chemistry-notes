@@ -2,16 +2,21 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import KnowledgeCard from '../components/KnowledgeCard.astro';
-import { subjectList, topics } from '../utils/topics';
+import Icon from '../components/Icon.astro';
+import { subjectList, getTopicsBySubject, topics, SITE_NAME } from '../utils/topics';
 import { withBase } from '@/utils/links';
 
 const overviews = await getCollection('knowledge', ({ data }) => data.category === 'overview');
 const totalEntries = await getCollection('knowledge');
+const summaryOf = (t: (typeof topics)[number]) =>
+  overviews.find((e) => e.id === `${t.subject}/${t.slug}/index`)?.data.summary || t.summary;
 ---
-<BaseLayout title="高中化学要点总结" description="高中化学易错点、考点与解题方法总结">
+<BaseLayout title={`${SITE_NAME}总结`} description="高中数学与化学易错点、考点与解题方法总结">
   <section class="hero">
-    <h1>高中化学要点总结</h1>
-    <p>把易错点讲透，把解题方法讲清楚。当前收录 {topics.length} 个知识点、{totalEntries.length} 篇专题。</p>
+    <h1>{SITE_NAME}总结</h1>
+    <p>
+      把易错点讲透，把解题方法讲清楚。当前收录 {subjectList.length} 个学科、{topics.length} 个知识点、{totalEntries.length} 篇专题。
+    </p>
   </section>
 
   <h2 class="section-title">学科</h2>
@@ -30,19 +35,28 @@ const totalEntries = await getCollection('knowledge');
   </div>
 
   <h2 class="section-title">知识点</h2>
-  <div class="card-grid">
-    {
-      topics.map((t) => {
-        const ov = overviews.find((e) => e.id === `${t.subject}/${t.slug}/index`);
-        return (
-          <KnowledgeCard
-            href={withBase(`/${t.subject}/${t.slug}`)}
-            icon={t.icon}
-            title={t.title}
-            summary={ov?.data.summary || t.summary}
-          />
-        );
-      })
-    }
-  </div>
+  {
+    subjectList.map((s) => {
+      const list = getTopicsBySubject(s.slug);
+      return (
+        <section class="topic-group">
+          <h3 class="group-title">
+            <span class="group-icon"><Icon name={s.icon} size={18} /></span>
+            <span>{s.title}</span>
+            <span class="group-count">{list.length} 个知识点</span>
+          </h3>
+          <div class="card-grid">
+            {list.map((t) => (
+              <KnowledgeCard
+                href={withBase(`/${t.subject}/${t.slug}`)}
+                icon={t.icon}
+                title={t.title}
+                summary={summaryOf(t)}
+              />
+            ))}
+          </div>
+        </section>
+      );
+    })
+  }
 </BaseLayout>

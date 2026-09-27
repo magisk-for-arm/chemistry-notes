@@ -1,0 +1,242 @@
+---
+title: "平面向量与复数 · 概览"
+topic: "vector-complex"
+category: "overview"
+order: 0
+summary: "向量的线性运算与数量积、基底分解与坐标表示、向量法证平行垂直与解三角形，复数的分类运算与共轭、复平面的几何意义。"
+tags: ["平面向量", "复数"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import Callout from '@/components/Callout.astro';
+
+## 一、平面向量的概念与线性运算
+
+**向量**：既有**大小**又有**方向**的量。记作 $\vec a$ 或 $\overrightarrow{AB}$。
+
+| 名称 | 记号 | 含义 |
+|------|------|------|
+| 向量 | $\vec a$ | 既有大小又有方向 |
+| 零向量 | $\vec 0$ | 大小为 $0$ 的向量，**方向任意**（不能说零向量与任何向量平行或不平行，它与所有向量共线） |
+| 单位向量 | $\vec e$ | 模为 $1$ 的向量 |
+| 相等向量 | $\vec a = \vec b$ | 长度**相等**且**方向相同**，与起点、终点的位置无关 |
+| 共线向量 | $\vec a \parallel \vec b$ | 方向相同或相反，即存在实数 $\lambda$ 使 $\vec a = \lambda \vec b$ |
+
+**相等向量是「自由向量」的核心**：$\overrightarrow{AB} = \overrightarrow{CD}$ 只要求两向量等长同向，与它们画在哪里无关。所以同一个向量可以用无数条有向线段表示。
+
+### 加法与减法
+
+$$
+\vec a + \vec b = \vec c \quad \text{（首尾相接，起点到终点）} \qquad
+\vec a - \vec b = \vec a + (-\vec b)
+$$
+
+- **三角形法则**：$\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$（沿折线走）；
+- **平行四边形法则**：$\vec a + \vec b$ 是以 $\vec a, \vec b$ 为邻边的平行四边形的**对角线**（起点重合）。
+
+> 运算律：交换律、结合律、$(-1)\cdot(-\vec a) = \vec a$、$\vec a + \vec 0 = \vec a$。**减法不满足交换律**：$\vec a - \vec b = -(\vec b - \vec a)$。
+
+### 数乘
+
+$$
+\vec a = \lambda \vec b \quad \Longleftrightarrow \quad \vec a \text{ 与 } \vec b \text{ 共线}
+$$
+
+- $\lambda > 0$：**同向**，$|\vec a| = \lambda |\vec b|$；
+- $\lambda < 0$：**反向**，$|\vec a| = |\lambda| \,|\vec b|$；
+- $\lambda = 0$：$\vec a = \vec 0$。
+
+## 二、平面向量的数量积
+
+**定义**（几何式）：
+
+$$
+\vec a \cdot \vec b = |\vec a| \,|\vec b| \cos\theta
+$$
+
+其中 $\theta$ 是两向量的夹角，$0 \le \theta \le \pi$。这是一个**实数**，不是向量。
+
+**坐标运算式**：设 $\vec a = (x_1, y_1)$，$\vec b = (x_2, y_2)$，则
+
+$$
+\vec a \cdot \vec b = x_1 x_2 + y_1 y_2
+$$
+
+**几何意义**：$|\vec b| \cos\theta$ 是 $\vec a$ 在 $\vec b$ 方向上的**投影**，所以 $\vec a \cdot \vec b$ 等于「$\vec a$ 的长度 $\times$ $\vec b$ 在 $\vec a$ 方向上的投影」。
+
+<Callout type="formula" title="数量积的五条性质">
+
+$$
+\begin{aligned}
+&\text{交换律：}\ (k\vec a)\cdot\vec b = \vec a\cdot(k\vec b) = k(\vec a\cdot\vec b) \\
+&\text{分配律：}\ (\vec a+\vec b)\cdot\vec c = \vec a\cdot\vec c + \vec b\cdot\vec c \\
+&\text{自乘：}\ \vec a\cdot\vec a = |\vec a|^2 = x^2 + y^2 \\
+&\text{正负判角：}\ \vec a\cdot\vec b > 0 \iff \theta \in \left[0, \frac{\pi}{2}\right),\ \ \vec a\cdot\vec b = 0 \iff \theta = \frac{\pi}{2},\ \ \vec a\cdot\vec b < 0 \iff \theta \in \left(\frac{\pi}{2}, \pi\right] \\
+&\text{模与平方：}\ \left|\vec a\right| = \sqrt{x^2+y^2} \ge 0
+\end{aligned}
+$$
+
+</Callout>
+
+<Callout type="note" title="向量的「平方」只能是模的平方">
+
+$\vec a \cdot \vec a = |\vec a|^2$，这在坐标下就是 $x^2 + y^2$。**不存在** $x^2 - y^2$ 这样的式子——那是复数 $z^2 = (x^2-y^2) + 2xyi$ 的实部，两个领域的公式不能混用。
+
+</Callout>
+
+### 夹角、平行的垂直的判定
+
+$$
+\cos\theta = \frac{\vec a \cdot \vec b}{|\vec a| \,|\vec b|}, \qquad
+\vec a \perp \vec b \iff \vec a \cdot \vec b = 0 \iff x_1x_2 + y_1y_2 = 0
+$$
+
+$$
+\vec a \parallel \vec b \iff x_1 y_2 - x_2 y_1 = 0
+$$
+
+<Callout type="tip" title="平行与垂直：一个用叉、一个用点">
+
+- **垂直看点积**（内积）：$x_1x_2 + y_1y_2 = 0$；
+- **平行看叉积**（行列式）：$x_1y_2 - x_2y_1 = 0$。
+
+两个式子的结构分别是「**交叉相乘求和**」与「**交叉相乘求差**」，记号不同但操作都是「交叉」。**平行判定包含反向**（$\vec a = -2\vec b$ 也是平行），只有垂直才是等于零。
+
+</Callout>
+
+## 三、平面向量基本定理与坐标
+
+<Callout type="formula" title="平面向量基本定理">
+
+设 $\vec e_1, \vec e_2$ 是平面内两个**不共线**的向量，则平面内任意一个向量 $\vec a$ 都可以唯一地表示为
+
+$$
+\vec a = x \vec e_1 + y \vec e_2
+$$
+
+**唯一性的前提是「不共线」**：若 $\vec e_1 \parallel \vec e_2$，则同一个 $\vec a$ 有无穷多种表示。用坐标判断就是行列式 $x_1y_2 - x_2y_1 \ne 0$。
+
+</Callout>
+
+以 $x$ 轴、$y$ 轴的单位向量 $\vec i, \vec j$ 为基底，就是坐标表示：$\vec a = (x, y) = x\vec i + y\vec j$。
+
+## 四、数量积在几何与三角形中的应用
+
+| 应用 | 结论 | 备注 |
+|------|------|------|
+| 求夹角 | $\cos\theta = \frac{\vec a\cdot\vec b}{\lvert\vec a\rvert\lvert\vec b\rvert}$ | 分母是两个模长之积 |
+| 三角形面积 | $S = \frac{1}{2}\lvert x_1y_2 - x_2y_1\rvert = \frac{1}{2}\lvert\vec a\rvert\lvert\vec b\rvert\sin\theta$ | 二维用**叉积的绝对值** |
+| 中点 | $\vec{OM} = \frac{\vec{OA} + \vec{OB}}{2}$ | 分母是 2 |
+| 重心 | $\vec{OG} = \frac{\vec{OA} + \vec{OB} + \vec{OC}}{3}$ | 分母是 3 |
+| 内心 | $\vec{OI} = \frac{a\vec{OA} + b\vec{OB} + c\vec{OC}}{a+b+c}$ | $a, b, c$ 是对边长 |
+| 平行证明 | $\overrightarrow{MN} = \frac{1}{2}\left(\overrightarrow{AB} + \overrightarrow{AC}\right) \Rightarrow MN \parallel BC$ | 中点公式推中位线 |
+| 垂直证明 | 等腰三角形底边中线 $\perp$ 底边 | 用 $(\vec a + \vec b)\cdot(\vec a - \vec b) = 0$ |
+| 余弦定理 | $\cos C = \frac{a^2 + b^2 - c^2}{2ab}$ | 由 $\vec a\cdot\vec b = -ab\cos C$ 导出（**负号**） |
+
+### 余弦定理的向量证明
+
+记 $\vec a = \overrightarrow{BC}$，$\vec b = \overrightarrow{CA}$，$\vec c = \overrightarrow{AB}$，$a = |\vec a|$，$b = |\vec b|$，$c = |\vec c|$（即 $a, b, c$ 分别是角 $A, B, C$ 的对边）。由三角形首尾相接的闭合性有
+
+$$
+\vec a + \vec b + \vec c = \vec 0 \quad \Rightarrow \quad \vec c = -\vec a - \vec b
+$$
+
+两边取模平方（用 $\left|-\vec a-\vec b\right| = \left|\vec a+\vec b\right|$）：
+
+$$
+c^2 = \left|\vec a + \vec b\right|^2 = a^2 + b^2 + 2\vec a\cdot\vec b
+$$
+
+而 $\vec a$ 与 $\vec b$ 的夹角是 $\pi - C$（在点 $C$ 处，$\vec a$ 的方向是 $B \to C$，与射线 $C \to A$ 反向），故 $\vec a\cdot\vec b = ab\cos(\pi - C) = -ab\cos C$，代入得
+
+$$
+c^2 = a^2 + b^2 - 2ab\cos C
+$$
+
+<Callout type="note" title="余弦定理的负号从哪来">
+
+向量法证明余弦定理时，**$2\vec a\cdot\vec b$ 里的点积是 $-ab\cos C$ 而不是 $ab\cos C$**，因为 $\vec a = \overrightarrow{BC}$ 的方向与射线 $C\to B$ 相反。漏掉这个负号，$3, 4, 60^\circ$ 的三角形会被算成 $c^2 = 37$（正确值 $13$）。这是解三角形题里最隐蔽的符号错误。
+
+</Callout>
+
+## 五、复数的概念与分类
+
+**虚数单位** $i$ 满足 $i^2 = -1$。复数的一般形式是 $z = a + bi$，其中 $a, b \in \mathbb{R}$，$a$ 叫**实部**，$b$ 叫**虚部**。
+
+**i 的幂**以 4 为周期：
+
+$$
+i^{4k} = 1, \quad i^{4k+1} = i, \quad i^{4k+2} = -1, \quad i^{4k+3} = -i
+$$
+
+口诀：**「一 i 负一 负 i，一四周期莫忘记」**。
+
+| 类别 | 条件 | 注意 |
+|------|------|------|
+| 实数 | $b = 0$，即 $z = a$ | 纯虚数**不是**实数 |
+| 纯虚数 | $a = 0$ 且 $b \ne 0$ | $0$ 是实数，**不是**纯虚数 |
+| 虚数 | $b \ne 0$ | 含纯虚数与非纯虚数 |
+
+**两个复数相等的条件**：$z_1 = z_2 \iff$ 实部相等**且**虚部相等。
+
+<Callout type="note" title="纯虚数与实数的分类边界">
+
+$z = 0$ 时 $a = 0$ 但 $b = 0$，所以 $0$ 属于**实数**而不属于纯虚数。判断「$z$ 是纯虚数」必须同时写 $a = 0$ **且** $b \ne 0$，只写 $a = 0$ 会把 $0$ 混进来。
+
+</Callout>
+
+## 六、复数的四则运算
+
+$$
+(a + bi) \pm (c + di) = (a \pm c) + (b \pm d) i
+$$
+
+$$
+(a + bi)(c + di) = (ac - bd) + (ad + bc) i
+$$
+
+$$
+\frac{a + bi}{c + di} = \frac{(a + bi)(c - di)}{c^2 + d^2} = \frac{ac + bd + (bc - ad) i}{c^2 + d^2} \quad (c + di \ne 0)
+$$
+
+<Callout type="tip" title="除法两步走">
+
+**第一步乘共轭**（分子分母同乘 $c - di$），**第二步拆实虚部**。分子展开是「**实乘实减虚乘虚，虚乘实加实乘虚**」；分母是「实平方加虚平方」且为**正实数**。切勿把 $(a+bi)(c-di)$ 算成 $(ac-bd) + (ad+bc)i$（那是同号相乘的公式），符号全反。
+
+</Callout>
+
+## 七、共轭复数与复数的几何意义
+
+**共轭复数**：$\overline{z} = a - bi$，即**实部不变、虚部变号**。三条必背结论：
+
+$$
+z + \overline{z} = 2a, \qquad z - \overline{z} = 2bi, \qquad z \cdot \overline{z} = |z|^2 = a^2 + b^2
+$$
+
+<Callout type="note" title="共轭只是变号，不是整体取负">
+
+$z = a + bi$ 的共轭是 $a - bi$，$z$ 的相反数是 $-a - bi$。两者不同：共轭只动**虚部**，取负动**两项**。另外「$z$ 与 $\overline z$ 的和是实数」不等于「$z$ 与 $\overline z$ 相等」。
+
+</Callout>
+
+**复平面**：建立平面直角坐标系，横轴为实轴、纵轴为虚轴，点 $(a, b)$ 对应复数 $z = a + bi$。三条几何意义：
+
+| 结论 | 几何表述 |
+|------|----------|
+| $\lvert z \rvert = \sqrt{a^2 + b^2}$ | 点 $Z$ 到**原点**的距离，恒**非负** |
+| $\lvert z_1 - z_2 \rvert = \sqrt{(a_1-a_2)^2 + (b_1-b_2)^2}$ | 复平面上两点 $Z_1, Z_2$ 的距离 |
+| $z$ 与 $\overline z$ | 关于**实轴**对称 |
+| $z$ 与 $-z$ | 关于**原点**对称 |
+| $z$ 与 $-\overline z$ | 关于**虚轴**对称 |
+
+> **绝记**：关于**实轴**对称是取共轭 $z \mapsto \overline z$；关于**原点**对称是取相反数 $z \mapsto -z$；关于**虚轴**对称是 $z \mapsto -\overline z$。三个「对称」配三个不同的式子，配错是最常见的失分点。
+
+## 八、学习导航
+
+- **易错点**：10 条高频陷阱（加减方向、数乘模长、平行与垂直判定、向量平方、夹角、中点与重心、余弦定理符号、复数分类、共轭运算、复平面几何），逐条给出「错误 → 错因 → 正解 → 接题方法」。
+- **考点解析**：按线性运算、数量积、向量证明、复数运算、复平面几何五类题型拆解。
+- **解题方法**：坐标化、数量积求角、几何证明、解三角形、复数代数、复平面几何六个模型，附检查清单。
+- **思维导图**：一张图串起全部知识。
+- **典型例题**：8 道例题，含逐项解析、方法复盘与变式训练。

@@ -1,0 +1,411 @@
+---
+title: "数列 · 易错点"
+topic: "sequence"
+category: "mistakes"
+order: 1
+summary: "10 条高频易错点，每条都配「错因剖析」与「接题方法」。"
+tags: ["易错点", "数列"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+下面 10 条按高频程度排列。数列失分几乎全部集中在「**下标没对齐**」与「**公式没看清前提**」两处，建议逐条对照文末《接题方法总表》自查。
+
+## 1. 相减法求通项时忘记单独验算首项
+
+<MistakeCard index={1} title="相减法求 a_n 后不验证 n = 1 是否也成立" frequency="high" tags={['相减法', '由和求项']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $S_n = 2n^2 - 3n + 5$，求 $a_n$。答：$a_n = S_n - S_{n-1} = 4n - 5$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+恒等式 $a_n = S_n - S_{n-1}$ 只在 **$n \ge 2$** 时成立，因为它来自 $S_n - S_{n-1} = a_{n-1} + \cdots + a_1 - (a_{n-2} + \cdots + a_1) = a_{n-1}$ 的移项，需要 $S_{n-1}$ 中「前面那些项」确实存在。本题 $S_n$ 含有**常数项 $5$**，形式上取 $n = 0$ 得 $S_0 = 5 \ne 0$，所以相减式在 $n = 1$ 处不成立。实际 $a_1 = S_1 = 4$，而 $4\times 1 - 5 = -1$，两者不符。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+a_1 = S_1 = 2 - 3 + 5 = 4
+$$
+
+$$
+a_n = S_n - S_{n-1} = (2n^2-3n+5) - \left[2(n-1)^2-3(n-1)+5\right] = 4n-5 \quad (n \ge 2)
+$$
+
+所以正确结论是 $a_1 = 4$，$a_n = 4n-5\ (n \ge 2)$，**首项要单独写**。该数列 $4, 3, 7, 11, \dots$ 从第二项起才等差。若 $S_n$ 恰好**没有常数项**（如 $2n^2 - n$），相减式才对 $n = 1$ 成立，可统一写成 $a_n = 4n - 3$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「一行首项 + 一行通项 + 一次验算」三动作**：① 开头必写 $a_1 = S_1$；② 用相减法给出 $n \ge 2$ 的通项；③ 用 $S_2 = a_1 + a_2$ 核对一次（本题 $S_2 = 8-6+5 = 7$，$a_1 + a_2 = 4 + 3 = 7$）。若第 ③ 步对不上，就老老实实分两段写。
+
+</Callout>
+</MistakeCard>
+
+## 2. 漏掉公比等于 1 的特例
+
+<MistakeCard index={2} title="等比数列求和时直接套公式，忘了 q = 1 的情形" frequency="high" tags={['等比数列', '求和公式']}>
+<Callout type="wrong" title="错误示例">
+
+等比数列 $\{a_n\}$ 中，$a_1 = 3$，$q = 1$，求 $S_5$。答：由 $S_n = \dfrac{a_1\left(1-q^n\right)}{1-q}$ 得
+
+$$
+S_5 = \frac{3\left(1-1^5\right)}{1-1} = \frac{0}{0}
+$$
+
+分母为零，公式失效，故 $S_5$ 不存在。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+等比求和公式 $\dfrac{a_1(1-q^n)}{1-q}$ 的**前提是 $q \ne 1$**，$q = 1$ 时必须另走一条路。而 $q = 1$ 是完全合法的等比数列（公比为 1 的常数列），不是「不存在」。这一分支必须**主动讨论**，不可能靠公式自动覆盖。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$q = 1$ 时 $a_n = a_1 q^{n-1} = a_1 = 3$ 对一切 $n$ 成立，于是
+
+$$
+S_5 = 5 \times 3 = 15
+$$
+
+（等价地 $S_5 = na_1 = 5 \times 3$。）
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「见等比先问 q 是否为 1」**。含参求 $q$ 的题更要做完整：解出所有 $q$ 值后，**把每个值连同 $q = 1$ 一起代回原方程**逐一验算。绝大多数「含参求 $q$」的漏解，都出在漏掉 $q = 1$ 或漏掉负根。
+
+</Callout>
+</MistakeCard>
+
+## 3. 等差与等比的公式互相混用
+
+<MistakeCard index={3} title="等差数列求和却用了等比公式" frequency="high" tags={['公式混用', '求和']}>
+<Callout type="wrong" title="错误示例">
+
+等差数列 $\{a_n\}$ 中 $a_1 = 2$，$d = 3$，求 $S_{10}$。答：
+
+$$
+S_{10} = \frac{a_1\left(1-q^{10}\right)}{1-q} = \frac{2\left(1-3^{10}\right)}{1-3} = 59048
+$$
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$3$ 是**公差** $d$，不是**公比** $q$。等差数列的比值 $\frac{a_{n+1}}{a_n}$ 并不恒定（本题 $\frac{a_2}{a_1} = \frac{5}{2}$，$\frac{a_3}{a_2} = \frac83$），把 $d$ 塞进指数是彻底用错工具。数值上也已露馅：$59048$ 是天文数字，而等差数列前 10 项平均约 $15.5$，量级完全不符。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+S_{10} = \frac{10\left(a_1 + a_{10}\right)}{2} = \frac{10(2 + 29)}{2} = 155
+$$
+
+其中 $a_{10} = 2 + 9\cdot 3 = 29$。也可用 $\dfrac{n\left[2a_1 + (n-1)d\right]}{2} = \dfrac{10\left[4 + 27\right]}{2} = 155$，两种算法结果一致，可作互验。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「判型三秒」**：拿到条件先问①相邻两项**差**是不是常数？是 → 等差；②相邻两项**比**是不是常数？是 → 等比。然后在草稿纸角上写下「**等差**」或「**等比**」二字，再翻公式。量级自检也有效：等差前 $n$ 项和是 $O(n^2)$，等比是 $O(a_1)$ 量级的有界或指数型，两者数量级不会混。
+
+</Callout>
+</MistakeCard>
+
+## 4. 解出公比后只保留一个根
+
+<MistakeCard index={4} title="解关于 q 的方程时丢掉负根或第二个根" frequency="high" tags={['含参数列', '公比']}>
+<Callout type="wrong" title="错误示例">
+
+等比数列 $\{a_n\}$ 中 $a_1 = 1$，$a_2 + a_3 = 12$，求 $a_4$。答：$q + q^2 = 12 \Rightarrow q = 3$，故 $a_4 = 3^3 = 27$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$q^2 + q - 12 = 0$ 是一元二次方程，**必须解完两个根**。另一根 $q = -4$ 同样满足原条件 $a_2 + a_3 = 12$：此时 $a_1 = 1$、$a_2 = a_1q = -4$、$a_3 = a_1q^2 = 16$，而 $a_2 + a_3 = -4 + 16 = 12$，成立。对应 $a_4 = a_1q^3 = -64$。所以 $a_4 = -64$ 也是正确解。只有题目给出「各项为正」「$q > 0$」这类限制时才能只取 $q = 3$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+q^2 + q - 12 = 0 \iff (q + 4)(q - 3) = 0 \iff q = 3 \ \text{或}\ q = -4
+$$
+
+$$
+q = 3 \Rightarrow a_4 = 27;\qquad q = -4 \Rightarrow a_4 = -64
+$$
+
+两个值都代回原方程 $a_2 + a_3 = q + q^2$ 验证：$q = 3$ 时 $3^2 + 3 = 12$，成立；$q = -4$ 时 $(-4)^2 - 4 = 12$，也成立。两个值都要保留，除非题目有额外约束。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「解完全部根 + 逐一代回原方程」**：① 二次方程写「$q = \cdots$ 或 $q = \cdots$」，不要只写一个；② 每个根都**代回原方程**（不是化简后的新方程）验算；③ 额外检查 $q = 1$ 是否也是解；④ 最后看题目有没有「$q > 0$」「各项同号」之类的约束可以筛掉其中一个。
+
+</Callout>
+</MistakeCard>
+
+## 5. 错位相减时项数与系数没对齐
+
+<MistakeCard index={5} title="错位相减后漏掉末项或系数没数对" frequency="high" tags={['错位相减', '求和方法']}>
+<Callout type="wrong" title="错误示例">
+
+求 $\displaystyle\sum_{k=1}^{n} k\cdot 2^k$。写出两行相减后，把末项 $-n\cdot 2^{n+1}$ 漏掉，得
+
+$$
+-S = 2 + 2^2 + 2^3 + \cdots + 2^n \quad\Longrightarrow\quad S = 2^{n+1} - 2
+$$
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+错位相减后，系数列的排列是 $1, 2-1, 3-2, \dots, n-(n-1), -n$，即**前面全是 $1$、末尾单独一个 $-n$**。这个末尾项 $-n\cdot 2^{n+1}$ 是唯一一处「差值不为 $1$」的位置，抄写时最容易掉。掉之后等比数列求和用了错的起止项，误差随 $n$ 增大而爆炸。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+-S = \left(1 + 2^2 + \cdots + 2^n\right) - n\cdot 2^{n+1} = \left(2^{n+1} - 2\right) - n\cdot 2^{n+1}
+$$
+
+$$
+S = 2 + (n-1)\cdot 2^{n+1}
+$$
+
+代 $n = 2$ 验算：$(2-1)\cdot 2^3 + 2 = 10$，原式 $1\cdot 2 + 2\cdot 4 = 10$，成立。代 $n = 3$：$2\cdot 2^4 + 2 = 34$，原式 $2 + 8 + 24 = 34$，成立。错法给的 $2^{n+1} - 2$ 在 $n = 2$ 时等于 $6$，与 $10$ 不符，一验就露。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「相减后数两遍 + 小 n 验算」**：① 相减完成后，把系数列从头到尾**念一遍** $1, 1, 1, \dots, 1, -n$，确认个数与 $n$ 匹配；② 再把幂次列念一遍 $2^1, 2^2, \dots, 2^n, 2^{n+1}$，确认首尾各多一项；③ 取 $n = 1$ 和 $n = 2$ 代回原式核对，这一步花不到一分钟，能拦下绝大多数算错。
+
+</Callout>
+</MistakeCard>
+
+## 6. 裂项相消的系数没乘对
+
+<MistakeCard index={6} title="裂项时漏掉前面的公因子 1/a" frequency="medium" tags={['裂项相消', '求和方法']}>
+<Callout type="wrong" title="错误示例">
+
+$\dfrac{1}{(2n-1)(2n+1)} = \dfrac{1}{2n-1} - \dfrac{1}{2n+1}$，所以
+$\displaystyle\sum_{n=1}^{N}\frac{1}{(2n-1)(2n+1)} = 1 - \dfrac{1}{2N+1}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+通分验证：$\dfrac{1}{2n-1} - \dfrac{1}{2n+1} = \dfrac{(2n+1)-(2n-1)}{(2n-1)(2n+1)} = \dfrac{2}{(2n-1)(2n+1)}$，比原式**大了一倍**。所以正确的裂项必须带上 $\frac12$ 这个公因子。漏乘系数后求和结果整体偏大 $2$ 倍。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+\frac{1}{(2n-1)(2n+1)} = \frac{1}{2}\left(\frac{1}{2n-1} - \frac{1}{2n+1}\right)
+$$
+
+$$
+\sum_{n=1}^{N}\frac{1}{(2n-1)(2n+1)} = \frac12\left(1 - \frac13 + \frac13 - \frac15 + \cdots + \frac{1}{2N-1} - \frac{1}{2N+1}\right) = \frac12\left(1 - \frac{1}{2N+1}\right) = \frac{N}{2N+1}
+$$
+
+验证 $N = 1$：原式 $\frac{1}{1\cdot 3} = \frac13$；正确式给 $\frac12\left(1 - \frac{1}{2\cdot 1 + 1}\right) = \frac12\left(1 - \frac13\right) = \frac13$，成立，与原式一致。而错式给 $1 - \frac13 = \frac23$，恰好是原式的两倍。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「通分定系数 + $n = 1$ 验算」**：① 写出裂项式后立刻**通分验证**一遍，常数因子 $a$ 就在这一步露出来；② 记牢通式 $\dfrac{1}{(an+b)(an+b+a)} = \dfrac{1}{a}\left(\dfrac{1}{an+b} - \dfrac{1}{an+b+a}\right)$，其中 $\frac1a$ 是最常丢的因子；③ 写出求和结果后取 $N = 1$ 代回原式核对。
+
+</Callout>
+</MistakeCard>
+
+## 7. 一阶线性递推不会配平
+
+<MistakeCard index={7} title="递推式 a(n+1) = p·a(n) + q 直接逐项叠加" frequency="medium" tags={['递推数列', '构造法']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $a_{n+1} = 2a_n + 3$，$a_1 = 1$，求 $a_n$。答：由 $a_{n+1} = 2a_n + 3$ 逐项累加得
+$a_n = 2^{n-1} + 3(n - 1)$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+**叠加原理只对纯倍数型 $a_{n+1} = qa_n$ 成立**（$q = 1$ 时还要再讨论），一旦右边多出一个与 $a_n$ 无关的常数 $q$，就不能把各次的 $3$ 直接加起来——每一步的 $3$ 都会被后一步乘以 $2$，权重是 $2^{n-2}$ 而不是 $1$。验证 $n = 3$：原递推 $a_2 = 5$、$a_3 = 2\cdot 5 + 3 = 13$，而错式给 $2^2 + 3\cdot 2 = 10$，不符。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+**配平**：设 $\lambda$ 使 $a_{n+1} + \lambda = 2(a_n + \lambda)$，展开右边为 $2a_n + 2\lambda$，与左边 $2a_n + 3 + \lambda$ 比较常数项得 $3 + \lambda = 2\lambda$，即 $\lambda = 3$。于是
+
+$$
+a_{n+1} + 3 = 2(a_n + 3)
+$$
+
+即 $\{a_n + 3\}$ 是公比为 $2$ 的等比数列，$a_1 + 3 = 4$，所以
+
+$$
+a_n + 3 = 4\cdot 2^{n-1} \quad\Longrightarrow\quad a_n = 2^{n+1} - 3
+$$
+
+验证：$a_1 = 1$，成立；$a_2 = 5 = 2^3 - 3$，成立；$a_3 = 13 = 2^4 - 3$，成立。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「设配平量、比常数、定公比」三动作**：① 设 $b_n = a_n + \lambda$；② 要 $b_{n+1} = p\,b_n$ 就展开右边与左边比较常数项，解出 $\lambda = \frac{q}{p-1}$；③ 加上初值得公比与首项，写出通项。**开头写一行「当 $p = 1$ 时另行讨论」**，因为此时分母为零、公式失效。
+
+</Callout>
+</MistakeCard>
+
+## 8. 相减时下标错位
+
+<MistakeCard index={8} title="把 S(n+1) - S(n) 写成 a(n) 而不是 a(n+1)" frequency="high" tags={['下标对齐', '相减法']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $S_n = 2n^2 - n$，求 $a_n$。答：$a_n = S_{n+1} - S_n = 4n + 1$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+正确的恒等式是 $S_{n+1} = S_1 + a_2 + \cdots + a_{n+1}$，与 $S_n = a_1 + a_2 + \cdots + a_n$ 相减后，**$a_1$ 被消去**，剩下的是 $a_{n+1}$。所以 $S_{n+1} - S_n = a_{n+1}$，下标是「后一项」。把 $a_{n+1}$ 写成 $a_n$ 会整体错位一项。检验：错式给 $a_1 = 5$，而 $a_1 = S_1 = 1$，立刻矛盾。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+两种写法都对，但下标必须各自配平：
+
+$$
+a_1 = S_1 = 2 - 1 = 1
+$$
+
+$$
+a_n = S_n - S_{n-1} = (2n^2 - n) - \left[2(n-1)^2 - (n-1)\right] = 4n - 3 \quad (n \ge 2)
+$$
+
+$4 \times 1 - 3 = 1 = a_1$ 吻合，故可统一写成 $a_n = 4n - 3$。验证 $S_3 = 18 - 3 = 15$，$a_1+a_2+a_3 = 1+5+9 = 15$，成立。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「大标减小标 = 后一项」**：$S_m - S_n$（$m > n$）等于 $a_{n+1} + a_{n+2} + \cdots + a_m$。写成差一步的形式时，$S_{n+1} - S_n = a_{n+1}$、$S_n - S_{n-1} = a_n$。**写完立刻把 $n = 1$ 代回去与 $a_1 = S_1$ 对照**，一步就能发现错位。
+
+</Callout>
+</MistakeCard>
+
+## 9. 等差求和公式里多写一个 d
+
+<MistakeCard index={9} title="把 (n-1)d 记成 n·d" frequency="high" tags={['求和公式', '等差数列']}>
+<Callout type="wrong" title="错误示例">
+
+等差数列 $a_1 = 1$，$d = 2$，求 $S_3$。答：由
+$S_n = \dfrac{n\left(2a_1 + nd\right)}{2}$ 得
+$S_3 = \dfrac{3\left(2 + 6\right)}{2} = 12$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+正确公式是 $S_n = \dfrac{n\left[2a_1 + (n-1)d\right]}{2}$，方括号里是 $(n-1)d$ 而不是 $nd$。原因：$a_n = a_1 + (n-1)d$ 只有 $n-1$ 个公差（从 $a_1$ 走到 $a_n$ 走的是 $n-1$ 步），$2a_1 + (n-1)d$ 正是首末两项之和 $a_1 + a_n$。多写一个 $d$，每一项都被多加了 $d$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+S_3 = 1 + 3 + 5 = 9
+$$
+
+$$
+S_3 = \frac{3\left[2\cdot 1 + 2\cdot 2\right]}{2} = \frac{3(2+4)}{2} = 9 \quad \checkmark
+$$
+
+错法多出的 $3 \times d / 2 = 3$，正好是 $12 - 9$。**与「首末项平均」式 $S_n = \frac{n(a_1+a_n)}{2}$ 互验**：$a_3 = 1 + 2\cdot 2 = 5$，$S_3 = \frac{3(1+5)}{2} = 9$，成立。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「优先用首末项平均式」**：$S_n = \dfrac{n\left(a_1 + a_n\right)}{2}$ 只需先求 $a_n$，而 $a_n$ 里自带 $(n-1)$，两边同时用到同一个 $n-1$，**结构上不可能多写**。必须用 $\left[2a_1 + (n-1)d\right]$ 时，写完立刻在草稿上验一个小的 $n$（如 $n = 2$、$n = 3$）代回原数列逐项相加。
+
+</Callout>
+</MistakeCard>
+
+## 10. 求指定序号项时下标与项数不同步
+
+<MistakeCard index={10} title="求 a(2n) 时把 S(n) 直接当成 S(2n)" frequency="medium" tags={['下标同步', '由和求项']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $S_n = n^2 + n$，求 $a_{2n}$。答：$a_{2n} = S_n - S_{n-1} = 2n$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$a_{2n}$ 的意思是「**第 $2n$ 项**」，所以必须用 $S_{2n} - S_{2n-1}$，两个下标都要换成 $2n$ 与 $2n-1$。直接把 $S_n$ 的公式代入，等于算了第 $n$ 项。另一种正确做法是先求出 $a_n$ 的一般表达式，再把 $n$ 整体替换成 $2n$——错法恰好跳过了这一步。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+**路一**：先求通项。$a_1 = S_1 = 2$，$a_n = S_n - S_{n-1} = (n^2+n) - (n^2 - n) = 2n\ (n \ge 2)$，代入 $n = 1$ 得 $2 = a_1$ 吻合，故 $a_n = 2n$。再把 $n$ 换成 $2n$：$a_{2n} = 4n$。
+
+**路二**：直接代两个下标。$S_{2n} = 4n^2 + 2n$，$S_{2n-1} = (2n-1)^2 + (2n-1) = 4n^2 - 4n + 1 + 2n - 1 = 4n^2 - 2n$，故
+
+$$
+a_{2n} = S_{2n} - S_{2n-1} = 4n^2 + 2n - 4n^2 + 2n = 4n
+$$
+
+验证 $n = 1$：$a_2 = 4$，而 $S_2 - S_1 = 6 - 2 = 4$，成立。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「先求 a_n，再换下标」**：看到 $a_{kn}$、$a_{2n-1}$、$S_{2n+1}$ 这类**指定序号**，第一步永远是求出 $a_n$ 的一般表达式，然后把 $n$ 整体替换。同时记住三条配套结论：$a_{2n} = a_1 + (2n-1)d$（等差）、$a_{2n} = a_1q^{2n-1}$（等比）、$S_{2n} = 2S_n + n^2d$（等差，后一式中 $n$ 是 $2n$ 的一半，$d$ 要乘 $n^2$ 而不是 $n$）。
+
+</Callout>
+</MistakeCard>
+
+## 接题方法总表
+
+| 看到什么 | 立刻要问 / 要做的 |
+|----------|------------------|
+| 给了 $S_n$ 求 $a_n$ | 先写 $a_1 = S_1$，再相减得 $n \ge 2$ 的通项，最后用 $S_2$ 验算 |
+| $S_n$ 含常数项 | 相减式在 $n = 1$ 处不成立，首项必须单独写 |
+| 说是「等比数列」 | $q$ 能否等于 1？求和公式有没有失效？ |
+| 含参求 $q$ | 解完全部根 + 把 $q = 1$ 一起代回原方程验算 |
+| 拿到 $a_1$、$d$ 或 $q$ | 先判「等差」还是「等比」并在草稿上标明，再翻公式 |
+| $S_{n+1} - S_n$ | 等于 $a_{n+1}$（下标是后一项），写完把 $n = 1$ 代回对照 |
+| 出现 $a_{2n}$、$S_{2n+1}$ | 先求 $a_n$ 的一般式，再整体替换下标 |
+| 错位相减法 | 相减后数两遍系数列与幂次列，再用 $n = 1, 2$ 验算 |
+| 裂项相消 | 写完裂项式立刻通分验系数，取 $N = 1$ 代回原式核对 |
+| 一阶递推 $a_{n+1} = p a_n + q$ | 配平 $\lambda = \frac{q}{p-1}$（$p = 1$ 另讨论），化成等比 |
+| 分式递推 | 先解不动点方程 $r x^2 + (s-p)x - q = 0$，再构造比值 |
+| 求 $S_n$ 的最值 | 用 $S_{n+1} - S_n = a_{n+1}$ 找增减转折点 |

@@ -1,0 +1,388 @@
+---
+title: "不等式 · 易错点"
+topic: "inequality"
+category: "mistakes"
+order: 1
+summary: "10 条高频易错点，每条都配「错因剖析」与「接题方法」。"
+tags: ["易错点", "不等式", "基本不等式"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+下面 10 条按高频程度排列。不等式失分几乎全部集中在「**不看条件就用公式**」和「**同乘同除没看符号**」两处，建议逐条对照文末《接题方法总表》自查。
+
+## 1. 不看正负就用基本不等式
+
+<MistakeCard index={1} title="对含负数的式子硬套基本不等式" frequency="high" tags={['基本不等式', '定义域']}>
+<Callout type="wrong" title="错误示例">
+
+对一切 $x \ne 0$，有 $x + \dfrac{1}{x} \ge 2$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+基本不等式 $\sqrt{ab} \le \frac{a+b}{2}$ 的**前提是 $a > 0$ 且 $b > 0$**，它给出的 $\sqrt{ab}$ 是非负数，所以右边必然非负。当 $x < 0$ 时，$x$ 与 $\frac1x$ 都为负，$\sqrt{x \cdot \frac1x} = 1$，但 $\frac{x + 1/x}{2} \le -1 < 1$，不等式方向整个反了过来。取 $x = -1$ 直接证伪：$-2 \not\ge 2$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+必须先**声明定义域**。当 $x > 0$ 时 $x + \dfrac1x \ge 2$（当 $x = 1$ 取等）；当 $x < 0$ 时令 $t = -x > 0$，则 $x + \frac1x = -\left(t + \frac1t\right) \le -2$（当 $x = -1$ 取等）。合并成不含定义域的结论：
+
+$$
+\left(x + \frac{1}{x}\right)^2 \ge 4 \iff \left| x + \frac{1}{x} \right| \ge 2 \quad (x \ne 0)
+$$
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+用基本不等式前先做「**一取等**」：在草稿纸最上方写两行——「两项是否恒为正」「定义域是什么」。只要式中出现 $x$ 与 $\frac{k}{x}$ 且 $k > 0$，就必须先讨论 $x$ 的符号。**凡是带绝对值或含参数的 $Ax+\frac{B}{x}$，一律先分类。**
+
+</Callout>
+</MistakeCard>
+
+## 2. 取等条件没验证，最小值取不到
+
+<MistakeCard index={2} title="写出下界就当最小值，忽略取等点不在定义域内" frequency="high" tags={['基本不等式', '取等条件']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $x \in (0, 1)$，求 $f(x) = x + \dfrac{1}{x}$ 的最小值。答：最小值为 $2$，当 $x = 1$ 时取到。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+基本不等式 $x + \frac1x \ge 2$ 的取等条件是 $x = \frac1x$，即 $x^2 = 1$，在 $x > 0$ 的前提下得 $x = 1$。但 $1 \notin (0, 1)$（开区间右端不取），所以 $f$ 在 $(0,1)$ 上**根本取不到 $2$**。写出 $2$ 却忘了「取到」二字，等于只答对了一半，而且后半句「当 $x=1$ 时取到」是明显自相矛盾的。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$f'(x) = 1 - \frac{1}{x^2}$，在 $(0,1)$ 上 $x^2 < 1$ 故 $f'(x) < 0$，$f$ 单调递减，于是 $f(x) > f(1) = 2$ 对一切 $x \in (0,1)$ 成立。正确结论是：**$f$ 在 $(0,1)$ 上没有最小值，下确界是 $2$**。若题目问「下确界」或「$\inf$」，答 $2$；若问「最小值」，答「不存在」。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+「**三验证**」的最后一步不能省：把「两项相等」解出的 $x_0$ 代回**定义域**检查一次。三种落位——① $x_0 \in D$，下界即最小值；② $x_0 \notin D$ 但 $D$ 闭且含端点，比较端点值与下界；③ $D$ 开，只能说下确界。写完在草稿上把定义域抄在旁边做对照。
+
+</Callout>
+</MistakeCard>
+
+## 3. 求最大值时套基本不等式
+
+<MistakeCard index={3} title="把基本不等式给的下界当成最大值" frequency="high" tags={['基本不等式', '区间最值']}>
+<Callout type="wrong" title="错误示例">
+
+求 $f(x) = 2x + \dfrac{8}{x}$ 在 $x \in [1, 2]$ 上的最大值，答：$f(x) \ge 2\sqrt{16} = 8$，所以最大值为 $8$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+基本不等式给出的是**下界**，即 $f(x) \ge 8$，任何函数值都不会**小于** $8$。这句话对「最大值」毫无约束力。真正要问的是「最大的函数值是多少」，这需要看 $f$ 在区间上是往哪走：$f'(x) = 2 - \frac{8}{x^2}$，在 $x \in [1,2]$ 上 $x^2 \le 4$ 故 $\frac{8}{x^2} \ge 2$，$f'(x) \le 0$，$f$ 单调**递减**，最大值只能出现在**左端点**。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+f(1) = 2 + 8 = 10,\qquad f(2) = 4 + 4 = 8
+$$
+
+递减 ⇒ **最大值 $f(1) = 10$，最小值 $f(2) = 8$**。基本不等式给的 $8$ 恰好是最小值（因为取等点 $x = 2$ 落在闭区间内），但它是**碰巧**帮上忙的，不能用来回答「最大值」。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+读题时先圈出问的是「最**大**」还是「最**小**」。判据只有两条：① 基本不等式 $\ge$ 型只能答**最小**；② 答**最大**必须靠单调性（求导或作差：$f(x_1) - f(x_2)$ 的符号）或「常数代换」把最大值翻转成另一个表达式的最小值。
+
+</Callout>
+</MistakeCard>
+
+## 4. 一元二次不等式不看开口方向
+
+<MistakeCard index={4} title="把「大于取两边」当成万能口诀" frequency="high" tags={['一元二次不等式', '判别式']}>
+<Callout type="wrong" title="错误示例">
+
+解不等式 $x^2 - 2x - 3 < 0$，得解集 $x < -1$ 或 $x > 3$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+口诀「大于取两边，小于取中间」只适用于 **$a > 0$（开口向上）**的二次不等式。二次项系数与不等号方向**必须配套**看：$a > 0$ 配 $> 0$ 取两边、$a > 0$ 配 $< 0$ 取中间；$a < 0$ 时两句对调。本题 $a = 1 > 0$ 而不等号是 $< 0$，属于「取中间」那一类，$x^2 - 2x - 3 = (x-3)(x+1)$，两根为 $-1$ 与 $3$，解集应夹在中间。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+x^2 - 2x - 3 < 0 \iff (x-3)(x+1) < 0 \iff \boxed{-1 < x < 3}
+$$
+
+**三方关系一句话**：解集就是抛物线在 $x$ 轴**下方**那部分的横坐标。本题开口向上，抛物线在两根**之间**穿到轴下方，所以取中间。凡解完二次不等式，都在草稿上补画一个「开口方向 + 两根 + 阴影」的草图，是最快的自检。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+解二次不等式固定三查：**一查 $a$ 的符号**（决定上方还是下方）、**二查 $\Delta$**（决定有没有交点、有几个交点）、**三查不等号含不含等号**（含等号画实心点，不含画空心圈）。三查做完再动笔写解集。
+
+</Callout>
+</MistakeCard>
+
+## 5. 分式不等式两边直接同乘分母
+
+<MistakeCard index={5} title="不等式两边同乘分母却没判断分母符号" frequency="high" tags={['分式不等式', '同乘变号']}>
+<Callout type="wrong" title="错误示例">
+
+解 $\dfrac{x-1}{x+2} > 0$，两边同乘 $x+2$ 得 $x - 1 > 0$，故解集为 $(1, +\infty)$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+同乘（或同除）一个**符号未知**的式子，不等号方向是不确定的。本题当 $x < -2$ 时分母 $x + 2 < 0$，同乘必须**变号**。取 $x = -3$ 检验：$\frac{-4}{-1} = 4 > 0$ 确实是解，但 $-3 > 1$ 显然不成立——解丢了整整一支。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+同乘 $g^2(x) > 0$（当 $g \ne 0$），方向不变：
+
+$$
+\frac{x-1}{x+2} > 0 \iff (x-1)(x+2) > 0 \quad \text{且}\quad x \ne -2
+$$
+
+零点为 $-2$ 与 $1$，乘积为正即**同号**，所以
+
+$$
+\boxed{(-\infty,\ -2)\ \cup\ (1,\ +\infty)}
+$$
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「不乘分母，乘它的平方」**：把 $\frac{f}{g} > 0$ 改写成 $f \cdot g > 0$ 且 $g \ne 0$，永远安全。若坚持用讨论法，必须老老实实列出「分子分母同为正」与「分子分母同为负」两支，**「同为负」那一支最常被漏掉**。
+
+</Callout>
+</MistakeCard>
+
+## 6. 分式不等式忘记分母不能为零
+
+<MistakeCard index={6} title="通分求交后忘记剔除使分母为零的点" frequency="medium" tags={['分式不等式', '定义域']}>
+<Callout type="wrong" title="错误示例">
+
+解 $\dfrac{1}{x} \le 2$，通分得 $\dfrac{1-2x}{x} \le 0$，解集为 $x \le 0$ 或 $x \ge \dfrac{1}{2}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+分式有意义的前提是**分母不为零**。求出的解集里 $x = 0$ 使分母为零，原式在此处**无意义**，必须剔除。含「$\le$」「$\ge$」的分式不等式里，$x = 0$ 往往卡在解集内部，极易被漏掉。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+同乘 $x^2 > 0$（$x \ne 0$）：
+
+$$
+\frac{1}{x} \le 2 \iff x(1-2x) \le 0 \quad \text{且}\quad x \ne 0
+$$
+
+$$
+x(1-2x) \le 0 \iff 2x^2 - x \ge 0 \iff x(2x-1) \ge 0 \iff x \le 0 \ \text{或}\ x \ge \frac12
+$$
+
+再剔除 $x = 0$：
+
+$$
+\boxed{(-\infty,\ 0)\ \cup\ \left[\frac{1}{2},\ +\infty\right)}
+$$
+
+代入验证：$x = -1$ 时 $\frac1{-1} = -1 \le 2$，成立；$x = 0.1$ 时 $10 \le 2$（已被开区间排除）；$x = 1$ 时 $1 \le 2$，成立。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+解任何分式不等式，**第一步不是移项，而是写定义域**：解集 $\longleftarrow$ 解集 $\cap$ 定义域。收笔前再扫一眼「解集里有没有分母为零的点」，有就掐掉一个点（或改成开区间）。
+
+</Callout>
+</MistakeCard>
+
+## 7. 含参二次不等式漏掉二次项系数为零
+
+<MistakeCard index={7} title="含参二次不等式直接算判别式，不讨论 a = 0" frequency="high" tags={['含参不等式', '分类讨论']}>
+<Callout type="wrong" title="错误示例">
+
+解 $ax^2 + x + 1 > 0$（$a \in \mathbb{R}$），由 $\Delta = 1 - 4a < 0$ 得 $a > \dfrac{1}{4}$，故解集为 $\mathbb{R}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$a$ 含参时，**二次不等式的定义前提 $a \ne 0$ 本身就不成立**，$a = 0$ 必须单开一支。而且 $a = 0$ 时式子退化为一次不等式 $x + 1 > 0$，它的解集是 $(-1, +\infty)$，**根本不是** $\mathbb{R}$。这一支既被算式忽略，又与「$\Delta < 0 \Rightarrow$ 恒成立」的结论完全不同，是双重失分。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+分三支：
+
+| 情形 | 处理 | 解集 |
+|------|------|------|
+| $a = 0$ | 一次不等式 $x + 1 > 0$ | $(-1, +\infty)$ |
+| $a > 0$，$\Delta = 1-4a < 0$ | 恒成立 | $\mathbb{R}$，即 $a > \frac14$ |
+| $a < 0$，$\Delta = 1-4a > 0$ | 开口向下，取两根之间 | $\left(\dfrac{-1-\sqrt{1-4a}}{2a},\ \dfrac{-1+\sqrt{1-4a}}{2a}\right)$（$a<0$ 使分式上下翻转） |
+
+完整答案是以上三支的**并集**。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+含参二次不等式的**固定起手式**：「当 $a = 0$ 时……」写第一行，再写「当 $a \ne 0$ 时令 $\Delta = b^2 - 4ac$」。第一行哪怕只写一句「$x > -1$」，也能拿到分类讨论的步骤分。含参二次不等式不做这个分类，步骤分会整块丢掉。
+
+</Callout>
+</MistakeCard>
+
+## 8. 绝对值不等式两边同去绝对值
+
+<MistakeCard index={8} title="把 |A| 与 |B| 的大小比较当成 A 与 B 的大小比较" frequency="high" tags={['绝对值不等式', '同平方']}>
+<Callout type="wrong" title="错误示例">
+
+解 $\lvert x - 1\rvert < \lvert x + 2\rvert$，两边同去绝对值得 $x - 1 < x + 2$，即 $-3 < 0$ 恒成立，故解集为 $\mathbb{R}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+「去绝对值」不是一条运算规则，它只有在**两边都非负**时才允许。而 $\lvert x-1\rvert$ 与 $\lvert x+2\rvert$ 都非负，所以正确的做法是**两边同平方**（非负数平方不改变大小关系），而不是直接去掉绝对值。直接去绝对值相当于把 $x=0$ 这种两边都取正值的情况也当成了结论，丢掉了负号那一半。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+两边同平方：
+
+$$
+(x-1)^2 < (x+2)^2 \iff x^2 - 2x + 1 < x^2 + 4x + 4
+$$
+
+$$
+-6x < 3 \iff x > -\frac{1}{2}
+$$
+
+即 $\boxed{\left(-\frac12,\ +\infty\right)}$。验证：$x = 0$ 时 $1 < 2$，成立；$x = -1$ 时 $2 \not< 1$（已排除）。几何意义也说得通：到 $1$ 的距离小于到 $-2$ 的距离，等价于点 $x$ 落在中点 $-\frac12$ 的右侧。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+见到「$\lvert f \rvert$ 与 $\lvert g \rvert$ 比较」一律**两边同平方**，化成 $f^2 - g^2 = (f+g)(f-g)$ 的符号问题。只有「$\lvert f(x)\rvert$ 与**常数** $a$ 比较」才用夹与散：$\lvert f\rvert \le a \iff -a \le f \le a$，$\lvert f\rvert \ge a \iff f \le -a$ 或 $f \ge a$。
+
+</Callout>
+</MistakeCard>
+
+## 9. 恒成立问题只判判别式
+
+<MistakeCard index={9} title="求 ax² + bx + c 恒成立时漏掉开口方向条件" frequency="high" tags={['恒成立', '分离参数']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $a \in \mathbb{R}$，不等式 $ax^2 + 2x + a > 0$ 对一切实数 $x$ 恒成立，求 $a$ 的范围。答：由 $\Delta = 4 - 4a^2 < 0$ 得 $a > 1$ 或 $a < -1$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\Delta < 0$ 只保证「抛物线与 $x$ 轴无交点」，也就是**符号恒定**，但没保证这个恒定符号是**正**的。$a < 0$ 时开口向下，$x$ 趋于无穷时 $ax^2 \to -\infty$，函数值必然变负，恒成立彻底不成立。这是「双重条件」题：$\Delta$ 管**有没有零点**，二次项系数的符号管**符号朝哪边**，两者缺一不可。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+双重条件同时落实：
+
+$$
+\begin{cases}
+a > 0 & \text{（开口向上）} \\
+\Delta = 4 - 4a^2 < 0 \iff a^2 > 1 & \text{（无零点）}
+\end{cases}
+$$
+
+取交集得 $\boxed{a > 1}$。验算 $a = 1$：$x^2 + 2x + 1 = (x+1)^2$，在 $x = -1$ 处等于 $0$，**不满足严格大于**，所以 $a = 1$ 不可取（这正是 $\Delta \le 0$ 与 $\Delta < 0$ 的分界）。验算 $a = 2$：$2x^2+2x+2 = 2\left[\left(x+\frac12\right)^2 + \frac34\right] > 0$ 恒成立。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**恒成立第一句就写双重条件**：「$a > 0$ 且 $b^2 - 4ac < 0$」。注意严格与非严格的不等号差别：题目写「$> 0$ 恒成立」用 $\Delta < 0$，写「$\ge 0$ 恒成立」用 $\Delta \le 0$。写完把端点代回原式试一次，端点通常就是被卡掉的那一支。
+
+</Callout>
+</MistakeCard>
+
+## 10. 分离参数法忘记取最大值
+
+<MistakeCard index={10} title="分离参数后把右端的最值方向取反" frequency="medium" tags={['分离参数法', '恒成立']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $x^2 - 2x + a \ge 0$ 在 $x \in [-1, 3]$ 上恒成立。答：分离参数得 $a \ge 2x - x^2$，而 $2x - x^2 \le 1$，故 $a \ge 1$ —— 这一步对了。但接着写成「由 $2x - x^2 \le 1$ 得 $a \ge 1$」就把「对一切 $x$」理解成了「对某个 $x$」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+「在 $D$ 上恒成立」的逻辑是**全称命题**：要求 $a$ **同时**压住 $D$ 上每一个 $2x - x^2$ 的值，所以必须是右端**最大值的上界**。如果只要求「存在某个 $x$ 使不等式成立」，那才是存在命题，才可以只取右端的**最小值**。方向取反是分离参数法最高频的错误，根源是把 $\forall$ 和 $\exists$ 搞混。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+\forall x \in [-1, 3],\quad a \ge 2x - x^2 = 1 - (x-1)^2
+$$
+
+在 $[-1, 3]$ 上 $(x-1)^2$ 的最小值为 $0$（$x = 1$ 落在区间内），故 $2x - x^2$ 的最大值为 $1$，所以
+
+$$
+\boxed{a \ge 1}
+$$
+
+验证 $a = 0$：$x = 1$ 时 $f(1) = 1 - 2 + 0 = -1 < 0$，不成立，正确排除。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+分离参数后固定问自己一句：「这是 $\forall$ 还是 $\exists$？」求「恒成立」= $\forall$ = **取最大值**；求「有解」= $\exists$ = **取最小值**。另外必须验证最大值点**在区间内取到**：$x_0 \in D$ 才能取等，否则只能写成下确界。
+
+</Callout>
+</MistakeCard>
+
+## 接题方法总表
+
+| 看到什么 | 立刻要问 / 要做的 |
+|----------|------------------|
+| 想用基本不等式 | 两项是否恒为正？定义域是什么？先写出来再动笔 |
+| 基本不等式给出 $\ge$ | 只能答**最小值**，问「最大」必须改用单调性 |
+| 取等条件解出 $x_0$ | $x_0$ 在定义域内吗？不在就只能说下确界 |
+| 一元二次不等式 | 三查：$a$ 的符号、$\Delta$、含不含等号；再画草图 |
+| 「大于取两边，小于取中间」 | 确认 $a > 0$；$a < 0$ 时两句对调 |
+| 分式不等式 | 禁止直接同乘分母，改乘 $g^2(x)$；解集要交定义域 |
+| 分式不等式含 $\le$ / $\ge$ | 补一步：剔除使分母为零的点 |
+| 含参二次不等式 | 第一行必写「当 $a = 0$ 时」，第二行再算 $\Delta$ |
+| 绝对值与绝对值比较 | 两边**同平方**，不要直接去绝对值 |
+| 绝对值与常数比较 | $\lvert f\rvert \le a$ 用「夹」，$\lvert f\rvert \ge a$ 用「散」成两支 |
+| 「恒成立」求参数 | 双重条件：开口方向 + $\Delta$，严格性看是否含等号 |
+| 分离参数法 | $\forall$ 取最大值，$\exists$ 取最小值；并验证取值点在区间内 |

@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import { withBase } from '@/utils/links';
+import { SITE_NAME } from '@/utils/topics';
 import 'katex/dist/katex.min.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
@@ -11,11 +12,14 @@ interface Props {
   title?: string;
   description?: string;
   mobileMenu?: boolean;
+  /** 页脚与页面标签用的名字，跨学科页面传 SITE_NAME，学科页传 subjectLabel(subject)。 */
+  label?: string;
 }
 const {
-  title = '高中化学要点',
-  description = '高中化学知识总结 · 易错点 · 考点 · 解题方法',
+  title = SITE_NAME,
+  description = '高中学科知识总结 · 易错点 · 考点解析 · 解题方法',
   mobileMenu = false,
+  label = SITE_NAME,
 } = Astro.props;
 ---
 <!doctype html>
@@ -39,7 +43,7 @@ const {
     <Header mobileMenu={mobileMenu} />
     <main class="site-main"><slot /></main>
     <footer class="site-footer">
-      <p>高中化学要点总结 · 内容持续更新</p>
+      <p>{label}总结 · 内容持续更新</p>
     </footer>
   </body>
 </html>

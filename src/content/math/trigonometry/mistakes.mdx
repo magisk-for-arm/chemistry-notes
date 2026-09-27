@@ -1,0 +1,382 @@
+---
+title: "三角函数与解三角形 · 易错点"
+topic: "trigonometry"
+category: "mistakes"
+order: 1
+summary: "10 条高频易错点，每条都配「错因剖析」与「接题方法」。"
+tags: ["易错点", "三角函数", "解三角形"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+下面 10 条按失分频率排列。三角题的错几乎全部集中在三处：**符号**、**周期与图像的位置**、**解三角形时该讨论的没讨论**。建议逐条对照文末《接题方法总表》自查。
+
+## 1. 弧度与角度制混用
+
+<MistakeCard index={1} title="把 180 度当成 pi，或把 pi/2 当成 90 直接代入" frequency="high" tags={['弧度制', '单位换算']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $\sin\alpha = \frac{1}{2}$，且 $\alpha \in (90^\circ, 180^\circ)$，则 $\alpha = \frac{\pi}{6}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+两套单位被混在了同一个式子里。$\sin\frac{\pi}{6} = \frac12$ 中的 $\frac{\pi}{6}$ 是**弧度**，对应角度是 $30^\circ$，落在第一象限；而题设说 $\alpha$ 是钝角。正确弧度值应是 $\frac{5\pi}{6}$（对应 $150^\circ$）。三角函数的**最小正周期**只在弧度制下才是 $2\pi$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+\alpha = \pi - \frac{\pi}{6} = \frac{5\pi}{6}
+$$
+
+换算固定用「乘 $\frac{\pi}{180}$」：$90^\circ = \frac{90\pi}{180} = \frac{\pi}{2}$，$150^\circ = \frac{5\pi}{6}$。写答案前把单位统一到**弧度**，因为后面所有的诱导公式、五点法、单调区间都以 $k\pi$ 为刻度。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「先换算，再定象限，最后化到 $\frac{\pi}{4}$」三步**：① 题目给角度就乘 $\frac{\pi}{180}$ 换成弧度（或给弧度就乘 $\frac{180}{\pi}$）；② 按象限定符号；③ 用诱导公式把角化到 $0 < \alpha < \frac{\pi}{2}$。**任何时候不要让 $^\circ$ 和 $\pi$ 出现在同一个等号两侧**。
+
+</Callout>
+</MistakeCard>
+
+## 2. 开方丢正负号
+
+<MistakeCard index={2} title="由一个三角函数值求另一个时开方丢掉负号" frequency="high" tags={['同角关系', '符号']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $\sin x = \frac{\sqrt{2}}{2}$，则 $\cos x = \sqrt{1 - \sin^2 x} = \frac{\sqrt{2}}{2}$，所以 $\tan x = 1$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+从 $\cos^2 x = 1 - \sin^2 x$ 开方得到的是 $\lvert\cos x\rvert$，**不是** $\cos x$。而 $\cos x = \pm\frac{\sqrt2}{2}$ 两种都成立：$x = \frac{\pi}{4}$ 时 $\tan x = 1$，$x = \frac{3\pi}{4}$ 时 $\tan x = -1$。少了「定符号」这一步，等于把答案的一半扔掉了。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+\lvert\cos x\rvert = \sqrt{1 - \sin^2 x} = \frac{\sqrt2}{2}
+$$
+
+- $x$ 在第一象限：$\cos x = \frac{\sqrt2}{2}$，$\tan x = 1$；
+- $x$ 在第二象限：$\cos x = -\frac{\sqrt2}{2}$，$\tan x = -1$。
+
+题干若没给象限，答案就必须写成带 $\pm$ 的形式，或者题目一定暗含了范围。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「开方必带 $\pm$，符号靠象限」三步**：① 用关系式算出**绝对值**（在 $\sqrt{\cdot}$ 里做加减乘除，全程不碰符号）；② 查象限表定符号；③ 若题设没给象限，答案写成 $\pm$ 并注明两种情形。注意由 $\tan x$ 反求 $\sin x$、$\cos x$ 时**更严格**：只知道 $\tan x$ 的值，两个函数的符号同时不确定，必须靠象限或「同号异号」规则补。
+
+</Callout>
+</MistakeCard>
+
+## 3. 象限符号口诀记反
+
+<MistakeCard index={3} title="把「三正切」误读成「第三象限三个都正」" frequency="high" tags={['象限符号']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $\beta$ 是第三象限角，则 $\sin\beta > 0$，$\cos\beta > 0$，$\tan\beta < 0$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+第三象限（$\pi < \beta < \frac{3\pi}{2}$）在单位圆上对应**第三象限**，点 $P(x,y)$ 的两个坐标都是负的，所以 $\cos\beta = x < 0$、$\sin\beta = y < 0$。口诀「三正切」是说**只有 $\tan$ 为正**（负除负得正），不是「三个都正」。这里的错误是把「哪个函数为正」当成了「整个象限的正负」。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+| 象限 | $\sin\beta$ | $\cos\beta$ | $\tan\beta$ |
+|------|------------|-------------|-------------|
+| 一 | $+$ | $+$ | $+$ |
+| 二 | $+$ | $-$ | $-$ |
+| 三 | $-$ | $-$ | $+$ |
+| 四 | $-$ | $+$ | $-$ |
+
+背法更稳的一条：**「$x$ 决定 $\cos$、$y$ 决定 $\sin$、同号定 $\tan$」**。$\cos$ 的符号就是 $P$ 点横坐标的正负，$\sin$ 的符号就是纵坐标的正负。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「想图不看口诀」**：在草稿纸上画单位圆，标出四条象限线，在线上任取一点 $P(x,y)$，**$x$ 的正负就是 $\cos$ 的正负，$y$ 的正负就是 $\sin$ 的正负**。$\tan$ 由二者相除决定。这比背口诀慢五秒，但不会错。
+
+</Callout>
+</MistakeCard>
+
+## 4. 诱导公式的「符号看象限」看错了对象
+
+<MistakeCard index={4} title="诱导公式化简时按原角的象限定符号" frequency="high" tags={['诱导公式']}>
+<Callout type="wrong" title="错误示例">
+
+设 $\alpha \in \left(\frac{\pi}{2}, \pi\right)$，化简 $\sin\left(\frac{5\pi}{3} + \alpha\right) = -\sin\alpha$（按 $\alpha$ 在第二象限，$\sin\alpha > 0$，故取负号）。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+「符号看象限」看的必须是**化简后那个整体角** $\frac{5\pi}{3} + \alpha$ 的象限，不是 $\alpha$ 的。这里 $\frac{5\pi}{3} + \alpha \in \left(\frac{5\pi}{3} + \frac{\pi}{2}, \frac{5\pi}{3} + \pi\right) = \left(\frac{13\pi}{6}, \frac{8\pi}{3}\right)$，减去 $2\pi$ 后是 $\left(\frac{\pi}{6}, \frac{2\pi}{3}\right)$，横跨第一、第二象限，整体符号仍不确定。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+正确顺序是**先把 $\alpha$ 化到第一象限**，再化简：
+
+$$
+\sin\left(\frac{5\pi}{3} + \alpha\right) = \sin\left(2\pi - \frac{\pi}{3} + \alpha\right) = \sin\left(\alpha - \frac{\pi}{3}\right)
+$$
+
+此时若 $\alpha \in \left(\frac{\pi}{2}, \pi\right)$，则 $\alpha - \frac{\pi}{3} \in \left(\frac{\pi}{6}, \frac{2\pi}{3}\right)$，仍跨象限，符号依然不能直接定。**规范做法是把答案写成一个整体**：$\sin\left(\alpha - \frac{\pi}{3}\right)$ 就是标准答案，符号信息已经由 $\alpha$ 的范围完整携带，不需要也不应该再补一个正负号。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「化归优先，符号后置」**：① 看到 $\sin(k\pi \pm \alpha)$、$\cos(k\pi \pm \alpha)$ 立刻用「奇变偶不变」改函数名；② 再把 $\alpha$ 用已知范围**化到 $0 < \alpha < \frac{\pi}{2}$**；③ 此时整式若还在非第一象限，**保留未化简形式**作为答案（这本身就是标准答案），绝不自作主张加符号。只有当整式整体落在某一个确定象限时，才写「$\pm$」号。
+
+</Callout>
+</MistakeCard>
+
+## 5. 由正弦值反推角时漏掉一支解
+
+<MistakeCard index={5} title="同正弦值的两个角只写了一个" frequency="high" tags={['方程求解', '漏解']}>
+<Callout type="wrong" title="错误示例">
+
+解方程 $\sin x = \frac{\sqrt3}{2}$，得 $x = \frac{\pi}{3} + 2k\pi\ (k \in \mathbb{Z})$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\sin$ 的图像关于直线 $x = \frac{\pi}{2}$ 对称，所以同一个正弦值在一个周期内**对应两个角**：$x$ 与 $\pi - x$。$\frac{\pi}{3}$ 的对称点是 $\pi - \frac{\pi}{3} = \frac{2\pi}{3}$，而 $\sin\frac{2\pi}{3} = \frac{\sqrt3}{2}$ 确实成立。只写一支就丢掉了一整族解。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+x = 2k\pi + \frac{\pi}{3} \quad \text{或} \quad x = 2k\pi + \frac{2\pi}{3}, \quad k \in \mathbb{Z}
+$$
+
+三条常用正弦方程的完整解集：
+
+| 方程 | 解集 |
+|------|------|
+| $\sin x = 0$ | $x = k\pi$ |
+| $\sin x = 1$ | $x = \frac{\pi}{2} + 2k\pi$ |
+| $\sin x = \sin\alpha$ | $x = 2k\pi + \alpha$ 或 $x = 2k\pi + \pi - \alpha$ |
+| $\cos x = \cos\alpha$ | $x = 2k\pi \pm \alpha$ |
+| $\tan x = \tan\alpha$ | $x = k\pi + \alpha$（只有一支，$\tan$ 在一个周期内单调） |
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「一周期两候选」验解法**：正弦、余弦方程先在**一个周期 $[0, 2\pi)$** 内列出所有候选角，再统一加 $2k\pi$。写完数一数候选个数，$\sin x = \sin\alpha$（$\alpha \ne \frac{\pi}{2}, 0$）必有 2 个候选；$\tan$ 方程必有 1 个。**数一遍候选个数**是防漏解最省事的动作。
+
+</Callout>
+</MistakeCard>
+
+## 6. 周期公式漏绝对值
+
+<MistakeCard index={6} title="求周期时漏掉系数上的绝对值" frequency="medium" tags={['周期', '图像']}>
+<Callout type="wrong" title="错误示例">
+
+函数 $f(x) = 3\sin\left(-2x + \frac{\pi}{6}\right) + 1$ 的最小正周期是 $T = -\pi$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+周期是**正数**，且振幅系数 $A$ 为负、上下平移 $B$ 都不影响周期。正确公式是 $T = \frac{2\pi}{\lvert\omega\rvert}$。$\omega = -2$ 时 $\lvert\omega\rvert = 2$，$T = \pi$。负号只影响图像「从哪一端开始爬升」，与周期长短无关。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+T = \frac{2\pi}{\lvert \omega \rvert} = \frac{2\pi}{2} = \pi
+$$
+
+注意与 $\frac{\pi}{\omega}$ 区分：$\lvert\sin\omega x\rvert$ 的**最小正周期**仍是 $\frac{2\pi}{\lvert\omega\rvert}$，而不是 $\frac{\pi}{\lvert\omega\rvert}$（后者是 $\sin^2\omega x$ 的周期）。「求一个周期」与「求最小正周期」答案相同，但「求 $\lvert f(x)\rvert$ 的周期」时要多讨论 $A$ 的符号。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「只盯 $\omega$ 绝对值」**：拿到 $y = A\sin(\omega x + \varphi) + B$，先在草稿纸上写一行 $T = \frac{2\pi}{\lvert\omega\rvert}$，后面所有关于「每隔多少取到一次最大值」「在区间内有几个极值点」的问题都从它出发。判断「区间 $[m, n]$ 内有几个周期」用 $\frac{n - m}{T}$ 向下取整 + 1。
+
+</Callout>
+</MistakeCard>
+
+## 7. 平移的「左加右减」作用对象搞错
+
+<MistakeCard index={7} title="平移时改错了括号里的那个系数" frequency="high" tags={['图像平移']}>
+<Callout type="wrong" title="错误示例">
+
+「把 $y = \sin x$ 的图像向右平移 $\frac{\pi}{6}$ 个单位」写成 $y = \sin(x - \frac{\pi}{6})$，再据此同时宣称 $y = \sin(2x - \frac{\pi}{6})$ 是 $y = \sin 2x$ 向右平移 $\frac{\pi}{6}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+第一个式子对，第二个错。$y = \sin 2x$ 的周期是 $\pi$，把它的图像**向右**平移 $m$ 个单位，横坐标变成 $x - m$，于是新函数是 $y = \sin\left(2(x - m)\right) = \sin(2x - 2m)$。所以要得到 $y = \sin(2x - \frac{\pi}{6})$，平移量是 $2m = \frac{\pi}{6}$，即 $m = \frac{\pi}{12}$，不是 $\frac{\pi}{6}$。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+- 「$y = A\sin(\omega x + \varphi)$ 向右平移 $m$ 个单位」$\Rightarrow$ $\varphi$ 改为 $\varphi - \omega m$；
+- 「$y = A\sin(\omega x + \varphi)$ 向左平移 $m$ 个单位」$\Rightarrow$ $\varphi$ 改为 $\varphi + \omega m$；
+- 「$y = A\sin(\omega x + \varphi)$ 向上平移 $m$ 个单位」$\Rightarrow$ $B$ 改为 $B + m$（**只改 $B$**，与 $\omega$、$\varphi$ 无关）。
+
+本题中 $y = \sin 2x$ 向右平移 $\frac{\pi}{12}$ 得 $y = \sin\left(2x - \frac{\pi}{6}\right)$；$y = \sin x$ 向右平移 $\frac{\pi}{6}$ 才得 $y = \sin\left(x - \frac{\pi}{6}\right)$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「先问自变量变成什么」**：平移的定义是「图像上每个点 $(x, y)$ 变成 $(x + m, y - m)$（向右平移）」。把新图像的横坐标 $X$ 与原坐标 $x$ 的关系写出来（$X = x + m$，即 $x = X - m$），代回原式，就得到 $f(X - m)$。**这一步机械地做一遍，绝不会错**，比记口诀可靠。
+
+</Callout>
+</MistakeCard>
+
+## 8. 对称轴与对称中心混淆
+
+<MistakeCard index={8} title="把极大值点的横坐标当成对称轴" frequency="high" tags={['对称性', '图像']}>
+<Callout type="wrong" title="错误示例">
+
+$f(x) = 2\sin\left(2x - \frac{\pi}{3}\right) + 1$ 的对称轴是 $x = \frac{\pi}{6} + k\pi$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\frac{\pi}{6}$ 是由 $2x - \frac{\pi}{3} = 0$ 解出的，此时 $\sin = 0$，函数值 $f = 0 + 1 = 1$ 恰是竖直平移量 $B$，说明这一点是**对称中心**的位置，不是对称轴——**对称中心根本不在峰谷上**。两种点由不同的条件刻画：对称轴要求 $\sin = \pm 1$（过极值点），对称中心要求 $\sin = 0$（函数值恰为 $B$）。这个错误尤其隐蔽，因为它同时用对了「$k\pi$ 处是对称中心」这个知识点，只是把中心的**纵坐标**错记成了极值。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+- **对称轴**：$2x - \frac{\pi}{3} = \frac{\pi}{2} + k\pi \Rightarrow x = \frac{5\pi}{12} + \frac{k\pi}{2}$；
+- **对称中心**：$2x - \frac{\pi}{3} = k\pi \Rightarrow x = \frac{\pi}{6} + \frac{k\pi}{2}$，坐标为 $\left(\frac{\pi}{6} + \frac{k\pi}{2},\ 1\right)$；
+- 最大值 $3$ 在 $x = \frac{5\pi}{12} + k\pi$，最小值 $-1$ 在 $x = \frac{11\pi}{12} + k\pi$。
+
+可见 $k$ 为偶数时 $x = \frac{5\pi}{12}$ 既是最大值点也是对称轴，$k$ 为奇数时 $x = \frac{11\pi}{12}$ 既是最小值点也是对称轴。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「奇对称看中心，偶对称看轴」**。对 $y = A\sin(\omega x + \varphi) + B$：令 $\omega x + \varphi = \frac{\pi}{2} + k\pi$ 得**对称轴**（$\sin = \pm 1$，图像像山峰或谷底，关于竖直线折过来重合）；令 $\omega x + \varphi = k\pi$ 得**对称中心**（$\sin = 0$，图像绕这个点转 $180^\circ$ 重合，函数值恰为 $B$）。记住**对称中心的纵坐标永远是 $B$**，这一条能秒杀「图像关于哪个点中心对称」的选择题。
+
+</Callout>
+</MistakeCard>
+
+## 9. 面积公式里角与边不对应
+
+<MistakeCard index={9} title="面积公式里的角不是两条已知边的夹角" frequency="high" tags={['面积公式', '对应关系']}>
+<Callout type="wrong" title="错误示例">
+
+已知 $a = 3$，$b = 4$，$C = 60^\circ$，求面积时写 $S = \frac12 ab \sin A$（把角换成了 $A$ 或 $B$），或者误以为「$A$ 最大所以用 $A$」。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+面积公式里的角是**两条边的夹角**，由**顶点**决定，不由角的大小决定：边 $a$、$b$ 的公共顶点是 $C$，所以夹角是 $\angle C$。边 $a$、$c$ 的公共顶点是 $B$，夹角才是 $\angle B$。把「$A$ 是最大的角」当成「用 $A$」是最常见的错觉来源。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+三个等价式各自配一组边角：
+
+$$
+S = \frac12 ab\sin C = \frac12 bc\sin A = \frac12 ca\sin B
+$$
+
+本题 $C = 60^\circ$ 正是 $a$、$b$ 的夹角，所以
+
+$$
+S = \frac12 \times 3 \times 4 \times \sin 60^\circ = 6 \times \frac{\sqrt3}{2} = 3\sqrt3
+$$
+
+若题目给的是 $A$ 或 $B$，就必须改用 $\frac12 bc \sin A$ 或 $\frac12 ca \sin B$，此时需要先求出另外一条边或那个角。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「两条边 + 它们的夹角」三问**：写面积公式前连问三句——① 我手上已知（或能求出）的**两条边**是哪两条？② 它们的**夹角**在哪个顶点处？③ 这个角是**已知**的吗？不是的话先求角还是先求边？三条都对上才能下笔。凡是「解三角形求面积」的题，这三问能挡掉八成的符号性失分。
+
+</Callout>
+</MistakeCard>
+
+## 10. 两边及一对边（SSA）漏讨论两解
+
+<MistakeCard index={10} title="正弦定理求出正弦值后直接取反三角函数，丢掉另一支" frequency="high" tags={['解三角形', 'SSA 两解']}>
+<Callout type="wrong" title="错误示例">
+
+在 $\triangle ABC$ 中，$A = 30^\circ$，$a = \sqrt3$，$b = 2$，求 $B$。由正弦定理得 $\sin B = \frac{b \sin A}{a} = \frac{\sqrt3}{3}$，故 $B = \arcsin\frac{\sqrt3}{3} \approx 35.26^\circ$，三角形唯一。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+正弦定理给的是 $\sin B$ 的**值**，而 $B \in (0, \pi)$ 上同一个正弦值一般对应**两个**角：$B_1$ 与 $\pi - B_1$。本例中 $B_2 = 180^\circ - 35.26^\circ = 144.74^\circ$，检验 $A + B_2 = 30^\circ + 144.74^\circ = 174.74^\circ < 180^\circ$，**通过检验**，所以确实存在第二个三角形。这类题在高考中被称为「**SSA 型**」，两解讨论是唯一的得分点。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+\sin B = \frac{\sqrt3}{3} \Rightarrow B_1 \approx 35.26^\circ \ \text{或}\ B_2 \approx 144.74^\circ
+$$
+
+两个都满足 $A + B < 180^\circ$，故有**两解**。对应的第三边用余弦定理算最省事（$\cos B = \pm\frac{\sqrt6}{3}$）：
+
+- $B = B_1$：$4 = 3 + c^2 - 2\sqrt2\,c \Rightarrow c^2 - 2\sqrt2\,c - 1 = 0 \Rightarrow c = \sqrt2 + \sqrt3$；
+- $B = B_2$：$4 = 3 + c^2 + 2\sqrt2\,c \Rightarrow c^2 + 2\sqrt2\,c - 1 = 0 \Rightarrow c = \sqrt3 - \sqrt2$。
+
+两个结果都大于 0，三角形都成立。另外，「两角一边」（如已知 $A$、$B$、$a$）**必须用正弦定理**，用余弦定理会先撞上「不知道 $c$」的死循环。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「一正弦、两候选、三验证」**：① 由正弦定理算出 $\sin B = t$；② $t > 1$ 无解、$t = 1$ 一解（$B = 90^\circ$）、$t < 1$ 写两个候选 $B_1 = \arcsin t$、$B_2 = \pi - B_1$；③ **逐个验 $A + B < 180^\circ$**，通过几个就是几解。草稿上把「$t$ 是多少」「两个候选」「各验没验过」写成三行，交卷前看一眼就知道讨论完没讨论完。
+
+</Callout>
+</MistakeCard>
+
+## 接题方法总表
+
+| 看到什么 | 立刻要问 / 要做的 |
+|----------|------------------|
+| 角度与弧度混用 | 统一到弧度，$180^\circ = \pi$；别让 $^\circ$ 和 $\pi$ 出现在同一等号两侧 |
+| $\sqrt{1 - \sin^2 x}$ | 开方得的是**绝对值**，符号查象限；无象限条件就写 $\pm$ |
+| $\tan x$ | 定义域 $x \ne \frac{\pi}{2} + k\pi$；从 $\tan$ 反求 $\sin$、$\cos$ 要两个符号一起定 |
+| 「$x$ 是第几象限角」 | 画单位圆：$x$ 定 $\cos$、$y$ 定 $\sin$、同号定 $\tan$ |
+| $k\frac{\pi}{2} \pm \alpha$ | 奇变偶不变；符号看**整式**的象限，或先把 $\alpha$ 化到 $0 < \alpha < \frac{\pi}{2}$ |
+| 解三角方程 | 一个周期内列全部候选，再统一加 $2k\pi$；数一遍候选个数防漏解 |
+| $y = A\sin(\omega x + \varphi) + B$ | $T = \frac{2\pi}{\lvert\omega\rvert}$（绝对值！），只有 $\omega$ 决定周期 |
+| 图像平移 | 把新横坐标 $X$ 与原横坐标 $x$ 的关系 $x = X - m$ 代回原式 |
+| 对称轴 / 对称中心 | 轴：$\omega x+\varphi = \frac{\pi}{2}+k\pi$；中心：$\omega x+\varphi = k\pi$，纵坐标恒为 $B$ |
+| 求面积 $\frac12 ab\sin C$ | $C$ 必须是 $a$、$b$ 的**夹角**（公共顶点），不是「最大的角」 |
+| 已知 $a$、$b$ 与 $A$（SSA） | $t = \frac{b\sin A}{a}$，两候选各验 $A+B<180^\circ$，通过几支就几解 |
+| 已知两角一边 | 一律用正弦定理；已知两边及夹角才用余弦定理 |

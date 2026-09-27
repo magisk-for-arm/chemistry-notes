@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import KnowledgeCard from '../../components/KnowledgeCard.astro';
-import { subjectList, getTopicsBySubject } from '../../utils/topics';
+import { subjectList, getTopicsBySubject, subjectLabel } from '../../utils/topics';
 import { withBase } from '@/utils/links';
 
 export async function getStaticPaths() {
@@ -15,12 +15,13 @@ export async function getStaticPaths() {
 
 const { subject } = Astro.props;
 const list = getTopicsBySubject(subject.slug);
+const label = subjectLabel(subject.slug);
 const overviews = await getCollection(
   'knowledge',
   ({ data }) => data.category === 'overview',
 );
 ---
-<BaseLayout title={`${subject.title} · 高中化学要点`} description={subject.description}>
+<BaseLayout title={`${subject.title} · ${label}`} description={subject.description} label={label}>
   <Breadcrumb items={[{ label: '首页', href: withBase('/') }, { label: subject.title }]} />
   <section class="hero" style="padding:1.5rem 0 1rem;text-align:left;">
     <h1>{subject.title}</h1>

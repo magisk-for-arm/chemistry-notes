@@ -1,0 +1,348 @@
+---
+title: "解析几何 · 易错点"
+topic: "analytic-geometry"
+category: "mistakes"
+order: 1
+summary: "10 条高频易错点，每条都配「错因剖析」与「接题方法」。"
+tags: ["易错点", "圆锥曲线", "直线与圆"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import MistakeCard from '@/components/MistakeCard.astro';
+import Callout from '@/components/Callout.astro';
+
+下面 10 条按高频程度排列。解析几何的失分几乎全部集中在「**斜率是否存在**」与「**韦达系数是否写对**」两处，建议逐条对照文末《接题方法总表》自查。
+
+## 1. 斜率不存在却硬套公式
+
+<MistakeCard index={1} title="把竖直直线的斜率当成 0" frequency="high" tags={['斜率', '平行与垂直']}>
+<Callout type="wrong" title="错误示例">
+
+直线 $l_1: x = 3$ 与 $l_2: y = x - 1$。因为 $x = 3$ 可写成 $y = 0 \cdot x + 3$，斜率是 $0$，与 $k_2 = 1$ 的乘积为 $0 \ne -1$，所以 $l_1$ 与 $l_2$ 不垂直。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+斜率 $k = \dfrac{y_2-y_1}{x_2-x_1}$ 的分母要求 $x_1 \ne x_2$。直线 $x = 3$ 是竖直直线，斜率**不存在**，不是 0。更根本的错误是把「垂直」的定义交给斜率公式，而斜率公式只服务于斜率存在的直线。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+竖直直线 $x = x_0$ 垂直于 $y$ 轴，也**垂直于任何斜率存在的直线**（$y$ 轴水平方向为 $x$ 轴，$x$ 轴垂直于一切竖直线）。本题两直线交于 $(3, 2)$，$l_1$ 竖直、$l_2$ 斜率为 1，故 $l_1 \perp l_2$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「斜率三问」**：见到「平行 / 垂直 / $k_1k_2$ / $k_1 = k_2$」先问三句——① 两条线的斜率都存在吗？② 有没有竖直线（形如 $x = x_0$、$x = a$）？③ 只要有一条竖直，就改用**方向向量**或**一般式**判定：$l_1 \perp l_2 \iff A_1A_2 + B_1B_2 = 0$，这个式子对竖直线照样成立。
+
+</Callout>
+</MistakeCard>
+
+## 2. 只设斜截式，漏掉竖直直线
+
+<MistakeCard index={2} title="把直线设成斜截式，最短的那一支不见了" frequency="high" tags={['直线方程', '分类讨论']}>
+<Callout type="wrong" title="错误示例">
+
+抛物线 $y^2 = 4x$ 的焦点为 $F(1, 0)$。设过 $F$ 的直线 $l: y = k(x - 1)$ 与抛物线交于 $A, B$，求 $\lvert AB\rvert$ 的最小值。联立后算出 $\lvert AB\rvert$ 的表达式，其下界在 $k$ 趋于无穷大时才取到，故认为**最小值不存在**。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$y = k(x - 1)$ 这一族里 $k$ 是有限实数，**不包含竖直直线 $x = 1$**。而抛物线过焦点的最短弦恰恰是这条竖直线（通径），它是 $k \to \infty$ 的极限位置，函数在该点「取不到」，只是因为取它的那个直线没被纳入参数范围。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+改设不含方向的形式 $x = my + 1$（$m$ 为任意实数，$m = 0$ 就是竖直线）。代入 $y^2 = 4x$ 得 $y^2 - 4my - 4 = 0$，于是 $y_1 + y_2 = 4m$，$y_1 y_2 = -4$：
+
+$$
+\lvert AB\rvert = \sqrt{m^2+1}\,\lvert y_1 - y_2\rvert = 4(m^2+1) \ge 4
+$$
+
+当且仅当 $m = 0$，即 $l: x = 1$（此时 $A(1, 2)$，$B(1, -2)$）时取到最小值 $4 = 2p$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「设方程先声明方向」**：设 $y = kx + b$ 前先问「答案有可能是一条竖直线吗」（过顶点的弦、平行于某坐标轴的弦、过焦点的最短弦，都有可能）。若有可能，改设成 $x = my + n$ 或 $y = mx + n$ 交叉表示；若必须用 $y = kx+b$，就把竖直情形**单独补一支**并单列答案。
+
+</Callout>
+</MistakeCard>
+
+## 3. 韦达定理里的二次项系数漏乘
+
+<MistakeCard index={3} title="代入后没合并同类项，韦达的 A 取成 1" frequency="high" tags={['韦达定理', '联立']}>
+<Callout type="wrong" title="错误示例">
+
+圆 $C: x^2 + y^2 - 4x + 2y - 4 = 0$ 与直线 $y = kx + b$ 联立，写成 $x^2 + (2kb + D + kE)x + (b^2 + Eb + F) = 0$，于是 $x_1 + x_2 = -(2kb + D + kE)$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+代入后 $y^2 = (kx+b)^2 = k^2x^2 + 2kbx + b^2$，与原来的 $x^2$ **合并**才得到系数 $1 + k^2$。韦达定理里的 $A$ 是二次项的**系数**而不是「$x^2$ 的个数」，漏了 $\dfrac{1}{1+k^2}$ 之后，和与积全都错。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+(1+k^2)x^2 + (2kb + D + kE)x + (b^2 + Eb + F) = 0
+$$
+
+$$
+x_1 + x_2 = -\frac{2kb + D + kE}{1 + k^2},\qquad x_1x_2 = \frac{b^2 + Eb + F}{1 + k^2}
+$$
+
+代入检验：取 $k = 1$、$b = 0$，联立得 $2x^2 - 2x - 4 = 0$，$x^2$ 系数确为 2，$x_1 + x_2 = 1$，与公式 $-\dfrac{0-4+2}{2} = 1$ 一致。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「先合并、再套韦达」三步**：① 把直线方程**整项**代入曲线方程；② 展开并合并同类项，写出**三项式** $Ax^2 + Bx + C = 0$；③ 逐个读出 $A$、$B$、$C$ 再写和与积。写完后回头扫一眼 $A$：凡是代入含 $k$ 的直线，$A$ 必须出现 $k^2$（圆是 $1+k^2$，椭圆是 $b^2 + a^2k^2$，双曲线是 $b^2 - a^2k^2$）。$A = 0$ 时方程退化，**不能套韦达**。
+
+</Callout>
+</MistakeCard>
+
+## 4. 弦长公式漏乘根号因子（只取横坐标差）
+
+<MistakeCard index={4} title="把横坐标之差直接当成弦长" frequency="high" tags={['弦长', '韦达定理']}>
+<Callout type="wrong" title="错误示例">
+
+圆 $x^2 + y^2 = 4$ 与直线 $y = x + 1$ 联立得 $2x^2 + 2x - 3 = 0$，$x_1 - x_2 = \sqrt7$，所以 $\lvert AB\rvert = \sqrt7$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$\lvert AB\rvert$ 是两点间的**欧氏距离**，由横、纵坐标差共同决定：$\lvert AB\rvert = \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}$。直线斜率为 $k$ 时 $y_1 - y_2 = k(x_1 - x_2)$，故必须乘上 $\sqrt{1+k^2}$。只算横坐标差，得到的其实是弦在 $x$ 轴上的**投影长**。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+\lvert AB\rvert = \sqrt{1+k^2}\,\lvert x_1 - x_2\rvert = \frac{\sqrt{\Delta}}{\sqrt{1+k^2}}
+$$
+
+本题 $\Delta = 2^2 + 24 = 28$，$\lvert AB\rvert = \dfrac{\sqrt{28}}{\sqrt2} = \sqrt{14}$。也可直接验证：$x_{1,2} = \dfrac{-1\pm\sqrt7}{2}$，则 $\lvert y_1 - y_2\rvert = \sqrt7$，$\lvert AB\rvert = \sqrt{7+7} = \sqrt{14}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「弦长三查」**：① 问一句「我是要弦长，还是横（纵）坐标差」；② 写出完整式 $\sqrt{1+k^2}\lvert x_1 - x_2\rvert$；③ 用 $\lvert AB\rvert = 2\sqrt{r^2 - d^2}$（圆）或直接代两点坐标**复算一遍**互相校验。若算出弦长大于直径 $2r$，几乎一定是这一步错了。
+
+</Callout>
+</MistakeCard>
+
+## 5. 圆心、半径与直径读错
+
+<MistakeCard index={5} title="圆心符号取反，半径当成直径" frequency="high" tags={['圆的方程']}>
+<Callout type="wrong" title="错误示例">
+
+圆 $x^2 + y^2 - 4x + 2y - 4 = 0$ 的圆心是 $(4, 2)$，半径为 $\sqrt{16 + 4 - 4\times(-4)} = 6$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+两个错误叠加。① 配方法是 $x^2 - 4x = (x-2)^2 - 4$，圆心横坐标是 **2**（即 $-\dfrac{D}{2}$），不是 $D = -4$；② $\sqrt{D^2 + E^2 - 4F}$ 开根后得到的是**直径**，半径还要再除以 2。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+配方得 $(x-2)^2 + (y+1)^2 = 9$，所以圆心 $(2, -1)$，半径 $r = 3$，直径 $d = 6$。用公式核对：$\dfrac{1}{2}\sqrt{16 + 4 + 16} = 3$。判断是否为圆看 $D^2 + E^2 - 4F = 36 > 0$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「配方两行法」**：第一行把 $x$ 项配方成 $(x \pm \frac D2)^2$、$y$ 项配方成 $(y \pm \frac E2)^2$，右边的常数就是 $r^2$；第二行圆心直接读出，等于 $|\,\pm\frac D2|$。**不要用公式硬背圆心符号**，配方一眼就能看懂。半径与直径只差 $\dfrac{1}{2}$，算完用 $d = 2r$ 自检。
+
+</Callout>
+</MistakeCard>
+
+## 6. 圆心到直线的距离与半径比较方向反
+
+<MistakeCard index={6} title="把相交判成相切，切线长里代入错距离" frequency="high" tags={['切线长', '距离公式', '位置关系']}>
+<Callout type="wrong" title="错误示例">
+
+圆 $C: (x-2)^2 + (y+1)^2 = 9$ 与直线 $l: 4x - 3y - 6 = 0$。圆心 $(2, -1)$ 到 $l$ 的距离 $d = 1 < r = 3$，所以 $l$ 与 $C$ **相切**；又因 $d < r$，故点 $P(2, 5)$ 引圆 $C$ 的切线长 $=\sqrt{d^2 - r^2} = 0$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+两处概念被压成了一团。① **$d = r$ 才相切**，$d < r$ 是相交（两个公共点），$d > r$ 才是相离；$d$ 与 $r$ 谁大谁小是「相交 / 相离」的判据，相切只占中间那个等号。② 切线长公式 $\sqrt{PC^2 - r^2}$ 中的 $PC$ 是**圆外一点到圆心**的距离，而 $d$ 是**圆心到直线**的距离，两个 $d$ 不是同一个量。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$d = 1 < r = 3$，所以直线与圆相交，弦长 $= 2\sqrt{r^2 - d^2} = 2\sqrt8 = 4\sqrt2$。若要求相切，条件是 $d = r = 3$。而点 $P(2, 5)$ 到圆心的距离 $PC = \sqrt{0^2 + 6^2} = 6 > 3$，$P$ 在圆外，切线长 $=\sqrt{PC^2 - r^2} = \sqrt{36 - 9} = 3\sqrt3$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「三段口诀 + 两距离分家」**：位置关系按 $d > r$ 相离、$d = r$ 相切、$d < r$ 相交**从大到小**背一遍，写完立刻问「等号那档是什么」；涉及切线长时，先单独算出 $PC$ 并确认 $PC > r$，再代 $\sqrt{PC^2 - r^2}$。**开根号前先看根号内是否非负**，出现负数说明前提（点在圆外）没满足。
+
+</Callout>
+</MistakeCard>
+
+## 7. 点差法忘记把平方差因式分解
+
+<MistakeCard index={7} title="相减后不分解平方差，斜率与点无关" frequency="medium" tags={['点差法', '椭圆']}>
+<Callout type="wrong" title="错误示例">
+
+椭圆 $\frac{x^2}{4} + y^2 = 1$ 上两点 $A(x_1, y_1)$、$B(x_2, y_2)$，两式相减得 $\frac{x_1^2 - x_2^2}{4} + (y_1^2 - y_2^2) = 0$，整理成 $\frac{x_1 - x_2}{4} + (y_1 - y_2) = 0$，所以 $k_{AB} = -\frac{1}{4}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+点差法的关键动作是**把平方差拆成和差之积**：$x_1^2 - x_2^2 = (x_1 + x_2)(x_1 - x_2)$。漏掉这一步，式子里就只剩「差」不含「和」，算出的斜率与 $A$、$B$ 的位置无关——出现这种「与点无关的斜率」就该立刻判定计算有误。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+\frac{(x_1 + x_2)(x_1 - x_2)}{a^2} + \frac{(y_1 + y_2)(y_1 - y_2)}{b^2} = 0
+\;\Longrightarrow\;
+k_{AB} = \frac{y_1 - y_2}{x_1 - x_2} = -\frac{b^2(x_1 + x_2)}{a^2(y_1 + y_2)}
+$$
+
+代入本题 $a = 2$、$b = 1$：$k_{AB} = -\dfrac{x_1 + x_2}{4(y_1 + y_2)}$，答案里必须出现「和」。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「相减 → 分解 → 提因式」三步**：① 两点分别代入曲线方程相减；② 每一边的平方立刻提因式；③ 保留 $(x_1 - x_2)$、$(y_1 - y_2)$ 一起作除数，把「和」留在式子里。另有两个前提：两点都在曲线上、$x_1 \ne x_2$（否则是竖直弦，斜率不存在）。
+
+</Callout>
+</MistakeCard>
+
+## 8. 平行判定把「重合」当成平行
+
+<MistakeCard index={8} title="三个比值全相等，还说是平行" frequency="medium" tags={['平行判定', '一般式']}>
+<Callout type="wrong" title="错误示例">
+
+$l_1: 2x - y - 3 = 0$ 与 $l_2: 4x - 2y - 6 = 0$。由 $2 \times (-2) - 4 \times (-1) = 0$ 得 $l_1 \parallel l_2$，且 $\frac{2}{4} = \frac{-1}{-2} = \frac{-3}{-6} = \frac{1}{2}$，所以两直线平行。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+$A_1B_2 - A_2B_1 = 0$ 是**方向相同**的判据，它同时容纳「平行」与「重合」两种情形。区分靠常数项：三个比值 $\dfrac{A_1}{A_2}$、$\dfrac{B_1}{B_2}$、$\dfrac{C_1}{C_2}$ 全相等，说明两方程是同一个方程的倍数，即同一条直线。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+l_1 \parallel l_2 \iff \frac{A_1}{A_2} = \frac{B_1}{B_2} \ne \frac{C_1}{C_2}
+$$
+
+本题三个比值全为 $\frac{1}{2}$，所以 $l_1$ 与 $l_2$ **重合**（是同一条直线 $y = 2x - 3$），不存在「平行」关系。垂直判定没有这个问题：$A_1A_2 + B_1B_2 = 0$ 两边不可能同乘一个非零倍数后仍相等。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「四比值判定法」**：拿到一般式先算 $A_1B_2 - A_2B_1$。等于 0 时**必须再算三个比值**：全相等 → 重合；前两个相等、第三个不等 → 平行。垂直与相交（两直线夹角）直接用 $A_1A_2 + B_1B_2 = 0$。这一套对竖直线完全成立，是「斜率法」的安全替代品。
+
+</Callout>
+</MistakeCard>
+
+## 9. 参数范围的端点开闭搞错
+
+<MistakeCard index={9} title="相交与相切分不清，端点该开写成闭" frequency="high" tags={['参数范围', '判别式']}>
+<Callout type="wrong" title="错误示例">
+
+圆 $C: (x-1)^2 + (y+2)^2 = 9$ 与直线 $l: y = kx + k + 1$ **相交**，由 $\frac{|2k + 3|}{\sqrt{k^2 + 1}} \le 3$ 解得 $k \le 0$ 或 $k \ge \frac{12}{5}$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+不等号方向对应的是**位置关系**，「相交」要求 $d < r$，是**严格不等式**。写成 $\le$ 会把两个相切的临界值 $k = 0$ 与 $k = \frac{12}{5}$ 一并收进来，而相切只有一个公共点，根本不算相交。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$$
+d < r \iff (2k+3)^2 < 9(k^2+1) \iff 5k^2 - 12k > 0 \iff k(5k-12) > 0 \iff k < 0 \ \text{或}\ k > \frac{12}{5}
+$$
+
+端点检查：$k = 0$ 时 $l: y = 1$，$d = |0 + 2 + 1| = 3 = r$，相切；$k = \frac{12}{5}$ 时同样 $d = 3$，相切。若题目问「相交或相切」，才用 $k \le 0$ 或 $k \ge \frac{12}{5}$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「先定关系，再定不等号」**：① 把题干的「相交 / 相切 / 相离 / 有公共点」翻译成 $d$ 与 $r$ 的严格或非严格不等式；② 再解不等式；③ **端点必须回代验证**，$d = r$ 就是相切，只有题目允许相切时才保留。写完答案在区间上标一个「开闭检查」标记再往下做。
+
+</Callout>
+</MistakeCard>
+
+## 10. 椭圆与双曲线的基本量关系记混
+
+<MistakeCard index={10} title="双曲线套用椭圆的 c² = a² − b²，渐近线写反" frequency="medium" tags={['圆锥曲线', '离心率', '渐近线']}>
+<Callout type="wrong" title="错误示例">
+
+双曲线 $\frac{x^2}{4} - \frac{y^2}{12} = 1$ 的离心率 $e = \frac{c}{a}$，其中 $c^2 = a^2 - b^2 = 4 - 12 = -8$；渐近线为 $y = \pm\frac{2}{\sqrt3}x$。
+
+</Callout>
+
+<Callout type="why" title="错因剖析">
+
+两个概念被套成了椭圆版。① 椭圆 $c^2 = a^2 - b^2$（$e < 1$），双曲线 $c^2 = a^2 + b^2$（$e > 1$），加减号搞反会算出负数；② 渐近线是 $y = \pm\dfrac{b}{a}x$，**$b$ 在分子**，写成 $\dfrac{a}{b}$ 就把两条渐近线张角的方向弄反了。
+
+</Callout>
+
+<Callout type="right" title="正确做法">
+
+$a = 2$，$b^2 = 12$，$c = \sqrt{a^2 + b^2} = \sqrt{16} = 4$，$e = \dfrac{c}{a} = 2 > 1$；渐近线 $y = \pm\dfrac{2\sqrt3}{2}x = \pm\sqrt3x$，与 $x$ 轴夹角 $60^\circ$（$e = \dfrac{1}{\cos\alpha}$ 给出 $\alpha = 60^\circ$）。焦点 $(\pm4, 0)$，实轴顶点 $(\pm2, 0)$。
+
+</Callout>
+
+<Callout type="skill" title="接题方法">
+
+**「加减口诀 + 渐近线分子检验」**：椭圆「$a$ 减 $b$」、双曲线「$a$ 加 $b$」，看到方程里的加减号先在心里念一遍对应关系；若 $c^2$ 算出负数，立刻回头检查符号。渐近线写完后做两项自检：① 分子是 $b$；② 双曲线 $\frac{x^2}{a^2}-\frac{y^2}{b^2}=1$ 的渐近线斜率绝对值 $\dfrac{b}{a}$，而 $e = 2$ 时必为 $\sqrt3$，可作数值验证。
+
+</Callout>
+</MistakeCard>
+
+## 接题方法总表
+
+| 看到什么 | 立刻要问 / 要做的 |
+|----------|------------------|
+| 平行、垂直、$k_1k_2$、$k_1 = k_2$ | 斜率都存在吗？含竖直线就改用 $A_1A_2 + B_1B_2 = 0$ 判垂直 |
+| 「设 $l: y = kx + b$」 | 答案可能有竖直线吗？改设 $x = my + n$，或单独补一支 |
+| 圆的一般式 $x^2+y^2+Dx+Ey+F=0$ | 配方读圆心与半径；半径别当直径；$D^2+E^2-4F>0$ 才是圆 |
+| 点到直线距离 | 绝对值别丢；$Ax+By+C$ 与 $kx-y+b$ 两套系数别混 |
+| 直线与圆的位置关系 | 从大到小背 $d>r$ 相离、$d=r$ 相切、$d<r$ 相交 |
+| 圆外点 $P$ 的切线长 | $\sqrt{PC^2-r^2}$，$PC$ 是**点到圆心**；先确认 $PC>r$ |
+| 两圆位置关系 | 相交是 $\lvert r_1-r_2\rvert<d<r_1+r_2$，两端严格不等 |
+| 联立后的二次方程 | 合并同类项了吗？$x^2$ 系数含 $k^2$ 吗？$A=0$ 时不能套韦达 |
+| 求弦长 | $\sqrt{1+k^2}\lvert x_1-x_2\rvert$，别只取 $\lvert x_1-x_2\rvert$ |
+| 用韦达求和与积 | $x_1+x_2=-\frac{B}{A}$，$x_1x_2=\frac{C}{A}$，$A$ 是 $x^2$ 的系数 |
+| 点差法 | 两点都在曲线上、$x_1\ne x_2$、平方先因式分解成「和 × 差」 |
+| 相交 / 相切 / 相离含参 | 端点回代：$d=r$ 是相切，只有题目允许相切才保留等号 |
+| 椭圆 / 双曲线的 $c^2$ | 椭圆减、双曲加；$c^2<0$ 一定是符号错了 |
+| 渐近线 | $y=\pm\frac{b}{a}x$，$b$ 在分子；$e=2 \Rightarrow$ 与 $x$ 轴成 $60^\circ$ |
+| 求定点 | 直线写成 $y = k(x-x_0)+y_0$，令 $k$ 的系数为 0 |

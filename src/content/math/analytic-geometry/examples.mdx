@@ -1,0 +1,669 @@
+---
+title: "解析几何 · 典型例题"
+topic: "analytic-geometry"
+category: "examples"
+order: 5
+summary: "8 道典型例题分三层递进：直线与圆的基本运算、圆锥曲线联立韦达、定点与双曲线综合，含逐项解析与变式训练。"
+tags: ["例题", "计算题", "高考真题"]
+difficulty: "medium"
+examFrequency: "high"
+updated: "2026-09-26"
+---
+
+import ExampleCard from '@/components/ExampleCard.astro';
+import Reveal from '@/components/Reveal.astro';
+import Callout from '@/components/Callout.astro';
+
+<Callout type="note" title="使用指南">
+
+例题一～二打基础（斜率与圆的基本量），例题三～六是高考同款（相切求参数、椭圆几何量、联立韦达、抛物线），例题七～八冲高分（切点弦定点、双曲线综合）。建议先做题再看解析，每题的「方法复盘」是接题套路，「变式训练」检验是否真会。
+
+</Callout>
+
+## 例题一：斜率、垂直与距离（easy）
+
+<ExampleCard title="过定点且与已知直线垂直的直线" difficulty="easy" source="改编 · 原型：直线方程与垂直判定">
+
+已知 $A(1, 2)$，$B(3, 8)$，$C(2, -1)$，则与直线 $AB$ 垂直且过点 $C$ 的直线方程是（）
+
+- A．$x + 3y + 1 = 0$
+- B．$x - 3y - 5 = 0$
+- C．$3x + y + 5 = 0$
+- D．$x + 3y - 5 = 0$
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="A ✅ 正确">
+
+直线 $AB$ 的斜率 $k_{AB} = \dfrac{8 - 2}{3 - 1} = 3$，其倾斜角在第一象限。与之垂直的直线斜率为 $k = -\dfrac{1}{3}$，过点 $C(2, -1)$ 的直线为
+
+$$
+y + 1 = -\frac{1}{3}(x - 2) \iff 3y + 3 = -x + 2 \iff x + 3y + 1 = 0
+$$
+
+把 $C$ 代回验证：$2 + 3\times(-1) + 1 = 0$，方向也对（斜率 $-\frac13$，与 3 的乘积为 $-1$），故选 A。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 斜率算错：把「垂直」当成取相反数">
+
+$x - 3y - 5 = 0$ 化成 $y = \dfrac{1}{3}x - \dfrac{5}{3}$，斜率是 $\dfrac{1}{3}$。$3 \times \dfrac{1}{3} = 1 \ne -1$，不垂直。错因是把「垂直」当成斜率互为相反数，而正确关系是**乘积为 $-1$**；只有两条斜率都是 1 或都是 $-1$ 时两者才一致。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 把负斜率写成了正斜率或其倒数">
+
+$3x + y + 5 = 0$ 化成 $y = -3x - 5$，斜率 $-3$。$3 \times (-3) = -9 \ne -1$，与 $AB$ 既不垂直也不平行（$k \ne 3$）。垂直于 $AB$ 的是 $\pm\frac{1}{3}$ 中带负号的 $\frac{-1}{3}$，不是 $-3$。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 方向对但不过点，是「平行而非重合」">
+
+$x + 3y - 5 = 0$ 的斜率同样是 $-\frac{1}{3}$，方向与 A 平行，但把 $C(2, -1)$ 代入得 $2 - 3 - 5 = -6 \ne 0$，**不过 $C$**。这类选项专门卡「求对方向但漏了定点条件」，必须逐个代点检验。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「斜率 → 垂直 → 过点」三步，最后必须代点**：① 先算 $k_{AB} = 3$（注意 $x$ 坐标是否相同，相同则斜率不存在）；② 垂直的斜率是 $k = -\frac{1}{k_{AB}} = -\frac{1}{3}$，**是取倒数再变号，不是取相反数**；③ 用点斜式写出方程并**把已知点代回验证一次**。选择题中若有两个选项斜率相同，就用定点条件筛掉。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 求线段 $AB$ 的中点 $M$ 到直线 $3x - 4y + 5 = 0$ 的距离。
+
+**答案**：$M\left(\dfrac{1+3}{2}, \dfrac{2+8}{2}\right) = (2, 5)$，由点到直线距离公式 $d = \dfrac{|3\times 2 - 4\times 5 + 5|}{\sqrt{3^2 + (-4)^2}} = \dfrac{|-9|}{5} = \dfrac{9}{5}$。关键理由：$|x_0|$ 是到 $y$ 轴、$|y_0|$ 是到 $x$ 轴的距离，一般直线必须用 $A$、$B$、$C$ 三项齐全的一般式，且**绝对值不能丢**。
+
+</Reveal>
+</ExampleCard>
+
+## 例题二：圆的方程、切线长与位置关系（easy）
+
+<ExampleCard title="读圆、求距离、判位置关系" difficulty="easy" source="改编 · 原型：圆的标准方程与位置关系">
+
+已知圆 $C: x^2 + y^2 - 4x + 2y - 4 = 0$，则下列说法正确的是（）
+
+- A．圆 $C$ 的圆心为 $(4, 2)$
+- B．圆 $C$ 的半径为 6
+- C．圆心到直线 $4x - 3y - 6 = 0$ 的距离为 1，直线 $4x - 3y - 6 = 0$ 与圆 $C$ 相交
+- D．点 $(2, 5)$ 到圆 $C$ 的切线长为 3
+
+<Reveal summary="查看逐项解析">
+
+先配方：$x^2 - 4x + y^2 + 2y - 4 = 0 \implies (x-2)^2 - 4 + (y+1)^2 - 1 - 4 = 0$，即
+
+$$
+(x - 2)^2 + (y + 1)^2 = 9
+$$
+
+所以圆心 $C(2, -1)$，半径 $r = 3$，直径 6。
+
+<Callout type="wrong" title="A ❌ 圆心符号取反">
+
+圆心是 $\left(-\frac{D}{2}, -\frac{E}{2}\right) = (2, -1)$，不是 $(4, 2)$。配方看得很清楚：$x^2 - 4x = (x-2)^2 - 4$，平移的是 $-2$ 而不是 $4$；$y$ 项同理得 $-1$。**配方比死记圆心公式更不容易错**。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 把直径当半径">
+
+$\sqrt{D^2 + E^2 - 4F} = \sqrt{16 + 4 + 16} = \sqrt{36} = 6$，这是**直径**；半径还要再除以 2，得 $\frac{1}{2}\times 6 = 3$。也可以从配方结果 $(x-2)^2+(y+1)^2 = 9$ 直接看出 $r^2 = 9$，$r = 3$，与 $d = 2r$ 一致。
+
+</Callout>
+
+<Callout type="right" title="C ✅ 正确">
+
+$d = \dfrac{|4\times 2 - 3\times(-1) - 6|}{\sqrt{16+9}} = \dfrac{5}{5} = 1 < r = 3$，所以直线与圆**相交**（有两个公共点），判断正确。附带信息：弦长 $= 2\sqrt{r^2 - d^2} = 2\sqrt{9 - 1} = 4\sqrt2$。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 切线长公式里用错了距离">
+
+$PC = \sqrt{(2-2)^2 + (5 - (-1))^2} = 6 > r = 3$，$P$ 在圆外，切线长 $=\sqrt{PC^2 - r^2} = \sqrt{36 - 9} = \sqrt{27} = 3\sqrt3$，不是 3。错因有两个可能：一是把半径代成了直径（$36-36=0$ 也不对），二是把「圆心到直线」的距离 $d$ 当成了 $PC$——本题的 $d = 1$ 指的是**圆心到直线**，与切线长公式里的 $PC$ 是两个量。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「先配方，再比距离」**：① 配方（两行）同时读出圆心与半径，$r^2$ 就是右端常数；② 把所求直线写成一般式，算圆心到它的距离 $d$；③ 从大到小背 $d > r$ 相离、$d = r$ 相切、$d < r$ 相交；④ 涉及切线长时另外算 $PC$ 并确认 $PC > r$，代入 $\sqrt{PC^2-r^2}$。用 $d = 2r$ 做一次自检，可挡住「半径当直径」。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 求圆 $C$ 上一点到直线 $4x - 3y - 6 = 0$ 的距离的最大值。
+
+**答案**：圆心到直线的距离 $d = 1$，半径 $r = 3$。圆上离直线最远的点在与直线相反一侧，其距离 $= d + r = 1 + 3 = 4$。理由：设圆上点 $P$，$P$ 到直线的距离等于圆心到该直线的距离加上 $P$ 相对圆心沿法线方向的最大位移（不超过 $r$），故上界 $d + r$ 可取到。最小距离为 $0$，因为 $d = 1 < r = 3$，直线与圆相交。
+
+</Reveal>
+</ExampleCard>
+
+## 例题三：直线与圆相切求参数（medium）
+
+<ExampleCard title="令 d = r 解参数，并求相交时的 k 范围" difficulty="medium" source="改编 · 原型：直线与圆相切求参数">
+
+已知圆 $C: (x - 1)^2 + (y + 2)^2 = 9$。
+
+（1）求圆 $C$ 的圆心坐标与半径；
+
+（2）若直线 $l: y = kx + k + 1$ 与圆 $C$ 相切，求实数 $k$ 的值；
+
+（3）若直线 $l: y = kx + k + 1$ 与圆 $C$ 相交，求实数 $k$ 的取值范围。
+
+<Reveal summary="查看逐项解析">
+
+（1）直接读标准式：圆心 $C(1, -2)$，半径 $r = 3$。
+
+<Callout type="right" title="（2）相切即令 d = r">
+
+把 $l$ 写成一般式 $kx - y + k + 1 = 0$，圆心 $(1, -2)$ 到它的距离
+
+$$
+d = \frac{|k\cdot 1 - (-2) + k + 1|}{\sqrt{k^2 + 1}} = \frac{|2k + 3|}{\sqrt{k^2+1}}
+$$
+
+令 $d = r = 3$，两边平方（两边都非负，平方不引入伪解）：
+
+$$
+(2k+3)^2 = 9(k^2+1) \iff 4k^2 + 12k + 9 = 9k^2 + 9 \iff 5k^2 - 12k = 0 \iff k(5k - 12) = 0
+$$
+
+$$
+\boxed{k = 0 \ \text{或}\ k = \frac{12}{5}}
+$$
+
+回代检验：$k = 0$ 时 $l: y = 1$，$d = |0 + 2 + 1| = 3 = r$；$k = \frac{12}{5}$ 时 $d = \frac{|24/5 + 3|}{13/5} = \frac{39/5}{13/5} = 3$。
+
+</Callout>
+
+<Callout type="right" title="（3）相交要求 d < r，不等号严格">
+
+$$
+\frac{|2k+3|}{\sqrt{k^2+1}} < 3 \iff (2k+3)^2 < 9(k^2+1) \iff 5k^2 - 12k > 0 \iff k(5k - 12) > 0
+$$
+
+两个因式同号，故
+
+$$
+\boxed{k < 0 \ \text{或}\ k > \frac{12}{5}}
+$$
+
+端点检查：$k = 0$ 与 $k = \frac{12}{5}$ 都使 $d = r$，是**相切**（只有一个公共点），不属于相交，所以两个端点都**不取**。若第（3）问改成「相交或相切」，答案才是 $k \le 0$ 或 $k \ge \frac{12}{5}$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「相切令 d = r，相交令 d < r，解完验端点」**：① 求切线方程一律不联立求交点，而是用「圆心到直线距离 $= r$」，这样避免重根讨论；② 距离式含根号，两边**先平方**再解二次方程，平方前确认两边非负；③ 端点必须回代：$d = r$ 是相切，只有题目允许相切时才保留等号。第（3）问的答案要写成区间并标出「两端开」。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 过点 $P(4, 0)$ 作圆 $C$ 的切线，求切线方程。
+
+**答案**：圆外一点有**两条**切线，且其中一条是竖直线，容易漏掉。
+
+- 斜率存在的一条：设 $y = k(x - 4)$，即 $kx - y - 4k = 0$，$d = \dfrac{|k + 2 - 4k|}{\sqrt{k^2+1}} = \dfrac{|2 - 3k|}{\sqrt{k^2+1}} = 3$，平方得 $(2-3k)^2 = 9(k^2+1) \iff 4 - 12k + 9k^2 = 9k^2 + 9 \iff k = -\dfrac{5}{12}$，即 $l_1: 5x + 12y - 20 = 0$（验算：$\dfrac{|5 - 24 - 20|}{13} = \dfrac{39}{13} = 3$）。
+- 竖直的一条：$x = 4$，此时圆心到直线的距离为 $|4 - 1| = 3 = r$，相切。
+
+所以切线共两条：$5x + 12y - 20 = 0$ 与 $x = 4$。关键理由：**设成 $y = kx + b$ 的那一族不包含竖直线**，过圆外点的切线恰好可能有一条是竖直的。
+
+</Reveal>
+</ExampleCard>
+
+## 例题四：椭圆的几何量与焦半径（medium）
+
+<ExampleCard title="读 a、b、c、e 与焦半径公式" difficulty="medium" source="改编 · 原型：椭圆的标准方程与几何量">
+
+已知椭圆 $C: \dfrac{x^2}{4} + y^2 = 1$，左、右焦点分别为 $F_1$、$F_2$。
+
+（1）求 $a$、$b$、$c$、$e$ 以及焦点、顶点坐标；
+
+（2）求点 $P$ 在椭圆上运动时，$\lvert PF_1\rvert \cdot \lvert PF_2\rvert$ 的取值范围；
+
+（3）若 $\lvert PF_1\rvert = 3$，求点 $P$ 的坐标。
+
+<Reveal summary="查看逐项解析">
+
+（1）由方程读出 $a^2 = 4$，$b^2 = 1$，故 $a = 2$，$b = 1$。椭圆用**减法**：
+
+<Callout type="right" title="（1）基本量与元素">
+
+$$
+c = \sqrt{a^2 - b^2} = \sqrt{3},\qquad e = \frac{c}{a} = \frac{\sqrt3}{2} \in (0, 1)
+$$
+
+焦点 $F_1\left(-\sqrt3, 0\right)$，$F_2\left(\sqrt3, 0\right)$；长轴顶点 $(\pm 2, 0)$，短轴顶点 $(0, \pm 1)$。焦距 $|F_1F_2| = 2c = 2\sqrt3$。
+
+</Callout>
+
+<Callout type="right" title="（2）用焦半径公式求积的取值范围">
+
+$$
+\lvert PF_1\rvert \cdot \lvert PF_2\rvert = (a + ex)(a - ex) = a^2 - e^2x^2 = 4 - \frac{3}{4}x^2
+$$
+
+椭圆上 $\lvert x\rvert \le a = 2$，故 $\frac{3}{4}x^2 \in [0, 3]$，乘积随 $x^2$ 增大而减小，取值范围是
+
+$$
+\boxed{[b^2,\ a^2] = [1,\ 4]}
+$$
+
+其中 $x = 0$（即短轴顶点 $(0, \pm 1)$）时取最大值 4，$x = \pm 2$（长轴顶点）时取最小值 1。注意两端都能取到，所以是**闭区间**。
+
+</Callout>
+
+<Callout type="right" title="（3）反解横坐标再回代求纵坐标">
+
+由 $\lvert PF_1\rvert = a + ex = 3$ 得
+
+$$
+2 + \frac{\sqrt3}{2}x = 3 \iff x = \frac{2}{\sqrt3} = \frac{2\sqrt3}{3}
+$$
+
+代入曲线方程求 $y$：$\dfrac{x^2}{4} + y^2 = 1$，而 $x^2 = \dfrac{4}{3}$，故 $y^2 = 1 - \dfrac{1}{3} = \dfrac{2}{3}$，$y = \pm\dfrac{\sqrt6}{3}$。
+
+$$
+P\left(\frac{2\sqrt3}{3},\ \pm\frac{\sqrt6}{3}\right)
+$$
+
+验算：$\dfrac{(2\sqrt3/3)^2}{4} + \left(\dfrac{\sqrt6}{3}\right)^2 = \dfrac{4/3}{4} + \dfrac{6}{9} = \dfrac{1}{3} + \dfrac{2}{3} = 1$，且 $\dfrac{2\sqrt3}{3} \approx 1.155 < 2$，满足 $\lvert x\rvert \le a$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「先分类，再套四条公式」**：① 看清分母下哪个是 $a^2$、方程里是 $+$ 还是 $-$，据此决定 $c^2 = a^2 \mp b^2$（椭圆减、双曲加）；② 求「距离之和」用 $2a$ 一步得到，求「之积 / 之差」必须用 $a \pm ex$ 化简；③ 反解点的坐标时，先由焦半径求 $x$，再回曲线方程求 $y$，最后**验算两点**：在曲线上吗？$x$ 超出 $\pm a$ 吗？
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 求过点 $(4, 0)$ 且与椭圆 $C: \dfrac{x^2}{4} + y^2 = 1$ 相切的直线方程。
+
+**答案**：设 $y = k(x - 4)$，代入 $\dfrac{x^2}{4} + k^2(x-4)^2 = 1$，两边乘 4 得 $x^2 + 4k^2(x-4)^2 = 4$，整理为
+
+$$
+(1 + 4k^2)x^2 - 32k^2x + (64k^2 - 4) = 0
+$$
+
+判别式 $\Delta = 1024k^4 - 4(1+4k^2)(64k^2 - 4) = 16 - 192k^2 = 16\bigl(1 - 12k^2\bigr)$。令 $\Delta = 0$：$k^2 = \dfrac{1}{12}$，$k = \pm\dfrac{\sqrt3}{6}$。
+
+所以切线为 $y = \dfrac{\sqrt3}{6}(x - 4)$ 与 $y = -\dfrac{\sqrt3}{6}(x - 4)$，切点分别是 $\left(1, -\dfrac{\sqrt3}{2}\right)$ 与 $\left(1, \dfrac{\sqrt3}{2}\right)$（代回验算：$\dfrac{1}{4} + \dfrac{3}{4} = 1$）。竖直线 $x = 4$ 与椭圆无公共点，不是切线。关键理由：切线只有一个公共点，对应**判别式为零**；点 $(4, 0)$ 在椭圆外（$\dfrac{16}{4} = 4 > 1$），恰有两条切线。
+
+</Reveal>
+</ExampleCard>
+
+## 例题五：联立方程与韦达定理（medium）
+
+<ExampleCard title="弦长、取值范围与参数反求" difficulty="medium" source="改编 · 原型：直线与圆的交点问题">
+
+已知圆 $C: x^2 + y^2 = 4$，直线 $l: y = kx + 1$ 与圆 $C$ 交于 $A(x_1, y_1)$、$B(x_2, y_2)$ 两点。
+
+（1）用 $k$ 表示 $x_1 + x_2$ 与 $x_1 x_2$；
+
+（2）求弦长 $\lvert AB\rvert$ 关于 $k$ 的表达式，并求 $\lvert AB\rvert$ 的取值范围；
+
+（3）当 $\lvert AB\rvert = 2\sqrt3$ 时求 $k$，并判断此时直线与圆的位置关系。
+
+<Reveal summary="查看逐项解析">
+
+（1）把 $y = kx + 1$ 代入 $x^2 + y^2 = 4$：
+
+$$
+x^2 + (kx+1)^2 = 4 \implies (1 + k^2)x^2 + 2kx - 3 = 0
+$$
+
+<Callout type="right" title="（1）韦达定理">
+
+$$
+x_1 + x_2 = -\frac{2k}{1+k^2},\qquad x_1 x_2 = \frac{-3}{1+k^2}
+$$
+
+注意 $x^2$ 的系数是 $1 + k^2$（来自 $x^2 + k^2x^2$ 的合并），**不是 1**，漏掉它和与积都会错。判别式 $\Delta = 4k^2 + 12(1+k^2) = 16k^2 + 12 > 0$ 恒成立，即对任意实数 $k$ 直线都与圆相交（几何解释：原点到 $y = kx+1$ 的距离 $\dfrac{1}{\sqrt{1+k^2}} \le 1 < 2$）。
+
+</Callout>
+
+<Callout type="right" title="（2）弦长与取值范围">
+
+$$
+(x_1 - x_2)^2 = (x_1 + x_2)^2 - 4x_1x_2 = \frac{4k^2}{(1+k^2)^2} + \frac{12}{1+k^2} = \frac{16k^2 + 12}{(1+k^2)^2}
+$$
+
+$$
+\lvert AB\rvert = \sqrt{1+k^2}\,\lvert x_1 - x_2\rvert = \sqrt{\frac{16k^2+12}{1+k^2}} = 2\sqrt{\frac{4k^2+3}{1+k^2}}
+$$
+
+用距离法交叉验证：$\Delta = 4(1+k^2)(r^2 - d^2)$，$d = \dfrac{1}{\sqrt{1+k^2}}$，$r = 2$，故 $\lvert AB\rvert = 2\sqrt{4 - \dfrac{1}{1+k^2}} = 2\sqrt{\dfrac{4 + 4k^2 - 1}{1+k^2}} = 2\sqrt{\dfrac{4k^2 + 3}{1+k^2}}$ 两法一致。
+
+令 $t = \dfrac{1}{1+k^2} \in (0, 1]$，则 $\lvert AB\rvert = 2\sqrt{4 - t}$，随 $t$ 增大而减小：
+
+- $t = 1$（即 $k = 0$）时 $\lvert AB\rvert = 2\sqrt3$，**能取到**；
+- $t \to 0^+$（即 $|k| \to +\infty$）时 $\lvert AB\rvert \to 4$，但 $t$ 永远大于 0，**取不到 4**。
+
+$$
+\boxed{2\sqrt3 \le \lvert AB\rvert < 4}
+$$
+
+</Callout>
+
+<Callout type="right" title="（3）反求 k 并判断位置关系">
+
+$$
+2\sqrt{\frac{4k^2+3}{1+k^2}} = 2\sqrt3 \iff \frac{4k^2+3}{1+k^2} = 3 \iff 4k^2 + 3 = 3 + 3k^2 \iff k^2 = 0 \iff k = 0
+$$
+
+此时 $l: y = 1$，圆心原点到 $l$ 的距离 $d = 1 < r = 2$，故直线与圆**相交**，弦的两个端点为 $(\pm\sqrt3, 1)$，弦长 $2\sqrt3$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「三项式 → 韦达 → 目标量改写 → 范围讨论」四步**：① 代入后先合并同类项，**把 $A$、$B$、$C$ 单列一行**；② 用韦达出和与积；③ 弦长写成 $\sqrt{1+k^2}\lvert x_1-x_2\rvert$（切勿只写 $\lvert x_1-x_2\rvert$），再用距离法 $2\sqrt{r^2-d^2}$ 交叉验证；④ 求范围时**先看清 $t$ 这类中间量的取值是否含端点**——$t = \dfrac{1}{1+k^2}\in(0, 1]$ 的左端取不到，答案就有一个开端点。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 圆 $x^2 + y^2 = 4$ 与直线 $y = kx + 1$（$k \in \mathbb{R}$）交于 $A$、$B$ 两点，$M$ 为弦 $AB$ 的中点，求 $\lvert OM\rvert$（$O$ 为圆心）的取值范围。
+
+**答案**：$x_M = \dfrac{x_1 + x_2}{2} = -\dfrac{k}{1+k^2}$，$y_M = ky_M$ 的对应式 $y_M = kx_M + 1 = -\dfrac{k^2}{1+k^2} + 1 = \dfrac{1}{1+k^2}$，故
+
+$$
+\lvert OM\rvert = \sqrt{\frac{k^2}{(1+k^2)^2} + \frac{1}{(1+k^2)^2}} = \sqrt{\frac{k^2 + 1}{(1+k^2)^2}} = \frac{1}{\sqrt{1+k^2}} \in (0,\ 1]
+$$
+
+几何解释：$\lvert OM\rvert$ 就是圆心到弦所在直线的距离，恒大于 0（弦不经过圆心，因为 $l$ 不经过原点），在 $k = 0$ 时取到最大 1，$|k| \to \infty$ 时趋近 0 但取不到。
+
+</Reveal>
+</ExampleCard>
+
+## 例题六：抛物线的焦点、焦点弦与切线（medium）
+
+<ExampleCard title="y² = 4x 的焦点弦与切线判据" difficulty="medium" source="改编 · 原型：抛物线的焦点弦与切线">
+
+已知抛物线 $C: y^2 = 4x$。
+
+（1）求 $C$ 的焦点坐标、准线方程与焦半径公式；
+
+（2）过焦点 $F$ 的直线 $l$ 与 $C$ 交于 $A$、$B$ 两点，求 $\lvert AB\rvert$ 的最小值，并说明取到最小值时 $l$ 的方程；
+
+（3）直线 $l: y = kx + b$ 与 $C$ 相切，求 $k$ 与 $b$ 满足的关系，并求切点坐标。
+
+<Reveal summary="查看逐项解析">
+
+（1）按本知识点统一采用的记法 $y^2 = 2px$（此处 $p = 2$）：
+
+<Callout type="right" title="（1）焦点、准线、焦半径">
+
+$$
+F\left(\frac{p}{2}, 0\right) = (1, 0),\qquad \text{准线}\ x = -\frac{p}{2} = -1,\qquad \text{顶点}\ (0, 0)
+$$
+
+由定义 $|QF| = \dfrac{1}{1}$ 到准线的距离得 $|QF| = x + 1 = x + \dfrac{p}{2}$（因 $y^2 = 2px$ 且 $p>0$，故 $x \ge 0$，不必再加绝对值）。
+
+</Callout>
+
+<Callout type="right" title="（2）设 x = my + 1，覆盖竖直方向">
+
+若设 $y = k(x-1)$ 会漏掉竖直线 $x = 1$，而最短的焦点弦恰是这条竖直线。改设 $x = my + 1$，代入 $y^2 = 4x = 4my + 4$：
+
+$$
+y^2 - 4my - 4 = 0 \implies y_1 + y_2 = 4m,\quad y_1 y_2 = -4
+$$
+
+由 $x_i = my_i + 1$ 知 $x_1 - x_2 = m(y_1 - y_2)$，于是
+
+$$
+\lvert AB\rvert = \sqrt{1+m^2}\,\lvert y_1 - y_2\rvert,\quad (y_1-y_2)^2 = (y_1+y_2)^2 - 4y_1y_2 = 16m^2 + 16
+$$
+
+$$
+\lvert AB\rvert = 4(m^2 + 1) \ge 4
+$$
+
+当且仅当 $m = 0$，即 $l: x = 1$（此时 $A(1, 2)$，$B(1, -2)$）时取到最小值
+
+$$
+\boxed{\lvert AB\rvert_{\min} = 4 = 2p}
+$$
+
+这条弦就是**通径**（过焦点且垂直于对称轴的弦），长 $2p = 4$，与「$y^2 = 2px$ 的通径长为 $2p$」的结论一致。
+
+</Callout>
+
+<Callout type="right" title="（3）切线的判据与切点">
+
+$y = kx + b$（$k \ne 0$）代入 $y^2 = 4x$：$k^2x^2 + (2kb - 4)x + b^2 = 0$，相切要求判别式为零：
+
+$$
+\Delta = (2kb-4)^2 - 4k^2b^2 = 16 - 16kb = 0 \iff kb = 1
+$$
+
+故 $b = \dfrac{1}{k}$（$k \ne 0$）。切点由重根给出：$x_0 = \dfrac{4 - 2kb}{2k^2} = \dfrac{4-2}{2k^2} = \dfrac{1}{k^2}$，$y_0 = kx_0 + b = \dfrac{1}{k} + \dfrac{1}{k} = \dfrac{2}{k}$。即
+
+$$
+l: y = kx + \frac{1}{k}\ (k \ne 0),\qquad \text{切点}\ \left(\frac{1}{k^2},\ \frac{2}{k}\right)
+$$
+
+验算：$y_0^2 = \dfrac{4}{k^2} = 4x_0$。若 $k = 0$，直线与对称轴平行，与抛物线只交于一点但不构成切线（相切点在无穷远），故须排除。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「设式先声明方向，切线用判别式」**：① 抛物线的「过定点直线」一律用 $x = my + n$，把竖直方向一并覆盖，最短焦点弦（通径）才不会「取不到」；② 求切线用判别式为零，切点由重根或切线方程反解，两法互相验证；③ 用 $p$ 表示时记住一切长度都以 $p$ 为单位：通径 $2p$、焦点弦长 $\ge 2p$、切线长 $\lvert PF\rvert = x + \frac p2$。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知直线 $l$ 与抛物线 $C: y^2 = 4x$ 相交于 $A(m^2, 2m)$、$B(n^2, 2n)$ 两点，求直线 $AB$ 的斜率，并说明 $m$、$n$ 满足什么条件时 $AB$ 是竖直线。
+
+**答案**：斜率
+
+$$
+k_{AB} = \frac{2m - 2n}{m^2 - n^2} = \frac{2(m-n)}{(m+n)(m-n)} = \frac{2}{m+n}\quad (m \ne n)
+$$
+
+当且仅当 $m + n = 0$ 时 $m^2 = n^2$，即 $x_A = x_B$，而 $y_A = 2m \ne 2n = y_B$（因 $m \ne n$），此时 $AB$ 为竖直线 $x = m^2$。关键理由：斜率公式的分母 $m^2 - n^2 = (m+n)(m-n)$ 在 $m+n=0$ 时为零，斜率不存在，不能用 $\frac{2}{m+n}$，必须回到定义判断。
+
+</Reveal>
+</ExampleCard>
+
+## 例题七：抛物线的两条切线与切点弦定点（hard）
+
+<ExampleCard title="切点弦恒过定点的证明与推广" difficulty="hard" source="改编 · 原型：抛物线的切线与定点问题">
+
+已知抛物线 $C: y^2 = 4x$，点 $P(2, 4)$。
+
+（1）判断能否过 $P$ 作 $C$ 的两条切线，并说明判据；
+
+（2）求这两条切线的方程与切点坐标；
+
+（3）设切点为 $A$、$B$，求直线 $AB$ 的方程，并求它与 $x$ 轴的交点坐标。
+
+<Reveal summary="查看逐项解析">
+
+<Callout type="right" title="（1）判据：y₀² 与 2px₀ 的大小">
+
+设切点 $(x_1, y_1)$，切线方程 $y_1y = 2(x + x_1)$（由 $y^2 = 2px$ 的切线式，$p = 2$）。它过 $P(u, v)$ 的条件是
+
+$$
+v y_1 = 2(u + x_1), \qquad y_1^2 = 4x_1 \Longrightarrow y_1^2 - 2vy_1 + 4u = 0
+$$
+
+判别式 $4v^2 - 16u$：$> 0$ 有两条切线、$=0$ 有一条、$<0$ 无切线。对 $P(2, 4)$：$v^2 = 16 > 2pu = 8$，所以**能作两条切线**。
+
+</Callout>
+
+<Callout type="right" title="（2）两条切线与切点">
+
+设切线 $y = kx + b$。由（3）已知（或者重新联立）相切条件 $kb = 1$，即 $b = \dfrac{1}{k}$。切线过 $P(2, 4)$：
+
+$$
+4 = 2k + \frac{1}{k} \iff 4k = 2k^2 + 1 \iff 2k^2 - 4k + 1 = 0 \iff k = 1 \pm \frac{\sqrt2}{2}
+$$
+
+对应 $b = 1 \div \left(1 \pm \dfrac{\sqrt2}{2}\right)$：$k_1 = 1 + \frac{\sqrt2}{2}$ 时 $b_1 = 2 - \sqrt2$；$k_2 = 1 - \frac{\sqrt2}{2}$ 时 $b_2 = 2 + \sqrt2$。故两条切线为
+
+$$
+l_1: y = \left(1 + \frac{\sqrt2}{2}\right)x + 2 - \sqrt2,\qquad l_2: y = \left(1 - \frac{\sqrt2}{2}\right)x + 2 + \sqrt2
+$$
+
+验算 $k_1 b_1 = \left(1 + \frac{\sqrt2}{2}\right)(2 - \sqrt2) = 2 - \sqrt2 + \sqrt2 - 1 = 1$。
+
+切点用 $x_1 = \dfrac{1}{k^2}$、$y_1 = \dfrac{2}{k}$ 分别算较繁，改由 $y_1^2 - 8y_1 + 8 = 0$ 求根：$y = 4 \pm 2\sqrt2$，对应 $x = \dfrac{y^2}{4} = 6 \pm 4\sqrt2$。故切点为
+
+$$
+A\left(6 + 4\sqrt2,\ 4 + 2\sqrt2\right),\qquad B\left(6 - 4\sqrt2,\ 4 - 2\sqrt2\right)
+$$
+
+验算 $A$ 在切线 $l_1$ 上：切线过 $A$ 等价 $4y_A = 2(2 + x_A)$，即 $16 + 8\sqrt2 = 2(2 + 6 + 4\sqrt2) = 16 + 8\sqrt2$。
+
+</Callout>
+
+<Callout type="right" title="（3）切点弦方程与横轴的交点">
+
+由 $y_1 + y_2 = 8$、$y_1y_2 = 8$（即 $2pu = 8$）得中点 $M\left(6, 4\right)$（因 $x_M = \dfrac{v^2}{p} - u = \dfrac{16}{2} - 2 = 6$），斜率
+
+$$
+k_{AB} = \frac{y_1 - y_2}{x_1 - x_2} = \frac{4\sqrt2}{8\sqrt2} = \frac{1}{2}
+$$
+
+于是 $AB: y - 4 = \dfrac{1}{2}(x - 6) \iff 2y = x + 2$，令 $y = 0$ 得 $x = -2$。
+
+$$
+AB:\ y = \frac{x+2}{2},\qquad \text{与 } x \text{ 轴交于 } (-2, 0)
+$$
+
+把 $P$ 一般化为 $P(u, v)$（$v \ne 0$，$v^2 \ge 2pu$），同样推导得切点弦
+
+$$
+v y = p x + pu \iff vy = 2x + 2u
+$$
+
+令 $y = 0$ 得 $x = -u$，即**切点弦恒过定点 $(-u, 0)$**；本题 $u = 2$，定点为 $(-2, 0)$。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「切线 → 判别式 → 切点 → 切点弦 → 定点」五步**：① 抛物线的切线统一写 $y_0y = p(x + x_0)$，把「切线过定点 $P$」翻译成 $vy_1 = p(u + x_1)$，再与 $y_1^2 = 2px_1$ 合成一元二次，判别式即「能否作切线」的判据；② 切线方程用 $km = \frac p2$ 求，验证时用乘积验算最快；③ 切点弦用中点加斜率写，直线过定点的一般式 $vy = px + pu$ 令 $y = 0$ 即得定点；④ 推得结论后**代一个具体数值回代检验**（本题把 $u=2,v=4$ 代回得 $4y = 2x+4$，与坐标法结果一致）。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知抛物线 $C: y^2 = 2px$（$p > 0$）上一点 $P(u, v)$，且 $v^2 \ge 2pu$、$v \ne 0$。过 $P$ 作 $C$ 的两条切线，切点为 $A$、$B$。
+
+（1）求切点弦 $AB$ 的方程；（2）证明 $AB$ 恒过定点，并求出该定点。
+
+**答案**：（1）由 $vy_1 = p(u+x_1)$ 与 $y_1^2 = 2px_1$ 得 $y_1^2 - 2vy_1 + 2pu = 0$，故 $y_1 + y_2 = 2v$、$y_1y_2 = 2pu$。又 $x_1 - x_2 = \dfrac{v(y_1-y_2)}{p}$，所以 $k_{AB} = \dfrac{p}{v}$，中点 $M\left(\dfrac{v^2}{p} - u,\ v\right)$，切点弦为
+
+$$
+vy = px + pu
+$$
+
+（2）令 $y = 0$，得 $x = -u$，与 $u$、$v$ 无关，故 $AB$ 恒过定点 $\left(-u, 0\right)$，且定点只由 $P$ 的横坐标 $u$ 决定。
+
+</Reveal>
+</ExampleCard>
+
+## 例题八：双曲线的几何量、距离之积与渐近线（hard）
+
+<ExampleCard title="双曲线的基本量与焦点距离之积" difficulty="hard" source="改编 · 原型：双曲线的标准方程与几何性质">
+
+已知双曲线 $C: \dfrac{x^2}{4} - \dfrac{y^2}{12} = 1$，左、右焦点分别为 $F_1$、$F_2$。
+
+（1）求 $a$、$b$、$c$、$e$，写出焦点、实轴顶点坐标与渐近线方程；
+
+（2）求点 $M$ 在双曲线上运动时 $\lvert MF_1\rvert \cdot \lvert MF_2\rvert$ 的最小值；
+
+（3）求双曲线的两条渐近线与直线 $x = 2$ 所围成三角形的面积。
+
+<Reveal summary="查看逐项解析">
+
+（1）由方程读出 $a^2 = 4$，$b^2 = 12$，即 $a = 2$，$b = 2\sqrt3$。
+
+<Callout type="right" title="（1）双曲线用加法">
+
+$$
+c = \sqrt{a^2 + b^2} = \sqrt{16} = 4,\qquad e = \frac{c}{a} = 2 > 1
+$$
+
+焦点 $F_1(-4, 0)$，$F_2(4, 0)$；实轴顶点 $(\pm 2, 0)$，虚轴端点 $(0, \pm 2\sqrt3)$。渐近线
+
+$$
+y = \pm\frac{b}{a}x = \pm\sqrt3 x
+$$
+
+$e = 2$ 与「渐近线与实轴夹角 $\alpha$ 满足 $e = \dfrac{1}{\cos\alpha}$」一致：$\alpha = 60^\circ$，$\cos 60^\circ = \frac12$。
+
+</Callout>
+
+<Callout type="right" title="（2）用焦半径公式求积的最小值">
+
+双曲线上 $|MF_1| = e x + a$，$|MF_2| = e x - a$（右支上 $x \ge a$），故
+
+$$
+\lvert MF_1\rvert \cdot \lvert MF_2\rvert = (ex+a)(ex-a) = e^2x^2 - a^2 = \frac{5}{4}x^2 - 4
+$$
+
+双曲线上 $\lvert x\rvert \ge a = 2$，所以 $x^2 \ge 4$，$\frac{5}{4}x^2 \ge 5$，乘积 $\ge 1$，当且仅当 $x = \pm2$（实轴顶点）时取到：
+
+$$
+\boxed{\min \lvert MF_1\rvert \cdot \lvert MF_2\rvert = 1 = b^2}
+$$
+
+注意这里用**加法** $c^2 = a^2+b^2$（椭圆用减法），若错用减法会得到负的 $c^2$，这是双曲线题最醒目的自查信号。
+
+</Callout>
+
+<Callout type="right" title="（3）渐近线与竖直线的围成三角形">
+
+两条渐近线交于原点，$x = 2$ 与它们分别交于 $(2, 2\sqrt3)$、$(2, -2\sqrt3)$。三角形以 $x = 2$ 上的竖直边为底，底长 $4\sqrt3$，原点到直线 $x = 2$ 的距离（高）为 2，故
+
+$$
+S = \frac{1}{2} \times 4\sqrt3 \times 2 = 4\sqrt3
+$$
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「先判断加 / 减，再套焦半径，最后用几何法算面积」**：① 方程里是减号就用 $c^2 = a^2 + b^2$，$c^2$ 出负数立刻回头查符号；② 求焦点距离之积时，$x$ 的范围是 $\lvert x\rvert \ge a$（**不是** $\le a$），极值点在顶点处；③ 面积题不需求交点坐标，用「底 = 两交点间距离、高 = 定点到直线的距离」，底长 $4\sqrt3$ 可由渐近线斜率 $\sqrt3$ 与 $x = 2$ 直接得到。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知双曲线 $C: \dfrac{x^2}{4} - \dfrac{y^2}{12} = 1$，求与 $C$ 有**相同渐近线、焦点在 $y$ 轴上**的双曲线方程及其离心率。
+
+**答案**：渐近线为 $y = \pm\sqrt3x$ 的双曲线，标准式中 $a^2$ 在 $y$ 项：设 $\dfrac{y^2}{b_1^2} - \dfrac{x^2}{a_1^2} = 1$，其渐近线为 $y = \pm\dfrac{b_1}{a_1}x$，故 $\dfrac{b_1}{a_1} = \sqrt3$。与 $C$ 有公共渐近线的自然取法是 $a_1^2 = 4$、$b_1^2 = 12$，即共轭双曲线
+
+$$
+\frac{y^2}{12} - \frac{x^2}{4} = 1
+$$
+
+验算：渐近线 $y = \pm\dfrac{\sqrt{12}}{2}x = \pm\sqrt3x$ 与 $C$ 相同；焦点在 $y$ 轴上，$c = \sqrt{12+4} = 4$，焦点 $(0, \pm4)$，离心率 $e = \dfrac{4}{2} = 2$（**与原双曲线相同**，因为 $a$、$b$ 没有交换位置）。关键理由：共轭双曲线只交换实轴与虚轴，$a$、$b$ 本身不变，所以渐近线与离心率都不变。
+
+</Reveal>
+</ExampleCard>

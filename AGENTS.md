@@ -4,11 +4,11 @@
 
 ## 项目速览
 
-- **是什么**：高中化学知识点复习站点（内容以「学科 / 知识点 / 分节」组织），默认暗色主题，可切换亮色。
-- **规模**：1 学科、21 个知识点、158 个页面；每个知识点 6 个分节（概览 / 易错点 / 考点 / 方法 / 思维导图 / 例题）。
+- **是什么**：高中学科知识点复习站点（内容以「学科 / 知识点 / 分节」组织），默认暗色主题，可切换亮色。
+- **规模**：2 学科（化学、数学）、30 个知识点、180 个页面内容文件；每个知识点 6 个分节（概览 / 易错点 / 考点 / 方法 / 思维导图 / 例题）。
 - **技术栈**：Astro 7（静态输出）、MDX 内容集合（Content Layer + `glob` loader）、KaTeX + mhchem、markmap、Pagefind。
 - **内容驱动**：新增知识点只需加 MDX 文件夹 + 在 `src/utils/topics.ts` 登记，**不需要新增页面文件**。
-- **配图**：结构式走 `<ChemStructure>`（smiles-drawer 客户端渲染），装置图与流程图是手写 SVG 放在 `public/images/`。
+- **配图**：化学的结构式走 `<ChemStructure>`（smiles-drawer 客户端渲染），装置图与流程图是手写 SVG 放在 `public/images/`。
 - **语言**：站点文案、注释、提交信息均为中文。新增内容与改动的文案请保持中文。
 
 ## 常用命令
@@ -21,6 +21,8 @@ npm run build      # 构建产物 + 生成 Pagefind 搜索索引
 npm run build:only # 只跑 astro build（调试用，无搜索索引）
 npm run preview    # 预览 dist（需先 build）
 npm run search     # 单独为 dist 重建搜索索引
+
+node scripts/check-mdx-tags.mjs src/content   # MDX 标签配对自检（秒级，check 不查 MDX 语法）
 ```
 
 - 提交前至少跑 `npm run check`；涉及路由/内容/样式时再跑 `npm run build`。
@@ -31,8 +33,8 @@ npm run search     # 单独为 dist 重建搜索索引
 
 ```
 src/
-├─ content.config.ts          # knowledge 集合 + Frontmatter schema（权威定义）
-├─ utils/topics.ts            # 学科/知识点/分节元数据与查询函数（权威定义）
+├─ content.config.ts          # knowledge 集合 + Frontmatter schema（权威定义，学科无关）
+├─ utils/topics.ts            # 学科/知识点/分节元数据与查询函数（权威定义）+ SITE_NAME / subjectLabel()
 ├─ content/<subject>/<topic>/ # MDX 内容，entry id = <subject>/<topic>/<category>
 │   ├─ index.mdx              # category: overview（入口页，路由为 /<subject>/<topic>）
 │   ├─ mistakes.mdx           # category: mistakes
@@ -41,9 +43,9 @@ src/
 │   ├─ mindmap.mdx            # category: mindmap（纯 Markdown 大纲，见下）
 │   └─ examples.mdx           # category: examples
 ├─ pages/
-│   ├─ index.astro                        # 首页
+│   ├─ index.astro                        # 首页：学科卡片 + 按学科分组的知识点区
 │   ├─ search.astro                       # 搜索页
-│   ├─ [subject]/index.astro              # 学科页
+│   ├─ [subject]/index.astro              # 学科页（getStaticPaths 由 subjectList 驱动）
 │   ├─ [subject]/[topic]/index.astro      # 知识点概览
 │   ├─ [subject]/[topic]/[section].astro  # 通用分节页
 │   └─ tag/[tag].astro                    # 标签聚合
@@ -53,27 +55,28 @@ src/
 ├─ plugins/rehype-katex-mhchem.mjs  # 包装 rehype-katex，注册 mhchem（\ce{} / \pu{}）
 └─ utils/                     # topics.ts、links.ts（withBase/stripBase）、icons.ts 等
 public/images/                # 手写 SVG：实验装置图、推断流程图（Markdown 语法引用）
+scripts/check-mdx-tags.mjs    # MDX 标签配对自检（astro check 不查 MDX 语法，见「完工前自检」）
 templates/knowledge-point/    # 新增知识点用的模板（刻意放在 src/content 之外）
 docs/superpowers/             # 设计文档与实现计划（过程资料，非运行时）
 .superpowers/、.openchamber/  # 代理工作状态与浏览器截图，均已 gitignore
 ```
 
-路由：`overview` 对应 `/{subject}/{topic}`，其余分节为 `/{subject}/{topic}/{section}`（用 `sectionHref()` 生成，勿手拼）。
+路由：`overview` 对应 `/{subject}/{topic}`，其余分节为 `/{subject}/{topic}/{section}`（用 `sectionHref()` 生成，勿手拼）。**路由层与学科无关**：`[subject]` 段直接吃 `subjectList` 的 slug，`content.config.ts` 的 `glob` 也扫全 `src/content`，所以新增学科不需要碰任何页面文件。
 
 ## 常见任务
 
 ### 新增一个知识点
 
-1. 复制 `templates/knowledge-point/` 到 `src/content/chemistry/<topic>/`（`<topic>` 为英文 slug）。
+1. 复制 `templates/knowledge-point/` 到 `src/content/<subject>/<topic>/`（`<subject>` 取已登记的学科 slug，`<topic>` 为英文 slug）。
 2. 把模板里所有 `REPLACE_TOPIC` 替换为该 slug；`topic` Frontmatter 必须与文件夹名一致。
 3. 在 `src/utils/topics.ts` 的 `topics` 数组登记一条元数据（`slug`/`subject`/`title`/`icon`/`order`/`summary`/`tags`）。
-4. 运行 `npm run check`，再 `npm run dev` 走一遍各分节。
+4. 跑 `node scripts/check-mdx-tags.mjs src/content` 与 `npm run check`，再 `npm run dev` 走一遍各分节。
 
 ### 新增一个学科
 
 1. 新建 `src/content/<subject>/` 并在其下按知识点建目录。
 2. 在 `src/utils/topics.ts` 的 `subjectList` 登记学科元数据。
-3. 无需改 `content.config.ts`、无需新增页面。
+3. 无需改 `content.config.ts`、无需新增页面、无需改任何路由——`Header` 的学科导航与首页的知识点分区都是遍历 `subjectList` 生成的。
 
 ### 修改主题或样式
 
@@ -89,6 +92,8 @@ docs/superpowers/             # 设计文档与实现计划（过程资料，非
 - 思维导图页不显示右侧目录（`KnowledgeLayout` 中 `hasToc = section !== 'mindmap'`）。
 
 ### 插入化学结构图
+
+> 本节只适用于**化学**学科。数学学科不用 `<ChemStructure>`，也不用 `\ce{}`；需要配图时按下方「插入装置图与流程图」手写 SVG。
 
 - 用 `<ChemStructure smiles="..." caption="..." />` 渲染结构式（组件在 `src/components/ChemStructure.astro`，基于 smiles-drawer 客户端渲染，自动跟随亮暗主题重绘）。
 - **全站默认 ACS Document 1996 风格**：单色（线/字用前景色，随亮/暗主题自适应）、Helvetica 系字体、略粗的键，由 `ChemStructure.astro` 里的 `ACS_1996_OPTIONS` 统一控制；如需微调样式改这一处即可。
@@ -148,6 +153,11 @@ Frontmatter schema 定义在 `src/content.config.ts`，字段如下：
 - **不要为单个知识点新增页面/路由**，扩展靠加内容 + 登记 `topics.ts`。
 - **不要把模板放进 `src/content/`**：`glob` loader 会把它们当正式内容采集（`templates/` 在 `src/content` 之外是刻意的）。
 - **不要绕过 `src/utils/topics.ts`**：学科/知识点的标题、顺序、图标、简介以它为准，Frontmatter 只描述单页。
+- **站点名与学科标签不要硬编码**：拼页面 `<title>` 后缀、页脚、品牌文字时用 `topics.ts` 导出的 `SITE_NAME`（跨学科页，如首页/搜索/标签）与 `subjectLabel(subject)`（学科页，化学页得「高中化学要点」、数学页得「高中数学要点」）。数学页的 `<title>`、面包屑、页脚**不得出现「高中化学」**。
+- **不要在 UI 里写死某个学科**：`Header` 的学科导航遍历 `subjectList`，首页「知识点」区按学科分组遍历。给化学加第三个学科时不该需要改这两个文件。
+- **加学科前先算头部宽度**：`Header` 的学科导航是**平铺**的（不是抽屉），而知识点页在 ≤760px 会用 `.has-drawer .site-nav { display: none }` 藏掉它，**首页/学科页/标签页/搜索页则不藏**。所以新增学科会让这些页面在窄屏横向溢出。`global.css` 已按断点收紧：≤560px 压间距与导航内边距、≤390px 只留品牌标记，且品牌/导航规则都用 `body:not(.has-drawer)` 限定，**保证化学知识点页头部逐像素不变**。再加学科时重新估算一次 `.header-inner` 宽度，触控区 40px 不要动。
+- **`icon` 必须是 `src/utils/icons.ts` 已注册的 `IconName`**，缺则先按该文件既有风格（Lucide 24×24 / `stroke 1.75` / `currentColor`，只留 `<svg>` 内部子元素）新增条目，再引用。图标名变更需同步 `topics.ts` 的 `icon` 字段。
+- **数学学科不用化学专用能力**：不写 `\ce{}`、不用 `<ChemStructure>`；公式一律用 KaTeX 的 `$...$` / `$$...$$`。
 - `@` 是 `src` 的路径别名（`astro.config.mjs` + `tsconfig.json`），导入组件用 `@/components/...`。
 - 站点默认暗色；新增/调整样式时同时确认暗色与亮色两种主题下的可读性。
 - mhchem 由 `src/plugins/rehype-katex-mhchem.mjs` 统一注册，不要再单独 `import 'katex/contrib/mhchem'`，以免出现两个 KaTeX 实例。
@@ -159,23 +169,29 @@ Frontmatter schema 定义在 `src/content.config.ts`，字段如下：
 ## 完工前自检
 
 1. `npm run check` 通过（0 errors）。注意它**不校验 MDX 语法**（漏写 `</Callout>` 仍报 0 errors，只有 build 才失败），所以内容改动以 `npm run build` 为准。
-2. 内容/路由有改动时 `npm run build` 通过（当前生成 158 个页面；页数随内容增长，重点确认新页面在其中）。
-3. **本地预览必须带 base**：`BASE_PATH=/chemistry-notes npx astro build`。用 `npm run build`（不带 `BASE_PATH`）会把 `dist` 重建成根路径版本，CSS 链接变成 `/_astro/...`，在 `/chemistry-notes/` 下 404 → 整页无样式。**这是本项目最主要的假故障来源**，页面「没样式」先查这一项，再怀疑别处。
-4. 视觉/样式改动：`npm run dev` 或 `npm run build && npm run preview`，在暗色与亮色、桌面与移动宽度下各看一眼；涉及导图时重点看暗色可读性。
-5. 改过 SVG 就跑越界自检，确认没有元素超出 `viewBox`、没有文字溢出画布（中文按 1 em、拉丁按 0.55 em 估宽即可暴露问题）：
+2. 批量写/改 MDX 先跑标签自检，它比 build 快几个数量级，且顺带查四段式齐不齐、mindmap 是否混入组件、标题是否含行内公式：
+
+   ```bash
+   node scripts/check-mdx-tags.mjs src/content
+   ```
+
+3. 内容/路由有改动时 `npm run build` 通过（当前生成 235 个页面；页数随内容增长，重点确认新页面在其中）。核对页数时用实算而非估算：`158 + 6N + 新增学科页数 + 新增标签页数`，其中新标签页数 = 全部 Frontmatter 标签并集减去原有标签集。
+4. **本地预览必须带 base**：`BASE_PATH=/chemistry-notes npx astro build`。用 `npm run build`（不带 `BASE_PATH`）会把 `dist` 重建成根路径版本，CSS 链接变成 `/_astro/...`，在 `/chemistry-notes/` 下 404 → 整页无样式。**这是本项目最主要的假故障来源**，页面「没样式」先查这一项，再怀疑别处。两者要分开跑：`npm run build` 会覆盖 `dist` 并附带生成 Pagefind 索引，跑完按需重建。
+5. 视觉/样式改动：`npm run dev` 或 `npm run build && npm run preview`，在暗色与亮色、桌面与移动宽度下各看一眼；涉及导图时重点看暗色可读性。
+6. 改过 SVG 就跑越界自检，确认没有元素超出 `viewBox`、没有文字溢出画布（中文按 1 em、拉丁按 0.55 em 估宽即可暴露问题）：
 
    ```bash
    # 逐张核对 viewBox / bg / frame / 渲染尺寸四者一致
    grep -oE 'viewBox="[^"]*"|class="bg"[^/]*|class="frame"[^/]*' public/images/*.svg
    ```
 
-6. 变更保持聚焦，不顺手重排无关文件；提交信息用 Conventional Commits 中文描述，沿用 `feat:` / `fix:` / `content:` 等前缀（如 `content: 补充某某易错点`）。图文分开的改动拆成两个提交。
+7. 变更保持聚焦，不顺手重排无关文件；提交信息用 Conventional Commits 中文描述，沿用 `feat:` / `fix:` / `content:` 等前缀（如 `content: 补充某某易错点`）。图文分开的改动拆成两个提交。
 
 ## 部署
 
 - **线上地址**：`https://magisk-for-arm.github.io/chemistry-notes/`
 - **GitHub Pages（主）**：推送 `main` 触发 `.github/workflows/deploy.yml`，构建时注入 `BASE_PATH=/<仓库名>` 与 `SITE_URL=https://<owner>.github.io`，产物 `dist/` 上传 Pages。仓库 Settings → Pages → Source 必须选 **GitHub Actions**（仓库已设为 `build_type: workflow`）。`BASE_PATH` 用 `github.event.repository.name` 动态拼接，不写死仓库名，改名也照常工作。
-- **子路径实测**：站内链接与资源全部带 `/chemistry-notes/` 前缀；无尾斜杠的页面路径（如 `/chemistry-notes/chemistry`）由 Pages **301 补斜杠**后返回 200，属正常行为。验证方式：`curl -sI <线上地址>/chemistry` 看状态码。
+- **子路径实测**：站内链接与资源全部带 `/chemistry-notes/` 前缀；无尾斜杠的页面路径（如 `/chemistry-notes/chemistry`）由 Pages **301 补斜杠**后返回 200，属正常行为。验证方式：`curl -sI <线上地址>/chemistry` 看状态码。数学学科页同理，如 `curl -sI <线上地址>/math/set-logic/mistakes`。
 - **Vercel（并存）**：配置见 `vercel.json`（`framework: astro`、`buildCommand: npm run build`、`outputDirectory: dist`）。**不设** `BASE_PATH`，走根路径，行为与历史版本一致。
 - **base 规则**：`astro.config.mjs` 读 `BASE_PATH`（未设回落 `'/'`）作为 `base`；站内链接一律经 `src/utils/links.ts` 的 `withBase()` 加前缀，**新增链接必须走它，禁止手拼 `/xxx`**（这是本站能同时在两种路径下工作的前提）。导航高亮等需要反推站内相对路径的场景用 `stripBase()` 剥离 base。Markdown 正文里的站内绝对链接由 `src/plugins/rehype-base-links.mjs` 在渲染管线中统一补前缀（内容文件保持纯 MDX，不手改）。
 - 站点域名取 `SITE_URL`，未设置时回退到 Vercel 的 `VERCEL_URL`，本地回退 `http://localhost:4321`。

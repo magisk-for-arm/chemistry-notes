@@ -19,13 +19,23 @@ export interface TopicMeta {
   tags: string[];
 }
 
+/** 站点名。多学科共用，凡拼站点标题（title 后缀、页脚、品牌文字）都引用它，不各处硬编码。 */
+export const SITE_NAME = '高中学科要点';
+
 export const subjectList: SubjectMeta[] = [
   {
     slug: 'chemistry',
     title: '化学',
-    description: '高中化学要点 · 易错点 · 考点 · 解题方法',
+    description: '物质的量、元素与化合物、实验探究、有机反应与物质结构的主干要点',
     icon: 'flask',
     order: 1,
+  },
+  {
+    slug: 'math',
+    title: '数学',
+    description: '集合与逻辑、函数导数、三角与数列、立体几何、解析几何、概率统计的主干要点',
+    icon: 'calculator',
+    order: 2,
   },
 ];
 
@@ -219,6 +229,87 @@ export const topics: TopicMeta[] = [
     summary: '推断三要素总枢纽：反应类型判型、条件现象定量三线词典、质量暗号 M±系列、碳骨架增长缩短成环、官能团引入搬移保护基、信息方程式仿写五步',
     tags: ['有机化学'],
   },
+  {
+    slug: 'set-logic',
+    subject: 'math',
+    title: '集合与常用逻辑用语',
+    icon: 'sigma',
+    order: 1,
+    summary: '集合的三种关系与四类运算、命题的四种量词与充分必要条件转换',
+    tags: ['集合', '充分必要条件'],
+  },
+  {
+    slug: 'inequality',
+    subject: 'math',
+    title: '不等式',
+    icon: 'scale',
+    order: 11,
+    summary: '基本不等式的一元二次最佳值、一元二次不等式与恒成立、二次函数不等式综合',
+    tags: ['不等式', '基本不等式'],
+  },
+  {
+    slug: 'trigonometry',
+    subject: 'math',
+    title: '三角函数与解三角形',
+    icon: 'triangle',
+    order: 21,
+    summary: '三角恒等变换与图像性质、三角形面积与正弦定理余弦定理的实际应用',
+    tags: ['三角函数', '解三角形'],
+  },
+  {
+    slug: 'sequence',
+    subject: 'math',
+    title: '数列',
+    icon: 'list-ordered',
+    order: 31,
+    summary: '等差等比数列通项与求和、递推转化、错位相减与裂项相消三类求和方法',
+    tags: ['数列'],
+  },
+  {
+    slug: 'function-derivative',
+    subject: 'math',
+    title: '函数与导数',
+    icon: 'trending-up',
+    order: 41,
+    summary: '导数几何意义与运算、单调性与极值最值、导数在函数与方程中的应用',
+    tags: ['函数', '导数'],
+  },
+  {
+    slug: 'solid-geometry',
+    subject: 'math',
+    title: '立体几何',
+    icon: 'box',
+    order: 51,
+    summary: '三视图与直观图、线面关系判定性质定理、二面角与空间向量求角三类题型',
+    tags: ['立体几何', '空间向量'],
+  },
+  {
+    slug: 'vector-complex',
+    subject: 'math',
+    title: '平面向量与复数',
+    icon: 'move-diagonal',
+    order: 61,
+    summary: '向量数量积与夹角、坐标运算与垂直平行、复数运算与几何意义',
+    tags: ['平面向量', '复数'],
+  },
+  {
+    slug: 'analytic-geometry',
+    subject: 'math',
+    title: '解析几何',
+    icon: 'orbit',
+    order: 71,
+    summary: '直线与圆位置关系、圆锥曲线方程与焦点弦、联立与韦达定参数范围',
+    tags: ['解析几何', '圆锥曲线'],
+  },
+  {
+    slug: 'probability-statistics',
+    subject: 'math',
+    title: '概率与统计',
+    icon: 'chart-column',
+    order: 81,
+    summary: '计数原理与排列组合、条件概率与全概率、正态分布与统计回归独立性检验',
+    tags: ['概率', '统计'],
+  },
 ];
 
 export const sectionMeta = {
@@ -246,6 +337,16 @@ export const frequencyLabel: Record<string, string> = {
 
 export function getSubject(slug: string): SubjectMeta | undefined {
   return subjectList.find((s) => s.slug === slug);
+}
+
+/**
+ * 学科页标签：从学科元数据推导，不硬编码任何学科名。
+ * 化学页得到「高中化学要点」，数学页得到「高中数学要点」，
+ * 跨学科的页面（首页 / 搜索 / 标签）回落到 SITE_NAME。
+ */
+export function subjectLabel(slug: string): string {
+  const s = getSubject(slug);
+  return s ? `高中${s.title}要点` : SITE_NAME;
 }
 
 export function getTopicsBySubject(subject: string): TopicMeta[] {
