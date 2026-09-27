@@ -143,6 +143,8 @@ Frontmatter schema 定义在 `src/content.config.ts`，字段如下：
 - `<Callout>` 可用类型：`wrong` / `why` / `right` / `skill` / `tip` / `note` / `memory` / `formula`。
 - **MDX 组件只用默认插槽**：不使用命名插槽，子内容直接写在组件标签内（规避 MDX 兼容问题）。解析折叠用 `<Reveal>`，例题用 `<ExampleCard>`，解题模型用 `<SolutionSteps>`。
 - **标题里不要写 `$...$` 行内公式**，否则右侧目录（TOC）提取会乱码；公式放正文。
+- **数学学科的真题块**：`examples.mdx` 末尾的「真题演练」小节收入真实高考题，`source` 写「年份 + 卷种 + 题号」（如 `2024 新高考Ⅰ卷 第 15 题`）。选题按 **90/150 水平线**：单选/多选/填空全取，解答题只取 13–15 分档，**17 分压轴不入**；需要配图的题（`\choicebitmap`、`\textfigure`）一律跳过。真题答案要与官方解析交叉复算，**不要直接照抄官方解析**，要补上「为什么这么做」。
+- **从 LaTeX 源码搬题时注意宏**：多数真题仓库用 `\e`（自然常数）、`\i`（虚数单位）、`\bs`（粗体向量）这三个前导宏，**本项目 KaTeX 都没定义**，直接搬会整片渲染失败。须分别改写为 `\mathrm{e}`、裸 `i`、`\vec{}`（与既有内容写法一致）。搬完立刻跑 `node scripts/check-katex.mjs`。
 - 数学/化学公式用 `$...$`、`$$...$$`，化学式用 `\ce{}`（如 `\ce{2H2 + O2 -> 2H2O}`）。
 - 内部链接优先用 `src/utils/topics.ts` 的 `sectionHref()`；标签链接为 `/tag/<tag>`。
 
