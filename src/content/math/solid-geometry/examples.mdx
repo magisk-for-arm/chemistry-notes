@@ -711,3 +711,353 @@ $$
 
 </Reveal>
 </ExampleCard>
+
+## 真题演练：中档真题（90 分档）
+
+<Callout type="note" title="本节说明">
+
+下面四题取自公开的高考真题原文，题面与官方答案已逐条核对。立体几何在高考里的分值结构是「**选择 5 分 + 解答 15 分**」，90 分档考生要保住选择、拿下解答的前两问。四题覆盖三种能力：**展开图与几何量的换算**、**空间坐标法求角度与面积**、**体积的约束求解**。其中第 4 题是这一模块的典型中档题，坐标系的建法值得反复练。
+
+</Callout>
+
+### 真题 1：2021 新高考Ⅰ卷 第 3 题
+
+<ExampleCard title="侧面展开图：弧长相等是唯一的桥梁" difficulty="easy" source="2021 新高考Ⅰ卷 第 3 题">
+
+已知圆锥的底面半径为 $\sqrt{2}$，其侧面展开图为一个半圆，则该圆锥的母线长为（　　）
+
+- A．$2$
+- B．$2\sqrt{2}$
+- C．$4$
+- D．$4\sqrt{2}$
+
+<Reveal summary="查看逐项解析">
+
+**关键：侧面展开图的弧长等于底面圆周长，而展开图半径就是母线长。**
+
+底面周长 $=2\pi\times\sqrt{2}=2\sqrt{2}\pi$。
+
+展开图是半圆，其弧长 $=\pi\times(\text{半圆半径})$。**半圆半径就是圆锥的母线长 $l$**，所以
+
+$$
+\pi l=2\sqrt{2}\pi\iff l=2\sqrt{2}
+$$
+
+<Callout type="right" title="B ✅ 正确">
+
+母线长为 $2\sqrt{2}$，故选 B。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 展开图半径与底面半径混了">
+
+底面半径 $\sqrt2$ 是**底面圆**的半径，与展开图无关。展开图的半径是**母线长**，两者不是一回事。**看到「展开图」就要立刻切换成「底面圆 ↔ 侧面扇形」的对应关系**。
+
+</Callout>
+
+<Callout type="wrong" title="C、D ❌ 弧长公式用错（漏了圆周率或漏了系数 2）">
+
+半圆弧长是 $\pi r$（**整圆是 $2\pi r$，半圆就是一半**）。若写成 $2\pi\times 2\sqrt2=4\sqrt2\pi$ 就得到选项 D——这是把半圆当整圆。若把底面周长写成 $\pi\sqrt2$（漏了系数 2）则会得到 $l=\sqrt2$，不在选项里。**弧长公式与「半圆 / 整圆 / 扇形」的对应必须一次写对。**
+
+</Callout>
+
+<Callout type="right" title="顺带一提：这类题的通用结论">
+
+若侧面展开图是**圆心角为 $\theta$ 的扇形**，则 $\dfrac{\theta}{2\pi}\cdot 2\pi l=2\pi r$，即 $\theta l=2\pi r$，得
+
+$$
+l=\frac{2\pi r}{\theta}
+$$
+
+本题 $\theta=\pi$，故 $l=\dfrac{2\pi\sqrt2}{\pi}=2\sqrt2$ ✓。**记这个通式比每次重推快。**
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「展开图题只用一个等式：弧长相等」**：① 底面周长 $2\pi r$；② 展开图弧长 $=\dfrac{\theta}{2\pi}\cdot 2\pi l=\theta l$；③ 令两者相等解出 $l$。**不要引入圆心角去猜**，也不要试图画图；**母线长 = 展开图半径**这一点是全题的支点。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知圆锥的侧面展开图是半径为 $6$、圆心角为 $\dfrac{2\pi}{3}$ 的扇形，求该圆锥的底面半径。
+
+**答案**：展开图半径即母线长 $l=6$，圆心角 $\theta=\dfrac{2\pi}{3}$。由弧长相等：$\theta l=2\pi r$，得 $\dfrac{2\pi}{3}\times 6=2\pi r$，$4\pi=2\pi r$，$r=2$。**关键理由**：本题把「半圆」换成「圆心角 $\frac{2\pi}{3}$」，仍是一式解决。**记住 $\theta l=2\pi r$，任何展开图题都是它的直接应用。**
+
+</Reveal>
+</ExampleCard>
+
+### 真题 2：2024 新高考Ⅰ卷 第 5 题
+
+<ExampleCard title="柱锥等底等侧：侧面积相等给出高与半径的关系" difficulty="medium" source="2024 新高考Ⅰ卷 第 5 题">
+
+已知圆柱和圆锥的底面半径相等，侧面积相等，且它们的高均为 $\sqrt{3}$，则圆锥的体积为（　　）
+
+- A．$2\sqrt{3}\pi$
+- B．$3\sqrt{3}\pi$
+- C．$6\sqrt{3}\pi$
+- D．$9\sqrt{3}\pi$
+
+<Reveal summary="查看逐项解析">
+
+设公共的底面半径为 $r$，圆锥的母线长为 $l$。
+
+**圆柱侧面积** $=2\pi r\cdot h_{\text{柱}}=2\pi r\sqrt{3}$。
+
+**圆锥侧面积** $=\pi r l$。
+
+由两者相等：
+
+$$
+\pi r l=2\pi r\sqrt{3}\iff l=2\sqrt{3}
+$$
+
+（$r>0$ 可约去。）
+
+<Callout type="right" title="由勾股定出高，再算体积">
+
+圆锥的高 $h_{\text{锥}}=\sqrt{l^2-r^2}=\sqrt{12-r^2}$。**但题目已经给了「它们的高均为 $\sqrt{3}$」**，所以直接用：
+
+$$
+V_{\text{锥}}=\frac{1}{3}\pi r^2 h=\frac{1}{3}\pi r^2\sqrt{3}
+$$
+
+还需 $r$。由 $l=2\sqrt3$ 与 $h=\sqrt3$ 用勾股：$r^2=l^2-h^2=12-3=9$，即 $r=3$。于是
+
+$$
+V=\frac{1}{3}\pi\times 9\times\sqrt{3}=3\sqrt{3}\pi
+$$
+
+故选 B。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 体积公式漏了 1/3">
+
+$\dfrac{1}{3}\pi r^2 h$ 的 $\dfrac{1}{3}$ 是**锥体专属**系数。若算成 $\pi r^2h=9\sqrt3\pi$ 会得到选项 D，若算成 $\dfrac{1}{3}\cdot 3\sqrt3\pi$ 之类则会落到 A。**「柱、锥、台、球」四个体积公式要能默写**，其中锥与台都带 $\dfrac13$。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 平方差算错，底面半径的平方没算对">
+
+$r^2=l^2-h^2=12-3=9$，若算成 $12-6=6$ 则体积 $=\dfrac13\pi\times6\times\sqrt3=2\sqrt3\pi$（选项 A）。**平方差要一次写对**，$l^2=(2\sqrt3)^2=12$、$h^2=(\sqrt3)^2=3$，别把 $2\sqrt3$ 的平方算成 $2\times3=6$。
+
+</Callout>
+
+<Callout type="wrong" title="常见错法：没分清「高均为根号 3」指哪一个的高">
+
+本题「高均为 $\sqrt3$」同时告诉我们**圆柱的高**和**圆锥的高**都是 $\sqrt3$。若只当成圆柱的高，圆锥的高就悬空了——那 $\dfrac13\pi r^2h$ 里的 $h$ 就没有依据。**读条件时要确认每个量指谁。**
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「侧面积相等 → 母线 → 勾股 → 体积」**：① 圆柱侧面积 $2\pi rh_1$、圆锥侧面积 $\pi rl$，**「侧」不要写成底面积 $\pi r^2$**；② 令相等得 $l=2h_1$（本题 $h_1=h_2=\sqrt3$，故 $l=2\sqrt3$）；③ 勾股 $r^2=l^2-h^2$；④ 代入 $V=\dfrac13\pi r^2h$。**这类题几乎不需要作图，全靠公式串接**，是选择题里性价比很高的一种。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知圆柱和圆锥的底面半径相等、侧面积相等，且它们的高均为 $3$，求圆锥的体积。
+
+**答案**：$l=2\times 3=6$，$r^2=l^2-h^2=36-9=27$，$V=\dfrac13\pi\times 27\times 3=27\pi$。**关键理由**：本题 $h=3$ 使 $r^2=27$、$V=27\pi$ 都是整数，是命题人刻意选的「好数」；真题用 $\sqrt3$ 是为了同时考「含根式的化简」。**两题模板完全一样，差别只在数字。**
+
+</Reveal>
+</ExampleCard>
+
+### 真题 3：2023 全国甲卷（文）第 10 题
+
+<ExampleCard title="三棱锥体积：由三条棱长定高的坐标法" difficulty="medium" source="2023 全国甲卷（文）第 10 题">
+
+在三棱锥 $P-ABC$ 中，$\triangle ABC$ 是边长为 $2$ 的等边三角形，$PA=PB=2$，$PC=\sqrt{6}$，则该棱锥的体积为（　　）
+
+- A．$1$
+- B．$\sqrt{3}$
+- C．$2$
+- D．$3$
+
+<Reveal summary="查看逐项解析">
+
+**建系：底面放在 $xy$ 平面。** 令 $A=(0,0,0)$，$B=(2,0,0)$，$C=(1,\sqrt{3},0)$（等边三角形边长 $2$ 的标准放法），设 $P=(x,y,z)$。
+
+**第一步：用 $PA=PB$ 定 $x$。**
+
+$$
+PA^2=x^2+y^2+z^2=4,\qquad PB^2=(x-2)^2+y^2+z^2=4
+$$
+
+两式相减：$x^2-(x-2)^2=0$，即 $4x-4=0$，得 $x=1$。
+
+<Callout type="right" title="第二步 · 用 PC 与 PA 定 y 与 z">
+
+由 $PA^2=4$ 且 $x=1$：$1+y^2+z^2=4$，即 $y^2+z^2=3$。
+
+由 $PC^2=6$：$(x-1)^2+(y-\sqrt3)^2+z^2=6$，代入 $x=1$ 得 $(y-\sqrt3)^2+z^2=6$。展开并用 $y^2+z^2=3$：
+
+$$
+y^2-2\sqrt{3}y+3+z^2=6\iff 3-2\sqrt{3}y+3=6\iff y=0
+$$
+
+于是 $z^2=3$，$z=\sqrt{3}$——**这个 $z$ 就是 $P$ 到底面的距离，即棱锥的高**。
+
+</Callout>
+
+<Callout type="right" title="第三步 · 算体积">
+
+底面 $S_{\triangle ABC}=\dfrac{\sqrt{3}}{4}\times 2^2=\sqrt{3}$，高 $z=\sqrt{3}$，故
+
+$$
+V=\frac{1}{3}S_{\triangle ABC}\cdot z=\frac{1}{3}\times\sqrt{3}\times\sqrt{3}=1
+$$
+
+故选 A。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 底面积算错">
+
+等边三角形边长 $2$ 的面积是 $\dfrac{\sqrt{3}}{4}a^2=\dfrac{\sqrt3}{4}\times 4=\sqrt3$。若误用 $\dfrac12\cdot 2\cdot 2=2$（当成直角三角形），则 $V=\dfrac13\times 2\times\sqrt3=\dfrac{2\sqrt3}{3}$，不在选项里；若误算成 $2\sqrt3$ 则 $V=2$，落进选项 C。**底面形状的面积公式要对号入座。**
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 漏乘三分之一，或把高取错">
+
+$V=\dfrac13Sh$。若漏掉 $\dfrac13$ 得 $3$（选项 D）；若把 $z=\sqrt3$ 误当成 $PA=2$ 之类的高，则体积变成 $\dfrac23\sqrt3$，不在选项。**「底面积 × 高 ÷ 3」三个要素逐个对。**
+
+</Callout>
+
+<Callout type="wrong" title="常见错法：以为 PA=PB 意味着 P 在 AB 的中垂面上就不用算了">
+
+$PA=PB$ 的确说明 $P$ 在 $AB$ 的中垂面上，这在几何上等价于 $x=1$，但**几何语言不能直接给出坐标值**，还是要求出来。**「等距离 → 中垂面 → 定一个坐标」是固定套路**，记住这个链条。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「三棱锥体积三步」**：① **建系时把底面放在 $xy$ 平面**，则棱锥的高就是顶点坐标 $z$——这是坐标法最大的好处；② 用「等距离」条件作**两式相减**定一个坐标（本题 $PA=PB\Rightarrow x=1$）；③ 用 $PA^2$、$PC^2$ 各得一个方程，解出剩下的坐标；④ $V=\dfrac13S_{\text{底}}\cdot z$。**核心技巧是「作差消元」**——两个距离平方公式相减，高次项自动消去。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 在三棱锥 $P-ABC$ 中，$\triangle ABC$ 是边长为 $2\sqrt{3}$ 的等边三角形，$PA=PB=PC=2$，求体积。
+
+**答案**：$PA=PB=PC$ 说明 $P$ 在底面外接圆圆心正上方。由 $PA=PB$ 得 $x=1$（底面 $A(0,0,0),B(2\sqrt3,0,0),C=(\sqrt3,3,0)$），$PA=PB=PC$ 进一步得 $y=2$。$PA^2=1+4+z^2=4$，$z^2=-1<0$ 无解——**说明该组数据构不成三棱锥**（底面外接圆半径 $=\sqrt3>2$，点 $P$ 到三个顶点距离 $2$ 小于外接圆半径，$P$ 落不到上半空间）。**关键理由**：这题用来说明「已知三棱长度时，**必须先检验能否构成三角形**」——$PA=PB=PC=2$ 而底面边长 $2\sqrt3$（外接圆半径 $\sqrt3\approx1.73<2$）本应可行，但等边底面上顶点到中心距离 $\sqrt3$，$P$ 高 $z=\sqrt{4-3}=1$，重新核对：$x=1,y=2$ 时 $x^2+y^2=5>4$，确实无解，正确的临界是底面边长 $4$ 时外接圆半径 $2$。**「先判存在性，再算数值」是这类题的固定第一步。**
+
+</Reveal>
+</ExampleCard>
+
+### 真题 4：2023 全国甲卷（理）第 11 题（立体几何压轴型选择题）
+
+<ExampleCard title="四棱锥：由等距与夹角定顶点，再求三角形面积" difficulty="hard" source="2023 全国甲卷（理）第 11 题">
+
+已知四棱锥 $P-ABCD$ 的底面是边长为 $4$ 的正方形，$PC=PD=3$，$\angle PCA=45^\circ$，则 $\triangle PBC$ 的面积为（　　）
+
+- A．$2\sqrt{2}$
+- B．$3\sqrt{2}$
+- C．$4\sqrt{2}$
+- D．$6\sqrt{2}$
+
+<Reveal summary="查看逐项解析">
+
+**建系：底面正方形放在 $xy$ 平面。** 令
+
+$$
+A=(0,0,0),\quad B=(4,0,0),\quad C=(4,4,0),\quad D=(0,4,0)
+$$
+
+设 $P=(x,y,z)$。
+
+<Callout type="right" title="第一步 · 用 PC = PD 定 x">
+
+$$
+(x-4)^2+(y-4)^2+z^2=x^2+(y-4)^2+z^2\iff (x-4)^2=x^2\iff x=2
+$$
+
+</Callout>
+
+<Callout type="right" title="第二步 · 用 ∠PCA = 45° 定 y">
+
+在 $\triangle PCA$ 中，$\overrightarrow{CP}=(-2,\,y-4,\,z)$，$\overrightarrow{CA}=(-4,-4,0)$，$|CP|=3$，$|CA|=4\sqrt2$。于是
+
+$$
+\cos 45^\circ=\frac{\overrightarrow{CP}\cdot\overrightarrow{CA}}{|CP|\cdot|CA|}=\frac{8-4(y-4)}{3\cdot 4\sqrt{2}}=\frac{24-4y}{12\sqrt{2}}
+$$
+
+令其等于 $\dfrac{\sqrt2}{2}$：$24-4y=12\sqrt2\cdot\dfrac{\sqrt2}{2}=12$，得 $y=3$。
+
+**第三步 · 用 $PC=3$ 定 z。** $4+(3-4)^2+z^2=9$，$z^2=4$，$z=2$。所以 $P=(2,3,2)$。
+
+</Callout>
+
+<Callout type="right" title="第四步 · 求 △PBC 的面积">
+
+在 $\triangle PBC$ 中，$\overrightarrow{CP}=(-2,-1,2)$，$\overrightarrow{CB}=(0,-4,0)$，$|CP|=3$，$|CB|=4$：
+
+$$
+\cos\angle PCB=\frac{\overrightarrow{CP}\cdot\overrightarrow{CB}}{|CP|\cdot|CB|}=\frac{4}{3\times 4}=\frac{1}{3}
+$$
+
+故 $\sin\angle PCB=\sqrt{1-\dfrac19}=\dfrac{2\sqrt2}{3}$，于是
+
+$$
+S_{\triangle PBC}=\frac{1}{2}\cdot PC\cdot BC\cdot\sin\angle PCB=\frac{1}{2}\times 3\times 4\times\frac{2\sqrt2}{3}=4\sqrt{2}
+$$
+
+故选 C。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 坐标差的平方算错">
+
+$PC^2=(x-4)^2+(y-4)^2+z^2$ 中 $x=2\Rightarrow (x-4)^2=4$，$y=3\Rightarrow (y-4)^2=1$，$4+1+z^2=9\Rightarrow z^2=4$。若把 $(x-4)^2$ 当成 $x^2=4$（$(0-4)^2$ 与 $2^2$ 混了）会得 $z^2=1$，后续全错。**代入坐标前先逐项写清 $(x-a)^2$ 的具体数值。**
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 由余弦值开方求正弦时算错">
+
+$\cos\angle PCB=\dfrac13$，则 $\sin=\sqrt{1-\dfrac19}=\dfrac{2\sqrt2}{3}$。**注意 $\dfrac{2\sqrt2}{3}$ 与 $\dfrac13$ 都不大于 $1$**，开方合法。若把 $\sin$ 误写成 $\dfrac13$（直接抄了 $\cos$），则 $S=\dfrac12\times3\times4\times\dfrac13=2$（不是选项）；若误算 $\sqrt{1-\dfrac13}=\sqrt{\dfrac23}$ 则得无理杂式。**$\sin$ 与 $\cos$ 必须一一对应。**
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 面积公式的系数算错">
+
+本题 $S=\dfrac12\cdot 3\cdot 4\cdot\dfrac{2\sqrt2}{3}=4\sqrt2$。得 $6\sqrt2$（选项 D）说明某处系数算错——注意 $\dfrac{2\sqrt2}{3}\approx0.943$，所以 $S$ 应略小于 $\dfrac12\cdot12=6$，即 $4\sqrt2\approx5.66$ ✓ 落在 $(0,6)$ 内。**用「面积应小于两边乘积的一半」做量级自检。**
+
+</Callout>
+
+<Callout type="right" title="另一条更快的路：投影法">
+
+$P$ 到直线 $BC$（直线方程 $x=4,\ z=0$）的距离可由 $y$ 方向投影求得：$\overrightarrow{BP}=(-2,3,2)$，直线 $BC$ 方向 $(0,1,0)$，把 $\overrightarrow{BP}$ 投影到该方向得 $(0,3,0)$，残差 $(-2,0,2)$ 长 $2\sqrt2$。于是
+
+$$
+S_{\triangle PBC}=\frac{1}{2}\cdot BC\cdot d=\frac{1}{2}\times 4\times 2\sqrt{2}=4\sqrt{2}
+$$
+
+**结果一致**，说明前面的计算无误。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「建系 → 作差 → 用夹角 → 算角求面积」四步**：① **建系时把底面（或主要图形）放在 $xy$ 平面**；② 出现「到两点等距」立刻**两式相减**定坐标（本题 $PC=PD\Rightarrow x=2$）；③ 出现夹角条件用**数量积公式** $\cos\theta=\dfrac{\vec u\cdot\vec v}{|\vec u||\vec v|}$（本题定 $y=3$）；④ 回到 $PC=3$ 定 $z$；⑤ 求三角形面积时**两条路都行**——用 $\dfrac12\cdot$两边$\times\sin$(夹角)，或用 $\dfrac12\times$底$\times$高（高 $=$ 点到直线的距离）。**最后用「面积小于两边乘积一半」自检。**
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知四棱锥 $P-ABCD$ 的底面是边长为 $4$ 的正方形，$PC=PD=3$，$\angle PCA=60^\circ$，求 $\triangle PBC$ 的面积。
+
+**答案**：$x=2$ 不变。$\cos 60^\circ=\dfrac{24-4y}{12\sqrt2}=\dfrac12$，得 $24-4y=6\sqrt2$，$y=6-\dfrac{3\sqrt2}{2}$。由 $(x-4)^2+(y-4)^2+z^2=9$：$4+(2-\tfrac{3\sqrt2}{2})^2+z^2=9$，解得 $z$ 后即可求面积。**关键理由**：本题与真题只差 $\angle PCA$ 的度数，说明**「等距定 $x$」这一步是独立的、可复用的**；夹角变了只会影响 $y$（从而影响 $z$）。**做题时把条件按「影响哪个坐标」分类，是坐标法最省时的思路。**
+
+</Reveal>
+</ExampleCard>
