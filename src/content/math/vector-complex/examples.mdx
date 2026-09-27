@@ -724,3 +724,274 @@ $$
 
 </Reveal>
 </ExampleCard>
+
+## 真题演练：中档真题（90 分档）
+
+<Callout type="note" title="本节说明">
+
+下面四题取自公开的高考真题原文，题面与官方答案已逐条核对。平面向量与复数在高考里固定占据**第 2、3 题**（共 10 分），是最「稳」的分值——题目不难，但**容错率极低**，一步符号错就全丢。选入的四题分别是：复数的分式方程、复数的乘法与共轭、向量数量积求夹角、向量与复数共有的「模」思想。
+
+</Callout>
+
+### 真题 1：2024 新高考Ⅰ卷 第 2 题
+
+<ExampleCard title="复数的分式方程：交叉相乘后别忘解出 z" difficulty="easy" source="2024 新高考Ⅰ卷 第 2 题">
+
+若 $\dfrac{z}{z-1}=1+i$，则 $z=$（　　）
+
+- A．$-1-i$
+- B．$-1+i$
+- C．$1-i$
+- D．$1+i$
+
+<Reveal summary="查看逐项解析">
+
+**交叉相乘，把分式变成一次方程。** 注意前提 $z\neq 1$。
+
+$$
+z=(1+i)(z-1)
+$$
+
+展开右边：$(1+i)z-(1+i)$。移项：
+
+$$
+z-(1+i)z=-(1+i)\iff i z=-(1+i)
+$$
+
+两边同除 $i$（乘以 $\dfrac{1}{i}=-i$）：
+
+$$
+z=\frac{-(1+i)}{i}
+$$
+
+<Callout type="right" title="算清楚这一步">
+
+$$
+z=-(1+i)\cdot\frac{1}{i}=-(1+i)\cdot(-i)=(1+i)i=i+i^2=i-1=1-i
+$$
+
+故选 C。**验算**：$\dfrac{1-i}{(1-i)-1}=\dfrac{1-i}{-i}=(1-i)\cdot i=i-i^2=1+i$ ✓ 与题设一致。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 移项时符号错，z 与 i 弄反">
+
+若写成 $z+(1+i)z=1+i$，会解出 $z=\dfrac{1+i}{2+i}$ 之类的值。**移项要变号**：把含 $z$ 的项都收到左边、常数项收到右边，$z-(1+i)z=-(1+i)$ 里 $z$ 的系数是 $1-(1+i)=-i$，所以 $-i z=-(1+i)$，两边同除 $-i$ 得 $z=\dfrac{-(1+i)}{-i}$——**与上面等价**。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 除以 i 时忘了 1/i = −i">
+
+$\dfrac{1}{i}=-i$，因为 $i\cdot(-i)=-i^2=1$。若当成 $\dfrac{1}{i}=i$，会得到 $-(1+i)i=-(1+i)i=-(i-1)=1-i$…… 巧了仍对，但一般题目会错。**背牢 $\dfrac{1}{i}=-i$，这是复数题最高频的符号错误。**
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 把 i 的平方记成了 i 或正 1">
+
+$i^2=-1$ 是复数的基石。$(1+i)i=i+i^2=i-1$，若误用 $i^2=1$ 会得 $1+i$（选项 D）。**$\mathrm{i}$ 的幂按 $4$ 个一循环**：$1,i,-1,-i$。
+
+</Callout>
+
+<Callout type="wrong" title="常见错法：交叉相乘后不检验 z ≠ 1">
+
+本题 $z=1-i\neq 1$，前提满足。但**养成习惯**：交叉相乘得到的解要代回原式验一次分母非零，这类「增根」在含 $\dfrac{1}{z-1}$、$\dfrac{1}{z^2+1}$ 的题里真的会出错。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「交叉相乘 → 移项 → 同除 → 验算」四步**：① 复数分式方程先交叉相乘（前提是分母 $\neq 0$，写在草稿纸上）；② 移项时**含 $z$ 的收左、常数收右，符号全变**；③ 除以 $i$ 用 $\dfrac{1}{i}=-i$；④ **代回原式验算**。本题的 $z$ 系数是 $1-(1+i)=-i$，看到系数里带 $i$ 就该意识到「除以 $i$」这步要小心。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 若 $\dfrac{z+1}{z-1}=i$，求 $z$。
+
+**答案**：$z+1=i(z-1)=i z-i$，故 $z-i z=-1-i$，$(1-i)z=-(1+i)$，$z=\dfrac{-(1+i)}{1-i}$。分子分母同乘 $(1+i)$：$z=\dfrac{-(1+i)^2}{(1-i)(1+i)}=\dfrac{-(1+2i+i^2)}{1-i^2}=\dfrac{-2i}{2}=-i$。**关键理由**：分母是 $1-i$ 而非 $i$，必须用**分子分母同乘共轭** $\dfrac{-(1+i)(1+i)}{1-i^2}$；本题分子恰好含 $(1+i)$，使分母化为 $2$。**见到分母是 $a\pm bi$ 就立刻同乘共轭**。
+
+</Reveal>
+</ExampleCard>
+
+### 真题 2：2023 全国甲卷（理）第 4 题
+
+<ExampleCard title="向量与复数同源：把条件化成数量积再求夹角" difficulty="medium" source="2023 全国甲卷（理）第 4 题">
+
+已知向量 $\vec a$，$\vec b$，$\vec c$ 满足 $\lvert\vec a\rvert=\lvert\vec b\rvert=1$，$\lvert\vec c\rvert=\sqrt{2}$，且 $\vec a+\vec b+\vec c=\vec 0$，则 $\cos\left\langle\vec a-\vec c,\vec b-\vec c\right\rangle=$（　　）
+
+- A．$-\dfrac{4}{5}$
+- B．$-\dfrac{2}{5}$
+- C．$\dfrac{2}{5}$
+- D．$\dfrac{4}{5}$
+
+<Reveal summary="查看逐项解析">
+
+**第一步：把 $\vec c$ 用 $\vec a,\vec b$ 表示。** 由 $\vec a+\vec b+\vec c=\vec 0$ 得 $\vec c=-(\vec a+\vec b)$。
+
+**第二步：先求出 $\vec a\cdot\vec b$。** 由模长条件
+
+$$
+\lvert\vec c\rvert^2=\lvert\vec a+\vec b\rvert^2=\lvert\vec a\rvert^2+\lvert\vec b\rvert^2+2\vec a\cdot\vec b
+$$
+
+$$
+2=1+1+2\vec a\cdot\vec b\iff \vec a\cdot\vec b=0
+$$
+
+<Callout type="right" title="第三步 · 求两个待求向量">
+
+$$
+\vec a-\vec c=\vec a+(\vec a+\vec b)=2\vec a+\vec b,\qquad
+\vec b-\vec c=\vec a+2\vec b
+$$
+
+**第四步：算数量积。**
+
+$$
+(2\vec a+\vec b)\cdot(\vec a+2\vec b)=2\lvert\vec a\rvert^2+4\vec a\cdot\vec b+\vec a\cdot\vec b+2\lvert\vec b\rvert^2=2+0+0+2=4
+$$
+
+**第五步：算模。**
+
+$$
+\lvert\vec a-\vec c\rvert^2=\lvert 2\vec a+\vec b\rvert^2=4\lvert\vec a\rvert^2+4\vec a\cdot\vec b+\lvert\vec b\rvert^2=4+0+1=5
+$$
+
+同理 $\lvert\vec b-\vec c\rvert^2=5$。
+
+</Callout>
+
+<Callout type="right" title="D ✅ 正确">
+
+$$
+\cos\left\langle\vec a-\vec c,\vec b-\vec c\right\rangle=\frac{4}{\sqrt{5}\cdot\sqrt{5}}=\frac{4}{5}
+$$
+
+故选 D。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 夹角公式的分子取了绝对值或整体变号">
+
+$\cos\langle \vec u,\vec v\rangle=\dfrac{\vec u\cdot\vec v}{\lvert\vec u\rvert\lvert\vec v\rvert}$，**分子就是数量积本身，不加绝对值**。本题数量积算得 $+4>0$，夹角为锐角，$\cos>0$。选项 A 的 $-4/5$ 正是「强行加了个负号」。
+
+</Callout>
+
+<Callout type="wrong" title="B、C ❌ 展开时交叉项系数算错">
+
+$(2\vec a+\vec b)\cdot(\vec a+2\vec b)$ 中 $\vec a\cdot\vec b$ 的系数是 $2\times 2+1\times 1=5$——**看起来很大，但本题它恰好为 $0$**，所以只剩 $2\lvert\vec a\rvert^2+2\lvert\vec b\rvert^2=4$。若误算成 $4+1=5$ 之类就会得到别的选项。**交叉项系数是「前项系数 × 后项系数」的两两组合**，要按乘法分配律逐项列。
+
+</Callout>
+
+<Callout type="wrong" title="常见错法：把 |2a+b|² 算成 2|a|²+|b|²">
+
+模的平方展开有**交叉项 $2\times 2\times(\vec a\cdot\vec b)=4\vec a\cdot\vec b$**，不能丢。本题 $\vec a\cdot\vec b=0$ 所以丢不丢都一样，**但换一道 $\vec a\cdot\vec b\neq 0$ 的题就会错**。这是「本题碰巧对」的危险错觉。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「先求 $\vec a\cdot\vec b$ → 再表示待求向量 → 最后代夹角公式」**：① 条件里出现 $\lvert\vec a\rvert$、$\lvert\vec b\rvert$、$\lvert\vec a+\vec b\rvert$ 时，**用 $\lvert\vec u+\vec v\rvert^2=\lvert\vec u\rvert^2+\lvert\vec v\rvert^2+2\vec u\cdot\vec v$ 反解数量积**——这是求夹角题的标准入口；② 题问 $\vec a-\vec c$ 就用 $\vec c=-(\vec a+\vec b)$ **把它换写成只含 $\vec a,\vec b$ 的式子**，之后一切都是机械计算；③ 夹角公式的分子是**数量积原值**（可正可负），分母是两个模长之积。**中间量 $\vec a\cdot\vec b$ 一旦算出，后面所有式子都不用再开根。**
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $\lvert\vec a\rvert=\lvert\vec b\rvert=1$，$\lvert\vec a+\vec b\rvert=\sqrt{3}$，求 $\cos\langle\vec a,\vec b\rangle$。
+
+**答案**：$3=\lvert\vec a+\vec b\rvert^2=1+1+2\vec a\cdot\vec b$，得 $\vec a\cdot\vec b=\dfrac{1}{2}$，故 $\cos\langle\vec a,\vec b\rangle=\dfrac{1/2}{1\times 1}=\dfrac12$，夹角为 $60^\circ$。**关键理由**：这正是真题第 ② 步的单独练习——**由「模的平方」反解数量积**是这一模块最该练熟的一招，$\lvert\vec a+\vec b\rvert^2$ 与 $\lvert\vec a-\vec b\rvert^2$ 之差恒为 $4\vec a\cdot\vec b$，也可用来互算。
+
+</Reveal>
+</ExampleCard>
+
+### 真题 3：2023 全国甲卷（文）第 3 题
+
+<ExampleCard title="坐标形式求夹角：和差向量的模长是巧点" difficulty="medium" source="2023 全国甲卷（文）第 3 题">
+
+已知向量 $\vec a=(3,1)$，$\vec b=(2,2)$，则 $\cos\left\langle\vec a+\vec b,\vec a-\vec b\right\rangle=$（　　）
+
+- A．$\dfrac{1}{17}$
+- B．$\dfrac{\sqrt{17}}{17}$
+- C．$\dfrac{\sqrt{5}}{5}$
+- D．$\dfrac{\sqrt{2}}{2}$
+
+<Reveal summary="查看逐项解析">
+
+**第一步：算出两个待求向量。**
+
+$$
+\vec a+\vec b=(3+2,\ 1+2)=(5,3),\qquad \vec a-\vec b=(3-2,\ 1-2)=(1,-1)
+$$
+
+**第二步：算分子（数量积）。**
+
+$$
+(5,3)\cdot(1,-1)=5\times 1+3\times(-1)=2
+$$
+
+**第三步：算分母（模长之积）。**
+
+$$
+\lvert\vec a+\vec b\rvert=\sqrt{5^2+3^2}=\sqrt{34},\qquad \lvert\vec a-\vec b\rvert=\sqrt{1^2+(-1)^2}=\sqrt{2}
+$$
+
+<Callout type="right" title="B ✅ 正确">
+
+$$
+\cos=\frac{2}{\sqrt{34}\cdot\sqrt{2}}=\frac{2}{\sqrt{68}}=\frac{2}{2\sqrt{17}}=\frac{1}{\sqrt{17}}=\frac{\sqrt{17}}{17}
+$$
+
+故选 B。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 忘了开根，或没做分母有理化">
+
+$\dfrac{2}{\sqrt{68}}$ 必须化到最简。高考选择题的选项都写成 $\dfrac{\sqrt{17}}{17}$ 这类**分母有理化**的形式，$\dfrac{1}{\sqrt{17}}=\dfrac{\sqrt{17}}{17}$ 是同一个数。**分母含根号时一定做有理化**，否则选项对不上。
+
+</Callout>
+
+<Callout type="wrong" title="C ❌ 只算了一个向量的模，漏乘另一个">
+
+$\lvert\vec a+\vec b\rvert=\sqrt{34}$，$\lvert\vec a-\vec b\rvert=\sqrt{2}$，**分母是两者之积 $\sqrt{68}=2\sqrt{17}$**。只除以一个模就会算出 $\dfrac{2}{\sqrt{34}}$ 之类的值。**夹角公式的分母是两个模长相乘**，写的时候把两个都写出来。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 数量积算成点积的绝对值或搞错分量对应">
+
+$(5,3)\cdot(1,-1)=5-3=2$，**对应分量相乘再相加**。若误算成 $5+3=8$（同号相加），则 $\cos=\dfrac{8}{2\sqrt{17}}$ 超标；若误算成 $5\times 1+3\times 1=8$（忽略第二个分量的负号）也会离谱。**负号必须带上**。
+
+</Callout>
+
+<Callout type="right" title="巧解：和差向量的模长不必各算">
+
+利用恒等式
+
+$$
+\lvert\vec a+\vec b\rvert^2+\lvert\vec a-\vec b\rvert^2=2\left(\lvert\vec a\rvert^2+\lvert\vec b\rvert^2\right)
+$$
+
+本题 $\lvert\vec a\rvert^2=10$，$\lvert\vec b\rvert^2=8$，故两模平方之和为 $2\times 18=36$。而 $\lvert\vec a+\vec b\rvert^2=34$，所以 $\lvert\vec a-\vec b\rvert^2=2$ ✓ 与直接算一致。**这个恒等式能省掉一半计算**，但要在 $\lvert\vec a\rvert$、$\lvert\vec b\rvert$ 已知时才好用。
+
+</Callout>
+
+</Reveal>
+
+<Callout type="skill" title="方法复盘">
+
+**「坐标四步」**：① 先把 $\vec a+\vec b$、$\vec a-\vec b$ **真正算成坐标**（不要停在符号形式）；② 数量积 = 对应分量乘积之和，**负号照抄**；③ 两个模长分别用 $\sqrt{x^2+y^2}$；④ 夹角公式相除，**分母含根号就有理化**。**关键是第 ① 步一定要算到底**——很多同学停在「$\vec a+\vec b$」这个符号上就去套公式，既慢又容易在后续展开时出错。
+
+</Callout>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $\vec a=(1,2)$，$\vec b=(2,-1)$，求 $\cos\left\langle\vec a+\vec b,\vec a-\vec b\right\rangle$。
+
+**答案**：$\vec a+\vec b=(3,1)$，$\vec a-\vec b=(-1,3)$。数量积 $=3\times(-1)+1\times 3=0$，故 $\cos=0$，两向量垂直。**关键理由**：本题 $\vec a\cdot\vec b=1\times 2+2\times(-1)=0$，即 $\vec a\perp\vec b$；而 $(\vec a+\vec b)\cdot(\vec a-\vec b)=\lvert\vec a\rvert^2-\lvert\vec b\rvert^2$，因 $\lvert\vec a\rvert=\lvert\vec b\rvert=\sqrt5$ 故为 $0$。**「和差向量」的核心恒等式是 $(\vec a+\vec b)\cdot(\vec a-\vec b)=\lvert\vec a\rvert^2-\lvert\vec b\rvert^2$**，记住它这类题可以秒杀。
+
+</Reveal>
+</ExampleCard>
