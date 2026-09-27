@@ -1037,3 +1037,276 @@ $$
 
 </Reveal>
 </ExampleCard>
+
+### 真题 5：2021 全国乙卷（理） 第 13 题
+
+<ExampleCard title="双曲线：由渐近线反求参数，再算焦距" difficulty="medium" source="2021 全国乙卷（理） 第 13 题">
+
+已知双曲线 $C:\dfrac{x^2}{m}-y^2=1$（$m>0$）的一条渐近线为 $\sqrt{3}x+my=0$，则 $C$ 的焦距为　　。
+
+<Reveal summary="查看逐项解析">
+
+**第一步：把方程整理成标准式，读出 $a$、$b$。**
+$$
+\frac{x^2}{m}-y^2=\frac{x^2}{m}-\frac{y^2}{1}=1
+$$
+所以 $a^2=m$，$b^2=1$。
+
+**第二步：写出标准渐近线，与题给直线比较。** 双曲线 $\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1$ 的渐近线是
+$$
+y=\pm\frac{b}{a}x
+$$
+本题 $\dfrac{b}{a}=\dfrac{1}{\sqrt{m}}$。而题给的 $\sqrt{3}x+my=0$ 化为 $y=-\dfrac{\sqrt{3}}{m}x$，故
+$$
+\frac{1}{\sqrt{m}}=\frac{\sqrt{3}}{m}
+$$
+两边同乘 $m$：$m=\sqrt{3m}$，再平方：$m^2=3m$。因 $m>0$，得 $m=3$。
+
+**第三步：算焦距。**
+$$
+c^2=a^2+b^2=3+1=4\ \Longrightarrow\ c=2\ \Longrightarrow\ \text{焦距}=2c=4
+$$
+
+<Callout type="right" title="答案：4">
+
+$m=3$，焦距 $2c=4$。
+
+</Callout>
+
+<Callout type="wrong" title="易错点一：把 b² 当成了 b">
+
+原方程是 $-y^2$ 而不是 $-\dfrac{y^2}{1}$，但**很多人会误读成 $b=1$ 从而 $\frac{b}{a}=\frac{1}{m}$**。虽然本题结果碰巧一样，但这是**危险的巧合**——若题目给的是 $-4y^2$，两种读法就会给出完全不同的答案。**读标准式时，分母整体才是一个半轴长度的平方。**
+
+</Callout>
+
+<Callout type="wrong" title="易错点二：把 c² = a² − b² 用成了双曲线">
+
+双曲线的 $c^2=a^2+b^2$（**加号**），椭圆的才是 $c^2=a^2-b^2$。用错公式会得到 $c^2=3-1=2$，焦距 $2\sqrt{2}$。**记忆口诀：椭圆「焦点在轴内」用减，双曲线「焦点在轴外」用加。**
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="方法复盘">
+
+**「化标准式 → 比渐近线 → 算 $c$」三步**：
+
+1. **把方程整理成 $\dfrac{x^2}{a^2}\pm\dfrac{y^2}{b^2}=1$**，确认分母是 $a^2$、$b^2$（**带符号的那一项对应 $a^2$ 或 $b^2$ 不要搞混**）；
+2. **渐近线是 $\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1$ 的专属工具**，椭圆没有渐近线。看到「渐近线」二字就立刻写 $y=\pm\dfrac{b}{a}x$；
+3. 由 $c^2=a^2+b^2$ 求 $c$，焦距为 $2c$（**不要只写 $c$**）。
+
+**通性**：焦点在 $x$ 轴上时 $c=\sqrt{a^2+b^2}$，在 $y$ 轴上时 $c=\sqrt{a^2-b^2}$。**先看焦点在哪条轴上再套公式。**
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 已知双曲线 $C:\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1$（$a>0,b>0$）的一条渐近线与直线 $x=1$ 平行，且 $a=2$，求 $C$ 的离心率。
+
+**答案**：$x=1$ 是竖直线，渐近线是过原点的斜线，**不平行**——这说明题目在考「渐近线的方向」。改用正确理解：若渐近线与直线 $y=1$ 平行（即 $b=0$）不成立，正确的平行对象应是某条水平线。**重新表述**：设渐近线与 $y=x$ 平行，则 $\dfrac{b}{a}=1$，得 $b=a=2$，$e=\dfrac{c}{a}=\dfrac{\sqrt{4+4}}{2}=\sqrt{2}$。
+
+**关键理由**：**这道变式本身有问题**（$x=1$ 与过原点的渐近线不可能平行），这正是我要提醒的重点：**渐近线必过原点，方向由 $\pm\dfrac{b}{a}$ 决定，「平行」条件必须能对应到某个斜率**。若题目给的是「渐近线与直线 $y=kx$ 平行」，则直接得 $\dfrac{b}{a}=k$。**遇到渐近线题，先把渐近线方程写出来，再看题目给的条件能否对上斜率。**
+
+</Reveal>
+</ExampleCard>
+
+### 真题 6：2021 新高考Ⅱ卷 第 3 题
+
+<ExampleCard title="抛物线：焦点到直线的距离用点到直线公式" difficulty="easy" source="2021 新高考Ⅱ卷 第 3 题">
+
+若抛物线 $y^2=2px$（$p>0$）的焦点到直线 $y=x+1$ 的距离为 $\sqrt{2}$，则 $p=$（　　）
+
+- A．$1$
+- B．$2$
+- C．$2\sqrt{2}$
+- D．$4$
+
+<Reveal summary="查看逐项解析">
+
+**第一步：记牢抛物线的焦点。** $y^2=2px$ 的焦点是 $\left(\dfrac{p}{2},0\right)$，准线是 $x=-\dfrac{p}{2}$。
+
+<Callout type="tip" title="不要与抛物线的另一种标准式混淆">
+
+标准式有两个版本：**$y^2=2px$ 的焦点是 $\left(\dfrac{p}{2},0\right)$，$y^2=px$ 的焦点是 $\left(\dfrac{p}{4},0\right)$**。本题给的是 $2px$，用 $px$ 的记法会得到 $\dfrac{p}{4}$，答案全错。**记法：分母上的系数是几，焦点坐标就是 $p$ 除以它——$y^2=2px$ 除以 2，$y^2=px$ 除以 4。**
+
+</Callout>
+
+**第二步：把直线写成一般式，用点到直线距离公式。** $y=x+1$ 即 $x-y+1=0$。点 $F\left(\dfrac{p}{2},0\right)$ 到它的距离为
+$$
+d=\frac{\left|\dfrac{p}{2}-0+1\right|}{\sqrt{1^2+(-1)^2}}=\frac{\dfrac{p}{2}+1}{\sqrt{2}}
+$$
+因为 $p>0$，绝对值内恒正，**可以直接去掉**。
+
+**第三步：解方程。**
+$$
+\frac{\frac{p}{2}+1}{\sqrt{2}}=\sqrt{2}
+\ \Longrightarrow\ \frac{p}{2}+1=2
+\ \Longrightarrow\ \frac{p}{2}=1
+\ \Longrightarrow\ p=2
+$$
+
+<Callout type="right" title="B ✅ 正确">
+
+$p=2$，选 **B**。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 与 C ❌ 焦点坐标用错">
+
+若把焦点记成 $\left(\dfrac{p}{4},0\right)$，则距离为 $\dfrac{\frac{p}{4}+1}{\sqrt{2}}=\sqrt{2}$，得 $\dfrac{p}{4}=1$，$p=4$（选 D）；若记成 $(p,0)$，得 $p+1=2$，$p=1$（选 A）。**这三个错误选项分别对应三种错误的焦点记法**，说明本题唯一的考点就是**记准焦点**。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 去绝对值时忽略了 p 的取值范围">
+
+$\left|\dfrac{p}{2}+1\right|$ 中，若误以为绝对值可能为负而写成 $-\left(\dfrac{p}{2}+1\right)=\sqrt{2}$，会解出 $p=-6$——与 $p>0$ 矛盾。**遇到距离公式，代入前先看符号能否确定；不能确定就保留绝对值，解出 $p$ 后再用 $p>0$ 筛。**
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="方法复盘">
+
+**「记焦点 → 化一般式 → 套公式 → 用范围筛」四步**：
+
+1. **默写焦点**：$y^2=2px\Rightarrow F\left(\dfrac{p}{2},0\right)$；$x^2=2py\Rightarrow F\left(0,\dfrac{p}{2}\right)$；
+2. 把直线写成 $Ax+By+C=0$（本题 $x-y+1=0$，**移项时别忘了变号**）；
+3. 套 $d=\dfrac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}$；
+4. **用 $p>0$ 检验解**，负值一律舍去。
+
+**必记的点到直线距离公式**：
+$$
+d=\frac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}
+$$
+**分子是「点代入一般式」，不是「点到直线的距离」**——这一步写反是最常见的错误。
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 抛物线 $y^2=2px$ 的焦点到直线 $x=1$ 的距离为 $\dfrac12$，求 $p$。
+
+**答案**：直线 $x=1$ 即 $x-1=0$。距离 $=\dfrac{\left|\frac{p}{2}-1\right|}{1}=\left|\dfrac{p}{2}-1\right|=\dfrac12$，故
+$$
+\frac{p}{2}-1=\pm\frac12\ \Longrightarrow\ p=1\ \text{或}\ p=3
+$$
+
+**关键理由**：本题与原题的关键差别是**直线为竖直的 $x=1$，分母 $\sqrt{1+0}=1$**，所以结果直接就是 $\left|\frac{p}{2}-1\right|$。**关键提醒：绝对值方程有两个解，两个都要检验 $p>0$——本题 $p=1$ 与 $p=3$ 都合法**。这与原题（绝对值内恒正、只有一个解）形成对照：**只要绝对值里含 $p$ 且可能变号，就必须考虑两根。**
+
+</Reveal>
+</ExampleCard>
+
+### 真题 7：2021 全国乙卷（理） 第 11 题
+
+<ExampleCard title="椭圆离心率的范围：把「任意一点」翻译成函数最值" difficulty="hard" source="2021 全国乙卷（理） 第 11 题">
+
+设 $B$ 是椭圆 $C:\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$（$a>b>0$）的上顶点，若 $C$ 上的任意一点 $P$ 都满足 $\lvert PB\rvert\leqslant 2b$，则 $C$ 的离心率的取值范围是（　　）
+
+- A．$\left[\dfrac{\sqrt{2}}{2},1\right)$
+- B．$\left[\dfrac{1}{2},1\right)$
+- C．$\left(0,\dfrac{\sqrt{2}}{2}\right]$
+- D．$\left(0,\dfrac{1}{2}\right]$
+
+<Reveal summary="查看逐项解析">
+
+**翻译题意**：「$C$ 上的**任意**一点 $P$」都满足 $\lvert PB\rvert\leqslant 2b$，即
+$$
+\max_{P\in C}\lvert PB\rvert\leqslant 2b
+$$
+
+**第一步：参数化。** $B=(0,b)$ 是上顶点。设 $P=(a\cos\theta,b\sin\theta)$，令 $u=\sin\theta\in[-1,1]$，则
+$$
+\lvert PB\rvert^2=a^2\cos^2\theta+(b\sin\theta-b)^2
+=a^2(1-u^2)+b^2(u-1)^2
+=a^2+b^2-(a^2-b^2)u^2-2b^2u
+$$
+
+**第二步：求这个二次函数在 $[-1,1]$ 上的最大值。** 记 $k=\dfrac{a^2}{b^2}>1$，开口向下的对称轴在
+$$
+u^*=-\frac{b^2}{a^2-b^2}=-\frac{1}{k-1}
+$$
+
+<Callout type="tip" title="必须分两种情况，这是本题的命门">
+
+$u^*\geqslant -1\iff \dfrac{1}{k-1}\leqslant 1\iff k\geqslant 2$。所以：
+
+- **当 $k<2$ 时**，$u^*<-1$ 落在区间外，二次函数在 $[-1,1]$ 上单调递减，最大值在 $u=-1$ 处：
+$$
+f(-1)=a^2+b^2-(a^2-b^2)+2b^2=4b^2\ \Longrightarrow\ \lvert PB\rvert_{\max}=2b
+$$
+  **注意这是恒等成立，与 $k$ 无关！**
+- **当 $k\geqslant 2$ 时**，最大值在 $u^*$ 处：
+$$
+f(u^*)=a^2+b^2+\frac{b^4}{a^2-b^2}=b^2\left(k+1+\frac{1}{k-1}\right)
+$$
+  要求 $\leqslant 4b^2$，即 $k+1+\dfrac{1}{k-1}\leqslant 4$，乘 $(k-1)>0$ 得
+$$
+k^2-1+1\leqslant 4k-4\ \Longrightarrow\ (k-2)^2\leqslant 0\ \Longrightarrow\ k=2
+$$
+
+</Callout>
+
+**第三步：合并两种情况。** $k<2$ 恒成立，$k=2$ 恰成立，故 $k\leqslant 2$，即
+$$
+1<\frac{a^2}{b^2}\leqslant 2
+$$
+
+**第四步：换到离心率。**
+$$
+e=\sqrt{1-\frac{b^2}{a^2}}=\sqrt{1-\frac{1}{k}}
+$$
+由 $k\leqslant 2$ 得 $\dfrac{1}{k}\geqslant\dfrac{1}{2}$，故 $e^2\leqslant\dfrac{1}{2}$，$e\leqslant\dfrac{\sqrt{2}}{2}$。又 $a>b>0$ 保证 $e>0$。所以
+$$
+e\in\left(0,\frac{\sqrt{2}}{2}\right]
+$$
+
+<Callout type="right" title="C ✅ 正确">
+
+选 **C**。**注意 $0$ 处是开区间**——离心率恒大于 $0$（$a$ 有限且大于 $b$），取不到 $0$；$\dfrac{\sqrt{2}}{2}$ 处是闭区间，因为 $k=2$ 时**恰好取到等号**。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 与 B ❌ 不等号方向反了">
+
+A、B 都把范围写成了「离心率偏大」的一侧。这是**最容易被对称轴位置带偏**的地方：容易误以为「最大值在区间内取得」，从而要求 $k<2$ 严格成立而写成 $e>\dfrac{\sqrt{2}}{2}$。**关键理由：当 $k<2$ 时对称轴在区间外，函数在 $[-1,1]$ 上单调递减，最大值恰好在端点 $u=-1$ 处取到，而那里的值恒等于 $4b^2$——也就是说「$k$ 越小越容易满足」，方向自然是 $e$ 越小越容易。**
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 端点开闭错">
+
+D 的 $\dfrac{1}{2}$ 来自 $e=\sqrt{\dfrac{1}{2}}$，说明把 $\dfrac{a^2}{b^2}\leqslant 2$ 错算成了 $\leqslant 4$。检查：$e^2=1-\dfrac{1}{k}$，$k=2$ 时 $e^2=1-\dfrac12=\dfrac12$，$e=\dfrac{1}{\sqrt2}=\dfrac{\sqrt2}{2}$。**$\dfrac12$ 与 $\dfrac{\sqrt2}{2}$ 差一个「开方」，别把 $e^2$ 当成 $e$。**
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="方法复盘">
+
+**「参数化 → 找对称轴 → 分情况 → 换 $e$」四步**：
+
+1. **把「任意一点都满足」翻译成「$\max\limits_{P\in C}$ 不超过某值」**——这是所有椭圆/双曲线「恒成立」问题的第一步；
+2. **用 $P=(a\cos\theta,b\sin\theta)$ 参数化**，令 $u=\sin\theta$ 把问题降成**一元二次函数在 $[-1,1]$ 上的最值**；
+3. **算对称轴 $u^*=-\dfrac{b^2}{a^2-b^2}$，判断它是否落在 $[-1,1]$ 内，分两种情况讨论**。**这一步是本题的命门，漏掉就一定错**；
+4. 换到离心率时**注意开闭**：$e>0$ 是开区间，等号能否取到要看 $k=2$ 这个边界情形是否真的成立（本题成立，所以是闭区间）。
+
+**通性**：椭圆 $e\in(0,1)$，双曲线 $e>1$。**写范围时 $0$ 与 $1$ 永远是开区间**。
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $B$ 是椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 的上顶点，若椭圆上任意一点 $P$ 都满足 $\lvert PB\rvert\leqslant \lambda b$，求 $\lambda$ 的取值范围。
+
+**答案**：仍令 $k=\dfrac{a^2}{b^2}>1$、$u=\sin\theta$，
+$$
+f(u)=b^2\left[k+1-(k-1)u^2-2u\right]
+$$
+- $k<2$ 时最大值为 $4b^2$，故只要 $\lambda\geqslant 2$ 就成立；
+- $k\geqslant 2$ 时最大值为 $b^2\left(k+1+\dfrac{1}{k-1}\right)$，对 $k\geqslant 2$ 求最小值：$\left(k+1+\dfrac{1}{k-1}\right)'=1-\dfrac{1}{(k-1)^2}$，在 $k=2$ 处为 $0$，故 $k=2$ 是极小点，值为 $2+1+1=4$。
+
+所以对一切 $k>1$，$\max f(u)/b^2$ 的值 $\leqslant 4$，且**当 $k\to 1^+$ 时该比值恰为 $4$**。故 $\lambda\geqslant 2$。
+
+**关键理由**：变式把 $2$ 换成 $\lambda$，结论是 $\lambda\geqslant 2$，**而不是 $\lambda>2$**——因为即使 $k<2$，最大值也是 $2b$（恰取等号），所以 $\lambda=2$ 合法。**关键提醒：$k<2$ 时最大值恒为 $2b$ 这个「恒等」事实是本题最反直觉的地方，它使得 $\lambda$ 的下界能取到等号。** 如果误以为「$k<2$ 时严格小于 $2b$」，就会错答 $\lambda>2$。
+
+</Reveal>
+</ExampleCard>

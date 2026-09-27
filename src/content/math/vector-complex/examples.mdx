@@ -995,3 +995,244 @@ $$
 
 </Reveal>
 </ExampleCard>
+
+### 真题 4：2021 全国乙卷（理） 第 1 题
+
+<ExampleCard title="复数方程：把 z 与 z̄ 分离成实部与虚部" difficulty="easy" source="2021 全国乙卷（理） 第 1 题">
+
+设 $2(z+\bar z)+3(z-\bar z)=4+6i$，则 $z=$（　　）
+
+- A．$1-2i$
+- B．$1+2i$
+- C．$1+i$
+- D．$1-i$
+
+<Reveal summary="查看逐项解析">
+
+**核心工具：$z+\bar z$ 与 $z-\bar z$ 分别只含实部与虚部。** 设 $z=a+i$（$a,b\in\mathbb{R}$），则 $\bar z=a-i$，于是
+$$
+z+\bar z=2a,\qquad z-\bar z=2i
+$$
+代入原式：
+$$
+2\cdot 2a+3\cdot 2i=4a+6i=4+6i
+$$
+**实部与虚部分别相等**（复数相等的充要条件）：
+$$
+4a=4\ \Rightarrow\ a=1;\qquad 6b=6\ \Rightarrow\ b=1
+$$
+故 $z=1+i$。
+
+<Callout type="right" title="C ✅ 正确">
+
+$z=1+i$，选 **C**。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 与 B ❌ 系数分配错">
+
+$1\pm 2i$ 说明把 $2$ 与 $3$ 直接当成了 $a$、$b$ 的系数。**关键在于 $z+\bar z$ 要乘 $2$、$z-\bar z$ 也要乘 $2$**——两次「乘 2」都漏掉，就会得到 $2a+3i$ 进而解出 $a=2,b=2$ 一类的错值。**记住 $z+\bar z=2\operatorname{Re}(z)$、$z-\bar z=2\operatorname{Im}(z)\cdot i$，两个 2 都在。**
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 虚部符号错">
+
+$1-i$ 是把 $6i=4+6i$ 的虚部解成 $b=-1$ 得到的，通常源于**把 $z-\bar z$ 算成 $-2i$**。检验：若 $z=1-i$，则 $\bar z=1+i$，$2(z+\bar z)+3(z-\bar z)=2\cdot 2+3\cdot(-2i)=4-6i$，与 $4+6i$ 不符。**含 $\bar z$ 的题目，做完务必把 $z$ 代回原式验一次。**
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="方法复盘">
+
+**「设 $a+i$ → 算 $z\pm\bar z$ → 实虚部分离 → 分别解出」四步**：
+
+1. 设 $z=a+i$，$a,b\in\mathbb{R}$；
+2. **牢记两个基本式**：$z+\bar z=2a$（纯实数）、$z-\bar z=2i$（纯虚数）；
+3. 代入原式后**按「实部 = 实部、虚部 = 虚部」拆成两个方程**；
+4. 解出 $a$、$b$ 写回 $z=a+i$，代回原式检验。
+
+**通性**：复数相等 $a+i=c+di\iff a=c$ 且 $b=d$。**这一步是复数方程题的全部难点所在**，切忌把实部虚部混在一起解。
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 设 $3(z-\bar z)-2(z+\bar z)=8i$，求 $z$。
+
+**答案**：$z-\bar z=2i$，$z+\bar z=2a$，
+$$
+3\cdot 2i-2\cdot 2a=-4a+6i=8i
+$$
+实部：$-4a=0\Rightarrow a=0$；虚部：$6b=8\Rightarrow b=\dfrac43$。故 $z=\dfrac43i$。
+
+**关键理由**：与原题对比，**原题右端是「实数 $+$ 虚数」，本题右端是「纯虚数」**，所以实部方程变成 $-4a=0$，直接定出 $a=0$。**这说明右端的形式决定了哪一部分被「锁死」**——$z\pm\bar z$ 的组合本质上就是**实部与虚部的两个独立通道**，题目只会分别给两个条件。
+
+</Reveal>
+</ExampleCard>
+
+### 真题 5：2021 新高考Ⅱ卷 第 1 题
+
+<ExampleCard title="复数除法：乘分母的共轭，化为 a+bi 再定象限" difficulty="easy" source="2021 新高考Ⅱ卷 第 1 题">
+
+复数 $\dfrac{2-i}{1-3i}$ 在复平面内对应的点所在的象限为（　　）
+
+- A．第一象限
+- B．第二象限
+- C．第三象限
+- D．第四象限
+
+<Reveal summary="查看逐项解析">
+
+**分母不含 $i$，不能直接约分，必须乘分母的共轭。** 分母 $1-3i$ 的共轭是 $1+3i$：
+$$
+\frac{2-i}{1-3i}
+=\frac{(2-i)(1+3i)}{(1-3i)(1+3i)}
+=\frac{2+6i-i-3i^2}{1^2+3^2}
+=\frac{2+5i+3}{10}
+=\frac{5+5i}{10}
+=\frac{1}{2}+\frac{1}{2}i
+$$
+
+**定象限只看实虚部分的符号**：实部 $\dfrac12>0$、虚部 $\dfrac12>0$，两者皆正 ⟹ **第一象限**。
+
+<Callout type="right" title="A ✅ 正确">
+
+$\dfrac12+\dfrac12i$ 的实部、虚部均为正，在**第一象限**，选 **A**。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 与 C ❌ 分母的模算错">
+
+若分母算成 $1-9=-8$ 或 $1+3=4$ 之类，会得到实部为负的结果。**分母是 $(1-3i)(1+3i)=1-(3i)^2=1+9=10$，不是 $1-9$**——**共轭相乘等于「实部平方加虚部平方」，永远是加号**。
+
+</Callout>
+
+<Callout type="wrong" title="D ❌ 虚部符号错">
+
+第四象限对应实正虚负。错因通常是展开时 $i^2=-1$ 的符号用错：$(-i)(3i)=-3i^2=+3$，这一步**必须先把 $i^2$ 算出来再合并**，若误写成 $-3$ 就会得到 $\dfrac{5+i}{10}$，落到第四象限。**展开含 $i$ 的乘积时，把 $i^2=-1$ 当成一个独立项先处理完，能避开这个坑。**
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="方法复盘">
+
+**「乘共轭 → 化标准形 → 看符号」三步**：
+
+1. **分母是实数**才能直接约分；否则**分子分母同乘分母的共轭**；
+2. 分母化为 $|a+i|^2=a^2+b^2$（**实正**，所以除法不改变象限的判定方向）；
+3. 分子按多项式展开，**把 $i^2=-1$ 单独处理**，最后整理成 $\dfrac{m}{n}+\dfrac{k}{n}i$ 的标准形；
+4. **只看 $m$、$k$ 的符号**定象限。
+
+**通性**：复数除法 $\dfrac{a+i}{c+di}=\dfrac{(a+i)(c-di)}{c^2+d^2}$。**整个过程中分母 $c^2+d^2>0$，所以商的实虚部符号完全由分子决定**——这意味着**先算分子、看分子符号就能直接定象限**，可以跳过大部分化简。
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 复数 $\dfrac{1-2i}{2+i}$ 对应点所在象限是（　　）。
+
+**答案**：
+$$
+\frac{(1-2i)(2-i)}{2^2+1^2}=\frac{2-i-4i+2i^2}{5}=\frac{2-5i-2}{5}=-i
+$$
+即 $0-i$，实部为 $0$、虚部为负，**在虚轴上（负半轴）**，严格说**不属于任何象限**。
+
+**关键理由**：**分子为纯虚数、虚部为负，结果落在负虚轴上**。**关键提醒：坐标轴上的点不属于任何一个象限**，若选项里没有「虚轴」，说明要么算错、要么题目问的是别的量。**这类「除完正好是纯虚数」的题目在高考里出现过，务必先判断结果是否为实数或纯虚数再选象限。**
+
+</Reveal>
+</ExampleCard>
+
+### 真题 6：2022 全国乙卷（理） 第 3 题
+
+<ExampleCard title="向量数量积：由模的平方反推数量积" difficulty="medium" source="2022 全国乙卷（理） 第 3 题">
+
+已知向量 $\vec a$，$\vec b$ 满足 $\lvert\vec a\rvert=1$，$\lvert\vec b\rvert=\sqrt{3}$，$\lvert\vec a-2\vec b\rvert=3$，则 $\vec a\cdot\vec b=$（　　）
+
+- A．$-2$
+- B．$-1$
+- C．$1$
+- D．$2$
+
+<Reveal summary="查看逐项解析">
+
+**直接展开 $\lvert\vec a-2\vec b\rvert^2$**。由模长公式 $\lvert\vec v\rvert^2=\vec v\cdot\vec v$：
+$$
+\lvert\vec a-2\vec b\rvert^2=(\vec a-2\vec b)\cdot(\vec a-2\vec b)=\lvert\vec a\rvert^2-4\vec a\cdot\vec b+4\lvert\vec b\rvert^2
+$$
+把已知量代进去：
+$$
+9=1^2-4\vec a\cdot\vec b+4\times 3=1-4\vec a\cdot\vec b+12
+$$
+$$
+9=13-4\vec a\cdot\vec b\ \Longrightarrow\ \vec a\cdot\vec b=1
+$$
+
+<Callout type="right" title="C ✅ 正确">
+
+$\vec a\cdot\vec b=1$，选 **C**。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 与 D ❌ 符号错">
+
+$2$ 与 $-2$ 是把中间的 $4\vec a\cdot\vec b$ 当成 $2\vec a\cdot\vec b$ 展开的。**交叉项是 $-2\times 2=-4$ 倍，不是 $-2$ 倍**。另外 $\lvert\vec b\rvert^2=(\sqrt3)^2=3$、再乘 $4$ 得 $12$——**模长要平方，不能直接用 $\sqrt3$**。**推荐用「$x-y$ 型」通式**：
+$$
+\lvert\vec a-\vec c\rvert^2=\lvert\vec a\rvert^2+\lvert\vec c\rvert^2-2\vec a\cdot\vec c
+$$
+本题 $\vec c=2\vec b$，故 $-2\vec a\cdot 2\vec b=-4\vec a\cdot\vec b$，与上面一致。
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 平方展开时漏项">
+
+$-1$ 通常出现在**只算了 $\lvert\vec a\rvert^2-\lvert 2\vec b\rvert^2$**、把交叉项整个漏掉的情形：$9\stackrel{?}{=}1-12=-11$ 显然不对，修正后 $9=1+12-4(\cdot)$ 才能定出 $1$。**「已知两边长度与第三边长度求夹角」是高考向量题的标准模型，务必背熟 $\cos\theta=\dfrac{\lvert\vec a\rvert^2+\lvert\vec b\rvert^2-\lvert\vec a-\vec b\rvert^2}{2\lvert\vec a\rvert\lvert\vec b\rvert}$。**
+
+</Callout>
+
+<Callout type="tip" title="顺带一提：本题还能求出夹角">
+
+$$
+\cos\theta=\frac{\vec a\cdot\vec b}{\lvert\vec a\rvert\lvert\vec b\rvert}=\frac{1}{1\times\sqrt3}=\frac{\sqrt3}{3}
+$$
+即 $\theta=54^\circ$。**知道 $\vec a\cdot\vec b$ 就能立刻得到夹角**，这两个量互推是向量题的基本功。
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="方法复盘">
+
+**「平方 → 展开 → 交叉项」三步**：
+
+1. 题给 $\lvert\vec a-2\vec b\rvert$，**先两边平方**，去掉根号；
+2. 用 $\lvert\vec u\rvert^2=\vec u\cdot\vec u$ 展开，注意**交叉项系数是 $-2\times 2=-4$**；
+3. 把 $\lvert\vec a\rvert$、$\lvert\vec b\rvert$ 代入解出数量积，需要夹角再用 $\cos\theta$ 换算。
+
+**必须记牢的三个通式**：
+$$
+\begin{aligned}
+\lvert\vec a+\vec b\rvert^2&=\lvert\vec a\rvert^2+\lvert\vec b\rvert^2+2\vec a\cdot\vec b\\
+\lvert\vec a-\vec b\rvert^2&=\lvert\vec a\rvert^2+\lvert\vec b\rvert^2-2\vec a\cdot\vec b\\
+\vec a\cdot\vec b&=\lvert\vec a\rvert\lvert\vec b\rvert\cos\theta
+\end{aligned}
+$$
+**三者可互相反解**，是「已知两边与第三边求夹角」这类题的全部工具。
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 已知 $\lvert\vec a\rvert=2$，$\lvert\vec b\rvert=3$，且 $\vec a\perp\vec b$，求 $\lvert 2\vec a-\vec b\rvert$。
+
+**答案**：由垂直知 $\vec a\cdot\vec b=0$，
+$$
+\lvert 2\vec a-\vec b\rvert^2=4\lvert\vec a\rvert^2+\lvert\vec b\rvert^2-4\vec a\cdot\vec b=4\times 4+9-0=25
+$$
+故 $\lvert 2\vec a-\vec b\rvert=5$。
+
+**关键理由**：**垂直条件一给，交叉项直接归零**，这题退化成「$4\times 4+9$」。**关键提醒：系数 $2$ 要平方**——$\lvert 2\vec a\rvert^2=4\lvert\vec a\rvert^2=4\times 4=16$，若误写成 $2\times 4=8$ 会得到 $\sqrt{17}$。**含系数的模长一律先平方再乘系数。**
+
+</Reveal>
+</ExampleCard>

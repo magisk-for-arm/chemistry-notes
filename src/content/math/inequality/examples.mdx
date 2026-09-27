@@ -869,3 +869,82 @@ $$
 
 </Reveal>
 </ExampleCard>
+
+### 真题 4：2025 全国Ⅱ卷 第 4 题
+
+<ExampleCard title="分式不等式：同乘分母前必须先看清分母符号" difficulty="easy" source="2025 全国Ⅱ卷 第 4 题">
+
+不等式 $\dfrac{x-4}{x-1}\geqslant 2$ 的解集是（　　）
+
+- A．$\{x \mid -2\leqslant x\leqslant 1\}$
+- B．$\{x \mid x\leqslant -2\}$
+- C．$\{x \mid -2\leqslant x<1\}$
+- D．$\{x \mid x>1\}$
+
+<Reveal summary="查看逐项解析">
+
+**通法：移项通分，化成零根法的标准形式。**
+
+$$
+\frac{x-4}{x-1}-2\geqslant 0\ \Longrightarrow\ \frac{(x-4)-2(x-1)}{x-1}\geqslant 0\ \Longrightarrow\ \frac{-x-2}{x-1}\geqslant 0
+$$
+
+分子分母同乘 $-1$，**不等号方向必须同时反转**：
+
+$$
+\frac{x+2}{x-1}\leqslant 0
+$$
+
+**零根法**：临界点为分子零点 $x=-2$ 与分母零点 $x=1$。因为要求「$\leqslant 0$」，**小于取中间**：
+
+$$
+-2\leqslant x<1
+$$
+
+<Callout type="right" title="C ✅ 正确">
+
+解集为 $\{x \mid -2\leqslant x<1\}$，选 **C**。**注意右端 $1$ 取不到**——它是分母零点，原式在此无意义。
+
+</Callout>
+
+<Callout type="wrong" title="A ❌ 右端点取到了">
+
+$\{x \mid -2\leqslant x\leqslant 1\}$ 的错误在 $x=1$。原式 $\dfrac{x-4}{x-1}$ 在 $x=1$ 时**分母为零、无意义**，$1$ 根本不在定义域内。**这是分式不等式最高频的失分点：解完必须与定义域取交集，把使分母为零的点剔掉。**
+
+</Callout>
+
+<Callout type="wrong" title="B ❌ 与 D ❌ 两端都判错">
+
+B $\{x \mid x\leqslant -2\}$ 相当于判成「$\geqslant 0$」，**不等号方向错**；D $\{x \mid x>1\}$ 则是把「$\leqslant 0$」当成了「$\geqslant 0$」**且**搞错了区间。**这两个选项都源于同一步：移项通分后没有变号，或者变号时忘了变。**
+
+</Callout>
+
+</Reveal>
+
+<Reveal summary="方法复盘">
+
+**分式不等式的四步**：
+
+1. **移项通分**，把右边化成 0：$\dfrac{\text{分子}}{\text{分母}}\gtrless 0$；
+2. **同乘负数要变号**。本题乘的是 $-1$，所以「$\geqslant$」变「$\leqslant$」——**这一步漏了就是 B、D 两个选项的来源**；
+3. **零根法定区间**：分子零点与分母零点都是临界点，「大于取两边、小于取中间」；
+4. **与定义域取交集**，剔除分母为零的点。
+
+**符号速查**：$\dfrac{x+2}{x-1}\leqslant 0$ 中，分子在 $x<-2$ 时为负、分母也为负（商为正）；$-2<x<1$ 时分子正分母负（**商为负，成立**）；$x>1$ 时都正（商为正）。**所以解集就是中间那一段，且左端点因分子为零而取到、右端点因分母为零而取不到。**
+
+</Reveal>
+
+<Reveal summary="变式训练">
+
+**变式** 解不等式 $\dfrac{2x-1}{x+3}\leqslant 1$。
+
+**答案**：
+$$
+\frac{2x-1}{x+3}-1\leqslant 0\ \Longrightarrow\ \frac{2x-1-x-3}{x+3}\leqslant 0\ \Longrightarrow\ \frac{x-4}{x+3}\leqslant 0
+$$
+分子零点 $x=4$、分母零点 $x=-3$。**系数为正，不用变号**，小于取中间：$-3<x\leqslant 4$，即 $\{x \mid -3<x\leqslant 4\}$。
+
+**关键理由**：与原题对比——**原题约分后分子带负号、必须变号且「大于取两边」，本题分子系数为正、不变号且「小于取中间」，于是取到的那一端正好相反**。**这说明不能靠记「左开右闭」或「左闭右开」，必须靠「哪个是分母零点」来判断**：**分母零点永远取不到，分子零点看不等号是否含等号。**本题 $x=-3$ 是分母零点故取不到，$x=4$ 是分子零点且含「$\leqslant$」故取到。
+
+</Reveal>
+</ExampleCard>
