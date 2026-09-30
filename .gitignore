@@ -1,6 +1,11 @@
 node_modules/
 dist/
 .astro/
+
+# 本项目用 npm（package-lock.json 入库、CI 走 npm ci），
+# 误跑 pnpm install 产生的 lockfile 不要入库
+pnpm-lock.yaml
+pnpm-workspace.yaml
 .vercel/
 *.log
 .DS_Store
