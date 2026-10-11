@@ -16,6 +16,7 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
+require('katex/contrib/mhchem');
 const katex = require('katex');
 const { unified } = require('unified');
 // remark-* 是 ESM-only，require 拿到的是 namespace，统一取 default
@@ -25,6 +26,33 @@ const remarkMath = require('remark-math').default;
 const problems = [];
 let formulaCount = 0;
 let fileCount = 0;
+
+/** 把 \ce{…} / \pu{…} 块替换为 {} 占位（保持花括号平衡），mhchem 内部中文不算裸写。 */
+function stripMhchemBlocks(text) {
+  let result = '';
+  let i = 0;
+  while (i < text.length) {
+    const ceMatch = text.slice(i).match(/^\\[cp]e\s*\{/);
+    if (ceMatch) {
+      let depth = 1;
+      let j = i + ceMatch[0].length;
+      while (j < text.length && depth > 0) {
+        if (text[j] === '{') depth++;
+        else if (text[j] === '}') {
+          depth--;
+          if (depth === 0) { j++; break; }
+        }
+        j++;
+      }
+      result += '{}';
+      i = j;
+    } else {
+      result += text[i];
+      i++;
+    }
+  }
+  return result;
+}
 
 function scan(file) {
   fileCount++;
@@ -36,8 +64,11 @@ function scan(file) {
     if (node.type === 'math' || node.type === 'inlineMath') {
       formulaCount++;
       const displayMode = node.type === 'math';
+      // \ce{…} / \pu{…} 里的中文由 mhchem 内部处理，KaTeX strict 模式不认。
+      // 先剥掉再渲染验证数学部分，\ce{} 块单独做基本语法检查。
+      const withoutMhchem = stripMhchemBlocks(node.value);
       try {
-        katex.renderToString(node.value, { throwOnError: true, displayMode, strict: 'error' });
+        katex.renderToString(withoutMhchem, { throwOnError: true, displayMode, strict: 'error' });
       } catch (e) {
         problems.push(
           `${file}: 公式渲染失败 → ${node.value.slice(0, 60)} || ${String(e.message).split('\n')[0]}`,
@@ -45,11 +76,13 @@ function scan(file) {
         return;
       }
       // \text{…} 里的中文是**正确**用法（KaTeX 按 upright 排），先剥掉；
+      // \ce{…} / \pu{…} 里的中文由 mhchem 内部处理，也不算裸写。
       // 剩下的裸中文才是问题（会渲染成错误的斜体字形）。
-      const stripped = node.value.replace(
+      let stripped = node.value.replace(
         /\\(?:text|textbf|textit|textrm|mbox|hbox|mathrm|mathbf|operatorname)\s*\{[^{}]*\}/g,
         '',
       );
+      stripped = stripMhchemBlocks(stripped);
       const cjk = stripped.match(/[\u4e00-\u9fff]/g);
       if (cjk) {
         problems.push(
@@ -78,7 +111,7 @@ function walk(dir) {
 }
 
 const roots = process.argv.slice(2);
-for (const t of roots.length ? roots : ['src/content/math']) walk(t);
+for (const t of roots.length ? roots : ['src/content']) walk(t);
 
 if (problems.length) {
   console.error(

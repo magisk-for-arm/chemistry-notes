@@ -12,6 +12,9 @@
     "build:only": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "check:mdx": "node scripts/check-mdx-tags.mjs src/content",
+    "check:katex": "node scripts/check-katex.mjs src/content",
+    "check:jsx": "node scripts/check-jsx-props.mjs src/content",
     "search": "pagefind --site dist"
   },
   "dependencies": {
