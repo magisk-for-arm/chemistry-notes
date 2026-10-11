@@ -65,7 +65,7 @@ function scan(file) {
       formulaCount++;
       const displayMode = node.type === 'math';
       // \ce{…} / \pu{…} 里的中文由 mhchem 内部处理，KaTeX strict 模式不认。
-      // 先剥掉再渲染验证数学部分，\ce{} 块单独做基本语法检查。
+      // 剥掉后再渲染，只验证数学部分的结构正确性。
       const withoutMhchem = stripMhchemBlocks(node.value);
       try {
         katex.renderToString(withoutMhchem, { throwOnError: true, displayMode, strict: 'error' });
