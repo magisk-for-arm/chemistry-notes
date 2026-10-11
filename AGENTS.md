@@ -22,7 +22,9 @@ npm run build:only # 只跑 astro build（调试用，无搜索索引）
 npm run preview    # 预览 dist（需先 build）
 npm run search     # 单独为 dist 重建搜索索引
 
-node scripts/check-mdx-tags.mjs src/content   # MDX 标签配对自检（秒级，check 不查 MDX 语法）
+npm run check:mdx  # MDX 标签配对自检（秒级，check 不查 MDX 语法）
+npm run check:katex # KaTeX 公式严格渲染验证（含 mhchem）
+npm run check:jsx  # JSX 属性中 $ 未渲染检查
 ```
 
 - 提交前至少跑 `npm run check`；涉及路由/内容/样式时再跑 `npm run build`。
@@ -70,7 +72,7 @@ docs/superpowers/             # 设计文档与实现计划（过程资料，非
 1. 复制 `templates/knowledge-point/` 到 `src/content/<subject>/<topic>/`（`<subject>` 取已登记的学科 slug，`<topic>` 为英文 slug）。
 2. 把模板里所有 `REPLACE_TOPIC` 替换为该 slug；`topic` Frontmatter 必须与文件夹名一致。
 3. 在 `src/utils/topics.ts` 的 `topics` 数组登记一条元数据（`slug`/`subject`/`title`/`icon`/`order`/`summary`/`tags`）。
-4. 跑 `node scripts/check-mdx-tags.mjs src/content` 与 `npm run check`，再 `npm run dev` 走一遍各分节。
+4. 跑 `npm run check:mdx` 与 `npm run check`，再 `npm run dev` 走一遍各分节。
 
 ### 新增一个学科
 
@@ -174,7 +176,7 @@ Frontmatter schema 定义在 `src/content.config.ts`，字段如下：
 2. 批量写/改 MDX 先跑标签自检，它比 build 快几个数量级，且顺带查四段式齐不齐、mindmap 是否混入组件、标题是否含行内公式：
 
    ```bash
-   node scripts/check-mdx-tags.mjs src/content
+   npm run check:mdx
    ```
 
 3. 内容/路由有改动时 `npm run build` 通过（当前生成 235 个页面；页数随内容增长，重点确认新页面在其中）。核对页数时用实算而非估算：`158 + 6N + 新增学科页数 + 新增标签页数`，其中新标签页数 = 全部 Frontmatter 标签并集减去原有标签集。
